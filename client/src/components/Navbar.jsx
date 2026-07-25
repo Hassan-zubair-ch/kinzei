@@ -72,11 +72,11 @@ export default function Navbar({ onOpenSchedule }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '72px' // Sleek, standard vertical height
+        height: '80px' // Slightly taller header for the larger logo
       }}>
         {/* Logo */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <KinzeiLogo height={54} />
+          <KinzeiLogo height={65} />
         </Link>
 
         {/* Desktop Navigation Links */}

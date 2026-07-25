@@ -19,9 +19,9 @@ export default function Footer() {
           gap: '40px',
           marginBottom: '50px'
         }}>
-          {/* Col 1: About & Info with Clean 60px Logo */}
+          {/* Col 1: About & Info with Clean 75px Logo */}
           <div>
-            <KinzeiLogo height={60} />
+            <KinzeiLogo height={75} />
             <p style={{ marginTop: '20px', fontSize: '0.9rem', lineHeight: '1.7', color: '#8A94A6' }}>
               Kinzei Consultants (Private) Limited provides expert corporate tax, statutory audit, retainership, SECP registration, and international tax advisory services to navigate regulatory requirements with confidence, accuracy, and transparency.
             </p>
