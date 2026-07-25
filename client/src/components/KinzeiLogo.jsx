@@ -1,19 +1,19 @@
 import React from 'react';
 
-export default function KinzeiLogo({ height = 150 }) {
+export default function KinzeiLogo({ height = 54 }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      {/* Official Kinzei Consultants Logo Image - Doubled Extra Large Size */}
+      {/* Sleek, Perfectly Proportioned Kinzei Corporate Logo */}
       <img
         src="/logo.png"
         alt="Kinzei Consultants (Private) Limited Logo"
         style={{
           height: `${height}px`,
           width: 'auto',
-          maxHeight: '260px',
+          maxWidth: '240px',
           objectFit: 'contain',
-          filter: 'drop-shadow(0 6px 20px rgba(212, 175, 55, 0.6))',
-          transition: 'all 0.2s ease'
+          filter: 'drop-shadow(0 2px 8px rgba(212, 175, 55, 0.4))',
+          display: 'block'
         }}
       />
     </div>

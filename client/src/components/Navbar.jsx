@@ -72,13 +72,11 @@ export default function Navbar({ onOpenSchedule }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingTop: '6px',
-        paddingBottom: '6px',
-        minHeight: '125px' // Doubled container height for extra large logo display
+        height: '72px' // Sleek, standard vertical height
       }}>
         {/* Logo */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <KinzeiLogo height={150} />
+          <KinzeiLogo height={54} />
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -99,7 +97,7 @@ export default function Navbar({ onOpenSchedule }) {
                     style={{
                       background: 'none',
                       color: location.pathname.startsWith('/services') ? '#E5C158' : '#F1F3F9',
-                      fontSize: '1rem',
+                      fontSize: '0.98rem',
                       fontWeight: 600,
                       display: 'flex',
                       alignItems: 'center',
@@ -173,7 +171,7 @@ export default function Navbar({ onOpenSchedule }) {
                 style={{
                   color: isActive ? '#E5C158' : '#F1F3F9',
                   fontWeight: 600,
-                  fontSize: '1rem',
+                  fontSize: '0.98rem',
                   padding: '6px 0',
                   whiteSpace: 'nowrap',
                   borderBottom: isActive ? '2px solid #D4AF37' : '2px solid transparent',
@@ -194,8 +192,8 @@ export default function Navbar({ onOpenSchedule }) {
             rel="noopener noreferrer"
             className="btn-primary"
             style={{
-              fontSize: '0.9rem',
-              padding: '10px 22px',
+              fontSize: '0.88rem',
+              padding: '9px 20px',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
