@@ -1,0 +1,14 @@
+{
+  "name": "kinzei-consultants",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
