@@ -3,46 +3,53 @@ import React from 'react';
 export default function AffiliationsSection() {
   const affiliations = [
     {
-      name: 'HM Revenue & Customs',
-      logo: '/logos/hmrc.svg',
+      name: 'Federal Board of Revenue (FBR)',
+      logo: '/logos/fbr.png',
       height: '65px'
     },
     {
-      name: 'Internal Revenue Service',
-      logo: '/logos/irs.svg',
-      height: '65px'
-    },
-    {
-      name: 'The Institute of Chartered Accountants of Pakistan',
+      name: 'The Institute of Chartered Accountants of Pakistan (ICAP)',
       logo: '/logos/icap.png',
-      fallbackLogo: '/logos/icap.svg',
-      height: '95px'
+      height: '85px'
+    },
+    {
+      name: 'Internal Revenue Service (IRS)',
+      logo: '/logos/irs.png',
+      height: '55px'
+    },
+    {
+      name: 'HM Revenue & Customs (HMRC)',
+      logo: '/logos/hmrc.png',
+      height: '55px'
     }
   ];
 
   return (
     <section style={{
-      padding: '60px 0 70px 0',
+      padding: '65px 0 75px 0',
       backgroundColor: '#FFFFFF',
-      borderBottom: '1px solid #F1F5F9'
+      borderBottom: '1px solid #E5E7EB'
     }}>
       <div className="container">
-        <h2 style={{
-          fontSize: '1.8rem',
-          fontWeight: '800',
-          color: '#1E2B4B',
-          marginBottom: '45px',
-          textAlign: 'left'
-        }}>
-          Affiliations & Certification
-        </h2>
+        <div style={{ textAlign: 'center', marginBottom: '45px' }}>
+          <span className="badge-gold" style={{ marginBottom: '10px' }}>Global Regulatory &amp; Compliance</span>
+          <h2 style={{
+            fontSize: '2.2rem',
+            fontWeight: '800',
+            color: '#111827',
+            marginTop: '10px',
+            fontFamily: 'var(--font-heading)'
+          }}>
+            Affiliations &amp; <span style={{ color: '#9E7B3B' }}>Certifications</span>
+          </h2>
+        </div>
 
         <div style={{
           display: 'flex',
-          justifyContent: 'space-around',
+          justifyContent: 'center',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '40px'
+          gap: '35px'
         }}>
           {affiliations.map((item, idx) => (
             <div 
@@ -51,23 +58,25 @@ export default function AffiliationsSection() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '16px 24px',
-                borderRadius: '12px',
-                transition: 'transform 0.3s ease',
-                cursor: 'pointer'
+                padding: '18px 30px',
+                borderRadius: '16px',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid #E5E7EB',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.04)',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                minWidth: '190px'
               }}
-              className="affiliation-logo-wrapper"
+              className="affiliation-logo-card"
             >
               <img 
                 src={item.logo} 
                 alt={item.name} 
                 title={item.name}
-                onError={(e) => {
-                  if (item.fallbackLogo) e.target.src = item.fallbackLogo;
-                }}
                 style={{
                   maxHeight: item.height,
-                  maxWidth: '220px',
+                  maxWidth: '210px',
+                  width: 'auto',
                   objectFit: 'contain'
                 }}
               />
@@ -77,8 +86,10 @@ export default function AffiliationsSection() {
       </div>
 
       <style>{`
-        .affiliation-logo-wrapper:hover {
-          transform: translateY(-4px) scale(1.04);
+        .affiliation-logo-card:hover {
+          transform: translateY(-5px);
+          border-color: #9E7B3B !important;
+          box-shadow: 0 12px 30px rgba(158, 123, 59, 0.18) !important;
         }
       `}</style>
     </section>

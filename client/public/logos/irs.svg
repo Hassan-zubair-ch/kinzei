@@ -1,11 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="300" height="120">
-  <g transform="translate(15, 20)">
-    <path d="M 10 10 L 45 10 C 50 25, 45 55, 27.5 70 C 10 55, 5 25, 10 10 Z" fill="#111111" />
-    <path d="M 27.5 16 L 22 25 L 33 25 Z" fill="#FFFFFF" />
-    <path d="M 18 32 L 37 32 L 27.5 45 Z" fill="#FFFFFF" />
-    <circle cx="27.5" cy="52" r="4" fill="#FFFFFF" />
-    <path d="M 16 26 C 20 22, 35 22, 39 26 L 39 30 L 16 30 Z" fill="#111111" />
-    <path d="M 27.5 14 C 23 14, 20 18, 22 22 L 26 20 Z" fill="#111111" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 140" width="340" height="140">
+  <g transform="translate(20, 20)">
+    <rect x="0" y="0" width="100" height="100" rx="16" fill="#000000" />
+    <path d="M 20 25 C 16 35, 16 65, 25 80" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" />
+    <path d="M 18 35 Q 26 32 28 40" stroke="#FFFFFF" stroke-width="3" fill="none" />
+    <path d="M 18 50 Q 28 47 30 55" stroke="#FFFFFF" stroke-width="3" fill="none" />
+    <path d="M 20 65 Q 30 62 32 70" stroke="#FFFFFF" stroke-width="3" fill="none" />
+    
+    <path d="M 65 30 Q 45 30 40 45 L 75 45 Z" fill="#FFFFFF" />
+    <path d="M 40 45 L 40 78 L 75 78 L 75 45 Z" fill="#FFFFFF" />
+    <circle cx="57.5" cy="55" r="4" fill="#000000" />
+    <polygon points="45,72 55,72 50,62" fill="#000000" />
+    <polygon points="65,72 75,72 70,62" fill="#000000" />
+    <line x1="42" y1="62" x2="73" y2="62" stroke="#000000" stroke-width="2" />
   </g>
-  <text x="90" y="78" font-family="'Times New Roman', Times, Georgia, serif" font-size="64" font-weight="900" letter-spacing="2" fill="#111111">IRS</text>
+
+  <text x="140" y="92" font-family="'Times New Roman', Georgia, serif" font-size="78" font-weight="900" fill="#000000" letter-spacing="3">IRS</text>
 </svg>

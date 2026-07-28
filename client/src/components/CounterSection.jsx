@@ -98,9 +98,9 @@ export default function CounterSection() {
     <section 
       ref={sectionRef}
       style={{
-        padding: '60px 0 70px 0',
+        padding: '65px 0 75px 0',
         backgroundColor: '#FFFFFF',
-        borderBottom: '1px solid #F1F5F9'
+        borderBottom: '1px solid #E5E7EB'
       }}
     >
       <div className="container">
@@ -130,25 +130,27 @@ export default function CounterSection() {
                 </div>
 
                 <div style={{
-                  fontSize: '2.5rem',
+                  fontSize: '2.6rem',
                   fontWeight: '800',
-                  color: '#1E2B4B',
+                  color: '#111827',
                   lineHeight: '1',
                   marginBottom: '10px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '4px'
+                  gap: '4px',
+                  fontFamily: 'var(--font-heading)'
                 }}>
                   <span>{counts[idx]}</span>
-                  <span style={{ color: '#E87817', fontWeight: '700', fontSize: '1.8rem' }}>+</span>
+                  <span style={{ color: '#9E7B3B', fontWeight: '700', fontSize: '1.9rem' }}>+</span>
                 </div>
 
                 <div style={{
-                  fontSize: '0.96rem',
+                  fontSize: '0.98rem',
                   fontWeight: '600',
-                  color: '#64748B',
-                  letterSpacing: '0.2px'
+                  color: '#4B5563',
+                  letterSpacing: '0.2px',
+                  fontFamily: 'var(--font-body)'
                 }}>
                   {stat.label}
                 </div>

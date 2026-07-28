@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExpertsIcon = ({ color = "#E87817" }) => (
+const ExpertsIcon = ({ color = "#9E7B3B" }) => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="22" cy="16" r="10" stroke={color} strokeWidth="2" fill="none" />
     <ellipse cx="22" cy="16" rx="4.5" ry="10" stroke={color} strokeWidth="1.8" fill="none" />
@@ -36,7 +36,7 @@ const TimeIcon = ({ color = "#FFFFFF" }) => (
   </svg>
 );
 
-const QualityIcon = ({ color = "#E87817" }) => (
+const QualityIcon = ({ color = "#9E7B3B" }) => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M22 6L24.5 9.5L29 8.5L29.5 13L34 14L32.5 18.5L36 22L32.5 25.5L34 30L29.5 31L29 35.5L24.5 34.5L22 38L19.5 34.5L15 35.5L14.5 31L10 30L11.5 25.5L8 22L11.5 18.5L10 14L14.5 13L15 8.5L19.5 9.5L22 6Z" stroke={color} strokeWidth="2" strokeLinejoin="round" fill="none" />
     <path d="M17 25V21C17 21 17 17 20 17C21.5 17 21 19.5 22.5 21C23 21.5 27 21.5 27 23.5C27 24.5 26 25 26.5 26C27 27 25.5 27.5 25.5 28.5C25.5 29.5 24 30 22 30H19C17.5 30 17 29 17 29" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -48,37 +48,39 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
     {
       titleLine1: 'Professional',
       titleLine2: 'Experts',
-      isOrange: false,
+      isGold: false,
       Icon: ExpertsIcon
     },
     {
       titleLine1: 'Free',
       titleLine2: 'Consultations',
-      isOrange: true,
+      isGold: true,
       Icon: ConsultationsIcon
     },
     {
       titleLine1: 'Saving You',
       titleLine2: 'Time',
-      isOrange: true,
+      isGold: true,
       Icon: TimeIcon
     },
     {
       titleLine1: 'Best Quality',
       titleLine2: 'Service',
-      isOrange: false,
+      isGold: false,
       Icon: QualityIcon
     }
   ];
 
   return (
     <section style={{
-      backgroundColor: '#4A2E16',
-      backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(242, 122, 24, 0.08) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(242, 122, 24, 0.05) 0%, transparent 40%)',
+      backgroundColor: '#111827',
+      backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(158, 123, 59, 0.12) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(158, 123, 59, 0.08) 0%, transparent 40%)',
       padding: '85px 0 95px 0',
       color: '#FFFFFF',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      borderTop: '1px solid rgba(158, 123, 59, 0.2)',
+      borderBottom: '1px solid rgba(158, 123, 59, 0.2)'
     }}>
       <div className="container">
         <div 
@@ -96,15 +98,16 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               <span style={{
                 fontSize: '1.05rem',
                 fontWeight: '700',
-                color: '#FFFFFF',
-                letterSpacing: '0.2px'
+                color: '#C5A059',
+                letterSpacing: '0.2px',
+                fontFamily: 'var(--font-heading)'
               }}>
                 Why Choose Us
               </span>
               <div style={{
                 width: '42px',
                 height: '3px',
-                backgroundColor: '#E87817',
+                backgroundColor: '#9E7B3B',
                 marginTop: '6px',
                 borderRadius: '2px'
               }} />
@@ -117,17 +120,19 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               marginTop: '22px',
               marginBottom: '22px',
               lineHeight: 1.25,
-              maxWidth: '560px'
+              maxWidth: '560px',
+              fontFamily: 'var(--font-heading)'
             }}>
-              Trusted by Businesses for Professional Tax & Advisory Services
+              Trusted by Businesses for Professional Tax &amp; Advisory Services
             </h2>
 
             <p style={{
               fontSize: '1.02rem',
-              color: '#E2D8CF',
+              color: '#D1D5DB',
               lineHeight: '1.7',
               maxWidth: '540px',
-              margin: 0
+              margin: 0,
+              fontFamily: 'var(--font-body)'
             }}>
               We support businesses with reliable tax, audit, compliance, and advisory solutions. Our experienced professionals focus on accuracy, transparency, and timely delivery to help clients meet regulatory requirements and achieve long-term growth with confidence.
             </p>
@@ -144,22 +149,25 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
           >
             {cards.map((card, index) => {
               const CardIcon = card.Icon;
-              const iconColor = card.isOrange ? '#FFFFFF' : '#E87817';
+              const iconColor = card.isGold ? '#FFFFFF' : '#9E7B3B';
               return (
                 <div
                   key={index}
                   onClick={onOpenSchedule}
                   className="why-card-hover"
                   style={{
-                    backgroundColor: card.isOrange ? '#E87817' : '#FFFFFF',
-                    borderRadius: '8px',
+                    background: card.isGold 
+                      ? 'linear-gradient(135deg, #C5A059 0%, #9E7B3B 50%, #7A5C24 100%)' 
+                      : '#FFFFFF',
+                    borderRadius: '14px',
                     padding: '30px 24px',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '18px',
-                    boxShadow: card.isOrange 
-                      ? '0 10px 25px rgba(232, 120, 23, 0.3)' 
-                      : '0 10px 25px rgba(0, 0, 0, 0.12)',
+                    boxShadow: card.isGold 
+                      ? '0 10px 25px rgba(158, 123, 59, 0.3)' 
+                      : '0 10px 25px rgba(0, 0, 0, 0.2)',
+                    border: card.isGold ? 'none' : '1.5px solid rgba(158, 123, 59, 0.3)',
                     transition: 'all 0.3s ease',
                     cursor: 'pointer'
                   }}
@@ -171,16 +179,18 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
                     <div style={{
                       fontSize: '1.18rem',
                       fontWeight: '700',
-                      color: card.isOrange ? '#FFFFFF' : '#1E2B4B',
-                      lineHeight: '1.25'
+                      color: card.isGold ? '#FFFFFF' : '#111827',
+                      lineHeight: '1.25',
+                      fontFamily: 'var(--font-heading)'
                     }}>
                       {card.titleLine1}
                     </div>
                     <div style={{
                       fontSize: '1.18rem',
                       fontWeight: '700',
-                      color: card.isOrange ? '#FFFFFF' : '#1E2B4B',
-                      lineHeight: '1.25'
+                      color: card.isGold ? '#FFFFFF' : '#111827',
+                      lineHeight: '1.25',
+                      fontFamily: 'var(--font-heading)'
                     }}>
                       {card.titleLine2}
                     </div>
@@ -195,7 +205,7 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
       <style>{`
         .why-card-hover:hover {
           transform: translateY(-5px);
-          box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25) !important;
+          box-shadow: 0 16px 35px rgba(158, 123, 59, 0.3) !important;
         }
 
         @media (max-width: 992px) {
