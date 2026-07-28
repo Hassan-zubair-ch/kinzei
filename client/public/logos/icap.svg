@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <g transform="translate(120, 20)">
+    <path d="M -5 0 A 7 7 0 1 0 5 10 A 9 9 0 1 1 -5 0 Z" fill="#1E293B" />
+    <polygon points="4,0 6,4 10,4 7,7 8,11 4,8 0,11 1,7 -2,4 2,4" fill="#1E293B" />
+  </g>
+  <g stroke="#22C55E" fill="none" stroke-width="2.5">
+    <path d="M 60 180 C 20 140, 20 70, 110 35" stroke-linecap="round" />
+    <path d="M 180 180 C 220 140, 220 70, 130 35" stroke-linecap="round" />
+  </g>
+  <g fill="#22C55E">
+    <circle cx="48" cy="140" r="5" />
+    <circle cx="40" cy="110" r="5" />
+    <circle cx="48" cy="80" r="5" />
+    <circle cx="68" cy="55" r="5" />
+    <circle cx="95" cy="40" r="5" />
+    <circle cx="192" cy="140" r="5" />
+    <circle cx="200" cy="110" r="5" />
+    <circle cx="192" cy="80" r="5" />
+    <circle cx="172" cy="55" r="5" />
+    <circle cx="145" cy="40" r="5" />
+  </g>
+  <g transform="translate(120, 110)">
+    <rect x="-35" y="-35" width="70" height="70" rx="8" fill="#0284C7" stroke="#1E293B" stroke-width="2" />
+    <line x1="-20" y1="-15" x2="20" y2="-15" stroke="#FFFFFF" stroke-width="2.5" />
+    <line x1="0" y1="-25" x2="0" y2="5" stroke="#FFFFFF" stroke-width="2.5" />
+    <polygon points="-24,-5 -16,-5 -20,-15" fill="#FFFFFF" />
+    <polygon points="16,-5 24,-5 20,-15" fill="#FFFFFF" />
+    <path d="M -18 15 Q 0 10 18 15 L 18 25 Q 0 20 -18 25 Z" fill="#FFFFFF" stroke="#0284C7" stroke-width="1" />
+  </g>
+  <text x="120" y="195" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#475569" text-anchor="middle">The Institute of Chartered Accountants of Pakistan</text>
+  <text x="120" y="225" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#0F172A" text-anchor="middle" letter-spacing="1">ICAP</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="300" height="120">
+  <g transform="translate(15, 20)">
+    <path d="M 10 10 L 45 10 C 50 25, 45 55, 27.5 70 C 10 55, 5 25, 10 10 Z" fill="#111111" />
+    <path d="M 27.5 16 L 22 25 L 33 25 Z" fill="#FFFFFF" />
+    <path d="M 18 32 L 37 32 L 27.5 45 Z" fill="#FFFFFF" />
+    <circle cx="27.5" cy="52" r="4" fill="#FFFFFF" />
+    <path d="M 16 26 C 20 22, 35 22, 39 26 L 39 30 L 16 30 Z" fill="#111111" />
+    <path d="M 27.5 14 C 23 14, 20 18, 22 22 L 26 20 Z" fill="#111111" />
+  </g>
+  <text x="90" y="78" font-family="'Times New Roman', Times, Georgia, serif" font-size="64" font-weight="900" letter-spacing="2" fill="#111111">IRS</text>
+</svg>

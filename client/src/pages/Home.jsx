@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
-import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag, OtherFlag } from '../components/CountryFlags';
+import ProcessSection from '../components/ProcessSection';
+import WhyChooseUsSection from '../components/WhyChooseUsSection';
+import AffiliationsSection from '../components/AffiliationsSection';
+import CounterSection from '../components/CounterSection';
+import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag } from '../components/CountryFlags';
 import { 
-  ShieldCheck, Award, Users, ArrowRight, CheckCircle2, Phone, Calendar, 
-  ArrowRightCircle, Target, Eye, FileText, Briefcase, ChevronRight, Calculator 
+  ShieldCheck, Award, CheckCircle2, Phone, Calendar, 
+  ArrowRight, Calculator 
 } from 'lucide-react';
 
 export default function Home({ onOpenSchedule }) {
@@ -190,8 +194,14 @@ export default function Home({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 2. DYNAMIC REGIONAL SERVICES TAB SECTION */}
-      <section style={{ padding: '80px 0 90px 0', backgroundColor: '#FFFFFF' }}>
+      {/* 2. OUR PROCESS SECTION */}
+      <ProcessSection onOpenSchedule={onOpenSchedule} />
+
+      {/* 3. AFFILIATIONS & CERTIFICATION SECTION */}
+      <AffiliationsSection />
+
+      {/* 4. DYNAMIC REGIONAL SERVICES TAB SECTION */}
+      <section style={{ padding: '80px 0 90px 0', backgroundColor: '#F8F9FA', borderBottom: '1px solid #E5E7EB' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 40px auto' }}>
             <span className="badge-gold">Global Capabilities</span>
@@ -273,90 +283,54 @@ export default function Home({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 3. WHY CHOOSE KINZEI CONSULTANTS */}
-      <section style={{ padding: '80px 0', backgroundColor: '#F8F9FA', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
+      {/* 5. WHY CHOOSE US SECTION */}
+      <WhyChooseUsSection onOpenSchedule={onOpenSchedule} />
+
+      {/* 6. COUNTER STATS SECTION */}
+      <CounterSection />
+
+      {/* 7. SCHEDULE CONSULTATION CTA BANNER */}
+      <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '60px',
-            alignItems: 'center'
-          }} className="why-grid">
-
+            backgroundColor: '#FFFBEB',
+            borderRadius: '24px',
+            padding: '50px 40px',
+            border: '1.5px solid rgba(158, 123, 59, 0.3)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '30px',
+            flexWrap: 'wrap'
+          }}>
             <div>
-              <span className="badge-gold">Why Kinzei Consultants</span>
-              <h2 style={{ fontSize: '2.4rem', color: '#111827', marginTop: '12px', marginBottom: '20px', fontWeight: 800 }}>
-                Unmatched Expertise in <span style={{ color: '#9E7B3B' }}>Tax & Financial Governance</span>
-              </h2>
-              <p style={{ color: '#4B5563', fontSize: '1.02rem', lineHeight: '1.7', marginBottom: '28px' }}>
-                At Kinzei Consultants (Private) Limited, we bridge regulatory requirements and corporate profitability. Our team of senior chartered accountants and legal tax advisors delivers tailored solutions for startups, established Pakistani firms, and international enterprises.
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {[
-                  { title: 'Full Regulatory Protection', desc: 'Compliant with FBR, SECP, HMRC, IRS, ZATCA, and German Finanzamt laws.' },
-                  { title: 'Transparent Pricing & Retainership', desc: 'No hidden fees or unexpected billings. Predictable monthly retainership tiers.' },
-                  { title: 'End-to-End International Support', desc: 'Turnkey entity formation, cross-border banking, and double tax treaty advisory.' }
-                ].map((item, index) => (
-                  <div key={index} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                    <div style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '10px',
-                      backgroundColor: '#FFFBEB',
-                      border: '1px solid #9E7B3B',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#9E7B3B',
-                      flexShrink: 0,
-                      marginTop: '2px'
-                    }}>
-                      <CheckCircle2 size={20} />
-                    </div>
-                    <div>
-                      <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>{item.title}</h4>
-                      <p style={{ fontSize: '0.92rem', color: '#4B5563', marginTop: '2px' }}>{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div style={{
-              backgroundColor: '#FFFFFF',
-              borderRadius: '24px',
-              padding: '40px',
-              border: '1.5px solid rgba(158, 123, 59, 0.3)',
-              boxShadow: '0 15px 35px rgba(0, 0, 0, 0.05)'
-            }}>
-              <h3 style={{ fontSize: '1.6rem', color: '#111827', marginBottom: '20px', fontWeight: 800, textAlign: 'center' }}>
-                Schedule Your Advisory Session
+              <span className="badge-gold" style={{ marginBottom: '12px' }}>Direct Consultation</span>
+              <h3 style={{ fontSize: '2rem', color: '#111827', fontWeight: 800, margin: '8px 0' }}>
+                Ready to Discuss Your Corporate Tax & Audit Position?
               </h3>
-              <p style={{ fontSize: '0.94rem', color: '#4B5563', textAlign: 'center', marginBottom: '28px' }}>
-                Discuss your business tax position, statutory audit requirements, or international registration with a senior partner.
+              <p style={{ color: '#4B5563', fontSize: '1.02rem', maxWidth: '600px', margin: 0 }}>
+                Schedule a 1-on-1 session with our senior chartered accountants and legal tax specialists today.
               </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <a href="tel:03034063970" className="btn-outline" style={{ width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '14px' }}>
-                  <Phone size={18} />
-                  <span>Call Us: 03034063970</span>
-                </a>
-
-                <button onClick={onOpenSchedule} className="btn-primary" style={{ width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '14px' }}>
-                  <Calendar size={18} />
-                  <span>Reserve 1-on-1 Consultation</span>
-                </button>
-              </div>
             </div>
 
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <a href="tel:03034063970" className="btn-outline" style={{ padding: '14px 24px', borderRadius: '30px' }}>
+                <Phone size={18} />
+                <span>03034063970</span>
+              </a>
+
+              <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '14px 30px', borderRadius: '30px' }}>
+                <Calendar size={18} />
+                <span>Reserve Consultation</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       <style>{`
         @media (max-width: 992px) {
-          .hero-grid, .why-grid { grid-template-columns: 1fr !important; }
+          .hero-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>
