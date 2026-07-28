@@ -42,27 +42,27 @@ export default function ContactUs() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
       {/* HEADER BANNER */}
       <section style={{
-        background: 'linear-gradient(180deg, #181C26 0%, #090A0E 100%)',
-        padding: '70px 0 50px 0',
+        backgroundColor: '#F8F9FA',
+        padding: '60px 0 45px 0',
         textAlign: 'center',
-        borderBottom: '1px solid rgba(212, 175, 55, 0.15)'
+        borderBottom: '1px solid #E5E7EB'
       }}>
         <div className="container">
           <span className="badge-gold">Get In Touch</span>
-          <h1 style={{ fontSize: '2.8rem', marginTop: '12px', marginBottom: '16px' }}>
-            Contact <span className="gold-gradient-text">Kinzei Consultants</span>
+          <h1 style={{ fontSize: '2.8rem', color: '#111827', marginTop: '12px', marginBottom: '16px', fontWeight: 800 }}>
+            Contact <span style={{ color: '#9E7B3B' }}>Kinzei Consultants</span>
           </h1>
-          <p style={{ color: '#9BA4B5', fontSize: '1.1rem', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ color: '#4B5563', fontSize: '1.1rem', maxWidth: '680px', margin: '0 auto' }}>
             Reach out to our Lahore office or schedule a consultation regarding tax, audit, statutory incorporation, or international expansion.
           </p>
         </div>
       </section>
 
-      {/* MAIN CONTACT SECTION */}
-      <section style={{ padding: '80px 0 100px 0', backgroundColor: '#090A0E' }}>
+      {/* CONTACT CONTENT GRID */}
+      <section style={{ padding: '80px 0 100px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div style={{
             display: 'grid',
@@ -70,232 +70,226 @@ export default function ContactUs() {
             gap: '50px'
           }} className="contact-grid">
 
-            {/* Left Info Cards */}
+            {/* Left Contact Info */}
             <div>
-              <h2 style={{ fontSize: '2rem', color: '#FFFFFF', marginBottom: '24px' }}>
-                Contact Information
+              <h2 style={{ fontSize: '2rem', color: '#111827', marginBottom: '16px', fontWeight: 800 }}>
+                Speak With a Senior Partner
               </h2>
+              <p style={{ color: '#4B5563', fontSize: '1rem', lineHeight: 1.7, marginBottom: '32px' }}>
+                We welcome inquiries from startups, corporate directors, and non-resident investors seeking dependable tax and audit counsel.
+              </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
-                <div style={{ backgroundColor: '#141822', padding: '24px', borderRadius: '16px', border: '1px solid rgba(212, 175, 55, 0.2)', display: 'flex', gap: '16px' }}>
-                  <MapPin size={28} color="#D4AF37" style={{ flexShrink: 0, marginTop: '4px' }} />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginBottom: '40px' }}>
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <div style={{
+                    width: '48px', height: '48px', borderRadius: '12px',
+                    backgroundColor: '#FFFBEB', border: '1.5px solid #9E7B3B',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9E7B3B', flexShrink: 0
+                  }}>
+                    <MapPin size={24} />
+                  </div>
                   <div>
-                    <h4 style={{ color: '#FFFFFF', fontSize: '1.1rem', marginBottom: '4px' }}>Office Location</h4>
-                    <p style={{ color: '#9BA4B5', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                    <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>Office Address</h4>
+                    <p style={{ fontSize: '0.94rem', color: '#4B5563', marginTop: '4px' }}>
                       Office No. 1009, 10th Floor, Al-Hafeez Heights, 65-D1, Gulberg III, Lahore, Pakistan
                     </p>
                   </div>
                 </div>
 
-                <div style={{ backgroundColor: '#141822', padding: '24px', borderRadius: '16px', border: '1px solid rgba(212, 175, 55, 0.2)', display: 'flex', gap: '16px' }}>
-                  <Phone size={28} color="#D4AF37" style={{ flexShrink: 0, marginTop: '4px' }} />
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <div style={{
+                    width: '48px', height: '48px', borderRadius: '12px',
+                    backgroundColor: '#FFFBEB', border: '1.5px solid #9E7B3B',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9E7B3B', flexShrink: 0
+                  }}>
+                    <Phone size={24} />
+                  </div>
                   <div>
-                    <h4 style={{ color: '#FFFFFF', fontSize: '1.1rem', marginBottom: '4px' }}>Phone Helpline</h4>
-                    <a href="tel:03034063970" style={{ display: 'block', color: '#E5C158', fontWeight: 700, fontSize: '1.1rem' }}>03034063970</a>
+                    <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>Phone / WhatsApp</h4>
+                    <a href="tel:03034063970" style={{ fontSize: '1.05rem', color: '#9E7B3B', fontWeight: 800, marginTop: '4px', display: 'block' }}>
+                      03034063970
+                    </a>
                   </div>
                 </div>
 
-                <div style={{ backgroundColor: '#141822', padding: '24px', borderRadius: '16px', border: '1px solid rgba(212, 175, 55, 0.2)', display: 'flex', gap: '16px' }}>
-                  <Mail size={28} color="#D4AF37" style={{ flexShrink: 0, marginTop: '4px' }} />
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <div style={{
+                    width: '48px', height: '48px', borderRadius: '12px',
+                    backgroundColor: '#FFFBEB', border: '1.5px solid #9E7B3B',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9E7B3B', flexShrink: 0
+                  }}>
+                    <Mail size={24} />
+                  </div>
                   <div>
-                    <h4 style={{ color: '#FFFFFF', fontSize: '1.1rem', marginBottom: '4px' }}>Email Inquiry</h4>
-                    <a href="mailto:kinzeiconsultants@gmail.com" style={{ display: 'block', color: '#D1D7E3', fontSize: '0.95rem' }}>kinzeiconsultants@gmail.com</a>
+                    <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>Email Address</h4>
+                    <a href="mailto:kinzeiconsultants@gmail.com" style={{ fontSize: '0.96rem', color: '#4B5563', marginTop: '4px', display: 'block', fontWeight: 600 }}>
+                      kinzeiconsultants@gmail.com
+                    </a>
                   </div>
                 </div>
 
-                <div style={{ backgroundColor: '#141822', padding: '24px', borderRadius: '16px', border: '1px solid rgba(212, 175, 55, 0.2)', display: 'flex', gap: '16px' }}>
-                  <Clock size={28} color="#D4AF37" style={{ flexShrink: 0, marginTop: '4px' }} />
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <div style={{
+                    width: '48px', height: '48px', borderRadius: '12px',
+                    backgroundColor: '#FFFBEB', border: '1.5px solid #9E7B3B',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9E7B3B', flexShrink: 0
+                  }}>
+                    <Clock size={24} />
+                  </div>
                   <div>
-                    <h4 style={{ color: '#FFFFFF', fontSize: '1.1rem', marginBottom: '4px' }}>Working Hours</h4>
-                    <p style={{ color: '#9BA4B5', fontSize: '0.95rem' }}>9 AM - 6 PM , Monday - Friday</p>
+                    <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>Working Hours</h4>
+                    <p style={{ fontSize: '0.94rem', color: '#4B5563', marginTop: '4px' }}>
+                      Monday – Friday: 9:00 AM – 6:00 PM (PKT)
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Contact Form */}
+            {/* Right Contact Form Card */}
             <div style={{
-              backgroundColor: '#141822',
-              borderRadius: '20px',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '24px',
               padding: '40px',
-              border: '1px solid rgba(212, 175, 55, 0.3)',
-              boxShadow: '0 20px 50px rgba(0,0,0,0.5)'
+              border: '1.5px solid rgba(158, 123, 59, 0.3)',
+              boxShadow: '0 12px 35px rgba(0,0,0,0.06)'
             }}>
-              <h3 style={{ fontSize: '1.6rem', color: '#FFFFFF', marginBottom: '10px' }}>Send Us a Message</h3>
-              <p style={{ color: '#9BA4B5', fontSize: '0.92rem', marginBottom: '24px' }}>
-                Fill out the form below to receive professional tax or audit consultation from Kinzei Consultants.
-              </p>
+              <h3 style={{ fontSize: '1.6rem', color: '#111827', marginBottom: '24px', fontWeight: 800 }}>
+                Send Us an Inquiry
+              </h3>
 
-              {successMsg ? (
+              {successMsg && (
                 <div style={{
-                  backgroundColor: 'rgba(39, 174, 96, 0.15)',
-                  border: '1px solid rgba(39, 174, 96, 0.4)',
-                  padding: '24px',
-                  borderRadius: '14px',
-                  textAlign: 'center',
-                  color: '#2ECC71'
+                  backgroundColor: '#ECFDF5', border: '1px solid #10B981', color: '#065F46',
+                  padding: '14px 18px', borderRadius: '10px', fontSize: '0.92rem', marginBottom: '20px',
+                  display: 'flex', alignItems: 'center', gap: '10px'
                 }}>
-                  <CheckCircle2 size={48} style={{ margin: '0 auto 12px auto' }} />
-                  <h4 style={{ fontSize: '1.3rem', color: '#2ECC71' }}>Inquiry Submitted!</h4>
-                  <p style={{ color: '#D5F5E3', marginTop: '8px', fontSize: '0.95rem' }}>{successMsg}</p>
-                  <button onClick={() => setSuccessMsg('')} className="btn-primary" style={{ marginTop: '20px' }}>
-                    Send Another Message
-                  </button>
+                  <CheckCircle2 size={20} color="#10B981" />
+                  <span>{successMsg}</span>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-                  {errorMsg && (
-                    <div style={{ padding: '12px', borderRadius: '8px', backgroundColor: 'rgba(231, 76, 60, 0.15)', border: '1px solid rgba(231, 76, 60, 0.4)', color: '#E74C3C', fontSize: '0.88rem' }}>
-                      {errorMsg}
-                    </div>
-                  )}
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', color: '#B0B8C8', marginBottom: '6px', fontWeight: 600 }}>Your Full Name *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. John Doe"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      style={{
-                        width: '100%',
-                        padding: '12px 14px',
-                        backgroundColor: '#1E2330',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        borderRadius: '10px',
-                        color: '#FFFFFF',
-                        fontSize: '0.95rem'
-                      }}
-                    />
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', color: '#B0B8C8', marginBottom: '6px', fontWeight: 600 }}>Email Address *</label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="name@company.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '12px 14px',
-                          backgroundColor: '#1E2330',
-                          border: '1px solid rgba(255,255,255,0.1)',
-                          borderRadius: '10px',
-                          color: '#FFFFFF',
-                          fontSize: '0.95rem'
-                        }}
-                      />
-                    </div>
-
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', color: '#B0B8C8', marginBottom: '6px', fontWeight: 600 }}>Phone Number</label>
-                      <input
-                        type="tel"
-                        placeholder="03034063970"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '12px 14px',
-                          backgroundColor: '#1E2330',
-                          border: '1px solid rgba(255,255,255,0.1)',
-                          borderRadius: '10px',
-                          color: '#FFFFFF',
-                          fontSize: '0.95rem'
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', color: '#B0B8C8', marginBottom: '6px', fontWeight: 600 }}>Region of Interest</label>
-                      <select
-                        value={formData.country}
-                        onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '12px 14px',
-                          backgroundColor: '#1E2330',
-                          border: '1px solid rgba(255,255,255,0.1)',
-                          borderRadius: '10px',
-                          color: '#FFFFFF',
-                          fontSize: '0.95rem'
-                        }}
-                      >
-                        <option value="pk">Pakistan (PK)</option>
-                        <option value="us">United States (US)</option>
-                        <option value="uk">United Kingdom (UK)</option>
-                        <option value="uae">United Arab Emirates (UAE)</option>
-                        <option value="other">Global / Other</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', color: '#B0B8C8', marginBottom: '6px', fontWeight: 600 }}>Primary Service</label>
-                      <select
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '12px 14px',
-                          backgroundColor: '#1E2330',
-                          border: '1px solid rgba(255,255,255,0.1)',
-                          borderRadius: '10px',
-                          color: '#FFFFFF',
-                          fontSize: '0.95rem'
-                        }}
-                      >
-                        <option>Taxation Services</option>
-                        <option>Audit & Assurance</option>
-                        <option>Business Registration</option>
-                        <option>Retainership Services</option>
-                        <option>US Registration & Tax</option>
-                        <option>UK Corporate Registration</option>
-                        <option>UAE Corporate Tax</option>
-                        <option>Accounting Software</option>
-                        <option>IT Audit</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', color: '#B0B8C8', marginBottom: '6px', fontWeight: 600 }}>Message Details *</label>
-                    <textarea
-                      required
-                      rows={5}
-                      placeholder="Please describe your tax or advisory requirements..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      style={{
-                        width: '100%',
-                        padding: '12px 14px',
-                        backgroundColor: '#1E2330',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        borderRadius: '10px',
-                        color: '#FFFFFF',
-                        fontSize: '0.95rem',
-                        resize: 'vertical'
-                      }}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="btn-primary"
-                    style={{ padding: '14px', justifyContent: 'center', marginTop: '6px' }}
-                  >
-                    <Send size={16} />
-                    <span>{loading ? 'Sending Message...' : 'Submit Inquiry'}</span>
-                  </button>
-                </form>
               )}
 
+              {errorMsg && (
+                <div style={{
+                  backgroundColor: '#FEF2F2', border: '1px solid #EF4444', color: '#991B1B',
+                  padding: '14px 18px', borderRadius: '10px', fontSize: '0.92rem', marginBottom: '20px'
+                }}>
+                  {errorMsg}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.88rem', color: '#1F2937', fontWeight: 700, marginBottom: '6px' }}>Full Name *</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g. Ali Ahmed"
+                    style={{
+                      width: '100%', padding: '12px 16px', backgroundColor: '#F9FAFB',
+                      border: '1.5px solid #D1D5DB', borderRadius: '8px', color: '#111827', fontSize: '0.95rem', outline: 'none'
+                    }}
+                  />
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.88rem', color: '#1F2937', fontWeight: 700, marginBottom: '6px' }}>Email Address *</label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="name@company.com"
+                      style={{
+                        width: '100%', padding: '12px 16px', backgroundColor: '#F9FAFB',
+                        border: '1.5px solid #D1D5DB', borderRadius: '8px', color: '#111827', fontSize: '0.95rem', outline: 'none'
+                      }}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.88rem', color: '#1F2937', fontWeight: 700, marginBottom: '6px' }}>Phone Number *</label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="03001234567"
+                      style={{
+                        width: '100%', padding: '12px 16px', backgroundColor: '#F9FAFB',
+                        border: '1.5px solid #D1D5DB', borderRadius: '8px', color: '#111827', fontSize: '0.95rem', outline: 'none'
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.88rem', color: '#1F2937', fontWeight: 700, marginBottom: '6px' }}>Country Region</label>
+                    <select
+                      value={formData.country}
+                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                      style={{
+                        width: '100%', padding: '12px 16px', backgroundColor: '#F9FAFB',
+                        border: '1.5px solid #D1D5DB', borderRadius: '8px', color: '#111827', fontSize: '0.95rem', outline: 'none'
+                      }}
+                    >
+                      <option value="pk">🇵🇰 Pakistan</option>
+                      <option value="us">🇺🇸 USA</option>
+                      <option value="uk">🇬🇧 UK</option>
+                      <option value="uae">🇦🇪 UAE</option>
+                      <option value="uks">🇸🇦 UKS (Saudi Arabia)</option>
+                      <option value="de">🇩🇪 Germany</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.88rem', color: '#1F2937', fontWeight: 700, marginBottom: '6px' }}>Target Service</label>
+                    <select
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      style={{
+                        width: '100%', padding: '12px 16px', backgroundColor: '#F9FAFB',
+                        border: '1.5px solid #D1D5DB', borderRadius: '8px', color: '#111827', fontSize: '0.95rem', outline: 'none'
+                      }}
+                    >
+                      <option value="Taxation Services">Taxation Services</option>
+                      <option value="Audit & Assurance">Audit & Assurance</option>
+                      <option value="Business Registration">Business Registration</option>
+                      <option value="Retainership Services">Retainership Services</option>
+                      <option value="US/UK Entity Advisory">US/UK/UAE Entity Advisory</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.88rem', color: '#1F2937', fontWeight: 700, marginBottom: '6px' }}>Message Details *</label>
+                  <textarea
+                    rows={4}
+                    required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Describe your inquiry or statutory requirement..."
+                    style={{
+                      width: '100%', padding: '12px 16px', backgroundColor: '#F9FAFB',
+                      border: '1.5px solid #D1D5DB', borderRadius: '8px', color: '#111827', fontSize: '0.95rem', outline: 'none', resize: 'vertical'
+                    }}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-primary"
+                  style={{ width: '100%', justifyContent: 'center', padding: '14px', borderRadius: '10px', fontSize: '1rem', marginTop: '10px' }}
+                >
+                  <Send size={18} />
+                  <span>{loading ? 'Submitting Inquiry...' : 'Submit Inquiry'}</span>
+                </button>
+              </form>
             </div>
 
           </div>
@@ -304,7 +298,7 @@ export default function ContactUs() {
 
       <style>{`
         @media (max-width: 992px) {
-          .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .contact-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>

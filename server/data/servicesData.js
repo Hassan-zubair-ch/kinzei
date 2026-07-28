@@ -911,5 +911,87 @@ export const servicesData = {
         "Philanthropic & CSR Structuring: Designing tax-deductible charitable foundations."
       ]
     }
+  ],
+  uks: [
+    {
+      id: "uks-saudi-tax",
+      country: "uks",
+      countryName: "UKS (Saudi Arabia)",
+      title: "Saudi ZATCA Tax & Corporate Registration",
+      shortDescription: "Complete ZATCA registration, Zakat & Corporate Tax calculation, E-Invoicing Phase 2, and KSA commercial registration.",
+      icon: "Landmark",
+      bannerImage: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop",
+      overview: "Comprehensive tax, Zakat, and corporate establishment services compliant with Saudi ZATCA regulations.",
+      paragraphs: [
+        "Operating in the Kingdom of Saudi Arabia (KSA / UKS) requires strict adherence to Zakat, Tax and Customs Authority (ZATCA) regulations, statutory Commercial Registration (CR), and MISA investor licensing.",
+        "Kinzei Consultants determines Zakat liabilities, 20% foreign corporate tax compliance, Phase 2 Fatoora e-invoicing integration, and Ministry of Commerce annual filings."
+      ],
+      features: [
+        "ZATCA Registration & Filings: Annual Zakat & Income Tax return submissions.",
+        "Phase 2 E-Invoicing (Fatoora): Technical setup and compliance for automated invoicing.",
+        "MISA Foreign Investment License: 100% foreign-owned corporate establishment.",
+        "Saudi Commercial Registration (CR): Fast-track Ministry of Commerce company setup."
+      ]
+    },
+    {
+      id: "uks-vat-compliance",
+      country: "uks",
+      countryName: "UKS (Saudi Arabia)",
+      title: "KSA 15% VAT & Withholding Tax Advisory",
+      shortDescription: "Saudi 15% VAT registration, monthly/quarterly return submission, and WHT filings on foreign service payments.",
+      icon: "Receipt",
+      bannerImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop",
+      overview: "Manage your 15% Saudi Value Added Tax (VAT) obligations and Withholding Tax on cross-border payments.",
+      paragraphs: [
+        "Businesses with taxable supplies exceeding SAR 375,000 must register for Saudi VAT. We manage registration, verify tax invoices, submit returns, and manage withholding tax (5% to 20%) on payments made to non-resident entities."
+      ],
+      features: [
+        "ZATCA VAT Registration: Issuance of Saudi Tax Identification Number (TIN).",
+        "VAT Return Submissions: Reconciling sales ledgers and filing monthly/quarterly returns.",
+        "Withholding Tax (WHT): Filing monthly returns on royalties, management fees, and services.",
+        "ZATCA Audit & Appeal Defense: Full representation during ZATCA tax audits."
+      ]
+    }
+  ],
+  de: [
+    {
+      id: "de-corporate-tax",
+      country: "de",
+      countryName: "Germany",
+      title: "German Corporate Tax & Trade Tax Advisory",
+      shortDescription: "Körperschaftsteuer (Corporate Tax), Gewerbesteuer (Trade Tax), and Handelsregister corporate incorporation.",
+      icon: "Landmark",
+      bannerImage: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200&auto=format&fit=crop",
+      overview: "Expert German tax and corporate incorporation for GmbH, UG, and foreign branch offices.",
+      paragraphs: [
+        "Setting up and operating a business in Germany requires compliance with the German Commercial Code (HGB) and German Tax Office (Finanzamt).",
+        "Kinzei Consultants assists with GmbH & UG incorporation, Corporate Income Tax (Körperschaftsteuer), Municipal Trade Tax (Gewerbesteuer), and annual balance sheet submissions to the Federal Gazette (Bundesanzeiger)."
+      ],
+      features: [
+        "GmbH & UG Incorporation: Turnkey registration with Handelsregister and Notary.",
+        "Finanzamt Tax Registration: Securing German Steuernummer and VAT ID (USt-IdNr).",
+        "Corporate & Trade Tax Returns: Filing annual Körperschaftsteuer and Gewerbesteuer returns.",
+        "Bundesanzeiger Submissions: Electronic publication of annual financial accounts."
+      ]
+    },
+    {
+      id: "de-vat-ust",
+      country: "de",
+      countryName: "Germany",
+      title: "German VAT (Umsatzsteuer) & OSS Compliance",
+      shortDescription: "German 19% VAT registration, monthly advance filings (Umsatzsteuervoranmeldung), and One Stop Shop (OSS).",
+      icon: "Receipt",
+      bannerImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop",
+      overview: "Complete German VAT (Umsatzsteuer) compliance for Amazon FBA merchants, e-commerce sellers, and enterprise firms.",
+      paragraphs: [
+        "We register domestic and international companies for German VAT (USt-IdNr), prepare monthly advance VAT returns (Umsatzsteuervoranmeldung), and manage EU One Stop Shop (OSS) filings."
+      ],
+      features: [
+        "German VAT Registration: Securing USt-IdNr for non-EU and EU businesses.",
+        "Monthly Advance VAT Filings: Automated submission of Umsatzsteuervoranmeldung.",
+        "EU OSS Return Submissions: Centralized VAT reporting for EU-wide sales.",
+        "Finanzamt Audit Representation: Full support during German tax office reviews."
+      ]
+    }
   ]
 };

@@ -6,32 +6,32 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
 export default function Footer() {
   return (
     <footer style={{
-      backgroundColor: '#07080B',
-      borderTop: '1px solid rgba(212, 175, 55, 0.2)',
+      backgroundColor: '#F8F9FA',
+      borderTop: '2px solid rgba(158, 123, 59, 0.25)',
       paddingTop: '60px',
       paddingBottom: '30px',
-      color: '#9BA4B5'
+      color: '#4B5563'
     }}>
       <div className="container">
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
           gap: '40px',
-          marginBottom: '50px'
+          marginBottom: '45px'
         }}>
-          {/* Col 1: About & Info with Clean 75px Logo */}
+          {/* Col 1: About & Info with Logo */}
           <div>
-            <KinzeiLogo height={75} />
-            <p style={{ marginTop: '20px', fontSize: '0.9rem', lineHeight: '1.7', color: '#8A94A6' }}>
+            <KinzeiLogo height={70} />
+            <p style={{ marginTop: '20px', fontSize: '0.9rem', lineHeight: '1.7', color: '#4B5563' }}>
               Kinzei Consultants (Private) Limited provides expert corporate tax, statutory audit, retainership, SECP registration, and international tax advisory services to navigate regulatory requirements with confidence, accuracy, and transparency.
             </p>
-            <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <a href="mailto:kinzeiconsultants@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#E5C158', fontSize: '0.9rem' }}>
-                <Mail size={16} />
+            <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <a href="mailto:kinzeiconsultants@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#9E7B3B', fontWeight: 600, fontSize: '0.9rem' }}>
+                <Mail size={16} color="#9E7B3B" />
                 <span>kinzeiconsultants@gmail.com</span>
               </a>
-              <a href="tel:03034063970" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#FFFFFF', fontWeight: 700, fontSize: '0.95rem' }}>
-                <Phone size={16} color="#D4AF37" />
+              <a href="tel:03034063970" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#111827', fontWeight: 800, fontSize: '0.95rem' }}>
+                <Phone size={16} color="#9E7B3B" />
                 <span>03034063970</span>
               </a>
             </div>
@@ -39,9 +39,9 @@ export default function Footer() {
 
           {/* Col 2: Quick Links */}
           <div>
-            <h4 style={{ color: '#FFFFFF', fontSize: '1.1rem', marginBottom: '20px', position: 'relative', paddingBottom: '8px' }}>
+            <h4 style={{ color: '#111827', fontSize: '1.1rem', marginBottom: '20px', position: 'relative', paddingBottom: '8px', fontWeight: 800 }}>
               Quick Links
-              <span style={{ position: 'absolute', bottom: 0, left: 0, width: '35px', height: '2px', backgroundColor: '#D4AF37' }}></span>
+              <span style={{ position: 'absolute', bottom: 0, left: 0, width: '35px', height: '3px', backgroundColor: '#9E7B3B', borderRadius: '2px' }}></span>
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem' }}>
               {[
@@ -53,8 +53,8 @@ export default function Footer() {
                 { name: 'Contact Us', path: '/contact' },
               ].map(link => (
                 <li key={link.name}>
-                  <Link to={link.path} style={{ color: '#9BA4B5', transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <ArrowRight size={12} color="#D4AF37" />
+                  <Link to={link.path} style={{ color: '#4B5563', transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
+                    <ArrowRight size={12} color="#9E7B3B" />
                     <span>{link.name}</span>
                   </Link>
                 </li>
@@ -64,9 +64,9 @@ export default function Footer() {
 
           {/* Col 3: Services List */}
           <div>
-            <h4 style={{ color: '#FFFFFF', fontSize: '1.1rem', marginBottom: '20px', position: 'relative', paddingBottom: '8px' }}>
+            <h4 style={{ color: '#111827', fontSize: '1.1rem', marginBottom: '20px', position: 'relative', paddingBottom: '8px', fontWeight: 800 }}>
               Core Services
-              <span style={{ position: 'absolute', bottom: 0, left: 0, width: '35px', height: '2px', backgroundColor: '#D4AF37' }}></span>
+              <span style={{ position: 'absolute', bottom: 0, left: 0, width: '35px', height: '3px', backgroundColor: '#9E7B3B', borderRadius: '2px' }}></span>
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem' }}>
               {[
@@ -81,7 +81,7 @@ export default function Footer() {
                 { name: 'US Registration & Tax', id: 'us-tax-advisory' },
               ].map(s => (
                 <li key={s.id}>
-                  <Link to={`/services/detail/${s.id}`} style={{ color: '#9BA4B5', transition: 'color 0.2s' }}>
+                  <Link to={`/services/detail/${s.id}`} style={{ color: '#4B5563', transition: 'color 0.2s', fontWeight: 500 }}>
                     {s.name}
                   </Link>
                 </li>
@@ -91,18 +91,18 @@ export default function Footer() {
 
           {/* Col 4: Office Location & Hours */}
           <div>
-            <h4 style={{ color: '#FFFFFF', fontSize: '1.1rem', marginBottom: '20px', position: 'relative', paddingBottom: '8px' }}>
+            <h4 style={{ color: '#111827', fontSize: '1.1rem', marginBottom: '20px', position: 'relative', paddingBottom: '8px', fontWeight: 800 }}>
               Office Location
-              <span style={{ position: 'absolute', bottom: 0, left: 0, width: '35px', height: '2px', backgroundColor: '#D4AF37' }}></span>
+              <span style={{ position: 'absolute', bottom: 0, left: 0, width: '35px', height: '3px', backgroundColor: '#9E7B3B', borderRadius: '2px' }}></span>
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.9rem' }}>
               <div style={{ display: 'flex', gap: '12px' }}>
-                <MapPin size={22} color="#D4AF37" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span>Office No. 1009, 10th Floor, Al-Hafeez Heights, 65-D1, Gulberg III, Lahore</span>
+                <MapPin size={22} color="#9E7B3B" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span style={{ color: '#374151' }}>Office No. 1009, 10th Floor, Al-Hafeez Heights, 65-D1, Gulberg III, Lahore</span>
               </div>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                <Clock size={18} color="#D4AF37" style={{ flexShrink: 0 }} />
-                <span>9 AM - 6 PM , Monday - Friday</span>
+                <Clock size={18} color="#9E7B3B" style={{ flexShrink: 0 }} />
+                <span style={{ color: '#374151' }}>9 AM - 6 PM , Monday - Friday</span>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function Footer() {
 
         {/* Copyright Bar */}
         <div style={{
-          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+          borderTop: '1px solid #E5E7EB',
           paddingTop: '24px',
           display: 'flex',
           justifyContent: 'space-between',
@@ -118,17 +118,17 @@ export default function Footer() {
           flexWrap: 'wrap',
           gap: '12px',
           fontSize: '0.85rem',
-          color: '#7E899C'
+          color: '#6B7280'
         }}>
           <div>
-            Copyright © 2026 | All Rights Reserved by <strong>Kinzei Consultants (Private) Limited</strong>
+            Copyright © 2026 | All Rights Reserved by <strong style={{ color: '#111827' }}>Kinzei Consultants (Private) Limited</strong>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <Link to="/privacy-policy" style={{ color: '#9BA4B5', transition: 'color 0.2s' }}>
+            <Link to="/privacy-policy" style={{ color: '#4B5563', transition: 'color 0.2s' }}>
               Privacy Policy
             </Link>
-            <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
-            <Link to="/terms-and-conditions" style={{ color: '#9BA4B5', transition: 'color 0.2s' }}>
+            <span style={{ color: '#D1D5DB' }}>|</span>
+            <Link to="/terms-and-conditions" style={{ color: '#4B5563', transition: 'color 0.2s' }}>
               Terms & Conditions
             </Link>
           </div>

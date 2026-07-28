@@ -21,58 +21,54 @@ export default function ServiceCard({ service, isDarkTheme = false }) {
     <div 
       className="service-card"
       style={{
-        backgroundColor: isDarkTheme ? '#181C26' : '#FFFFFF',
-        color: isDarkTheme ? '#FFFFFF' : '#1A1D24',
+        backgroundColor: '#FFFFFF',
+        color: '#111827',
         borderRadius: '16px',
-        padding: '36px 28px',
+        padding: '34px 28px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
-        boxShadow: isDarkTheme ? '0 10px 30px rgba(0,0,0,0.3)' : '0 10px 30px rgba(0,0,0,0.06)',
-        border: isDarkTheme ? '1px solid rgba(212, 175, 55, 0.2)' : '1px solid #EFEFEF',
+        boxShadow: '0 8px 25px rgba(0, 0, 0, 0.05)',
+        border: '1.5px solid #E5E7EB',
         transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
         position: 'relative',
         overflow: 'hidden'
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-8px)';
-        e.currentTarget.style.boxShadow = isDarkTheme 
-          ? '0 20px 45px rgba(212, 175, 55, 0.25)' 
-          : '0 20px 45px rgba(212, 175, 55, 0.18)';
-        e.currentTarget.style.borderColor = '#D4AF37';
+        e.currentTarget.style.transform = 'translateY(-6px)';
+        e.currentTarget.style.boxShadow = '0 16px 35px rgba(158, 123, 59, 0.18)';
+        e.currentTarget.style.borderColor = '#9E7B3B';
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = isDarkTheme 
-          ? '0 10px 30px rgba(0,0,0,0.3)' 
-          : '0 10px 30px rgba(0,0,0,0.06)';
-        e.currentTarget.style.borderColor = isDarkTheme ? 'rgba(212, 175, 55, 0.2)' : '#EFEFEF';
+        e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.05)';
+        e.currentTarget.style.borderColor = '#E5E7EB';
       }}
     >
       {/* Top Gold Graphic Banner / Icon Avatar */}
       <div style={{
-        width: '64px',
-        height: '64px',
+        width: '62px',
+        height: '62px',
         borderRadius: '16px',
-        background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%)',
-        border: '1px solid rgba(212, 175, 55, 0.4)',
+        background: 'linear-gradient(135deg, rgba(158, 123, 59, 0.12) 0%, rgba(158, 123, 59, 0.04) 100%)',
+        border: '1.5px solid rgba(158, 123, 59, 0.35)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: '24px',
-        color: '#D4AF37',
-        boxShadow: '0 8px 20px rgba(212, 175, 55, 0.15)'
+        marginBottom: '20px',
+        color: '#9E7B3B',
+        boxShadow: '0 6px 15px rgba(158, 123, 59, 0.12)'
       }}>
-        <IconComponent size={30} strokeWidth={1.8} />
+        <IconComponent size={28} strokeWidth={2} />
       </div>
 
       {/* Country Badge if available */}
       {service.countryName && (
         <span style={{
           fontSize: '0.75rem',
-          fontWeight: 700,
-          color: '#D4AF37',
+          fontWeight: 800,
+          color: '#9E7B3B',
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
           marginBottom: '8px'
@@ -83,12 +79,12 @@ export default function ServiceCard({ service, isDarkTheme = false }) {
 
       {/* Card Title */}
       <h3 style={{
-        fontSize: '1.25rem',
-        fontWeight: 700,
-        color: isDarkTheme ? '#FFFFFF' : '#1A1E29',
-        marginBottom: '14px',
+        fontSize: '1.2rem',
+        fontWeight: 800,
+        color: '#111827',
+        marginBottom: '12px',
         lineHeight: 1.3,
-        minHeight: '2.6em',
+        minHeight: '2.5em',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -99,9 +95,9 @@ export default function ServiceCard({ service, isDarkTheme = false }) {
       {/* Short Description */}
       <p style={{
         fontSize: '0.92rem',
-        color: isDarkTheme ? '#A0AABF' : '#5E6678',
+        color: '#4B5563',
         lineHeight: 1.6,
-        marginBottom: '28px',
+        marginBottom: '24px',
         flexGrow: 1
       }}>
         {service.shortDescription}
@@ -111,28 +107,28 @@ export default function ServiceCard({ service, isDarkTheme = false }) {
       <Link 
         to={`/services/detail/${service.id}`}
         style={{
-          color: '#D4AF37',
+          color: '#9E7B3B',
           fontWeight: 700,
           fontSize: '0.9rem',
           display: 'inline-flex',
           alignItems: 'center',
           gap: '6px',
-          padding: '8px 16px',
+          padding: '8px 18px',
           borderRadius: '20px',
-          backgroundColor: isDarkTheme ? 'rgba(212, 175, 55, 0.08)' : '#FFFBF0',
-          border: '1px solid rgba(212, 175, 55, 0.25)',
+          backgroundColor: '#FFFBEB',
+          border: '1.5px solid rgba(158, 123, 59, 0.3)',
           transition: 'all 0.25s ease'
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = '#D4AF37';
-          e.currentTarget.style.color = '#0A0B0E';
+          e.currentTarget.style.backgroundColor = '#9E7B3B';
+          e.currentTarget.style.color = '#FFFFFF';
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = isDarkTheme ? 'rgba(212, 175, 55, 0.08)' : '#FFFBF0';
-          e.currentTarget.style.color = '#D4AF37';
+          e.currentTarget.style.backgroundColor = '#FFFBEB';
+          e.currentTarget.style.color = '#9E7B3B';
         }}
       >
-        <span>Read More</span>
+        <span>Read Detail</span>
         <ArrowRight size={14} />
       </Link>
     </div>

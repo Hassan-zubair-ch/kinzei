@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, Linkedin, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, Linkedin, ShieldCheck, Calendar } from 'lucide-react';
 
 export default function OurTeam({ onOpenSchedule }) {
   const teamMembers = [
@@ -54,78 +54,89 @@ export default function OurTeam({ onOpenSchedule }) {
   ];
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
       {/* BANNER */}
       <section style={{
-        background: 'linear-gradient(180deg, #181C26 0%, #090A0E 100%)',
-        padding: '70px 0 50px 0',
+        backgroundColor: '#F8F9FA',
+        padding: '60px 0 45px 0',
         textAlign: 'center',
-        borderBottom: '1px solid rgba(212, 175, 55, 0.15)'
+        borderBottom: '1px solid #E5E7EB'
       }}>
         <div className="container">
-          <span className="badge-gold">Kinzei Leadership</span>
-          <h1 style={{ fontSize: '2.8rem', marginTop: '12px', marginBottom: '16px' }}>
-            Meet Our <span className="gold-gradient-text">Expert Advisory Team</span>
+          <span className="badge-gold">Leadership & Experts</span>
+          <h1 style={{ fontSize: '2.8rem', color: '#111827', marginTop: '12px', marginBottom: '16px', fontWeight: 800 }}>
+            Meet Our <span style={{ color: '#9E7B3B' }}>Advisory Team</span>
           </h1>
-          <p style={{ color: '#9BA4B5', fontSize: '1.1rem', maxWidth: '680px', margin: '0 auto' }}>
-            A seasoned collective of Chartered Accountants, Tax Consultants, US CPAs, and Legal Experts dedicated to your corporate success.
+          <p style={{ color: '#4B5563', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto' }}>
+            Our team comprises Chartered Accountants, tax attorneys, IRS Enrolled Agents, and IT auditors committed to safeguarding your financial interest.
           </p>
         </div>
       </section>
 
       {/* TEAM GRID */}
-      <section style={{ padding: '80px 0 100px 0', backgroundColor: '#090A0E' }}>
+      <section style={{ padding: '70px 0 100px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: '30px'
           }}>
-            {teamMembers.map((member, idx) => (
+            {teamMembers.map((m, idx) => (
               <div
                 key={idx}
                 style={{
-                  backgroundColor: '#141822',
+                  backgroundColor: '#FFFFFF',
                   borderRadius: '20px',
+                  border: '1.5px solid #E5E7EB',
                   overflow: 'hidden',
-                  border: '1px solid rgba(212, 175, 55, 0.2)',
-                  transition: 'all 0.3s ease'
+                  boxShadow: '0 8px 25px rgba(0,0,0,0.04)',
+                  transition: 'transform 0.3s ease, border-color 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-6px)';
+                  e.currentTarget.style.borderColor = '#9E7B3B';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = '#E5E7EB';
                 }}
               >
-                <div style={{ height: '260px', overflow: 'hidden', position: 'relative' }}>
+                <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
                   <img
-                    src={member.image}
-                    alt={member.name}
+                    src={m.image}
+                    alt={m.name}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <div style={{
                     position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(20, 24, 34, 1) 100%)'
-                  }} />
+                    bottom: '12px',
+                    left: '12px',
+                    backgroundColor: '#FFFFFF',
+                    color: '#9E7B3B',
+                    fontSize: '0.78rem',
+                    fontWeight: 800,
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                    boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+                  }}>
+                    {m.qualifications}
+                  </div>
                 </div>
 
-                <div style={{ padding: '24px 28px', marginTop: '-30px', position: 'relative', zIndex: 2 }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#D4AF37', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                    {member.qualifications}
-                  </span>
-                  <h3 style={{ fontSize: '1.35rem', color: '#FFFFFF', marginTop: '4px', marginBottom: '6px' }}>
-                    {member.name}
-                  </h3>
-                  <div style={{ fontSize: '0.9rem', color: '#E5C158', fontWeight: 600, marginBottom: '14px' }}>
-                    {member.title}
-                  </div>
-                  <p style={{ color: '#9BA4B5', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '20px' }}>
-                    {member.bio}
-                  </p>
+                <div style={{ padding: '24px' }}>
+                  <h3 style={{ fontSize: '1.3rem', color: '#111827', marginBottom: '4px', fontWeight: 800 }}>{m.name}</h3>
+                  <div style={{ fontSize: '0.9rem', color: '#9E7B3B', fontWeight: 700, marginBottom: '14px' }}>{m.title}</div>
+                  <p style={{ fontSize: '0.92rem', color: '#4B5563', lineHeight: 1.6, marginBottom: '20px' }}>{m.bio}</p>
 
-                  <div style={{ paddingTop: '14px', borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <a href={`mailto:${member.email}`} style={{ color: '#9BA4B5', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <Mail size={14} color="#D4AF37" />
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #E5E7EB', paddingTop: '16px' }}>
+                    <a href={`mailto:${m.email}`} style={{ color: '#4B5563', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
+                      <Mail size={14} color="#9E7B3B" />
                       <span>Contact Partner</span>
                     </a>
-                    <button onClick={onOpenSchedule} className="btn-outline" style={{ padding: '6px 14px', fontSize: '0.78rem' }}>
-                      Book Call
+
+                    <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '6px 14px', fontSize: '0.8rem', borderRadius: '15px' }}>
+                      <Calendar size={12} />
+                      <span>Book</span>
                     </button>
                   </div>
                 </div>

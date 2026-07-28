@@ -27,7 +27,7 @@ export default function ServiceDetail({ onOpenSchedule }) {
 
   if (loading) {
     return (
-      <div style={{ padding: '120px 0', textAlign: 'center', backgroundColor: '#090A0E', color: '#D4AF37' }}>
+      <div style={{ padding: '120px 0', textAlign: 'center', backgroundColor: '#FFFFFF', color: '#9E7B3B', fontWeight: 700 }}>
         Loading service details...
       </div>
     );
@@ -35,9 +35,9 @@ export default function ServiceDetail({ onOpenSchedule }) {
 
   if (!service) {
     return (
-      <div style={{ padding: '120px 0', textAlign: 'center', backgroundColor: '#090A0E', color: '#FFFFFF' }}>
+      <div style={{ padding: '120px 0', textAlign: 'center', backgroundColor: '#FFFFFF', color: '#111827' }}>
         <h2>Service Not Found</h2>
-        <p style={{ color: '#9BA4B5', marginTop: '12px' }}>The requested service page does not exist.</p>
+        <p style={{ color: '#4B5563', marginTop: '12px' }}>The requested service page does not exist.</p>
         <Link to="/services" className="btn-primary" style={{ marginTop: '24px', display: 'inline-flex' }}>
           Back to Services
         </Link>
@@ -46,101 +46,77 @@ export default function ServiceDetail({ onOpenSchedule }) {
   }
 
   return (
-    <div>
-      {/* HIGH-IMPACT HERO BANNER WITH RELEVANT BACKGROUND IMAGE */}
+    <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
+      {/* HERO BANNER WITH RELEVANT BACKGROUND IMAGE */}
       <section style={{
         position: 'relative',
-        padding: '110px 0 90px 0',
-        backgroundImage: `linear-gradient(180deg, rgba(9, 10, 14, 0.82) 0%, rgba(9, 10, 14, 0.96) 100%), url(${service.bannerImage})`,
+        padding: '90px 0 70px 0',
+        backgroundImage: `linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(248, 249, 250, 0.98) 100%), url(${service.bannerImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        borderBottom: '1px solid rgba(212, 175, 55, 0.2)'
+        borderBottom: '1px solid #E5E7EB'
       }}>
         <div className="container">
           <div style={{ maxWidth: '850px' }}>
-            <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '16px' }}>
-              <span className="badge-gold">{service.countryName || 'Global Services'}</span>
-              <span style={{ color: '#9BA4B5', fontSize: '0.85rem' }}>• Kinzei Practice Area</span>
-            </div>
+            <span className="badge-gold">
+              {service.countryName ? `${service.countryName} Advisory` : 'Corporate Advisory'}
+            </span>
 
-            <h1 style={{
-              fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
-              lineHeight: 1.2,
-              marginBottom: '20px',
-              color: '#FFFFFF',
-              fontWeight: 800
-            }}>
+            <h1 style={{ fontSize: '2.8rem', color: '#111827', marginTop: '14px', marginBottom: '16px', fontWeight: 800 }}>
               {service.title}
             </h1>
 
-            <p style={{
-              fontSize: '1.15rem',
-              color: '#D1D7E3',
-              lineHeight: 1.7,
-              marginBottom: '32px'
-            }}>
-              {service.overview}
+            <p style={{ fontSize: '1.15rem', color: '#4B5563', lineHeight: '1.7', marginBottom: '28px' }}>
+              {service.shortDescription}
             </p>
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '14px 30px' }}>
+              <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '12px 28px', borderRadius: '30px' }}>
                 <Calendar size={18} />
-                <span>Book Schedule Now</span>
+                <span>Book Service Advisory</span>
               </button>
-              <a href="tel:03034063970" className="btn-outline" style={{ padding: '14px 26px' }}>
-                <Phone size={16} />
-                <span>03034063970</span>
+
+              <a href="tel:03034063970" className="btn-outline" style={{ padding: '12px 26px', borderRadius: '30px' }}>
+                <Phone size={18} />
+                <span>Call 03034063970</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* DETAILED CONTENT SECTION */}
-      <section style={{ padding: '80px 0 100px 0', backgroundColor: '#090A0E' }}>
+      {/* CONTENT BODY */}
+      <section style={{ padding: '70px 0 100px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 340px',
-            gap: '50px'
-          }} className="detail-layout">
-
-            {/* Main Left Content */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '50px' }} className="detail-grid">
+            
+            {/* Main Content Column */}
             <div>
-              <div style={{ backgroundColor: '#141822', borderRadius: '20px', padding: '40px', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '40px' }}>
-                <h2 style={{ fontSize: '1.8rem', color: '#FFFFFF', marginBottom: '20px', paddingBottom: '12px', borderBottom: '1px solid rgba(212, 175, 55, 0.2)' }}>
-                  Service Breakdown & Approach
-                </h2>
+              <h2 style={{ fontSize: '1.8rem', color: '#111827', marginBottom: '16px', fontWeight: 800 }}>
+                Overview & Statutory Scope
+              </h2>
+              <p style={{ fontSize: '1.05rem', color: '#374151', lineHeight: '1.8', marginBottom: '24px', fontWeight: 500 }}>
+                {service.overview}
+              </p>
 
-                {service.paragraphs && service.paragraphs.map((p, idx) => (
-                  <p key={idx} style={{ color: '#B0B8C8', fontSize: '1.02rem', lineHeight: 1.8, marginBottom: '20px' }}>
-                    {p}
-                  </p>
-                ))}
-              </div>
+              {service.paragraphs && service.paragraphs.map((p, idx) => (
+                <p key={idx} style={{ fontSize: '1rem', color: '#4B5563', lineHeight: '1.8', marginBottom: '20px' }}>
+                  {p}
+                </p>
+              ))}
 
               {/* Key Features & Deliverables */}
               {service.features && service.features.length > 0 && (
-                <div style={{ backgroundColor: '#141822', borderRadius: '20px', padding: '40px', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '24px' }}>
-                    Key Services & Core Capabilities
+                <div style={{ marginTop: '40px', backgroundColor: '#F8F9FA', borderRadius: '20px', padding: '36px', border: '1.5px solid rgba(158, 123, 59, 0.3)' }}>
+                  <h3 style={{ fontSize: '1.4rem', color: '#111827', marginBottom: '20px', fontWeight: 800 }}>
+                    Core Deliverables & Regulatory Compliance
                   </h3>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                    {service.features.map((feat, idx) => (
-                      <div key={idx} style={{
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: '14px',
-                        backgroundColor: '#1A1E2B',
-                        padding: '16px 20px',
-                        borderRadius: '12px',
-                        border: '1px solid rgba(212, 175, 55, 0.15)'
-                      }}>
-                        <CheckCircle2 size={22} color="#D4AF37" style={{ flexShrink: 0, marginTop: '2px' }} />
-                        <span style={{ color: '#E1E6F0', fontSize: '0.98rem', lineHeight: 1.5, fontWeight: 500 }}>
-                          {feat}
-                        </span>
+                    {service.features.map((f, i) => (
+                      <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+                        <CheckCircle2 size={20} color="#9E7B3B" style={{ flexShrink: 0, marginTop: '3px' }} />
+                        <span style={{ fontSize: '0.98rem', color: '#1F2937', lineHeight: '1.6', fontWeight: 600 }}>{f}</span>
                       </div>
                     ))}
                   </div>
@@ -148,71 +124,33 @@ export default function ServiceDetail({ onOpenSchedule }) {
               )}
             </div>
 
-            {/* Sidebar Right */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-
-              {/* Quick Consultation Box */}
+            {/* Sidebar CTA Card */}
+            <div>
               <div style={{
-                backgroundColor: '#181C26',
+                backgroundColor: '#F8F9FA',
                 borderRadius: '20px',
                 padding: '30px',
-                border: '1px solid rgba(212, 175, 55, 0.3)',
-                textAlign: 'center'
+                border: '1.5px solid rgba(158, 123, 59, 0.35)',
+                position: 'sticky',
+                top: '100px'
               }}>
-                <ShieldCheck size={40} color="#D4AF37" style={{ margin: '0 auto 16px auto' }} />
-                <h3 style={{ fontSize: '1.3rem', color: '#FFFFFF', marginBottom: '10px' }}>Need Expert Advisory?</h3>
-                <p style={{ color: '#9BA4B5', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '24px' }}>
-                  Speak directly with senior auditors and certified tax specialists regarding {service.title}.
+                <h3 style={{ fontSize: '1.4rem', color: '#111827', marginBottom: '14px', fontWeight: 800 }}>
+                  Need Professional Guidance?
+                </h3>
+                <p style={{ fontSize: '0.92rem', color: '#4B5563', lineHeight: '1.6', marginBottom: '24px' }}>
+                  Speak directly with our senior partners regarding custom compliance strategies, SECP/FBR filings, or foreign entity setup.
                 </p>
 
-                <button onClick={onOpenSchedule} className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                  <span>Book Schedule Now</span>
+                <button onClick={onOpenSchedule} className="btn-primary" style={{ width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '12px', marginBottom: '12px' }}>
+                  <Calendar size={16} />
+                  <span>Reserve Advisory Session</span>
                 </button>
 
-                <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)', fontSize: '0.85rem' }}>
-                  <div style={{ color: '#8A94A6' }}>Or Email Direct:</div>
-                  <a href="mailto:kinzeiconsultants@gmail.com" style={{ color: '#D4AF37', fontWeight: 600 }}>kinzeiconsultants@gmail.com</a>
-                </div>
+                <a href="tel:03034063970" className="btn-outline" style={{ width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '12px' }}>
+                  <Phone size={16} />
+                  <span>Call 03034063970</span>
+                </a>
               </div>
-
-              {/* Related Services */}
-              {related.length > 0 && (
-                <div style={{
-                  backgroundColor: '#141822',
-                  borderRadius: '20px',
-                  padding: '28px',
-                  border: '1px solid rgba(255,255,255,0.06)'
-                }}>
-                  <h4 style={{ color: '#FFFFFF', fontSize: '1.1rem', marginBottom: '18px', paddingBottom: '8px', borderBottom: '1px solid rgba(212, 175, 55, 0.2)' }}>
-                    Related Practice Areas
-                  </h4>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                    {related.map(rel => (
-                      <Link
-                        key={rel.id}
-                        to={`/services/detail/${rel.id}`}
-                        style={{
-                          backgroundColor: '#1A1E2B',
-                          padding: '14px 16px',
-                          borderRadius: '10px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          color: '#FFFFFF',
-                          fontSize: '0.9rem',
-                          fontWeight: 600,
-                          transition: 'all 0.2s'
-                        }}
-                      >
-                        <span>{rel.title}</span>
-                        <ArrowRight size={14} color="#D4AF37" />
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-
             </div>
 
           </div>
@@ -221,7 +159,7 @@ export default function ServiceDetail({ onOpenSchedule }) {
 
       <style>{`
         @media (max-width: 992px) {
-          .detail-layout { grid-template-columns: 1fr !important; }
+          .detail-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>

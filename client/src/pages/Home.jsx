@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
-import { USFlag, UAEFlag, UKFlag, PKFlag, OtherFlag } from '../components/CountryFlags';
+import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag, OtherFlag } from '../components/CountryFlags';
 import { 
   ShieldCheck, Award, Users, ArrowRight, CheckCircle2, Phone, Calendar, 
-  ArrowRightCircle, Target, Eye, FileText, Briefcase, ChevronRight 
+  ArrowRightCircle, Target, Eye, FileText, Briefcase, ChevronRight, Calculator 
 } from 'lucide-react';
 
 export default function Home({ onOpenSchedule }) {
@@ -31,10 +31,11 @@ export default function Home({ onOpenSchedule }) {
 
   const countryTabs = [
     { code: 'pk', label: 'PK Services', name: 'Pakistan', Flag: PKFlag },
-    { code: 'us', label: 'US Services', name: 'US', Flag: USFlag },
-    { code: 'uae', label: 'UAE Services', name: 'UAE', Flag: UAEFlag },
+    { code: 'us', label: 'US Services', name: 'USA', Flag: USFlag },
     { code: 'uk', label: 'UK Services', name: 'UK', Flag: UKFlag },
-    { code: 'other', label: 'Other Services', name: 'Other', Flag: OtherFlag },
+    { code: 'uae', label: 'UAE Services', name: 'UAE', Flag: UAEFlag },
+    { code: 'uks', label: 'UKS Services', name: 'Saudi Arabia', Flag: KSAFlag },
+    { code: 'de', label: 'Germany Services', name: 'Germany', Flag: GermanyFlag },
   ];
 
   const currentTab = countryTabs.find(t => t.code === activeCountry) || countryTabs[0];
@@ -42,27 +43,15 @@ export default function Home({ onOpenSchedule }) {
   const displayedServices = services.slice(0, 3);
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#FFFFFF', color: '#111827' }}>
       {/* 1. HERO SECTION */}
       <section style={{
         position: 'relative',
-        padding: '90px 0 110px 0',
-        background: 'radial-gradient(circle at 50% 20%, #1A1F2C 0%, #090A0E 80%)',
-        overflow: 'hidden',
-        borderBottom: '1px solid rgba(212, 175, 55, 0.15)'
+        padding: '80px 0 90px 0',
+        backgroundColor: '#F8F9FA',
+        borderBottom: '1px solid #E5E7EB',
+        overflow: 'hidden'
       }}>
-        <div style={{
-          position: 'absolute',
-          top: '10%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '600px',
-          height: '400px',
-          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(0, 0, 0, 0) 70%)',
-          pointerEvents: 'none',
-          zIndex: 0
-        }} />
-
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{
             display: 'grid',
@@ -74,201 +63,126 @@ export default function Home({ onOpenSchedule }) {
             {/* Left Hero Content */}
             <div>
               <span className="badge-gold" style={{ marginBottom: '16px' }}>
-                <ShieldCheck size={14} color="#D4AF37" />
+                <ShieldCheck size={15} color="#9E7B3B" />
                 Kinzei Consultants (Private) Limited
               </span>
 
               <h1 style={{
-                fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
+                fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)',
                 lineHeight: 1.15,
                 marginBottom: '20px',
-                fontWeight: 800
+                fontWeight: 900,
+                color: '#111827'
               }}>
-                Strategic Tax, Audit & <span className="gold-gradient-text">Global Business Advisory</span>
+                Strategic Tax, Audit & <span style={{ color: '#9E7B3B' }}>Global Advisory</span>
               </h1>
 
               <p style={{
-                fontSize: '1.15rem',
-                color: '#A0AABF',
+                fontSize: '1.12rem',
+                color: '#4B5563',
                 lineHeight: 1.7,
                 marginBottom: '36px',
                 maxWidth: '620px'
               }}>
-                Kinzei Consultants provides expert corporate tax compliance, statutory audit, SECP entity registration, and cross-border US, UK & UAE advisory services with total transparency.
+                Kinzei Consultants provides expert corporate tax compliance, statutory audit, entity registration, and cross-border Pakistan, US, UK, UAE, Saudi & German advisory services with total transparency.
               </p>
 
               <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
-                <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '14px 32px', fontSize: '1rem' }}>
+                <button 
+                  onClick={onOpenSchedule} 
+                  className="btn-primary"
+                  style={{ padding: '14px 30px', fontSize: '0.98rem', borderRadius: '30px' }}
+                >
                   <Calendar size={18} />
                   <span>Book Schedule Now</span>
                 </button>
 
-                <Link to="/tax-calculator" className="btn-outline" style={{ padding: '14px 28px', fontSize: '1rem' }}>
-                  <span>Calculate Tax Online</span>
-                  <ArrowRight size={16} />
+                <Link 
+                  to="/tax-calculator" 
+                  className="btn-outline"
+                  style={{ padding: '14px 28px', fontSize: '0.98rem', borderRadius: '30px' }}
+                >
+                  <Calculator size={18} />
+                  <span>Pakistan Tax Calculator</span>
                 </Link>
               </div>
 
-              {/* Trust Badges */}
+              {/* Trust Indicators */}
               <div style={{
-                marginTop: '44px',
-                paddingTop: '28px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                marginTop: '45px',
+                paddingTop: '25px',
+                borderTop: '1px solid #E5E7EB',
                 display: 'flex',
-                gap: '28px',
+                gap: '30px',
                 flexWrap: 'wrap'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <CheckCircle2 size={18} color="#D4AF37" />
-                  <span style={{ fontSize: '0.9rem', color: '#D1D7E3', fontWeight: 600 }}>SECP & FBR Compliant</span>
+                <div>
+                  <h4 style={{ fontSize: '1.7rem', color: '#9E7B3B', fontWeight: 900 }}>10+</h4>
+                  <p style={{ fontSize: '0.85rem', color: '#6B7280', fontWeight: 600 }}>Years Advisory Excellence</p>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <CheckCircle2 size={18} color="#D4AF37" />
-                  <span style={{ fontSize: '0.9rem', color: '#D1D7E3', fontWeight: 600 }}>IRS & Companies House Desk</span>
+                <div style={{ width: '1px', backgroundColor: '#E5E7EB' }} />
+                <div>
+                  <h4 style={{ fontSize: '1.7rem', color: '#9E7B3B', fontWeight: 900 }}>100%</h4>
+                  <p style={{ fontSize: '0.85rem', color: '#6B7280', fontWeight: 600 }}>Statutory FBR & SECP Compliance</p>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <CheckCircle2 size={18} color="#D4AF37" />
-                  <span style={{ fontSize: '0.9rem', color: '#D1D7E3', fontWeight: 600 }}>100% Tax Accuracy</span>
+                <div style={{ width: '1px', backgroundColor: '#E5E7EB' }} />
+                <div>
+                  <h4 style={{ fontSize: '1.7rem', color: '#9E7B3B', fontWeight: 900 }}>6</h4>
+                  <p style={{ fontSize: '0.85rem', color: '#6B7280', fontWeight: 600 }}>Service Countries Supported</p>
                 </div>
               </div>
             </div>
 
             {/* Right Hero Graphic Card */}
-            <div style={{
-              position: 'relative',
-              background: 'linear-gradient(145deg, #181C26 0%, #10131B 100%)',
-              border: '1px solid rgba(212, 175, 55, 0.3)',
-              borderRadius: '24px',
-              padding: '40px 32px',
-              boxShadow: '0 25px 60px rgba(0,0,0,0.5)'
-            }}>
+            <div>
               <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginBottom: '24px',
-                paddingBottom: '16px',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
-              }}>
-                <h3 style={{ fontSize: '1.25rem', color: '#FFFFFF' }}>Quick Advisory Hub</h3>
-                <span className="badge-gold">2026 Tax Rates</span>
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <div style={{ backgroundColor: '#131620', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#D4AF37', fontWeight: 700 }}>TAXATION & COMPLIANCE</span>
-                  <h4 style={{ fontSize: '1rem', marginTop: '4px', color: '#FFFFFF' }}>FBR Wealth & Income Tax Filing</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#8A94A6', marginTop: '4px' }}>Salaried & Business tax return filing with zero penalty guarantee.</p>
-                </div>
-
-                <div style={{ backgroundColor: '#131620', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#4FB3F6', fontWeight: 700 }}>GLOBAL EXPANSION</span>
-                  <h4 style={{ fontSize: '1rem', marginTop: '4px', color: '#FFFFFF' }}>US LLC & UK Ltd Formation</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#8A94A6', marginTop: '4px' }}>Turnkey offshore registration with IRS EIN and HMRC VAT setup.</p>
-                </div>
-
-                <div style={{ backgroundColor: '#131620', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#2ECC71', fontWeight: 700 }}>AUDIT & RETAINERSHIP</span>
-                  <h4 style={{ fontSize: '1rem', marginTop: '4px', color: '#FFFFFF' }}>Statutory & Internal Audit</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#8A94A6', marginTop: '4px' }}>Independent assurance and continuous monthly retainership support.</p>
-                </div>
-              </div>
-
-              <button 
-                onClick={onOpenSchedule}
-                className="btn-primary" 
-                style={{ width: '100%', marginTop: '24px', justifyContent: 'center' }}
-              >
-                <span>Request Free Call Back</span>
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 2. TRUSTED FINANCIAL PARTNERS FOR YOUR BUSINESS */}
-      <section style={{ padding: '90px 0', backgroundColor: '#0D0E12', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1.1fr',
-            gap: '60px',
-            alignItems: 'center'
-          }} className="feature-grid">
-
-            {/* Left Image */}
-            <div style={{ position: 'relative' }}>
-              <div style={{
+                backgroundColor: '#FFFFFF',
                 borderRadius: '24px',
-                overflow: 'hidden',
-                border: '1px solid rgba(212, 175, 55, 0.3)',
-                boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-                height: '440px',
+                padding: '36px',
+                border: '1.5px solid rgba(158, 123, 59, 0.35)',
+                boxShadow: '0 20px 40px rgba(158, 123, 59, 0.12)',
+                textAlign: 'center',
                 position: 'relative'
               }}>
-                <img
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop"
-                  alt="Trusted Financial Partners"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
                 <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(180deg, rgba(9,10,14,0.2) 0%, rgba(9,10,14,0.85) 100%)'
-                }} />
-              </div>
-
-              <div style={{
-                position: 'absolute',
-                top: '-20px',
-                left: '-20px',
-                backgroundColor: '#181C26',
-                border: '2px solid #D4AF37',
-                borderRadius: '16px',
-                padding: '20px 28px',
-                boxShadow: '0 15px 35px rgba(212, 175, 55, 0.3)',
-                textAlign: 'center'
-              }}>
-                <span style={{ fontSize: '2.6rem', fontWeight: 900, color: '#D4AF37', fontFamily: 'var(--font-heading)' }}>15+</span>
-                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Years of<br />Experience
+                  width: '80px',
+                  height: '80px',
+                  margin: '0 auto 20px auto',
+                  borderRadius: '20px',
+                  backgroundColor: '#FFFBEB',
+                  border: '1.5px solid #9E7B3B',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#9E7B3B'
+                }}>
+                  <Award size={40} />
                 </div>
-              </div>
-            </div>
 
-            {/* Right Text Content */}
-            <div>
-              <span className="badge-gold">Strategic Partner</span>
-              <h2 style={{ fontSize: '2.4rem', marginTop: '12px', marginBottom: '20px', lineHeight: 1.25 }}>
-                Trusted Financial Partners <span className="gold-gradient-text">for Your Business</span>
-              </h2>
-              <p style={{ color: '#B0B8C8', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '28px' }}>
-                Kinzei Consultants (Private) Limited is a premier firm of Chartered Accountants and Tax Consultants providing statutory audit, corporate taxation, SECP registration, and cross-border advisory services across various sectors. Led by senior professionals with over <strong>15+ years of hands-on experience</strong>, we deliver practical solutions, clear advice, and dependable execution.
-              </p>
+                <h3 style={{ fontSize: '1.5rem', color: '#111827', marginBottom: '12px', fontWeight: 800 }}>
+                  Corporate Tax & Financial Advisory
+                </h3>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '32px' }}>
-                {[
-                  '15+ years of professional chartered accountancy & advisory experience',
-                  'Qualified and experienced team of FCA consultants & US CPAs',
-                  'Complete end-to-end statutory audit, tax & corporate advisory services',
-                  'Ethical, confidential, and reliable execution backed by compliance standards',
-                  'Client-focused and practical business solutions tailored to your sector'
-                ].map((item, idx) => (
-                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <ArrowRightCircle size={20} color="#D4AF37" style={{ flexShrink: 0 }} />
-                    <span style={{ color: '#E1E6F0', fontSize: '0.98rem', fontWeight: 600 }}>{item}</span>
-                  </div>
-                ))}
-              </div>
+                <p style={{ fontSize: '0.94rem', color: '#4B5563', lineHeight: '1.6', marginBottom: '24px' }}>
+                  Protect your enterprise with verified statutory audits, FBR tax defense, SECP incorporation, and global entity management.
+                </p>
 
-              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-                <Link to="/about" className="btn-primary" style={{ padding: '12px 28px' }}>
-                  <span>Learn More</span>
-                </Link>
-                <Link to="/services" className="btn-outline" style={{ padding: '12px 26px' }}>
-                  <span>Our Services</span>
-                </Link>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', textAlign: 'left', marginBottom: '24px' }}>
+                  {['FBR Income & Sales Tax Active Filings', 'Statutory Financial Audit & Assurance', 'US, UK, UAE, Saudi & German Desk', 'Retainership & Ongoing Compliance'].map((item, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: '#1F2937', fontWeight: 600 }}>
+                      <CheckCircle2 size={16} color="#9E7B3B" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <button 
+                  onClick={onOpenSchedule}
+                  className="btn-primary" 
+                  style={{ width: '100%', justifyContent: 'center', padding: '12px', borderRadius: '12px' }}
+                >
+                  <span>Book Free Consultation</span>
+                </button>
               </div>
             </div>
 
@@ -276,83 +190,81 @@ export default function Home({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 3. OUR SERVICES SECTION WITH COUNTRY SWITCHER (POSITIONED AS THE 3RD SECTION ON HOME PAGE) */}
-      <section style={{ padding: '90px 0', backgroundColor: '#090A0E', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      {/* 2. DYNAMIC REGIONAL SERVICES TAB SECTION */}
+      <section style={{ padding: '80px 0 90px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 50px auto' }}>
-            <span className="badge-gold">What Service We Offer</span>
-            <h2 style={{ fontSize: '2.4rem', marginTop: '12px', marginBottom: '16px' }}>
-              Explore Our Featured <span className="gold-gradient-text">{currentTab.name} Services</span>
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 40px auto' }}>
+            <span className="badge-gold">Global Capabilities</span>
+            <h2 style={{ fontSize: '2.4rem', color: '#111827', marginTop: '10px', marginBottom: '14px', fontWeight: 800 }}>
+              Browse Services by <span style={{ color: '#9E7B3B' }}>Service Country</span>
             </h2>
-            <p style={{ color: '#9BA4B5', fontSize: '1.05rem', lineHeight: 1.7 }}>
-              Select a country below to preview top practice areas, or click the view button to inspect the full 9-service catalog.
+            <p style={{ color: '#4B5563', fontSize: '1.02rem' }}>
+              Select any of our 6 core operating regions below to view specialized financial, tax, and registration services.
             </p>
-
-            {/* Country Selector Tabs */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '12px',
-              flexWrap: 'wrap',
-              marginTop: '32px'
-            }}>
-              {countryTabs.map((tab) => {
-                const TabFlag = tab.Flag;
-                const isActive = activeCountry === tab.code;
-                return (
-                  <button
-                    key={tab.code}
-                    onClick={() => setActiveCountry(tab.code)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '10px',
-                      padding: '12px 24px',
-                      borderRadius: '30px',
-                      fontSize: '0.95rem',
-                      fontWeight: 700,
-                      backgroundColor: isActive ? '#D4AF37' : '#141822',
-                      color: isActive ? '#0A0B0E' : '#F1F3F9',
-                      border: isActive ? '1px solid #FFD700' : '1px solid rgba(255, 255, 255, 0.1)',
-                      boxShadow: isActive ? '0 10px 25px rgba(212, 175, 55, 0.3)' : 'none',
-                      transition: 'all 0.25s ease'
-                    }}
-                  >
-                    <TabFlag size={22} />
-                    <span>{tab.label}</span>
-                  </button>
-                );
-              })}
-            </div>
           </div>
 
-          {/* EXACTLY 3 CARDS DISPLAYED ON HOMEPAGE */}
+          {/* 6 Country Filter Buttons */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '12px',
+            flexWrap: 'wrap',
+            marginBottom: '45px'
+          }}>
+            {countryTabs.map((tab) => {
+              const TabFlag = tab.Flag;
+              const isActive = activeCountry === tab.code;
+              return (
+                <button
+                  key={tab.code}
+                  onClick={() => setActiveCountry(tab.code)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    padding: '12px 22px',
+                    borderRadius: '30px',
+                    fontSize: '0.94rem',
+                    fontWeight: 700,
+                    backgroundColor: isActive ? '#9E7B3B' : '#FFFFFF',
+                    color: isActive ? '#FFFFFF' : '#1F2937',
+                    border: isActive ? '1.5px solid #7A5C24' : '1.5px solid #E5E7EB',
+                    boxShadow: isActive ? '0 8px 20px rgba(158, 123, 59, 0.25)' : '0 2px 8px rgba(0,0,0,0.04)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <TabFlag size={22} />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* 3 Featured Service Cards */}
           {loading ? (
-            <div style={{ textAlign: 'center', padding: '60px 0', color: '#D4AF37' }}>
-              Loading services...
+            <div style={{ textAlign: 'center', padding: '60px 0', color: '#9E7B3B', fontWeight: 700 }}>
+              Loading localized services for {currentTab.name}...
             </div>
           ) : (
             <div>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-                gap: '30px',
-                marginBottom: '40px'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                gap: '30px'
               }}>
                 {displayedServices.map(service => (
-                  <ServiceCard key={service.id} service={service} isDarkTheme={true} />
+                  <ServiceCard key={service.id} service={service} isDarkTheme={false} />
                 ))}
               </div>
 
-              {/* DYNAMIC VIEW ALL BUTTON UNDER THE 3 CARDS */}
-              <div style={{ textAlign: 'center' }}>
-                <button 
+              <div style={{ textAlign: 'center', marginTop: '40px' }}>
+                <button
                   onClick={() => navigate(`/services?country=${activeCountry}`)}
-                  className="btn-primary" 
-                  style={{ padding: '14px 36px', fontSize: '1rem' }}
+                  className="btn-outline"
+                  style={{ padding: '12px 30px', borderRadius: '30px', fontSize: '0.95rem' }}
                 >
                   <span>View All {currentTab.name} Services</span>
-                  <ChevronRight size={18} />
+                  <ArrowRight size={16} />
                 </button>
               </div>
             </div>
@@ -361,243 +273,90 @@ export default function Home({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 4. COUNTER STATISTICS SECTION */}
-      <section style={{ backgroundColor: '#11141C', padding: '60px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="container">
-          <div style={{
-            backgroundColor: '#181C26',
-            borderRadius: '24px',
-            padding: '40px 30px',
-            border: '1px solid rgba(212, 175, 55, 0.25)',
-            boxShadow: '0 15px 40px rgba(0,0,0,0.3)',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '30px',
-            textAlign: 'center'
-          }}>
-            {[
-              { icon: Users, number: '350 +', label: 'Happy Corporate Clients' },
-              { icon: FileText, number: '500 +', label: 'Tax & Audit Cases Completed' },
-              { icon: Award, number: '15 +', label: 'Years Of Industry Experience' },
-              { icon: Briefcase, number: '15 +', label: 'Professional Team Experts' },
-            ].map((stat, idx) => {
-              const StatIcon = stat.icon;
-              return (
-                <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <div style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '14px',
-                    backgroundColor: 'rgba(212, 175, 55, 0.12)',
-                    border: '1px solid rgba(212, 175, 55, 0.3)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#D4AF37',
-                    marginBottom: '16px'
-                  }}>
-                    <StatIcon size={26} />
-                  </div>
-                  <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#FFFFFF', fontFamily: 'var(--font-heading)', lineHeight: 1.1 }}>
-                    {stat.number}
-                  </div>
-                  <div style={{ fontSize: '0.9rem', color: '#9BA4B5', marginTop: '6px', fontWeight: 600 }}>
-                    {stat.label}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. PRACTICAL SOLUTIONS FOR STRONG FINANCIAL MANAGEMENT */}
-      <section style={{ padding: '90px 0', backgroundColor: '#090A0E', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1.1fr 1fr',
-            gap: '60px',
-            alignItems: 'center'
-          }} className="feature-grid">
-
-            {/* Left Content */}
-            <div>
-              <span className="badge-gold">Financial Excellence</span>
-              <h2 style={{ fontSize: '2.4rem', marginTop: '12px', marginBottom: '20px', lineHeight: 1.25 }}>
-                Practical Solutions for <span className="gold-gradient-text">Strong Financial Management</span>
-              </h2>
-              <p style={{ color: '#B0B8C8', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '28px' }}>
-                We support businesses with reliable audit, accounting, taxation, and advisory services designed to strengthen financial controls, ensure compliance, and support sustainable long-term growth.
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '32px' }}>
-                <div style={{ backgroundColor: '#141822', padding: '20px 24px', borderRadius: '16px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
-                  <h4 style={{ color: '#FFFFFF', fontSize: '1.15rem', marginBottom: '6px' }}>Audit & Assurance</h4>
-                  <p style={{ color: '#8A94A6', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                    Independent audit services that enhance transparency, strengthen corporate governance, and build stakeholder confidence.
-                  </p>
-                </div>
-
-                <div style={{ backgroundColor: '#141822', padding: '20px 24px', borderRadius: '16px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
-                  <h4 style={{ color: '#FFFFFF', fontSize: '1.15rem', marginBottom: '6px' }}>Advisory & Consultations</h4>
-                  <p style={{ color: '#8A94A6', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                    Practical financial and business advisory services to help clients manage operational risks, improve margin performance, and make informed decisions.
-                  </p>
-                </div>
-              </div>
-
-              <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '12px 30px' }}>
-                <span>Contact Us Today</span>
-              </button>
-            </div>
-
-            {/* Right Image */}
-            <div style={{ position: 'relative' }}>
-              <div style={{
-                borderRadius: '24px',
-                overflow: 'hidden',
-                border: '1px solid rgba(212, 175, 55, 0.3)',
-                boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-                height: '420px'
-              }}>
-                <img
-                  src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop"
-                  alt="Financial Management Solutions"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 6. OUR VALUE: BUILDING TRUST THROUGH PROFESSIONAL EXCELLENCE */}
-      <section style={{
-        padding: '90px 0',
-        background: 'linear-gradient(135deg, #0F172A 0%, #090A0E 100%)',
-        borderBottom: '1px solid rgba(212, 175, 55, 0.2)'
-      }}>
+      {/* 3. WHY CHOOSE KINZEI CONSULTANTS */}
+      <section style={{ padding: '80px 0', backgroundColor: '#F8F9FA', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
         <div className="container">
           <div style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '60px',
             alignItems: 'center'
-          }} className="value-grid">
+          }} className="why-grid">
 
-            {/* Left Content */}
             <div>
-              <span style={{ fontSize: '0.85rem', color: '#D4AF37', fontStyle: 'italic', fontWeight: 700, letterSpacing: '0.05em' }}>
-                Our Value
-              </span>
-              <h2 style={{ fontSize: '2.5rem', marginTop: '8px', marginBottom: '24px', lineHeight: 1.25, color: '#FFFFFF' }}>
-                Building Trust Through <span className="gold-gradient-text">Professional Excellence</span>
+              <span className="badge-gold">Why Kinzei Consultants</span>
+              <h2 style={{ fontSize: '2.4rem', color: '#111827', marginTop: '12px', marginBottom: '20px', fontWeight: 800 }}>
+                Unmatched Expertise in <span style={{ color: '#9E7B3B' }}>Tax & Financial Governance</span>
               </h2>
-              <p style={{ color: '#CBD5E1', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '16px' }}>
-                We create value for our clients by delivering reliable audit, accounting, taxation, and advisory services. Our approach is based on integrity, technical expertise, and a deep understanding of our clients’ business needs.
+              <p style={{ color: '#4B5563', fontSize: '1.02rem', lineHeight: '1.7', marginBottom: '28px' }}>
+                At Kinzei Consultants (Private) Limited, we bridge regulatory requirements and corporate profitability. Our team of senior chartered accountants and legal tax advisors delivers tailored solutions for startups, established Pakistani firms, and international enterprises.
               </p>
-              <p style={{ color: '#CBD5E1', fontSize: '1.05rem', lineHeight: 1.8 }}>
-                We focus on building long-term relationships by providing clear advice, timely support, and solutions that add real value to our clients’ businesses.
-              </p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {[
+                  { title: 'Full Regulatory Protection', desc: 'Compliant with FBR, SECP, HMRC, IRS, ZATCA, and German Finanzamt laws.' },
+                  { title: 'Transparent Pricing & Retainership', desc: 'No hidden fees or unexpected billings. Predictable monthly retainership tiers.' },
+                  { title: 'End-to-End International Support', desc: 'Turnkey entity formation, cross-border banking, and double tax treaty advisory.' }
+                ].map((item, index) => (
+                  <div key={index} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                    <div style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '10px',
+                      backgroundColor: '#FFFBEB',
+                      border: '1px solid #9E7B3B',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#9E7B3B',
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}>
+                      <CheckCircle2 size={20} />
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>{item.title}</h4>
+                      <p style={{ fontSize: '0.92rem', color: '#4B5563', marginTop: '2px' }}>{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Right Cards: Vision & Mission */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              
-              {/* Vision Card */}
-              <div style={{
-                backgroundColor: '#1E293B',
-                borderRadius: '16px',
-                padding: '30px',
-                borderLeft: '5px solid #D4AF37',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                display: 'flex',
-                gap: '20px'
-              }}>
-                <div style={{
-                  width: '50px',
-                  height: '50px',
-                  backgroundColor: '#D4AF37',
-                  borderRadius: '10px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Eye size={26} color="#0F172A" />
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '1.3rem', color: '#FFFFFF', marginBottom: '8px' }}>Our Vision</h3>
-                  <p style={{ color: '#94A3B8', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                    To be a trusted professional services firm known for quality, integrity, and practical solutions that help businesses grow with confidence and compliance.
-                  </p>
-                </div>
-              </div>
+            <div style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: '24px',
+              padding: '40px',
+              border: '1.5px solid rgba(158, 123, 59, 0.3)',
+              boxShadow: '0 15px 35px rgba(0, 0, 0, 0.05)'
+            }}>
+              <h3 style={{ fontSize: '1.6rem', color: '#111827', marginBottom: '20px', fontWeight: 800, textAlign: 'center' }}>
+                Schedule Your Advisory Session
+              </h3>
+              <p style={{ fontSize: '0.94rem', color: '#4B5563', textAlign: 'center', marginBottom: '28px' }}>
+                Discuss your business tax position, statutory audit requirements, or international registration with a senior partner.
+              </p>
 
-              {/* Mission Card */}
-              <div style={{
-                backgroundColor: '#1E293B',
-                borderRadius: '16px',
-                padding: '30px',
-                borderLeft: '5px solid #D4AF37',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                display: 'flex',
-                gap: '20px'
-              }}>
-                <div style={{
-                  width: '50px',
-                  height: '50px',
-                  backgroundColor: '#D4AF37',
-                  borderRadius: '10px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Target size={26} color="#0F172A" />
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '1.3rem', color: '#FFFFFF', marginBottom: '8px' }}>Our Mission</h3>
-                  <p style={{ color: '#94A3B8', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                    To provide high-quality audit, accounting, taxation, and advisory services through experienced professionals, while maintaining the highest standards of ethics, confidentiality, and client care.
-                  </p>
-                </div>
-              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <a href="tel:03034063970" className="btn-outline" style={{ width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '14px' }}>
+                  <Phone size={18} />
+                  <span>Call Us: 03034063970</span>
+                </a>
 
+                <button onClick={onOpenSchedule} className="btn-primary" style={{ width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '14px' }}>
+                  <Calendar size={18} />
+                  <span>Reserve 1-on-1 Consultation</span>
+                </button>
+              </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* 7. BOTTOM CTA BANNER */}
-      <section style={{
-        padding: '75px 0',
-        background: 'linear-gradient(135deg, #181C26 0%, #0D0E12 100%)',
-        borderTop: '1px solid rgba(212, 175, 55, 0.2)',
-        textAlign: 'center'
-      }}>
-        <div className="container">
-          <h2 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '16px' }}>GET STARTED TODAY</h2>
-          <p style={{ color: '#9BA4B5', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto 32px auto' }}>
-            Kinzei Consultants (Private) Limited provides expert tax, audit, and advisory services to help businesses navigate regulatory requirements with confidence.
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '14px 32px' }}>
-              <span>Book Schedule Now</span>
-            </button>
-            <Link to="/contact" className="btn-outline" style={{ padding: '14px 28px' }}>
-              <span>Contact Lahore Office</span>
-            </Link>
           </div>
         </div>
       </section>
 
       <style>{`
         @media (max-width: 992px) {
-          .hero-grid, .feature-grid, .value-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .hero-grid, .why-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>

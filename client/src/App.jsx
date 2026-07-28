@@ -26,11 +26,11 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#090A0E' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#FFFFFF' }}>
         <TopHeader onOpenSchedule={handleOpenSchedule} />
         <Navbar onOpenSchedule={handleOpenSchedule} />
         
-        <main style={{ flexGrow: 1 }}>
+        <main style={{ flexGrow: 1, backgroundColor: '#FFFFFF' }}>
           <Routes>
             <Route path="/" element={<Home onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/about" element={<AboutUs onOpenSchedule={handleOpenSchedule} />} />
