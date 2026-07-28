@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import KinzeiLogo from './KinzeiLogo';
-import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag, OtherFlag } from './CountryFlags';
+import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag } from './CountryFlags';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 export default function Navbar({ onOpenSchedule }) {
@@ -64,9 +64,9 @@ export default function Navbar({ onOpenSchedule }) {
       position: 'sticky',
       top: 0,
       zIndex: 1000,
-      backgroundColor: '#FFFFFF',
-      boxShadow: scrolled ? '0 4px 20px rgba(0, 0, 0, 0.08)' : '0 2px 10px rgba(0, 0, 0, 0.04)',
-      borderBottom: '1px solid rgba(158, 123, 59, 0.2)',
+      background: 'linear-gradient(135deg, #8C6B2F 0%, #7A5C24 100%)',
+      boxShadow: scrolled ? '0 6px 25px rgba(0, 0, 0, 0.25)' : '0 4px 15px rgba(0, 0, 0, 0.15)',
+      borderBottom: '1px solid rgba(255, 215, 0, 0.3)',
       transition: 'all 0.3s ease'
     }}>
       <div className="container" style={{
@@ -75,9 +75,9 @@ export default function Navbar({ onOpenSchedule }) {
         justifyContent: 'space-between',
         height: '84px'
       }}>
-        {/* Logo */}
+        {/* Logo with White & Gold text for brown background */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <KinzeiLogo height={65} lightMode={true} />
+          <KinzeiLogo height={65} isBrownHeader={true} />
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -97,16 +97,17 @@ export default function Navbar({ onOpenSchedule }) {
                     onClick={() => navigate('/services')}
                     style={{
                       background: 'none',
-                      color: location.pathname.startsWith('/services') ? '#9E7B3B' : '#111827',
+                      color: location.pathname.startsWith('/services') ? '#FFD700' : '#FFFFFF',
                       fontSize: '0.98rem',
                       fontWeight: 700,
                       display: 'flex',
                       alignItems: 'center',
                       gap: '5px',
-                      padding: '6px 0',
+                      padding: '8px 0',
                       whiteSpace: 'nowrap',
-                      borderBottom: location.pathname.startsWith('/services') ? '2px solid #9E7B3B' : '2px solid transparent',
-                      cursor: 'pointer'
+                      borderBottom: location.pathname.startsWith('/services') ? '3px solid #FFD700' : '3px solid transparent',
+                      cursor: 'pointer',
+                      transition: 'color 0.2s'
                     }}
                   >
                     <span>{link.name}</span>
@@ -121,11 +122,11 @@ export default function Navbar({ onOpenSchedule }) {
                       width: '260px',
                       backgroundColor: '#FFFFFF',
                       borderRadius: '12px',
-                      boxShadow: '0 15px 35px rgba(0, 0, 0, 0.12)',
+                      boxShadow: '0 18px 40px rgba(0, 0, 0, 0.25)',
                       padding: '8px 0',
                       zIndex: 1100,
                       animation: 'fadeIn 0.2s ease-out',
-                      border: '1px solid #E5E7EB'
+                      border: '1.5px solid #8C6B2F'
                     }}>
                       {countryItems.map((item) => {
                         const FlagComponent = item.Flag;
@@ -139,19 +140,19 @@ export default function Navbar({ onOpenSchedule }) {
                               gap: '14px',
                               padding: '12px 20px',
                               cursor: 'pointer',
-                              color: '#1F2937',
+                              color: '#111827',
                               fontWeight: 700,
                               fontSize: '0.92rem',
                               borderBottom: '1px solid #F3F4F6',
                               transition: 'all 0.2s ease'
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.backgroundColor = '#F9FAFB';
-                              e.currentTarget.style.color = '#9E7B3B';
+                              e.currentTarget.style.backgroundColor = '#8C6B2F';
+                              e.currentTarget.style.color = '#FFFFFF';
                             }}
                             onMouseLeave={(e) => {
                               e.currentTarget.style.backgroundColor = 'transparent';
-                              e.currentTarget.style.color = '#1F2937';
+                              e.currentTarget.style.color = '#111827';
                             }}
                           >
                             <FlagComponent size={24} />
@@ -170,13 +171,19 @@ export default function Navbar({ onOpenSchedule }) {
                 key={link.name} 
                 to={link.path}
                 style={{
-                  color: isActive ? '#9E7B3B' : '#111827',
+                  color: isActive ? '#FFD700' : '#FFFFFF',
                   fontWeight: 700,
                   fontSize: '0.98rem',
-                  padding: '6px 0',
+                  padding: '8px 0',
                   whiteSpace: 'nowrap',
-                  borderBottom: isActive ? '2px solid #9E7B3B' : '2px solid transparent',
+                  borderBottom: isActive ? '3px solid #FFD700' : '3px solid transparent',
                   transition: 'color 0.2s'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) e.currentTarget.style.color = '#FFD700';
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) e.currentTarget.style.color = '#FFFFFF';
                 }}
               >
                 {link.name}
@@ -185,26 +192,38 @@ export default function Navbar({ onOpenSchedule }) {
           })}
         </nav>
 
-        {/* Right WhatsApp Button */}
+        {/* Right WhatsApp Contact Button */}
         <div style={{ display: 'flex', alignItems: 'center' }} className="desktop-cta">
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary"
             style={{
-              fontSize: '0.88rem',
-              padding: '9px 20px',
+              backgroundColor: '#FFFFFF',
+              color: '#7A5C24',
+              fontSize: '0.92rem',
+              fontWeight: 800,
+              padding: '10px 22px',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
               borderRadius: '30px',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#FFD700';
+              e.currentTarget.style.color = '#111827';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#FFFFFF';
+              e.currentTarget.style.color = '#7A5C24';
             }}
           >
             <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 2C8.27 2 2 8.27 2 16C2 18.77 2.8 21.36 4.19 23.54L2.5 29.5L8.65 27.88C10.77 29.17 13.3 29.93 16 29.93C23.73 29.93 30 23.66 30 15.93C30 8.2 23.73 2 16 2ZM16 27.5C13.62 27.5 11.4 26.8 9.5 25.59L9.05 25.32L5.4 26.28L6.37 22.71L6.08 22.25C4.73 20.31 4 18.01 4 15.93C4 9.35 9.38 3.97 16 3.97C22.62 3.97 28 9.35 28 15.93C28 22.51 22.62 27.5 16 27.5Z" fill="#FFFFFF"/>
-              <path d="M22.05 19.38C21.72 19.21 20.08 18.4 19.78 18.29C19.47 18.18 19.25 18.12 19.03 18.45C18.81 18.78 18.18 19.52 17.99 19.74C17.8 19.96 17.61 19.99 17.28 19.82C16.95 19.65 15.89 19.3 14.63 18.18C13.65 17.31 12.99 16.23 12.8 15.9C12.61 15.57 12.78 15.39 12.94 15.23C13.09 15.08 13.28 14.83 13.44 14.64C13.61 14.45 13.66 14.31 13.77 14.09C13.88 13.87 13.83 13.68 13.74 13.51C13.66 13.34 13.03 11.8 12.77 11.18C12.52 10.58 12.26 10.66 12.07 10.65H11.47C11.25 10.65 10.89 10.73 10.59 11.06C10.29 11.39 9.44 12.19 9.44 13.82C9.44 15.45 10.62 17.03 10.79 17.25C10.96 17.47 13.11 20.76 16.4 22.18C17.18 22.52 17.79 22.72 18.27 22.87C19.05 23.12 19.76 23.08 20.32 23C20.95 22.91 22.25 22.21 22.52 21.45C22.79 20.69 22.38 19.55 22.05 19.38Z" fill="#FFFFFF"/>
+              <path d="M16 2C8.27 2 2 8.27 2 16C2 18.77 2.8 21.36 4.19 23.54L2.5 29.5L8.65 27.88C10.77 29.17 13.3 29.93 16 29.93C23.73 29.93 30 23.66 30 15.93C30 8.2 23.73 2 16 2ZM16 27.5C13.62 27.5 11.4 26.8 9.5 25.59L9.05 25.32L5.4 26.28L6.37 22.71L6.08 22.25C4.73 20.31 4 18.01 4 15.93C4 9.35 9.38 3.97 16 3.97C22.62 3.97 28 9.35 28 15.93C28 22.51 22.62 27.5 16 27.5Z" fill="#7A5C24"/>
+              <path d="M22.05 19.38C21.72 19.21 20.08 18.4 19.78 18.29C19.47 18.18 19.25 18.12 19.03 18.45C18.81 18.78 18.18 19.52 17.99 19.74C17.8 19.96 17.61 19.99 17.28 19.82C16.95 19.65 15.89 19.3 14.63 18.18C13.65 17.31 12.99 16.23 12.8 15.9C12.61 15.57 12.78 15.39 12.94 15.23C13.09 15.08 13.28 14.83 13.44 14.64C13.61 14.45 13.66 14.31 13.77 14.09C13.88 13.87 13.83 13.68 13.74 13.51C13.66 13.34 13.03 11.8 12.77 11.18C12.52 10.58 12.26 10.66 12.07 10.65H11.47C11.25 10.65 10.89 10.73 10.59 11.06C10.29 11.39 9.44 12.19 9.44 13.82C9.44 15.45 10.62 17.03 10.79 17.25C10.96 17.47 13.11 20.76 16.4 22.18C17.18 22.52 17.79 22.72 18.27 22.87C19.05 23.12 19.76 23.08 20.32 23C20.95 22.91 22.25 22.21 22.52 21.45C22.79 20.69 22.38 19.55 22.05 19.38Z" fill="#7A5C24"/>
             </svg>
             <span>03034063970</span>
           </a>
@@ -215,8 +234,10 @@ export default function Navbar({ onOpenSchedule }) {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           style={{
             background: 'none',
-            color: '#111827',
+            color: '#FFFFFF',
+            border: 'none',
             padding: '8px',
+            cursor: 'pointer',
             display: 'none'
           }}
           className="mobile-toggle"
@@ -228,13 +249,13 @@ export default function Navbar({ onOpenSchedule }) {
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div style={{
-          backgroundColor: '#FFFFFF',
-          borderTop: '1px solid #E5E7EB',
+          backgroundColor: '#7A5C24',
+          borderTop: '1px solid rgba(255, 215, 0, 0.3)',
           padding: '20px 24px',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
-          boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+          boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
           animation: 'fadeIn 0.2s ease-out'
         }}>
           {navLinks.map((link) => {
@@ -247,7 +268,7 @@ export default function Navbar({ onOpenSchedule }) {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      color: '#9E7B3B',
+                      color: '#FFD700',
                       fontWeight: 700,
                       fontSize: '1.1rem',
                       padding: '8px 0',
@@ -270,7 +291,7 @@ export default function Navbar({ onOpenSchedule }) {
                               display: 'flex',
                               alignItems: 'center',
                               gap: '12px',
-                              color: '#1F2937',
+                              color: '#FFFFFF',
                               fontWeight: 600,
                               fontSize: '0.95rem',
                               padding: '8px 0',
@@ -294,7 +315,7 @@ export default function Navbar({ onOpenSchedule }) {
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
-                  color: location.pathname === link.path ? '#9E7B3B' : '#111827',
+                  color: location.pathname === link.path ? '#FFD700' : '#FFFFFF',
                   fontWeight: 700,
                   fontSize: '1.1rem',
                   padding: '8px 0'
@@ -305,18 +326,25 @@ export default function Navbar({ onOpenSchedule }) {
             );
           })}
 
-          <div style={{ paddingTop: '12px', borderTop: '1px solid #E5E7EB' }}>
+          <div style={{ paddingTop: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.2)' }}>
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
-              style={{ width: '100%', justifyContent: 'center', borderRadius: '30px', textDecoration: 'none' }}
+              style={{
+                width: '100%',
+                justifyContent: 'center',
+                backgroundColor: '#FFFFFF',
+                color: '#7A5C24',
+                fontWeight: 800,
+                padding: '12px',
+                borderRadius: '30px',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
             >
-              <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 2C8.27 2 2 8.27 2 16C2 18.77 2.8 21.36 4.19 23.54L2.5 29.5L8.65 27.88C10.77 29.17 13.3 29.93 16 29.93C23.73 29.93 30 23.66 30 15.93C30 8.2 23.73 2 16 2ZM16 27.5C13.62 27.5 11.4 26.8 9.5 25.59L9.05 25.32L5.4 26.28L6.37 22.71L6.08 22.25C4.73 20.31 4 18.01 4 15.93C4 9.35 9.38 3.97 16 3.97C22.62 3.97 28 9.35 28 15.93C28 22.51 22.62 27.5 16 27.5Z" fill="#FFFFFF"/>
-                <path d="M22.05 19.38C21.72 19.21 20.08 18.4 19.78 18.29C19.47 18.18 19.25 18.12 19.03 18.45C18.81 18.78 18.18 19.52 17.99 19.74C17.8 19.96 17.61 19.99 17.28 19.82C16.95 19.65 15.89 19.3 14.63 18.18C13.65 17.31 12.99 16.23 12.8 15.9C12.61 15.57 12.78 15.39 12.94 15.23C13.09 15.08 13.28 14.83 13.44 14.64C13.61 14.45 13.66 14.31 13.77 14.09C13.88 13.87 13.83 13.68 13.74 13.51C13.66 13.34 13.03 11.8 12.77 11.18C12.52 10.58 12.26 10.66 12.07 10.65H11.47C11.25 10.65 10.89 10.73 10.59 11.06C10.29 11.39 9.44 12.19 9.44 13.82C9.44 15.45 10.62 17.03 10.79 17.25C10.96 17.47 13.11 20.76 16.4 22.18C17.18 22.52 17.79 22.72 18.27 22.87C19.05 23.12 19.76 23.08 20.32 23C20.95 22.91 22.25 22.21 22.52 21.45C22.79 20.69 22.38 19.55 22.05 19.38Z" fill="#FFFFFF"/>
-              </svg>
               <span>WhatsApp: 03034063970</span>
             </a>
           </div>

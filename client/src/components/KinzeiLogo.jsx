@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function KinzeiLogo({ height = 65 }) {
-  const primaryTextColor = '#111827';
-  const subtitleTextColor = '#1F2937';
-  const bronzeGold = '#9E7B3B';
+export default function KinzeiLogo({ height = 65, isBrownHeader = true }) {
+  const primaryTextColor = isBrownHeader ? '#FFFFFF' : '#111827';
+  const subtitleTextColor = isBrownHeader ? '#F3F4F6' : '#1F2937';
+  const bronzeGold = isBrownHeader ? '#FFD700' : '#8C6B2F';
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', userSelect: 'none' }}>
@@ -17,7 +17,7 @@ export default function KinzeiLogo({ height = 65 }) {
           maxHeight: `${height}px`,
           objectFit: 'contain',
           flexShrink: 0,
-          filter: 'drop-shadow(0 2px 5px rgba(158, 123, 59, 0.25))'
+          filter: isBrownHeader ? 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4))' : 'drop-shadow(0 2px 5px rgba(140, 107, 47, 0.25))'
         }} 
       />
 

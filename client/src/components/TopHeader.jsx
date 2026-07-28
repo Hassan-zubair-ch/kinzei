@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, Calendar, Facebook, Linkedin } from 'lucide-react';
+import { Mail, Calendar, Facebook, Linkedin, ShieldCheck } from 'lucide-react';
 
 export default function TopHeader({ onOpenSchedule }) {
   return (
@@ -8,23 +8,24 @@ export default function TopHeader({ onOpenSchedule }) {
       borderBottom: '1px solid #E5E7EB', 
       fontSize: '0.85rem',
       padding: '8px 0',
-      color: '#4B5563'
+      color: '#374151'
     }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
         
-        {/* Left Side: Contact Details */}
+        {/* Left Side: Email & Operating Hours (Clean & Professional, No duplicate phone number) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
-          <a href="tel:03034063970" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#9E7B3B', fontWeight: 700 }}>
-            <Phone size={14} color="#9E7B3B" />
-            <span>03034063970</span>
-          </a>
-          <a href="mailto:kinzeiconsultants@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#374151', transition: 'color 0.2s' }}>
-            <Mail size={14} color="#9E7B3B" />
+          <a href="mailto:kinzeiconsultants@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#8C6B2F', fontWeight: 700, transition: 'color 0.2s' }}>
+            <Mail size={14} color="#8C6B2F" />
             <span>kinzeiconsultants@gmail.com</span>
           </a>
           <span style={{ color: '#D1D5DB' }}>|</span>
-          <span style={{ fontSize: '0.8rem', color: '#6B7280', fontWeight: 600 }}>
-            Mon - Fri: 9 AM - 6 PM
+          <span style={{ fontSize: '0.82rem', color: '#4B5563', fontWeight: 600 }}>
+            Mon - Fri: 9 AM - 6 PM PKT
+          </span>
+          <span style={{ color: '#D1D5DB' }}>|</span>
+          <span style={{ fontSize: '0.78rem', backgroundColor: '#FEF3C7', color: '#92400E', padding: '2px 8px', borderRadius: '12px', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+            <ShieldCheck size={13} />
+            <span>FBR & SECP Registered Firm</span>
           </span>
         </div>
 
@@ -37,21 +38,29 @@ export default function TopHeader({ onOpenSchedule }) {
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" title="LinkedIn" style={{ color: '#4B5563', transition: 'color 0.2s' }}>
               <Linkedin size={14} />
             </a>
-            <a href="mailto:kinzeiconsultants@gmail.com" title="Email Us" style={{ color: '#4B5563', transition: 'color 0.2s' }}>
-              <Mail size={14} />
-            </a>
           </div>
 
           <button 
             onClick={onOpenSchedule}
-            className="btn-primary" 
             style={{ 
+              backgroundColor: '#8C6B2F',
+              color: '#FFFFFF',
+              border: 'none',
               padding: '6px 16px', 
               fontSize: '0.8rem', 
               borderRadius: '20px',
+              fontWeight: 800,
               textTransform: 'uppercase',
-              letterSpacing: '0.04em'
+              letterSpacing: '0.04em',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              boxShadow: '0 2px 6px rgba(140, 107, 47, 0.3)',
+              transition: 'all 0.2s ease'
             }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#7A5C24'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8C6B2F'}
           >
             <Calendar size={13} />
             <span>Book Schedule Now</span>
