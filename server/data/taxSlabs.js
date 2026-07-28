@@ -1,74 +1,83 @@
-export function calculatePakistanSalaryTax({ monthlySalary = 0, taxYear = '2025-26', autoMedical = false, manualMedical = 0 }) {
-  let grossMonthly = Number(monthlySalary) || 0;
-  let medicalMonthly = 0;
-  let basicMonthly = grossMonthly;
-
-  if (autoMedical) {
-    // Gross = Basic + Medical (10% of Basic) => Gross = 1.1 * Basic
-    basicMonthly = grossMonthly / 1.1;
-    medicalMonthly = grossMonthly - basicMonthly;
-  } else if (manualMedical > 0) {
-    medicalMonthly = Number(manualMedical);
-    basicMonthly = Math.max(0, grossMonthly - medicalMonthly);
-  }
-
-  // Under FBR rules, Medical Allowance up to 10% of Basic Salary is tax exempt
-  const exemptMedicalMonthly = Math.min(medicalMonthly, basicMonthly * 0.10);
-  const taxableMonthly = Math.max(0, grossMonthly - exemptMedicalMonthly);
-  const taxableAnnual = taxableMonthly * 12;
+export function calculatePakistanSalaryTax({ monthlySalary = 0, taxYear = '2026-2027' }) {
+  const grossMonthly = Number(monthlySalary) || 0;
+  const annualGross = grossMonthly * 12;
 
   let annualTax = 0;
+  let rem = annualGross;
 
-  if (taxYear === '2025-26') {
-    // FBR 2025-26 Salaried Slabs
-    if (taxableAnnual <= 600000) {
-      annualTax = 0;
-    } else if (taxableAnnual <= 1200000) {
-      annualTax = (taxableAnnual - 600000) * 0.05;
-    } else if (taxableAnnual <= 2200000) {
-      annualTax = 30000 + (taxableAnnual - 1200000) * 0.15;
-    } else if (taxableAnnual <= 3200000) {
-      annualTax = 180000 + (taxableAnnual - 2200000) * 0.25;
-    } else if (taxableAnnual <= 4100000) {
-      annualTax = 430000 + (taxableAnnual - 3200000) * 0.30;
-    } else {
-      annualTax = 700000 + (taxableAnnual - 4100000) * 0.35;
+  if (taxYear === '2026-2027' || taxYear === '2026-27') {
+    if (rem > 600000 && rem <= 1200000) {
+      annualTax = (rem - 600000) * 0.01;
+    } else if (rem > 1200000 && rem <= 2200000) {
+      annualTax = 6000 + (rem - 1200000) * 0.11;
+    } else if (rem > 2200000 && rem <= 3200000) {
+      annualTax = 116000 + (rem - 2200000) * 0.20;
+    } else if (rem > 3200000 && rem <= 4100000) {
+      annualTax = 316000 + (rem - 3200000) * 0.25;
+    } else if (rem > 4100000 && rem <= 5600000) {
+      annualTax = 541000 + (rem - 4100000) * 0.29;
+    } else if (rem > 5600000 && rem <= 7000000) {
+      annualTax = 976000 + (rem - 5600000) * 0.32;
+    } else if (rem > 7000000) {
+      annualTax = 1424000 + (rem - 7000000) * 0.35;
     }
-  } else {
-    // FBR 2024-25 Salaried Slabs
-    if (taxableAnnual <= 600000) {
-      annualTax = 0;
-    } else if (taxableAnnual <= 1200000) {
-      annualTax = (taxableAnnual - 600000) * 0.025;
-    } else if (taxableAnnual <= 2400000) {
-      annualTax = 15000 + (taxableAnnual - 1200000) * 0.125;
-    } else if (taxableAnnual <= 3600000) {
-      annualTax = 165000 + (taxableAnnual - 2400000) * 0.225;
-    } else if (taxableAnnual <= 6000000) {
-      annualTax = 435000 + (taxableAnnual - 3600000) * 0.275;
-    } else {
-      annualTax = 1095000 + (taxableAnnual - 6000000) * 0.35;
+  } else if (taxYear === '2025-2026' || taxYear === '2025-26') {
+    if (rem > 600000 && rem <= 1200000) {
+      annualTax = (rem - 600000) * 0.01;
+    } else if (rem > 1200000 && rem <= 2200000) {
+      annualTax = 6000 + (rem - 1200000) * 0.11;
+    } else if (rem > 2200000 && rem <= 3200000) {
+      annualTax = 116000 + (rem - 2200000) * 0.23;
+    } else if (rem > 3200000 && rem <= 4100000) {
+      annualTax = 346000 + (rem - 3200000) * 0.30;
+    } else if (rem > 4100000) {
+      annualTax = 616000 + (rem - 4100000) * 0.35;
+    }
+    if (annualGross > 10000000) {
+      annualTax = annualTax * 1.09;
+    }
+  } else if (taxYear === '2024-2025' || taxYear === '2024-25') {
+    if (rem > 600000 && rem <= 1200000) {
+      annualTax = (rem - 600000) * 0.05;
+    } else if (rem > 1200000 && rem <= 2200000) {
+      annualTax = 30000 + (rem - 1200000) * 0.15;
+    } else if (rem > 2200000 && rem <= 3200000) {
+      annualTax = 180000 + (rem - 2200000) * 0.25;
+    } else if (rem > 3200000 && rem <= 4100000) {
+      annualTax = 430000 + (rem - 3200000) * 0.3;
+    } else if (rem > 4100000) {
+      annualTax = 700000 + (rem - 4100000) * 0.35;
+    }
+  } else if (taxYear === '2023-2024' || taxYear === '2023-24') {
+    if (rem > 600000 && rem <= 1200000) {
+      annualTax = (rem - 600000) * 0.025;
+    } else if (rem > 1200000 && rem <= 2400000) {
+      annualTax = 15000 + (rem - 1200000) * 0.125;
+    } else if (rem > 2400000 && rem <= 3600000) {
+      annualTax = 165000 + (rem - 2400000) * 0.225;
+    } else if (rem > 3600000 && rem <= 6000000) {
+      annualTax = 435000 + (rem - 3600000) * 0.275;
+    } else if (rem > 6000000) {
+      annualTax = 1095000 + (rem - 6000000) * 0.35;
     }
   }
 
-  const monthlyTax = annualTax / 12;
-  const annualGross = grossMonthly * 12;
-  const monthlyNet = grossMonthly - monthlyTax;
-  const annualNet = annualGross - annualTax;
+  annualTax = Math.round(annualTax);
+  const monthlyTax = Math.round(annualTax / 12);
+  const monthlyNet = Math.max(0, grossMonthly - monthlyTax);
+  const annualNet = Math.max(0, annualGross - annualTax);
 
   return {
     country: 'Pakistan',
     currency: 'PKR',
     symbol: 'Rs',
-    basicMonthly: Math.round(basicMonthly),
-    medicalMonthly: Math.round(medicalMonthly),
     monthlyGross: Math.round(grossMonthly),
-    monthlyTax: Math.round(monthlyTax),
-    monthlyNet: Math.round(monthlyNet),
+    monthlyTax: monthlyTax,
+    monthlyNet: monthlyNet,
     annualGross: Math.round(annualGross),
-    annualTax: Math.round(annualTax),
-    annualNet: Math.round(annualNet),
-    note: `Tax calculated as per selected FBR ${taxYear} salaried slabs.`
+    annualTax: annualTax,
+    annualNet: annualNet,
+    note: `Tax calculated per official taxcalculator.pk logic for ${taxYear}.`
   };
 }
 
@@ -205,12 +214,10 @@ export function calculateUAETax({ monthlySalary = 0, entityType = 'salary' }) {
 
   let annualTax = 0;
   if (entityType === 'corporate') {
-    // UAE Corporate tax: 0% up to AED 375,000, 9% above
     if (annualGross > 375000) {
       annualTax = (annualGross - 375000) * 0.09;
     }
   } else {
-    // Individual salary in UAE is 0% tax
     annualTax = 0;
   }
 
