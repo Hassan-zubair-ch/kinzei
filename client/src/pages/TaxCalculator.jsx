@@ -62,27 +62,6 @@ export default function TaxCalculator({ onOpenSchedule }) {
   return (
     <div style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', color: '#111827' }}>
       
-      {/* Top Banner Header */}
-      <section style={{
-        backgroundColor: '#F8F9FA',
-        padding: '50px 0 35px 0',
-        textAlign: 'center',
-        borderBottom: '1px solid #E5E7EB'
-      }}>
-        <div className="container">
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }} className="badge-gold">
-            <PKFlag size={18} />
-            <span>FBR Official Compliant Tool</span>
-          </div>
-          <h1 style={{ fontSize: '2.6rem', color: '#111827', marginTop: '8px', marginBottom: '10px', fontWeight: 800 }}>
-            Pakistan <span style={{ color: '#9E7B3B' }}>Salary Tax Calculator</span>
-          </h1>
-          <p style={{ color: '#4B5563', fontSize: '1.05rem', maxWidth: '650px', margin: '0 auto' }}>
-            Accurate monthly and annual income tax estimation for salaried individuals in Pakistan according to latest Federal Board of Revenue (FBR) tax rates.
-          </p>
-        </div>
-      </section>
-
       {/* MAIN CALCULATOR CARD CONTAINER (EXACT MATCH TO ATTACHED DESIGN) */}
       <section style={{ padding: '50px 0 80px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container" style={{ maxWidth: '820px' }}>
