@@ -1,226 +1,294 @@
 import React from 'react';
-
-const ExpertsIcon = ({ color = "#9E7B3B" }) => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="22" cy="16" r="10" stroke={color} strokeWidth="2" fill="none" />
-    <ellipse cx="22" cy="16" rx="4.5" ry="10" stroke={color} strokeWidth="1.8" fill="none" />
-    <line x1="12" y1="16" x2="32" y2="16" stroke={color} strokeWidth="1.8" />
-    <circle cx="22" cy="30" r="3" stroke={color} strokeWidth="1.8" fill="none" />
-    <path d="M16 38C16 34.5 18.5 33.5 22 33.5C25.5 33.5 28 34.5 28 38" stroke={color} strokeWidth="1.8" strokeLinecap="round" fill="none" />
-  </svg>
-);
-
-const ConsultationsIcon = ({ color = "#FFFFFF" }) => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="8" y="10" width="18" height="14" rx="3" stroke={color} strokeWidth="2.2" fill="none" />
-    <path d="M12 24L10 28L16 24" stroke={color} strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <line x1="12" y1="15" x2="22" y2="15" stroke={color} strokeWidth="2" strokeLinecap="round" />
-    <line x1="12" y1="19" x2="18" y2="19" stroke={color} strokeWidth="2" strokeLinecap="round" />
-
-    <rect x="20" y="18" width="16" height="13" rx="3" stroke={color} strokeWidth="2.2" fill="none" />
-    <path d="M30 31L34 34L33 31" stroke={color} strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <line x1="24" y1="22" x2="32" y2="22" stroke={color} strokeWidth="2" strokeLinecap="round" />
-    <line x1="24" y1="26" x2="29" y2="26" stroke={color} strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
-
-const TimeIcon = ({ color = "#FFFFFF" }) => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="22" cy="22" r="13" stroke={color} strokeWidth="2.2" fill="none" />
-    <line x1="22" y1="14" x2="22" y2="22" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-    <line x1="22" y1="22" x2="28" y2="22" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-    <path d="M15 15L13 13" stroke={color} strokeWidth="2" strokeLinecap="round" />
-    <path d="M29 15L31 13" stroke={color} strokeWidth="2" strokeLinecap="round" />
-    <path d="M29 29L31 31" stroke={color} strokeWidth="2" strokeLinecap="round" />
-    <path d="M15 29L13 31" stroke={color} strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
-
-const QualityIcon = ({ color = "#9E7B3B" }) => (
-  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M22 6L24.5 9.5L29 8.5L29.5 13L34 14L32.5 18.5L36 22L32.5 25.5L34 30L29.5 31L29 35.5L24.5 34.5L22 38L19.5 34.5L15 35.5L14.5 31L10 30L11.5 25.5L8 22L11.5 18.5L10 14L14.5 13L15 8.5L19.5 9.5L22 6Z" stroke={color} strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <path d="M17 25V21C17 21 17 17 20 17C21.5 17 21 19.5 22.5 21C23 21.5 27 21.5 27 23.5C27 24.5 26 25 26.5 26C27 27 25.5 27.5 25.5 28.5C25.5 29.5 24 30 22 30H19C17.5 30 17 29 17 29" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-  </svg>
-);
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function WhyChooseUsSection({ onOpenSchedule }) {
-  const cards = [
-    {
-      titleLine1: 'Professional',
-      titleLine2: 'Experts',
-      isGold: false,
-      Icon: ExpertsIcon
-    },
-    {
-      titleLine1: 'Free',
-      titleLine2: 'Consultations',
-      isGold: true,
-      Icon: ConsultationsIcon
-    },
-    {
-      titleLine1: 'Saving You',
-      titleLine2: 'Time',
-      isGold: true,
-      Icon: TimeIcon
-    },
-    {
-      titleLine1: 'Best Quality',
-      titleLine2: 'Service',
-      isGold: false,
-      Icon: QualityIcon
-    }
+  const navigate = useNavigate();
+
+  const bulletPoints = [
+    "15+ years of professional experience",
+    "Qualified and experienced team",
+    "Complete audit, tax & advisory services",
+    "Ethical, confidential, and reliable",
+    "Client-focused and practical solutions"
   ];
 
   return (
     <section style={{
-      backgroundColor: '#111827',
-      backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(158, 123, 59, 0.12) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(158, 123, 59, 0.08) 0%, transparent 40%)',
-      padding: '85px 0 95px 0',
-      color: '#FFFFFF',
+      backgroundColor: '#F8F9FA',
+      padding: '90px 0 100px 0',
+      color: '#111827',
       position: 'relative',
       overflow: 'hidden',
-      borderTop: '1px solid rgba(158, 123, 59, 0.2)',
-      borderBottom: '1px solid rgba(158, 123, 59, 0.2)'
+      borderTop: '1px solid #E5E7EB',
+      borderBottom: '1px solid #E5E7EB'
     }}>
       <div className="container">
         <div 
-          className="why-choose-us-grid"
+          className="why-us-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: '1.15fr 0.85fr',
-            gap: '60px',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '65px',
             alignItems: 'center'
           }}
         >
-          {/* Left Column: Heading & Subtitle */}
-          <div>
-            <div style={{ display: 'inline-block' }}>
-              <span style={{
-                fontSize: '1.05rem',
-                fontWeight: '700',
-                color: '#C5A059',
-                letterSpacing: '0.2px',
+          {/* Left Column: Image with Floating 15+ Years Badge & Logo Overlay */}
+          <div style={{ position: 'relative', paddingLeft: '20px', paddingTop: '20px' }}>
+            
+            {/* Main Desk Image Container */}
+            <div style={{
+              borderRadius: '8px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.12)',
+              position: 'relative',
+              backgroundColor: '#FFFFFF',
+              border: '1px solid #E5E7EB'
+            }}>
+              <img 
+                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=900&auto=format&fit=crop" 
+                alt="M. Irfan & Co. Financial Advisory Desk"
+                style={{
+                  width: '100%',
+                  height: '480px',
+                  objectFit: 'cover',
+                  display: 'block',
+                  filter: 'contrast(1.03) brightness(0.98)'
+                }}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=900&auto=format&fit=crop';
+                }}
+              />
+
+              {/* Bottom-Right Logo Watermark Badge */}
+              <div style={{
+                position: 'absolute',
+                bottom: '24px',
+                right: '24px',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(8px)',
+                padding: '14px 22px',
+                borderRadius: '8px',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '14px',
+                border: '1px solid rgba(196, 154, 44, 0.3)'
+              }}>
+                <div style={{
+                  width: '38px',
+                  height: '38px',
+                  backgroundColor: '#0F2C4C',
+                  borderRadius: '6px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#C49A2C',
+                  fontWeight: 900,
+                  fontSize: '1.2rem'
+                }}>
+                  K
+                </div>
+                <div>
+                  <div style={{
+                    fontSize: '1.05rem',
+                    fontWeight: 900,
+                    color: '#0F2C4C',
+                    letterSpacing: '0.5px',
+                    lineHeight: 1.1
+                  }}>
+                    KINZEI CONSULTANTS
+                  </div>
+                  <div style={{
+                    fontSize: '0.72rem',
+                    fontWeight: 800,
+                    color: '#C49A2C',
+                    letterSpacing: '1px',
+                    marginTop: '3px',
+                    textTransform: 'uppercase'
+                  }}>
+                    (Private) Limited
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Top-Left 15+ Years Badge */}
+            <div style={{
+              position: 'absolute',
+              top: '0',
+              left: '0',
+              backgroundColor: '#FFFFFF',
+              border: '3.5px solid #C49A2C',
+              padding: '24px 28px',
+              textAlign: 'center',
+              boxShadow: '0 15px 35px rgba(0, 0, 0, 0.15)',
+              zIndex: 10,
+              minWidth: '160px'
+            }}>
+              <div style={{
+                fontSize: '3.2rem',
+                fontWeight: 900,
+                color: '#C49A2C',
+                lineHeight: 1,
                 fontFamily: 'var(--font-heading)'
               }}>
-                Why Choose Us
-              </span>
+                15+
+              </div>
               <div style={{
-                width: '42px',
-                height: '3px',
-                backgroundColor: '#9E7B3B',
+                fontSize: '0.92rem',
+                fontWeight: 700,
+                color: '#1F2937',
                 marginTop: '6px',
-                borderRadius: '2px'
-              }} />
+                lineHeight: 1.25,
+                fontFamily: 'var(--font-body)'
+              }}>
+                Years of<br />Experience
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Column: Why Choose Us Content */}
+          <div>
+            <div style={{
+              fontSize: '1.05rem',
+              fontWeight: '600',
+              color: '#C49A2C',
+              fontStyle: 'italic',
+              marginBottom: '8px',
+              fontFamily: 'Georgia, serif'
+            }}>
+              Why Choose Us
             </div>
 
             <h2 style={{
-              fontSize: 'clamp(2rem, 3.8vw, 2.6rem)',
-              fontWeight: '800',
-              color: '#FFFFFF',
-              marginTop: '22px',
-              marginBottom: '22px',
-              lineHeight: 1.25,
-              maxWidth: '560px',
+              fontSize: 'clamp(2.1rem, 3.8vw, 2.7rem)',
+              fontWeight: 800,
+              color: '#111827',
+              lineHeight: 1.2,
+              marginBottom: '20px',
               fontFamily: 'var(--font-heading)'
             }}>
-              Trusted by Businesses for Professional Tax &amp; Advisory Services
+              Trusted Financial &amp; Corporate<br />Partners for Your Business
             </h2>
 
             <p style={{
               fontSize: '1.02rem',
-              color: '#D1D5DB',
+              color: '#4B5563',
               lineHeight: '1.7',
-              maxWidth: '540px',
-              margin: 0,
+              marginBottom: '28px',
               fontFamily: 'var(--font-body)'
             }}>
-              We support businesses with reliable tax, audit, compliance, and advisory solutions. Our experienced professionals focus on accuracy, transparency, and timely delivery to help clients meet regulatory requirements and achieve long-term growth with confidence.
+              <strong style={{ color: '#111827' }}>Kinzei Consultants (Private) Limited</strong> is a premier corporate tax, statutory audit, and financial advisory firm serving businesses across Pakistan, US, UK, UAE, Saudi Arabia, and Germany. Led by senior professionals with over <strong style={{ color: '#111827' }}>15 years of experience</strong>, we deliver practical solutions, regulatory transparency, and dependable strategic advice.
             </p>
-          </div>
 
-          {/* Right Column: 2x2 Feature Cards Grid */}
-          <div 
-            className="why-cards-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '20px'
-            }}
-          >
-            {cards.map((card, index) => {
-              const CardIcon = card.Icon;
-              const iconColor = card.isGold ? '#FFFFFF' : '#9E7B3B';
-              return (
-                <div
-                  key={index}
-                  onClick={onOpenSchedule}
-                  className="why-card-hover"
-                  style={{
-                    background: card.isGold 
-                      ? 'linear-gradient(135deg, #C5A059 0%, #9E7B3B 50%, #7A5C24 100%)' 
-                      : '#FFFFFF',
-                    borderRadius: '14px',
-                    padding: '30px 24px',
+            <div style={{ width: '100%', height: '1px', backgroundColor: '#E5E7EB', marginBottom: '24px' }} />
+
+            {/* Checklist with Golden Circled Arrows */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px' }}>
+              {bulletPoints.map((text, idx) => (
+                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{
+                    width: '22px',
+                    height: '22px',
+                    borderRadius: '50%',
+                    border: '1.8px solid #C49A2C',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '18px',
-                    boxShadow: card.isGold 
-                      ? '0 10px 25px rgba(158, 123, 59, 0.3)' 
-                      : '0 10px 25px rgba(0, 0, 0, 0.2)',
-                    border: card.isGold ? 'none' : '1.5px solid rgba(158, 123, 59, 0.3)',
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer'
-                  }}
-                >
-                  <div style={{ flexShrink: 0 }}>
-                    <CardIcon color={iconColor} />
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    backgroundColor: 'rgba(196, 154, 44, 0.05)'
+                  }}>
+                    <ArrowRight size={13} color="#C49A2C" strokeWidth={2.8} />
                   </div>
-                  <div>
-                    <div style={{
-                      fontSize: '1.18rem',
-                      fontWeight: '700',
-                      color: card.isGold ? '#FFFFFF' : '#111827',
-                      lineHeight: '1.25',
-                      fontFamily: 'var(--font-heading)'
-                    }}>
-                      {card.titleLine1}
-                    </div>
-                    <div style={{
-                      fontSize: '1.18rem',
-                      fontWeight: '700',
-                      color: card.isGold ? '#FFFFFF' : '#111827',
-                      lineHeight: '1.25',
-                      fontFamily: 'var(--font-heading)'
-                    }}>
-                      {card.titleLine2}
-                    </div>
-                  </div>
+                  <span style={{
+                    fontSize: '0.98rem',
+                    fontWeight: 600,
+                    color: '#374151'
+                  }}>
+                    {text}
+                  </span>
                 </div>
-              );
-            })}
+              ))}
+            </div>
+
+            <div style={{ width: '100%', height: '1px', backgroundColor: '#E5E7EB', marginBottom: '30px' }} />
+
+            {/* Action Buttons */}
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <button 
+                onClick={() => navigate('/about-us')}
+                style={{
+                  backgroundColor: '#C49A2C',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  padding: '13px 34px',
+                  fontSize: '0.92rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.5px',
+                  textTransform: 'uppercase',
+                  borderRadius: '3px',
+                  cursor: 'pointer',
+                  boxShadow: '0 6px 18px rgba(196, 154, 44, 0.25)',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#B28923';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#C49A2C';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                Learn More
+              </button>
+
+              <button 
+                onClick={() => navigate('/services')}
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#C49A2C',
+                  border: '1.5px solid #C49A2C',
+                  padding: '13px 32px',
+                  fontSize: '0.92rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.5px',
+                  textTransform: 'uppercase',
+                  borderRadius: '3px',
+                  cursor: 'pointer',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#C49A2C';
+                  e.currentTarget.style.color = '#FFFFFF';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#C49A2C';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                Our Services
+              </button>
+            </div>
+
           </div>
         </div>
       </div>
 
       <style>{`
-        .why-card-hover:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 16px 35px rgba(158, 123, 59, 0.3) !important;
-        }
-
         @media (max-width: 992px) {
-          .why-choose-us-grid {
+          .why-us-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
-          }
-        }
-
-        @media (max-width: 540px) {
-          .why-cards-grid {
-            grid-template-columns: 1fr !important;
+            gap: 50px !important;
           }
         }
       `}</style>
     </section>
   );
 }
+

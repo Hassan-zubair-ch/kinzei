@@ -51,147 +51,377 @@ export default function Home({ onOpenSchedule }) {
       {/* 1. HERO SECTION */}
       <section style={{
         position: 'relative',
-        padding: '80px 0 90px 0',
-        backgroundColor: '#F8F9FA',
-        borderBottom: '1px solid #E5E7EB',
+        padding: '70px 0 80px 0',
+        backgroundColor: '#FFFFFF',
         overflow: 'hidden'
       }}>
+        {/* Subtle Wave Vector Graphic in Left Background */}
+        <svg 
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: '50%',
+            height: '70%',
+            opacity: 0.18,
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+          viewBox="0 0 600 400" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M-100 350 C100 250, 300 450, 500 280 C550 240, 580 200, 600 150" stroke="#C49A2C" strokeWidth="1.5" />
+          <path d="M-100 370 C120 270, 320 470, 520 300 C570 260, 590 220, 620 170" stroke="#C49A2C" strokeWidth="1.2" />
+          <path d="M-100 390 C140 290, 340 490, 540 320 C590 280, 610 240, 640 190" stroke="#C49A2C" strokeWidth="1.2" />
+          <path d="M-100 330 C80 230, 280 430, 480 260 C530 220, 560 180, 580 130" stroke="#C49A2C" strokeWidth="1.5" />
+          <path d="M-100 310 C60 210, 260 410, 460 240 C510 200, 540 160, 560 110" stroke="#C49A2C" strokeWidth="1" />
+        </svg>
+
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1.2fr 0.8fr',
-            gap: '60px',
+            gridTemplateColumns: '1.1fr 0.9fr',
+            gap: '50px',
             alignItems: 'center'
           }} className="hero-grid">
             
             {/* Left Hero Content */}
-            <div>
-              <span className="badge-gold" style={{ marginBottom: '16px' }}>
-                <ShieldCheck size={15} color="#9E7B3B" />
-                Kinzei Consultants (Private) Limited
-              </span>
+            <div style={{ paddingRight: '10px' }}>
+              <div style={{
+                fontSize: '1.12rem',
+                color: '#C49A2C',
+                fontStyle: 'italic',
+                fontWeight: 600,
+                marginBottom: '16px',
+                fontFamily: 'Georgia, serif'
+              }}>
+                Welcome to Kinzei Consultants
+              </div>
 
               <h1 style={{
-                fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)',
-                lineHeight: 1.15,
+                fontSize: 'clamp(2.4rem, 4.5vw, 3.5rem)',
+                lineHeight: 1.16,
                 marginBottom: '20px',
-                fontWeight: 900,
-                color: '#111827'
+                fontWeight: 800,
+                color: '#111827',
+                fontFamily: 'var(--font-heading)'
               }}>
-                Strategic Tax, Audit & <span style={{ color: '#9E7B3B' }}>Global Advisory</span>
+                Trusted Chartered Accountants for Your Business Success
               </h1>
 
               <p style={{
-                fontSize: '1.12rem',
+                fontSize: '1.08rem',
                 color: '#4B5563',
                 lineHeight: 1.7,
                 marginBottom: '36px',
-                maxWidth: '620px'
+                maxWidth: '580px'
               }}>
-                Kinzei Consultants provides expert corporate tax compliance, statutory audit, entity registration, and cross-border Pakistan, US, UK, UAE, Saudi & German advisory services with total transparency.
+                We provide reliable audit, accounting, taxation, and advisory services to help businesses stay compliant, grow confidently, and make informed financial decisions.
               </p>
 
-              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div>
                 <button 
                   onClick={onOpenSchedule} 
-                  className="btn-primary"
-                  style={{ padding: '14px 30px', fontSize: '0.98rem', borderRadius: '30px' }}
+                  style={{
+                    backgroundColor: '#C49A2C',
+                    color: '#FFFFFF',
+                    border: 'none',
+                    padding: '14px 34px',
+                    fontSize: '0.92rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.8px',
+                    textTransform: 'uppercase',
+                    borderRadius: '2px',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    boxShadow: '0 6px 20px rgba(196, 154, 44, 0.3)',
+                    transition: 'all 0.25s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#B28923';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#C49A2C';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
                 >
-                  <Calendar size={18} />
-                  <span>Book Schedule Now</span>
+                  <span>GET STARTED</span>
+                  <span style={{ fontSize: '1.1rem', fontWeight: 900 }}>&gt;</span>
                 </button>
-
-                <Link 
-                  to="/tax-calculator" 
-                  className="btn-outline"
-                  style={{ padding: '14px 28px', fontSize: '0.98rem', borderRadius: '30px' }}
-                >
-                  <Calculator size={18} />
-                  <span>Pakistan Tax Calculator</span>
-                </Link>
               </div>
 
-              {/* Trust Indicators */}
-              <div style={{
-                marginTop: '45px',
-                paddingTop: '25px',
-                borderTop: '1px solid #E5E7EB',
-                display: 'flex',
-                gap: '30px',
-                flexWrap: 'wrap'
-              }}>
-                <div>
-                  <h4 style={{ fontSize: '1.7rem', color: '#9E7B3B', fontWeight: 900 }}>10+</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#6B7280', fontWeight: 600 }}>Years Advisory Excellence</p>
-                </div>
-                <div style={{ width: '1px', backgroundColor: '#E5E7EB' }} />
-                <div>
-                  <h4 style={{ fontSize: '1.7rem', color: '#9E7B3B', fontWeight: 900 }}>100%</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#6B7280', fontWeight: 600 }}>Statutory FBR & SECP Compliance</p>
-                </div>
-                <div style={{ width: '1px', backgroundColor: '#E5E7EB' }} />
-                <div>
-                  <h4 style={{ fontSize: '1.7rem', color: '#9E7B3B', fontWeight: 900 }}>6</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#6B7280', fontWeight: 600 }}>Service Countries Supported</p>
-                </div>
-              </div>
             </div>
 
-            {/* Right Hero Graphic Card */}
-            <div>
+            {/* Right Hero Graphic: CEO Orbit Ring & Photo Cutout */}
+            <div style={{ position: 'relative', textAlign: 'center' }}>
+              
               <div style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '24px',
-                padding: '36px',
-                border: '1.5px solid rgba(158, 123, 59, 0.35)',
-                boxShadow: '0 20px 40px rgba(158, 123, 59, 0.12)',
-                textAlign: 'center',
-                position: 'relative'
+                position: 'relative',
+                maxWidth: '480px',
+                margin: '0 auto',
+                display: 'inline-block',
+                width: '100%'
               }}>
-                <div style={{
-                  width: '80px',
-                  height: '80px',
-                  margin: '0 auto 20px auto',
-                  borderRadius: '20px',
-                  backgroundColor: '#FFFBEB',
-                  border: '1.5px solid #9E7B3B',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#9E7B3B'
-                }}>
-                  <Award size={40} />
-                </div>
 
-                <h3 style={{ fontSize: '1.5rem', color: '#111827', marginBottom: '12px', fontWeight: 800 }}>
-                  Corporate Tax & Financial Advisory
-                </h3>
-
-                <p style={{ fontSize: '0.94rem', color: '#4B5563', lineHeight: '1.6', marginBottom: '24px' }}>
-                  Protect your enterprise with verified statutory audits, FBR tax defense, SECP incorporation, and global entity management.
-                </p>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', textAlign: 'left', marginBottom: '24px' }}>
-                  {['FBR Income & Sales Tax Active Filings', 'Statutory Financial Audit & Assurance', 'US, UK, UAE, Saudi & German Desk', 'Retainership & Ongoing Compliance'].map((item, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: '#1F2937', fontWeight: 600 }}>
-                      <CheckCircle2 size={16} color="#9E7B3B" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <button 
-                  onClick={onOpenSchedule}
-                  className="btn-primary" 
-                  style={{ width: '100%', justifyContent: 'center', padding: '12px', borderRadius: '12px' }}
+                {/* Silver/Grey Orbit Arch Ring Background SVG */}
+                <svg 
+                  style={{
+                    position: 'absolute',
+                    top: '-5%',
+                    left: '-5%',
+                    width: '110%',
+                    height: '105%',
+                    pointerEvents: 'none',
+                    zIndex: 1
+                  }}
+                  viewBox="0 0 500 500" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <span>Book Free Consultation</span>
-                </button>
+                  {/* Circular Arc Line */}
+                  <path 
+                    d="M 60 380 A 210 210 0 1 1 440 380" 
+                    stroke="#CBD5E1" 
+                    strokeWidth="1.8" 
+                    strokeDasharray="none"
+                  />
+                  {/* Orbit Node Dots */}
+                  <circle cx="85" cy="160" r="5" fill="#CBD5E1" />
+                  <circle cx="250" cy="40" r="5" fill="#CBD5E1" />
+                  <circle cx="415" cy="160" r="5" fill="#CBD5E1" />
+                  <circle cx="65" cy="330" r="5" fill="#CBD5E1" />
+                  <circle cx="435" cy="330" r="5" fill="#CBD5E1" />
+                </svg>
+
+                {/* 4 Orbit Node Labels around the Arc */}
+                {/* 1. Top-Left */}
+                <div style={{
+                  position: 'absolute',
+                  top: '6%',
+                  left: '-8%',
+                  zIndex: 10,
+                  maxWidth: '160px',
+                  textAlign: 'right',
+                  fontSize: '1.15rem',
+                  fontWeight: 700,
+                  color: '#2A2E5D',
+                  lineHeight: 1.25,
+                  fontFamily: 'var(--font-heading)'
+                }}>
+                  Accounting &amp;<br />Financial Reporting
+                </div>
+
+                {/* 2. Top-Right */}
+                <div style={{
+                  position: 'absolute',
+                  top: '6%',
+                  right: '-6%',
+                  zIndex: 10,
+                  maxWidth: '150px',
+                  textAlign: 'left',
+                  fontSize: '1.15rem',
+                  fontWeight: 700,
+                  color: '#2A2E5D',
+                  lineHeight: 1.25,
+                  fontFamily: 'var(--font-heading)'
+                }}>
+                  Taxation<br />Services
+                </div>
+
+                {/* 3. Bottom-Left */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '22%',
+                  left: '-10%',
+                  zIndex: 10,
+                  maxWidth: '160px',
+                  textAlign: 'right',
+                  fontSize: '1.15rem',
+                  fontWeight: 700,
+                  color: '#2A2E5D',
+                  lineHeight: 1.25,
+                  fontFamily: 'var(--font-heading)'
+                }}>
+                  Consultancy &amp;<br />Outsourcing
+                </div>
+
+                {/* 4. Bottom-Right */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '20%',
+                  right: '-12%',
+                  zIndex: 10,
+                  maxWidth: '170px',
+                  textAlign: 'left',
+                  fontSize: '1.15rem',
+                  fontWeight: 700,
+                  color: '#2A2E5D',
+                  lineHeight: 1.25,
+                  fontFamily: 'var(--font-heading)'
+                }}>
+                  Information<br />Technology<br />Services
+                </div>
+
+                {/* CEO Cutout Image Container */}
+                <div style={{
+                  position: 'relative',
+                  zIndex: 2,
+                  margin: '0 auto',
+                  maxWidth: '380px',
+                  borderRadius: '12px',
+                  overflow: 'hidden'
+                }}>
+                  <img 
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=700&auto=format&fit=crop" 
+                    alt="Muhammad Irfan, FCA - CEO & Founder" 
+                    style={{
+                      width: '100%',
+                      height: '460px',
+                      objectFit: 'cover',
+                      objectPosition: 'center 15%',
+                      display: 'block',
+                      filter: 'contrast(1.02)'
+                    }}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=700&auto=format&fit=crop';
+                    }}
+                  />
+
+                  {/* Gradient Shadow Overlay for Name */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: '40px 20px 16px 20px',
+                    background: 'linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%)',
+                    color: '#FFFFFF',
+                    textAlign: 'center'
+                  }}>
+                    <h3 style={{
+                      fontSize: '1.75rem',
+                      fontWeight: 800,
+                      color: '#FFFFFF',
+                      letterSpacing: '0.3px',
+                      margin: 0,
+                      textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+                      fontFamily: 'var(--font-heading)'
+                    }}>
+                      Senior Partner &amp; CEO
+                    </h3>
+                  </div>
+                </div>
+
               </div>
+
             </div>
 
           </div>
         </div>
+      </section>
+
+      {/* 3 SLEEK TEXT BOXES BAND UNDER HERO SECTION */}
+      <section style={{
+        backgroundColor: '#04284D',
+        color: '#FFFFFF',
+        position: 'relative',
+        zIndex: 5
+      }}>
+        <div className="container" style={{ padding: '42px 24px' }}>
+          <div 
+            className="hero-boxes-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '40px',
+              alignItems: 'flex-start'
+            }}
+          >
+            {/* Box 1 */}
+            <div>
+              <h3 style={{
+                fontSize: '1.3rem',
+                fontWeight: 700,
+                color: '#FFFFFF',
+                marginBottom: '10px',
+                fontFamily: 'var(--font-heading)'
+              }}>
+                Audit &amp; Assurance
+              </h3>
+              <p style={{
+                fontSize: '0.94rem',
+                color: '#CBD5E1',
+                lineHeight: '1.6',
+                margin: 0,
+                fontFamily: 'var(--font-body)'
+              }}>
+                Independent audit services to ensure transparency, compliance, and confidence in your financial reporting.
+              </p>
+            </div>
+
+            {/* Box 2 */}
+            <div>
+              <h3 style={{
+                fontSize: '1.3rem',
+                fontWeight: 700,
+                color: '#FFFFFF',
+                marginBottom: '10px',
+                fontFamily: 'var(--font-heading)'
+              }}>
+                Accounting &amp; Reporting
+              </h3>
+              <p style={{
+                fontSize: '0.94rem',
+                color: '#CBD5E1',
+                lineHeight: '1.6',
+                margin: 0,
+                fontFamily: 'var(--font-body)'
+              }}>
+                Accurate accounting and financial reporting services to support informed decision-making and business growth.
+              </p>
+            </div>
+
+            {/* Box 3 */}
+            <div>
+              <h3 style={{
+                fontSize: '1.3rem',
+                fontWeight: 700,
+                color: '#FFFFFF',
+                marginBottom: '10px',
+                fontFamily: 'var(--font-heading)'
+              }}>
+                Tax &amp; Advisory
+              </h3>
+              <p style={{
+                fontSize: '0.94rem',
+                color: '#CBD5E1',
+                lineHeight: '1.6',
+                margin: 0,
+                fontFamily: 'var(--font-body)'
+              }}>
+                Comprehensive tax and advisory services to help manage compliance, planning, and regulatory matters effectively.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Bottom Gold Accent Bar */}
+        <div style={{ width: '100%', height: '5px', backgroundColor: '#C49A2C' }} />
+
+        <style>{`
+          @media (max-width: 992px) {
+            .hero-boxes-grid {
+              grid-template-columns: 1fr !important;
+              gap: 25px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* 2. OUR PROCESS SECTION */}
