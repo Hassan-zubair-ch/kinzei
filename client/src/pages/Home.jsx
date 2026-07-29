@@ -5,6 +5,7 @@ import ProcessSection from '../components/ProcessSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import AffiliationsSection from '../components/AffiliationsSection';
 import CounterSection from '../components/CounterSection';
+import JavedZafarSection from '../components/JavedZafarSection';
 import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag } from '../components/CountryFlags';
 import { 
   ShieldCheck, Award, CheckCircle2, Phone, Calendar, 
@@ -81,8 +82,8 @@ export default function Home({ onOpenSchedule }) {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1.1fr 0.9fr',
-            gap: '50px',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '40px',
             alignItems: 'center'
           }} className="hero-grid">
             
@@ -156,59 +157,59 @@ export default function Home({ onOpenSchedule }) {
 
             </div>
 
-            {/* Right Hero Graphic: CEO Orbit Ring & Photo Cutout */}
-            <div style={{ position: 'relative', textAlign: 'center' }}>
+            {/* Right Hero Graphic: Perfectly Balanced CEO Orbit Ring & Photo (Matching Target Screenshot Layout) */}
+            <div style={{ position: 'relative', textAlign: 'center', minHeight: '480px' }}>
               
               <div style={{
                 position: 'relative',
-                maxWidth: '480px',
-                margin: '0 auto',
-                display: 'inline-block',
-                width: '100%'
+                width: '100%',
+                maxWidth: '540px',
+                margin: '0 auto'
               }}>
 
                 {/* Silver/Grey Orbit Arch Ring Background SVG */}
                 <svg 
                   style={{
                     position: 'absolute',
-                    top: '-5%',
-                    left: '-5%',
-                    width: '110%',
-                    height: '105%',
+                    top: '0',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '100%',
+                    height: '100%',
                     pointerEvents: 'none',
                     zIndex: 1
                   }}
-                  viewBox="0 0 500 500" 
+                  viewBox="0 0 540 480" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {/* Circular Arc Line */}
                   <path 
-                    d="M 60 380 A 210 210 0 1 1 440 380" 
+                    d="M 50 420 A 220 220 0 1 1 490 420" 
                     stroke="#CBD5E1" 
                     strokeWidth="1.8" 
                     strokeDasharray="none"
                   />
                   {/* Orbit Node Dots */}
-                  <circle cx="85" cy="160" r="5" fill="#CBD5E1" />
-                  <circle cx="250" cy="40" r="5" fill="#CBD5E1" />
-                  <circle cx="415" cy="160" r="5" fill="#CBD5E1" />
-                  <circle cx="65" cy="330" r="5" fill="#CBD5E1" />
-                  <circle cx="435" cy="330" r="5" fill="#CBD5E1" />
+                  <circle cx="90" cy="170" r="5" fill="#C49A2C" />
+                  <circle cx="270" cy="50" r="5" fill="#C49A2C" />
+                  <circle cx="450" cy="170" r="5" fill="#C49A2C" />
+                  <circle cx="65" cy="370" r="5" fill="#C49A2C" />
+                  <circle cx="475" cy="370" r="5" fill="#C49A2C" />
                 </svg>
 
-                {/* 4 Orbit Node Labels around the Arc */}
+                {/* 4 Orbit Node Labels positioned OUTSIDE the Arc (Matching mirfanco.pk) */}
                 {/* 1. Top-Left */}
                 <div style={{
                   position: 'absolute',
-                  top: '6%',
-                  left: '-8%',
+                  top: '8%',
+                  left: '0%',
                   zIndex: 10,
-                  maxWidth: '160px',
+                  width: '160px',
                   textAlign: 'right',
-                  fontSize: '1.15rem',
-                  fontWeight: 700,
-                  color: '#2A2E5D',
+                  fontSize: '1.05rem',
+                  fontWeight: 800,
+                  color: '#111827',
                   lineHeight: 1.25,
                   fontFamily: 'var(--font-heading)'
                 }}>
@@ -218,14 +219,14 @@ export default function Home({ onOpenSchedule }) {
                 {/* 2. Top-Right */}
                 <div style={{
                   position: 'absolute',
-                  top: '6%',
-                  right: '-6%',
+                  top: '8%',
+                  right: '0%',
                   zIndex: 10,
-                  maxWidth: '150px',
+                  width: '150px',
                   textAlign: 'left',
-                  fontSize: '1.15rem',
-                  fontWeight: 700,
-                  color: '#2A2E5D',
+                  fontSize: '1.05rem',
+                  fontWeight: 800,
+                  color: '#111827',
                   lineHeight: 1.25,
                   fontFamily: 'var(--font-heading)'
                 }}>
@@ -235,14 +236,14 @@ export default function Home({ onOpenSchedule }) {
                 {/* 3. Bottom-Left */}
                 <div style={{
                   position: 'absolute',
-                  bottom: '22%',
-                  left: '-10%',
+                  bottom: '16%',
+                  left: '-2%',
                   zIndex: 10,
-                  maxWidth: '160px',
+                  width: '160px',
                   textAlign: 'right',
-                  fontSize: '1.15rem',
-                  fontWeight: 700,
-                  color: '#2A2E5D',
+                  fontSize: '1.05rem',
+                  fontWeight: 800,
+                  color: '#111827',
                   lineHeight: 1.25,
                   fontFamily: 'var(--font-heading)'
                 }}>
@@ -252,35 +253,36 @@ export default function Home({ onOpenSchedule }) {
                 {/* 4. Bottom-Right */}
                 <div style={{
                   position: 'absolute',
-                  bottom: '20%',
-                  right: '-12%',
+                  bottom: '14%',
+                  right: '-2%',
                   zIndex: 10,
-                  maxWidth: '170px',
+                  width: '170px',
                   textAlign: 'left',
-                  fontSize: '1.15rem',
-                  fontWeight: 700,
-                  color: '#2A2E5D',
+                  fontSize: '1.05rem',
+                  fontWeight: 800,
+                  color: '#111827',
                   lineHeight: 1.25,
                   fontFamily: 'var(--font-heading)'
                 }}>
                   Information<br />Technology<br />Services
                 </div>
 
-                {/* CEO Cutout Image Container */}
+                {/* Senior Partner Cutout Image Container - Centered inside Arc */}
                 <div style={{
                   position: 'relative',
                   zIndex: 2,
-                  margin: '0 auto',
-                  maxWidth: '380px',
-                  borderRadius: '12px',
-                  overflow: 'hidden'
+                  margin: '40px auto 0 auto',
+                  maxWidth: '330px',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  boxShadow: '0 12px 35px rgba(0, 0, 0, 0.08)'
                 }}>
                   <img 
                     src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=700&auto=format&fit=crop" 
-                    alt="Muhammad Irfan, FCA - CEO & Founder" 
+                    alt="Senior Partner & CEO - Kinzei Consultants" 
                     style={{
                       width: '100%',
-                      height: '460px',
+                      height: '420px',
                       objectFit: 'cover',
                       objectPosition: 'center 15%',
                       display: 'block',
@@ -298,13 +300,13 @@ export default function Home({ onOpenSchedule }) {
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    padding: '40px 20px 16px 20px',
-                    background: 'linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%)',
+                    padding: '30px 16px 14px 16px',
+                    background: 'linear-gradient(to top, rgba(17, 24, 39, 0.92) 0%, rgba(17, 24, 39, 0.4) 65%, transparent 100%)',
                     color: '#FFFFFF',
                     textAlign: 'center'
                   }}>
                     <h3 style={{
-                      fontSize: '1.75rem',
+                      fontSize: '1.5rem',
                       fontWeight: 800,
                       color: '#FFFFFF',
                       letterSpacing: '0.3px',
@@ -325,12 +327,13 @@ export default function Home({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 3 SLEEK TEXT BOXES BAND UNDER HERO SECTION */}
+      {/* 2. 3 SLEEK FEATURE BOXES BAND (THEME: CHARCOAL BLACK & GOLD, NO BLUE) */}
       <section style={{
-        backgroundColor: '#04284D',
+        backgroundColor: '#111827',
         color: '#FFFFFF',
         position: 'relative',
-        zIndex: 5
+        zIndex: 5,
+        borderTop: '3px solid #C49A2C'
       }}>
         <div className="container" style={{ padding: '42px 24px' }}>
           <div 
@@ -347,7 +350,7 @@ export default function Home({ onOpenSchedule }) {
               <h3 style={{
                 fontSize: '1.3rem',
                 fontWeight: 700,
-                color: '#FFFFFF',
+                color: '#C49A2C',
                 marginBottom: '10px',
                 fontFamily: 'var(--font-heading)'
               }}>
@@ -355,7 +358,7 @@ export default function Home({ onOpenSchedule }) {
               </h3>
               <p style={{
                 fontSize: '0.94rem',
-                color: '#CBD5E1',
+                color: '#E5E7EB',
                 lineHeight: '1.6',
                 margin: 0,
                 fontFamily: 'var(--font-body)'
@@ -369,7 +372,7 @@ export default function Home({ onOpenSchedule }) {
               <h3 style={{
                 fontSize: '1.3rem',
                 fontWeight: 700,
-                color: '#FFFFFF',
+                color: '#C49A2C',
                 marginBottom: '10px',
                 fontFamily: 'var(--font-heading)'
               }}>
@@ -377,7 +380,7 @@ export default function Home({ onOpenSchedule }) {
               </h3>
               <p style={{
                 fontSize: '0.94rem',
-                color: '#CBD5E1',
+                color: '#E5E7EB',
                 lineHeight: '1.6',
                 margin: 0,
                 fontFamily: 'var(--font-body)'
@@ -391,7 +394,7 @@ export default function Home({ onOpenSchedule }) {
               <h3 style={{
                 fontSize: '1.3rem',
                 fontWeight: 700,
-                color: '#FFFFFF',
+                color: '#C49A2C',
                 marginBottom: '10px',
                 fontFamily: 'var(--font-heading)'
               }}>
@@ -399,7 +402,7 @@ export default function Home({ onOpenSchedule }) {
               </h3>
               <p style={{
                 fontSize: '0.94rem',
-                color: '#CBD5E1',
+                color: '#E5E7EB',
                 lineHeight: '1.6',
                 margin: 0,
                 fontFamily: 'var(--font-body)'
@@ -412,7 +415,7 @@ export default function Home({ onOpenSchedule }) {
         </div>
 
         {/* Bottom Gold Accent Bar */}
-        <div style={{ width: '100%', height: '5px', backgroundColor: '#C49A2C' }} />
+        <div style={{ width: '100%', height: '4px', backgroundColor: '#8C6B2F' }} />
 
         <style>{`
           @media (max-width: 992px) {
@@ -424,13 +427,13 @@ export default function Home({ onOpenSchedule }) {
         `}</style>
       </section>
 
-      {/* 2. OUR PROCESS SECTION */}
-      <ProcessSection onOpenSchedule={onOpenSchedule} />
+      {/* 3. JAVED ZAFAR & CO. CHARTERED ACCOUNTANTS PRACTICE SECTION (RIGHT BELOW KC HERO/BLOCKS) */}
+      <JavedZafarSection onOpenSchedule={onOpenSchedule} />
 
-      {/* 3. AFFILIATIONS & CERTIFICATION SECTION */}
-      <AffiliationsSection />
+      {/* 4. WHY CHOOSE US SECTION */}
+      <WhyChooseUsSection onOpenSchedule={onOpenSchedule} />
 
-      {/* 4. DYNAMIC REGIONAL SERVICES TAB SECTION */}
+      {/* 5. SERVICES SECTION (BROWSE SERVICES BY COUNTRY) */}
       <section style={{ padding: '80px 0 90px 0', backgroundColor: '#F8F9FA', borderBottom: '1px solid #E5E7EB' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 40px auto' }}>
@@ -449,120 +452,137 @@ export default function Home({ onOpenSchedule }) {
             justifyContent: 'center',
             gap: '12px',
             flexWrap: 'wrap',
-            marginBottom: '45px'
+            marginBottom: '40px'
           }}>
             {countryTabs.map((tab) => {
-              const TabFlag = tab.Flag;
               const isActive = activeCountry === tab.code;
+              const FlagIcon = tab.Flag;
               return (
                 <button
                   key={tab.code}
                   onClick={() => setActiveCountry(tab.code)}
                   style={{
+                    backgroundColor: isActive ? '#9E7B3B' : '#FFFFFF',
+                    color: isActive ? '#FFFFFF' : '#374151',
+                    border: isActive ? '1px solid #9E7B3B' : '1px solid #D1D5DB',
+                    padding: '10px 22px',
+                    borderRadius: '30px',
+                    fontWeight: 700,
+                    fontSize: '0.9rem',
+                    cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px',
-                    padding: '12px 22px',
-                    borderRadius: '30px',
-                    fontSize: '0.94rem',
-                    fontWeight: 700,
-                    backgroundColor: isActive ? '#9E7B3B' : '#FFFFFF',
-                    color: isActive ? '#FFFFFF' : '#1F2937',
-                    border: isActive ? '1.5px solid #7A5C24' : '1.5px solid #E5E7EB',
-                    boxShadow: isActive ? '0 8px 20px rgba(158, 123, 59, 0.25)' : '0 2px 8px rgba(0,0,0,0.04)',
+                    gap: '8px',
+                    boxShadow: isActive ? '0 4px 12px rgba(158, 123, 59, 0.3)' : '0 2px 4px rgba(0,0,0,0.03)',
                     transition: 'all 0.25s ease'
                   }}
                 >
-                  <TabFlag size={22} />
+                  <FlagIcon size={18} />
                   <span>{tab.label}</span>
                 </button>
               );
             })}
           </div>
 
-          {/* 3 Featured Service Cards */}
+          {/* Services Grid */}
           {loading ? (
-            <div style={{ textAlign: 'center', padding: '60px 0', color: '#9E7B3B', fontWeight: 700 }}>
-              Loading localized services for {currentTab.name}...
+            <div style={{ textAlign: 'center', padding: '40px', color: '#6B7280' }}>
+              Loading services...
             </div>
           ) : (
-            <div>
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                gap: '30px'
-              }}>
-                {displayedServices.map(service => (
-                  <ServiceCard key={service.id} service={service} isDarkTheme={false} />
-                ))}
-              </div>
-
-              <div style={{ textAlign: 'center', marginTop: '40px' }}>
-                <button
-                  onClick={() => navigate(`/services?country=${activeCountry}`)}
-                  className="btn-outline"
-                  style={{ padding: '12px 30px', borderRadius: '30px', fontSize: '0.95rem' }}
-                >
-                  <span>View All {currentTab.name} Services</span>
-                  <ArrowRight size={16} />
-                </button>
-              </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '30px'
+            }}>
+              {displayedServices.map((service) => (
+                <ServiceCard key={service.id} service={service} />
+              ))}
             </div>
           )}
+
+          <div style={{ textAlign: 'center', marginTop: '45px' }}>
+            <button
+              onClick={() => navigate(`/services?country=${activeCountry}`)}
+              className="btn-primary"
+              style={{ padding: '14px 32px' }}
+            >
+              View All {currentTab.name} Services ({services.length})
+            </button>
+          </div>
 
         </div>
       </section>
 
-      {/* 5. WHY CHOOSE US SECTION */}
-      <WhyChooseUsSection onOpenSchedule={onOpenSchedule} />
+      {/* 6. AFFILIATIONS & CERTIFICATION LOGOS / ICONS SECTION */}
+      <AffiliationsSection />
 
-      {/* 6. COUNTER STATS SECTION */}
+      {/* 7. OUR PROCESS SECTION */}
+      <ProcessSection onOpenSchedule={onOpenSchedule} />
+
+      {/* 8. COUNTER / STATS SECTION */}
       <CounterSection />
 
-      {/* 7. SCHEDULE CONSULTATION CTA BANNER */}
-      <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
+      {/* 9. CALL TO ACTION BANNER & NEXT SECTIONS */}
+      <section style={{
+        backgroundColor: '#111827',
+        color: '#FFFFFF',
+        padding: '75px 0',
+        textAlign: 'center',
+        position: 'relative'
+      }}>
         <div className="container">
-          <div style={{
-            backgroundColor: '#FFFBEB',
-            borderRadius: '24px',
-            padding: '50px 40px',
-            border: '1.5px solid rgba(158, 123, 59, 0.3)',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '30px',
-            flexWrap: 'wrap'
-          }}>
-            <div>
-              <span className="badge-gold" style={{ marginBottom: '12px' }}>Direct Consultation</span>
-              <h3 style={{ fontSize: '2rem', color: '#111827', fontWeight: 800, margin: '8px 0' }}>
-                Ready to Discuss Your Corporate Tax & Audit Position?
-              </h3>
-              <p style={{ color: '#4B5563', fontSize: '1.02rem', maxWidth: '600px', margin: 0 }}>
-                Schedule a 1-on-1 session with our senior chartered accountants and legal tax specialists today.
-              </p>
-            </div>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '16px', color: '#FFFFFF' }}>
+              Ready to Streamline Your <span style={{ color: '#C49A2C' }}>Tax &amp; Financial Operations?</span>
+            </h2>
+            <p style={{ fontSize: '1.1rem', color: '#D1D5DB', marginBottom: '32px', lineHeight: 1.6 }}>
+              Get in touch with our senior partners today for a confidential consultation tailored to your business needs in Pakistan, USA, UK, UAE, Saudi Arabia, or Germany.
+            </p>
+            
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+              <button 
+                onClick={onOpenSchedule}
+                style={{
+                  backgroundColor: '#C49A2C',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  padding: '14px 34px',
+                  fontSize: '0.92rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.8px',
+                  textTransform: 'uppercase',
+                  borderRadius: '2px',
+                  cursor: 'pointer',
+                  boxShadow: '0 6px 20px rgba(196, 154, 44, 0.3)'
+                }}
+              >
+                Schedule Free Consultation
+              </button>
 
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <a href="tel:03034063970" className="btn-outline" style={{ padding: '14px 24px', borderRadius: '30px' }}>
-                <Phone size={18} />
-                <span>03034063970</span>
-              </a>
-
-              <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '14px 30px', borderRadius: '30px' }}>
-                <Calendar size={18} />
-                <span>Reserve Consultation</span>
+              <button 
+                onClick={() => navigate('/contact')}
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#FFFFFF',
+                  border: '1.8px solid #FFFFFF',
+                  padding: '13px 32px',
+                  fontSize: '0.92rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.8px',
+                  textTransform: 'uppercase',
+                  borderRadius: '2px',
+                  cursor: 'pointer'
+                }}
+              >
+                Contact Our Office
               </button>
             </div>
+
           </div>
         </div>
       </section>
 
-      <style>{`
-        @media (max-width: 992px) {
-          .hero-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </div>
   );
 }

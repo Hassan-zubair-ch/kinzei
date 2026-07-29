@@ -1,22 +1,23 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import KinzeiLogo from './KinzeiLogo';
 
 export default function WhyChooseUsSection({ onOpenSchedule }) {
   const navigate = useNavigate();
 
   const bulletPoints = [
     "15+ years of professional experience",
-    "Qualified and experienced team",
-    "Complete audit, tax & advisory services",
-    "Ethical, confidential, and reliable",
-    "Client-focused and practical solutions"
+    "Qualified team of CA, ACCA, CPA, and ACMA members",
+    "Complete audit, tax, litigation & corporate secretarial services",
+    "Ethical, confidential, and reliable client-centric approach",
+    "Client-focused, cost-effective, and practical business solutions"
   ];
 
   return (
     <section style={{
-      backgroundColor: '#F8F9FA',
-      padding: '90px 0 100px 0',
+      backgroundColor: '#FFFFFF',
+      padding: '85px 0 95px 0',
       color: '#111827',
       position: 'relative',
       overflow: 'hidden',
@@ -29,31 +30,31 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            gap: '65px',
+            gap: '60px',
             alignItems: 'center'
           }}
         >
-          {/* Left Column: Image with Floating 15+ Years Badge & Logo Overlay */}
-          <div style={{ position: 'relative', paddingLeft: '20px', paddingTop: '20px' }}>
+          {/* Left Column: Image with Floating 15+ Years Badge & Favicon Logo */}
+          <div style={{ position: 'relative', paddingLeft: '15px', paddingTop: '15px' }}>
             
             {/* Main Desk Image Container */}
             <div style={{
               borderRadius: '8px',
               overflow: 'hidden',
-              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.12)',
+              boxShadow: '0 20px 45px rgba(0, 0, 0, 0.08)',
               position: 'relative',
               backgroundColor: '#FFFFFF',
               border: '1px solid #E5E7EB'
             }}>
               <img 
                 src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=900&auto=format&fit=crop" 
-                alt="M. Irfan & Co. Financial Advisory Desk"
+                alt="Kinzei Consultants & Javed Zafar & Co. Financial Advisory Desk"
                 style={{
                   width: '100%',
-                  height: '480px',
+                  height: '490px',
                   objectFit: 'cover',
                   display: 'block',
-                  filter: 'contrast(1.03) brightness(0.98)'
+                  filter: 'contrast(1.02) brightness(0.98)'
                 }}
                 onError={(e) => {
                   e.target.onerror = null;
@@ -61,74 +62,41 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
                 }}
               />
 
-              {/* Bottom-Right Logo Watermark Badge */}
+              {/* Bottom Watermark Badge with Site Favicon & Official Text */}
               <div style={{
                 position: 'absolute',
                 bottom: '24px',
                 right: '24px',
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                backgroundColor: 'rgba(255, 255, 255, 0.96)',
                 backdropFilter: 'blur(8px)',
-                padding: '14px 22px',
+                padding: '12px 20px',
                 borderRadius: '8px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '14px',
-                border: '1px solid rgba(196, 154, 44, 0.3)'
+                gap: '12px',
+                border: '1px solid rgba(196, 154, 44, 0.4)'
               }}>
-                <div style={{
-                  width: '38px',
-                  height: '38px',
-                  backgroundColor: '#0F2C4C',
-                  borderRadius: '6px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#C49A2C',
-                  fontWeight: 900,
-                  fontSize: '1.2rem'
-                }}>
-                  K
-                </div>
-                <div>
-                  <div style={{
-                    fontSize: '1.05rem',
-                    fontWeight: 900,
-                    color: '#0F2C4C',
-                    letterSpacing: '0.5px',
-                    lineHeight: 1.1
-                  }}>
-                    KINZEI CONSULTANTS
-                  </div>
-                  <div style={{
-                    fontSize: '0.72rem',
-                    fontWeight: 800,
-                    color: '#C49A2C',
-                    letterSpacing: '1px',
-                    marginTop: '3px',
-                    textTransform: 'uppercase'
-                  }}>
-                    (Private) Limited
-                  </div>
-                </div>
+                <KinzeiLogo height={42} isBrownHeader={false} />
               </div>
             </div>
 
-            {/* Floating Top-Left 15+ Years Badge */}
+            {/* Top-Left Floating Badge: 15+ Years Experience (Matching Target Screenshot) */}
             <div style={{
               position: 'absolute',
-              top: '0',
-              left: '0',
+              top: '0px',
+              left: '0px',
               backgroundColor: '#FFFFFF',
-              border: '3.5px solid #C49A2C',
-              padding: '24px 28px',
+              padding: '24px 30px',
+              borderRadius: '4px',
+              boxShadow: '0 15px 35px rgba(0, 0, 0, 0.12)',
+              border: '2px solid #C49A2C',
               textAlign: 'center',
-              boxShadow: '0 15px 35px rgba(0, 0, 0, 0.15)',
               zIndex: 10,
-              minWidth: '160px'
+              minWidth: '170px'
             }}>
               <div style={{
-                fontSize: '3.2rem',
+                fontSize: '2.8rem',
                 fontWeight: 900,
                 color: '#C49A2C',
                 lineHeight: 1,
@@ -137,12 +105,11 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
                 15+
               </div>
               <div style={{
-                fontSize: '0.92rem',
+                fontSize: '0.88rem',
                 fontWeight: 700,
-                color: '#1F2937',
+                color: '#111827',
                 marginTop: '6px',
-                lineHeight: 1.25,
-                fontFamily: 'var(--font-body)'
+                lineHeight: 1.3
               }}>
                 Years of<br />Experience
               </div>
@@ -153,60 +120,60 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
           {/* Right Column: Why Choose Us Content */}
           <div>
             <div style={{
-              fontSize: '1.05rem',
-              fontWeight: '600',
+              fontSize: '1.08rem',
               color: '#C49A2C',
               fontStyle: 'italic',
-              marginBottom: '8px',
+              fontWeight: 600,
+              marginBottom: '10px',
               fontFamily: 'Georgia, serif'
             }}>
               Why Choose Us
             </div>
 
             <h2 style={{
-              fontSize: 'clamp(2.1rem, 3.8vw, 2.7rem)',
-              fontWeight: 800,
-              color: '#111827',
+              fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
               lineHeight: 1.2,
               marginBottom: '20px',
+              fontWeight: 800,
+              color: '#111827',
               fontFamily: 'var(--font-heading)'
             }}>
-              Trusted Financial &amp; Corporate<br />Partners for Your Business
+              Trusted Financial &amp; CA Partners for Your Business
             </h2>
 
             <p style={{
-              fontSize: '1.02rem',
+              fontSize: '0.98rem',
               color: '#4B5563',
-              lineHeight: '1.7',
-              marginBottom: '28px',
-              fontFamily: 'var(--font-body)'
+              lineHeight: 1.7,
+              marginBottom: '24px'
             }}>
-              <strong style={{ color: '#111827' }}>Kinzei Consultants (Private) Limited</strong> is a premier corporate tax, statutory audit, and financial advisory firm serving businesses across Pakistan, US, UK, UAE, Saudi Arabia, and Germany. Led by senior professionals with over <strong style={{ color: '#111827' }}>15 years of experience</strong>, we deliver practical solutions, regulatory transparency, and dependable strategic advice.
+              <strong>Kinzei Consultants (Private) Limited</strong>, operating together with <strong>Javed Zafar &amp; Co. Chartered Accountants</strong>, is a premier professional firm offering statutory audit, accounting, taxation, and corporate advisory services to businesses across diverse industries. Guided by senior leadership with over <strong>15+ years of experience</strong> (ex-Deloitte &amp; leading advisory practices), we deliver practical solutions, transparent guidance, and dependable execution.
             </p>
 
+            {/* Subtle Divider Line */}
             <div style={{ width: '100%', height: '1px', backgroundColor: '#E5E7EB', marginBottom: '24px' }} />
 
-            {/* Checklist with Golden Circled Arrows */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px' }}>
+            {/* Bullet Points with Gold Arrow Circle Icons */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '36px' }}>
               {bulletPoints.map((text, idx) => (
                 <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div style={{
-                    width: '22px',
-                    height: '22px',
+                    width: '24px',
+                    height: '24px',
                     borderRadius: '50%',
                     border: '1.8px solid #C49A2C',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    flexShrink: 0,
-                    backgroundColor: 'rgba(196, 154, 44, 0.05)'
+                    color: '#C49A2C',
+                    flexShrink: 0
                   }}>
-                    <ArrowRight size={13} color="#C49A2C" strokeWidth={2.8} />
+                    <span style={{ fontSize: '0.82rem', fontWeight: 900, lineHeight: 1 }}>➔</span>
                   </div>
                   <span style={{
-                    fontSize: '0.98rem',
-                    fontWeight: 600,
-                    color: '#374151'
+                    fontSize: '0.96rem',
+                    color: '#374151',
+                    fontWeight: 600
                   }}>
                     {text}
                   </span>
@@ -214,24 +181,22 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               ))}
             </div>
 
-            <div style={{ width: '100%', height: '1px', backgroundColor: '#E5E7EB', marginBottom: '30px' }} />
-
-            {/* Action Buttons */}
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <button 
-                onClick={() => navigate('/about-us')}
+            {/* 2 Buttons Row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => navigate('/about')}
                 style={{
                   backgroundColor: '#C49A2C',
                   color: '#FFFFFF',
                   border: 'none',
-                  padding: '13px 34px',
-                  fontSize: '0.92rem',
+                  padding: '13px 32px',
+                  fontSize: '0.88rem',
                   fontWeight: 700,
-                  letterSpacing: '0.5px',
+                  letterSpacing: '0.8px',
                   textTransform: 'uppercase',
-                  borderRadius: '3px',
+                  borderRadius: '2px',
                   cursor: 'pointer',
-                  boxShadow: '0 6px 18px rgba(196, 154, 44, 0.25)',
+                  boxShadow: '0 4px 15px rgba(196, 154, 44, 0.3)',
                   transition: 'all 0.25s ease'
                 }}
                 onMouseEnter={(e) => {
@@ -243,40 +208,37 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                Learn More
+                LEARN MORE
               </button>
 
-              <button 
+              <button
                 onClick={() => navigate('/services')}
                 style={{
                   backgroundColor: 'transparent',
                   color: '#C49A2C',
-                  border: '1.5px solid #C49A2C',
-                  padding: '13px 32px',
-                  fontSize: '0.92rem',
+                  border: '1.8px solid #C49A2C',
+                  padding: '12px 30px',
+                  fontSize: '0.88rem',
                   fontWeight: 700,
-                  letterSpacing: '0.5px',
+                  letterSpacing: '0.8px',
                   textTransform: 'uppercase',
-                  borderRadius: '3px',
+                  borderRadius: '2px',
                   cursor: 'pointer',
                   transition: 'all 0.25s ease'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#C49A2C';
-                  e.currentTarget.style.color = '#FFFFFF';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.backgroundColor = '#FEF3C7';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = '#C49A2C';
-                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                Our Services
+                OUR SERVICES
               </button>
             </div>
 
           </div>
+
         </div>
       </div>
 
@@ -284,11 +246,10 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
         @media (max-width: 992px) {
           .why-us-grid {
             grid-template-columns: 1fr !important;
-            gap: 50px !important;
+            gap: 45px !important;
           }
         }
       `}</style>
     </section>
   );
 }
-
