@@ -11,7 +11,7 @@ export default function AboutUs({ onOpenSchedule }) {
 
   const faqs = [
     {
-      q: "What regulatory registrations does Kinzei Consultants & Javed Zafar & Co. handle?",
+      q: "What regulatory registrations does Kinzei Consultants handle?",
       a: "We manage complete company incorporation with SECP (Private Limited, SMC-Pvt, LLP), FBR Income Tax & Sales Tax (NTN / STRN), Provincial Revenue Authorities (PRA, SRB, KPRA), Chamber of Commerce membership, and EOBI/PESSI registration."
     },
     {
@@ -20,11 +20,11 @@ export default function AboutUs({ onOpenSchedule }) {
     },
     {
       q: "What services are included in the monthly retainer package?",
-      a: "Our monthly retainership covers routine management accounting, sales tax & withholding tax returns, SECP annual compliance filings, payroll processing, and direct access to senior CA partners for ongoing advisory."
+      a: "Our monthly retainership covers routine management accounting, sales tax & withholding tax returns, SECP annual compliance filings, payroll processing, and direct access to senior consultants for ongoing advisory."
     },
     {
-      q: "Is Javed Zafar & Co. an active Chartered Accountancy firm?",
-      a: "Yes! Javed Zafar & Co. is our core licensed Chartered Accountancy practice operating under Kinzei Consultants (Private) Limited, led by Mr. Javed Zafar (ACA, ex-Deloitte Pakistan)."
+      q: "Which industries do you specialize in?",
+      a: "We serve clients across Textiles, Real Estate, Pharmaceuticals, Electronics, Education, Media, Agriculture, Trade Associations, and Non-Profit Organizations (NPOs)."
     }
   ];
 
@@ -61,7 +61,7 @@ export default function AboutUs({ onOpenSchedule }) {
             borderRadius: '2px'
           }} />
           <p style={{ color: '#F3F4F6', fontSize: '1.15rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
-            Kinzei Consultants (Private) Limited &amp; Javed Zafar &amp; Co. Chartered Accountants
+            Kinzei Consultants (Private) Limited
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default function AboutUs({ onOpenSchedule }) {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', fontSize: '1.04rem', color: '#4B5563', lineHeight: 1.75 }}>
             <p>
-              <strong>Kinzei Consultants (Private) Limited</strong>, operating alongside <strong>Javed Zafar &amp; Co. Chartered Accountants</strong>, is a premier professional services firm providing audit, accounting, taxation, and corporate advisory services to businesses and individuals. The practice is led by senior professionals with over <strong>15+ years of professional experience</strong> across public and private sector organizations.
+              <strong>Kinzei Consultants (Private) Limited</strong> is a premier professional services firm providing audit, accounting, taxation, and corporate advisory services to businesses and individuals. The firm is led by senior professionals with over <strong>15+ years of professional experience</strong> across public and private sector organizations.
             </p>
 
             <p>
@@ -106,7 +106,7 @@ export default function AboutUs({ onOpenSchedule }) {
             </p>
 
             <p>
-              At Kinzei Consultants &amp; Javed Zafar &amp; Co., we believe in building long-term relationships with our clients. We focus on clear communication, timely delivery, and maintaining the highest standards of professional ethics and confidentiality. Our team combines strong technical knowledge with practical industry experience to deliver value-driven solutions.
+              At Kinzei Consultants, we believe in building long-term relationships with our clients. We focus on clear communication, timely delivery, and maintaining the highest standards of professional ethics and confidentiality. Our team combines strong technical knowledge with practical industry experience to deliver value-driven solutions.
             </p>
 
             <p>
@@ -234,7 +234,7 @@ export default function AboutUs({ onOpenSchedule }) {
               }}>
                 <img 
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" 
-                  alt="Javed Zafar, ACA - Managing Partner & Founder" 
+                  alt="Managing Partner & Founder - Kinzei Consultants" 
                   style={{
                     width: '100%',
                     height: '500px',
@@ -268,7 +268,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 marginBottom: '4px',
                 fontFamily: 'var(--font-heading)'
               }}>
-                Javed Zafar, ACA
+                Kinzei Leadership Desk
               </h2>
 
               <div style={{
@@ -277,20 +277,20 @@ export default function AboutUs({ onOpenSchedule }) {
                 color: '#C49A2C',
                 marginBottom: '22px'
               }}>
-                Associate Chartered Accountant (ACA), ICAP Member (Ex-Deloitte Pakistan)
+                Chartered Accountants &amp; Senior Advisory Partners
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.96rem', color: '#4B5563', lineHeight: 1.7 }}>
                 <p>
-                  <strong>Mr. Javed Zafar, ACA</strong>, Founder and Managing Partner of <strong>Javed Zafar &amp; Co. Chartered Accountants</strong> and key principal at <strong>Kinzei Consultants</strong>, is a seasoned finance and corporate executive with extensive professional experience in audit, accounting, taxation, and financial reporting. He has advised and served a wide range of public and private sector organizations, bringing deep expertise in financial management, compliance, governance, and internal controls.
+                  Our Founder and Managing Leadership Team bring extensive professional experience in audit, accounting, taxation, and financial reporting. Having served a wide range of public and private sector organizations, our partners bring deep expertise in financial management, compliance, governance, and internal controls.
                 </p>
 
                 <p>
-                  His professional career includes senior leadership experience at <strong>Deloitte Pakistan</strong> and reputable chartered accountancy practices. He specializes in financial reporting under <strong>IFRS</strong>, internal and external audits, tax compliance, financial modeling, budgeting, and strategic financial advisory.
+                  Our professional leadership includes senior experience from top tier chartered accountancy practices and international firms. We specialize in financial reporting under <strong>IFRS</strong>, internal and external audits, tax compliance, financial modeling, budgeting, and strategic financial advisory.
                 </p>
 
                 <p>
-                  Known for his practical, disciplined, and ethical approach, Mr. Javed Zafar works closely with clients to understand their business challenges and deliver clear, reliable, and value-driven solutions. His focus remains on strengthening financial systems, ensuring regulatory compliance, and supporting sustainable business growth.
+                  Known for a practical, disciplined, and ethical approach, our partners work closely with clients to understand their business challenges and deliver clear, reliable, and value-driven solutions. Our focus remains on strengthening financial systems, ensuring regulatory compliance, and supporting sustainable business growth.
                 </p>
               </div>
 
@@ -308,8 +308,8 @@ export default function AboutUs({ onOpenSchedule }) {
                   <Mail size={20} color="#C49A2C" />
                   <div>
                     <div style={{ fontSize: '0.78rem', color: '#6B7280', fontWeight: 600 }}>Email Address</div>
-                    <a href="mailto:jz@javedzafarandco.com" style={{ color: '#111827', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>
-                      jz@javedzafarandco.com
+                    <a href="mailto:kinzeiconsultants@gmail.com" style={{ color: '#111827', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>
+                      kinzeiconsultants@gmail.com
                     </a>
                   </div>
                 </div>
@@ -318,8 +318,8 @@ export default function AboutUs({ onOpenSchedule }) {
                   <Phone size={20} color="#C49A2C" />
                   <div>
                     <div style={{ fontSize: '0.78rem', color: '#6B7280', fontWeight: 600 }}>Phone No.</div>
-                    <a href="tel:+923037249070" style={{ color: '#111827', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>
-                      +92 3037249070
+                    <a href="tel:03034063970" style={{ color: '#111827', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>
+                      03034063970
                     </a>
                   </div>
                 </div>
