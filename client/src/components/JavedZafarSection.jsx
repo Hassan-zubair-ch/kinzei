@@ -150,12 +150,24 @@ export default function JavedZafarSection({ onOpenSchedule }) {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0A0F1D', fontWeight: 800 }}>
                   <Phone size={16} color="#D4A017" />
-                  <a href="tel:03034063970" style={{ color: '#0A0F1D', textDecoration: 'none' }}>03034063970</a>
+                  <a 
+                    href="tel:03034063970" 
+                    style={{ color: '#0A0F1D', textDecoration: 'none', transition: 'color 0.2s ease' }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#D4A017'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#0A0F1D'}
+                  >
+                    03034063970
+                  </a>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#D4A017', fontWeight: 800 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0A0F1D', fontWeight: 800 }}>
                   <Mail size={16} color="#D4A017" />
-                  <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#D4A017', textDecoration: 'none' }}>
+                  <a 
+                    href="mailto:info@kinzeiconsultants.com" 
+                    style={{ color: '#0A0F1D', textDecoration: 'none', transition: 'color 0.2s ease' }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#D4A017'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#0A0F1D'}
+                  >
                     info@kinzeiconsultants.com
                   </a>
                 </div>

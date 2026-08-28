@@ -44,7 +44,9 @@ export default function Footer() {
 
               <a 
                 href="tel:03034063970" 
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#FFD700', fontSize: '0.94rem', textDecoration: 'none', fontWeight: 800, transition: 'transform 0.2s ease' }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#FFFFFF', fontSize: '0.88rem', textDecoration: 'none', transition: 'color 0.2s ease', fontWeight: 600 }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#FFD700'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#FFFFFF'}
               >
                 <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: 'rgba(255, 255, 255, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Phone size={13} color="#FFD700" />
