@@ -151,28 +151,38 @@ export default function Home({ onOpenSchedule }) {
             <div className="hero-graphic-wrapper">
               <div className="hero-orbit-container">
 
-                {/* Circular Orbit Arc with 5 Neutral Grey Dots */}
+                {/* Circular Orbit Arc with 4 Exact Neutral Grey Dots matching reference */}
                 <svg 
                   className="hero-orbit-svg"
-                  viewBox="0 0 600 560" 
+                  viewBox="0 0 600 600" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <circle 
                     cx="300" 
-                    cy="280" 
-                    r="230" 
+                    cy="300" 
+                    r="220" 
                     stroke="#CBD5E1" 
                     strokeWidth="2" 
                   />
-                  <circle cx="300" cy="50" r="7" fill="#94A3B8" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <circle cx="137" cy="117" r="7" fill="#94A3B8" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <circle cx="463" cy="117" r="7" fill="#94A3B8" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <circle cx="137" cy="443" r="7" fill="#94A3B8" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <circle cx="463" cy="443" r="7" fill="#94A3B8" stroke="#FFFFFF" strokeWidth="2.5" />
+                  {/* Dot 1: Top-Right (near Taxation Services) */}
+                  <circle cx="456" cy="144" r="8" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2.5" />
+                  <circle cx="456" cy="144" r="4" fill="#94A3B8" />
+
+                  {/* Dot 2: Mid-Left (between Accounting and Consultancy) */}
+                  <circle cx="120" cy="174" r="8" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2.5" />
+                  <circle cx="120" cy="174" r="4" fill="#94A3B8" />
+
+                  {/* Dot 3: Bottom-Left (near Consultancy & Outsourcing) */}
+                  <circle cx="120" cy="426" r="8" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2.5" />
+                  <circle cx="120" cy="426" r="4" fill="#94A3B8" />
+
+                  {/* Dot 4: Bottom-Right (near Information Technology Services) */}
+                  <circle cx="491" cy="410" r="8" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2.5" />
+                  <circle cx="491" cy="410" r="4" fill="#94A3B8" />
                 </svg>
 
-                {/* 4 Orbit Node Labels */}
+                {/* 4 Orbit Node Labels (All Left-Aligned like reference) */}
                 <div className="hero-orbit-node hero-orbit-node-1">
                   Accounting &amp;<br />Financial Reporting
                 </div>
@@ -489,7 +499,7 @@ export default function Home({ onOpenSchedule }) {
           position: relative;
           width: 100%;
           max-width: 620px;
-          height: 560px;
+          height: 580px;
           margin: 0 auto;
         }
 
@@ -517,7 +527,7 @@ export default function Home({ onOpenSchedule }) {
         }
 
         .hero-partner-cutout {
-          width: 490px;
+          width: 480px;
           max-height: 560px;
           object-fit: contain;
           display: block;
@@ -525,53 +535,50 @@ export default function Home({ onOpenSchedule }) {
 
         .hero-orbit-node {
           position: absolute;
-          font-weight: 800;
+          font-weight: 700;
           color: #1E2548;
-          line-height: 1.22;
+          line-height: 1.25;
           font-family: var(--font-heading);
           z-index: 10;
           white-space: nowrap;
+          text-align: left;
         }
 
         .hero-orbit-node-1 {
-          top: 14%;
-          left: 1%;
-          text-align: right;
-          font-size: 1.25rem;
+          top: 10%;
+          left: 0%;
+          font-size: 1.32rem;
         }
 
         .hero-orbit-node-2 {
-          top: 14%;
-          right: 1%;
-          text-align: left;
-          font-size: 1.25rem;
+          top: 10%;
+          right: 2%;
+          font-size: 1.32rem;
         }
 
         .hero-orbit-node-3 {
-          bottom: 14%;
-          left: -2%;
-          text-align: right;
-          font-size: 1.25rem;
+          bottom: 12%;
+          left: 0%;
+          font-size: 1.32rem;
         }
 
         .hero-orbit-node-4 {
-          bottom: 14%;
-          right: -2%;
-          text-align: left;
-          font-size: 1.25rem;
+          bottom: 8%;
+          right: 0%;
+          font-size: 1.32rem;
         }
 
         @media (max-width: 1200px) {
           .hero-orbit-container {
             max-width: 540px;
-            height: 500px;
+            height: 520px;
           }
           .hero-partner-cutout {
-            width: 430px;
+            width: 420px;
             max-height: 500px;
           }
           .hero-orbit-node {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
           }
         }
 
@@ -582,36 +589,33 @@ export default function Home({ onOpenSchedule }) {
             text-align: center;
           }
           .hero-orbit-container {
-            max-width: 420px !important;
-            height: 420px !important;
+            max-width: 400px !important;
+            height: 400px !important;
             margin: 25px auto 0 auto !important;
           }
           .hero-partner-cutout {
-            width: 320px !important;
-            max-height: 420px !important;
+            width: 290px !important;
+            max-height: 380px !important;
           }
           .hero-orbit-node {
-            font-size: 0.88rem !important;
+            font-size: 0.82rem !important;
+            line-height: 1.2 !important;
           }
           .hero-orbit-node-1 {
-            top: 8% !important;
-            left: -10px !important;
-            text-align: right !important;
+            top: 4% !important;
+            left: -8px !important;
           }
           .hero-orbit-node-2 {
-            top: 8% !important;
-            right: -10px !important;
-            text-align: left !important;
+            top: 4% !important;
+            right: -8px !important;
           }
           .hero-orbit-node-3 {
-            bottom: 12% !important;
-            left: -10px !important;
-            text-align: right !important;
+            bottom: 8% !important;
+            left: -8px !important;
           }
           .hero-orbit-node-4 {
-            bottom: 12% !important;
-            right: -10px !important;
-            text-align: left !important;
+            bottom: 8% !important;
+            right: -8px !important;
           }
           .hero-boxes-grid {
             grid-template-columns: 1fr !important;
@@ -619,29 +623,29 @@ export default function Home({ onOpenSchedule }) {
           }
         }
 
-        @media (max-width: 440px) {
+        @media (max-width: 420px) {
           .hero-orbit-container {
-            max-width: 360px !important;
-            height: 360px !important;
+            max-width: 350px !important;
+            height: 350px !important;
           }
           .hero-partner-cutout {
-            width: 270px !important;
-            max-height: 360px !important;
+            width: 250px !important;
+            max-height: 340px !important;
           }
           .hero-orbit-node {
-            font-size: 0.78rem !important;
+            font-size: 0.74rem !important;
           }
           .hero-orbit-node-1 {
-            left: -8px !important;
+            left: -6px !important;
           }
           .hero-orbit-node-2 {
-            right: -8px !important;
+            right: -6px !important;
           }
           .hero-orbit-node-3 {
-            left: -8px !important;
+            left: -6px !important;
           }
           .hero-orbit-node-4 {
-            right: -8px !important;
+            right: -6px !important;
           }
         }
       `}</style>
