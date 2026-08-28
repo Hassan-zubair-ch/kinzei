@@ -154,35 +154,36 @@ export default function Home({ onOpenSchedule }) {
                 {/* Circular Orbit Arc with 4 Exact Neutral Grey Dots matching reference */}
                 <svg 
                   className="hero-orbit-svg"
-                  viewBox="0 0 600 600" 
+                  viewBox="0 0 600 540" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle 
+                  <ellipse 
                     cx="300" 
-                    cy="300" 
-                    r="220" 
+                    cy="270" 
+                    rx="205" 
+                    ry="215" 
                     stroke="#CBD5E1" 
                     strokeWidth="2" 
                   />
-                  {/* Dot 1: Top-Right (near Taxation Services) */}
-                  <circle cx="456" cy="144" r="8" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <circle cx="456" cy="144" r="4" fill="#94A3B8" />
+                  {/* Dot 1: Top-Right (θ = 45°) */}
+                  <circle cx="445" cy="118" r="6.5" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="445" cy="118" r="3.5" fill="#94A3B8" />
 
-                  {/* Dot 2: Mid-Left (between Accounting and Consultancy) */}
-                  <circle cx="120" cy="174" r="8" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <circle cx="120" cy="174" r="4" fill="#94A3B8" />
+                  {/* Dot 2: Mid-Left (θ = 155°) */}
+                  <circle cx="114" cy="179" r="6.5" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="114" cy="179" r="3.5" fill="#94A3B8" />
 
-                  {/* Dot 3: Bottom-Left (near Consultancy & Outsourcing) */}
-                  <circle cx="120" cy="426" r="8" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <circle cx="120" cy="426" r="4" fill="#94A3B8" />
+                  {/* Dot 3: Bottom-Left (θ = 215°) */}
+                  <circle cx="132" cy="393" r="6.5" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="132" cy="393" r="3.5" fill="#94A3B8" />
 
-                  {/* Dot 4: Bottom-Right (near Information Technology Services) */}
-                  <circle cx="491" cy="410" r="8" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <circle cx="491" cy="410" r="4" fill="#94A3B8" />
+                  {/* Dot 4: Bottom-Right (θ = 330°) */}
+                  <circle cx="477" cy="377" r="6.5" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="477" cy="377" r="3.5" fill="#94A3B8" />
                 </svg>
 
-                {/* 4 Orbit Node Labels (All Left-Aligned like reference) */}
+                {/* 4 Orbit Node Labels (Left-Aligned exact like reference) */}
                 <div className="hero-orbit-node hero-orbit-node-1">
                   Accounting &amp;<br />Financial Reporting
                 </div>
