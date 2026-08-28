@@ -147,176 +147,58 @@ export default function Home({ onOpenSchedule }) {
 
             </div>
 
-            {/* Right Hero Graphic */}
-            <div style={{ position: 'relative', textAlign: 'center', minHeight: '380px' }} className="hero-graphic-wrapper">
-              
-              <div style={{
-                position: 'relative',
-                width: '100%',
-                maxWidth: '540px',
-                margin: '0 auto'
-              }}>
+            {/* Right Hero Graphic with Orbit Arc and Cutout Partner */}
+            <div className="hero-graphic-wrapper">
+              <div className="hero-orbit-container">
 
+                {/* Circular Orbit Arc */}
                 <svg 
                   className="hero-orbit-svg"
-                  style={{
-                    position: 'absolute',
-                    top: '0',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: '100%',
-                    height: '100%',
-                    pointerEvents: 'none',
-                    zIndex: 1
-                  }}
                   viewBox="0 0 540 480" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path 
-                    d="M 50 420 A 220 220 0 1 1 490 420" 
-                    stroke="#CBD5E1" 
+                    d="M 50 430 A 220 220 0 1 1 490 430" 
+                    stroke="#D1D5DB" 
                     strokeWidth="1.8" 
-                    strokeDasharray="none"
                   />
-                  <circle cx="90" cy="170" r="5" fill="#D4A017" />
-                  <circle cx="270" cy="50" r="5" fill="#D4A017" />
-                  <circle cx="450" cy="170" r="5" fill="#D4A017" />
-                  <circle cx="65" cy="370" r="5" fill="#D4A017" />
-                  <circle cx="475" cy="370" r="5" fill="#D4A017" />
+                  <circle cx="85" cy="170" r="5.5" fill="#D4A017" />
+                  <circle cx="270" cy="50" r="5.5" fill="#D4A017" />
+                  <circle cx="455" cy="170" r="5.5" fill="#D4A017" />
+                  <circle cx="65" cy="370" r="5.5" fill="#D4A017" />
+                  <circle cx="475" cy="370" r="5.5" fill="#D4A017" />
                 </svg>
 
                 {/* 4 Orbit Node Labels */}
-                <div 
-                  className="hero-orbit-node hero-orbit-node-1"
-                  style={{
-                    position: 'absolute',
-                    top: '8%',
-                    left: '0%',
-                    zIndex: 10,
-                    width: '160px',
-                    textAlign: 'right',
-                    fontSize: '1.05rem',
-                    fontWeight: 800,
-                    color: '#111827',
-                    lineHeight: 1.25,
-                    fontFamily: 'var(--font-heading)'
-                  }}
-                >
+                <div className="hero-orbit-node hero-orbit-node-1">
                   Accounting &amp;<br />Financial Reporting
                 </div>
 
-                <div 
-                  className="hero-orbit-node hero-orbit-node-2"
-                  style={{
-                    position: 'absolute',
-                    top: '8%',
-                    right: '0%',
-                    zIndex: 10,
-                    width: '150px',
-                    textAlign: 'left',
-                    fontSize: '1.05rem',
-                    fontWeight: 800,
-                    color: '#111827',
-                    lineHeight: 1.25,
-                    fontFamily: 'var(--font-heading)'
-                  }}
-                >
+                <div className="hero-orbit-node hero-orbit-node-2">
                   Taxation<br />Services
                 </div>
 
-                <div 
-                  className="hero-orbit-node hero-orbit-node-3"
-                  style={{
-                    position: 'absolute',
-                    bottom: '16%',
-                    left: '-2%',
-                    zIndex: 10,
-                    width: '160px',
-                    textAlign: 'right',
-                    fontSize: '1.05rem',
-                    fontWeight: 800,
-                    color: '#111827',
-                    lineHeight: 1.25,
-                    fontFamily: 'var(--font-heading)'
-                  }}
-                >
+                <div className="hero-orbit-node hero-orbit-node-3">
                   Consultancy &amp;<br />Outsourcing
                 </div>
 
-                <div 
-                  className="hero-orbit-node hero-orbit-node-4"
-                  style={{
-                    position: 'absolute',
-                    bottom: '14%',
-                    right: '-2%',
-                    zIndex: 10,
-                    width: '170px',
-                    textAlign: 'left',
-                    fontSize: '1.05rem',
-                    fontWeight: 800,
-                    color: '#111827',
-                    lineHeight: 1.25,
-                    fontFamily: 'var(--font-heading)'
-                  }}
-                >
-                  Information<br />Technology<br />Services
+                <div className="hero-orbit-node hero-orbit-node-4">
+                  Information<br />Technology<br className="hide-mobile" /> Services
                 </div>
 
-                {/* Senior Partner Cutout Image Container */}
-                <div style={{
-                  position: 'relative',
-                  zIndex: 2,
-                  margin: '40px auto 0 auto',
-                  maxWidth: '330px',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 12px 35px rgba(0, 0, 0, 0.08)'
-                }}>
+                {/* Center Cutout Partner Image */}
+                <div className="hero-partner-image-box">
                   <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=700&auto=format&fit=crop" 
-                    alt="Senior Partner & CEO - Kinzei Consultants" 
-                    style={{
-                      width: '100%',
-                      height: '420px',
-                      objectFit: 'cover',
-                      objectPosition: 'center 15%',
-                      display: 'block',
-                      filter: 'contrast(1.02)'
-                    }}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=700&auto=format&fit=crop';
-                    }}
+                    src="/hero-partner.png" 
+                    alt="Kinzei Leadership & Managing Advisory Partner" 
+                    className="hero-partner-cutout"
+                    loading="eager"
+                    fetchPriority="high"
                   />
-
-                  {/* Gradient Shadow Overlay */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    padding: '30px 16px 14px 16px',
-                    background: 'linear-gradient(to top, rgba(17, 24, 39, 0.92) 0%, rgba(17, 24, 39, 0.4) 65%, transparent 100%)',
-                    color: '#FFFFFF',
-                    textAlign: 'center'
-                  }}>
-                    <h3 style={{
-                      fontSize: '1.5rem',
-                      fontWeight: 800,
-                      color: '#FFFFFF',
-                      letterSpacing: '0.3px',
-                      margin: 0,
-                      textShadow: '0 2px 8px rgba(0,0,0,0.5)',
-                      fontFamily: 'var(--font-heading)'
-                    }}>
-                      Senior Partner &amp; CEO
-                    </h3>
-                  </div>
                 </div>
 
               </div>
-
             </div>
 
           </div>
@@ -592,12 +474,157 @@ export default function Home({ onOpenSchedule }) {
       </section>
 
       <style>{`
+        /* Hero Graphic Layout - Desktop & Mobile */
+        .hero-graphic-wrapper {
+          position: relative;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .hero-orbit-container {
+          position: relative;
+          width: 100%;
+          max-width: 560px;
+          height: 500px;
+          margin: 0 auto;
+        }
+
+        .hero-orbit-svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .hero-partner-image-box {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          pointer-events: none;
+        }
+
+        .hero-partner-cutout {
+          width: 370px;
+          max-height: 480px;
+          object-fit: contain;
+          display: block;
+          filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.08));
+        }
+
+        .hero-orbit-node {
+          position: absolute;
+          font-weight: 800;
+          color: #111827;
+          line-height: 1.25;
+          font-family: var(--font-heading);
+          z-index: 10;
+          white-space: nowrap;
+        }
+
+        .hero-orbit-node-1 {
+          top: 9%;
+          left: -2%;
+          text-align: right;
+          font-size: 1.05rem;
+        }
+
+        .hero-orbit-node-2 {
+          top: 9%;
+          right: -2%;
+          text-align: left;
+          font-size: 1.05rem;
+        }
+
+        .hero-orbit-node-3 {
+          bottom: 16%;
+          left: -4%;
+          text-align: right;
+          font-size: 1.05rem;
+        }
+
+        .hero-orbit-node-4 {
+          bottom: 14%;
+          right: -4%;
+          text-align: left;
+          font-size: 1.05rem;
+        }
+
         @media (max-width: 992px) {
-          .hero-orbit-svg, .hero-orbit-node {
-            display: none !important;
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+            text-align: center;
           }
-          .hero-graphic-wrapper {
-            min-height: auto !important;
+          .hero-orbit-container {
+            max-width: 380px !important;
+            height: 380px !important;
+            margin: 20px auto 0 auto !important;
+          }
+          .hero-partner-cutout {
+            width: 240px !important;
+            max-height: 340px !important;
+          }
+          .hero-orbit-node {
+            font-size: 0.78rem !important;
+          }
+          .hero-orbit-node-1 {
+            top: 5% !important;
+            left: -15px !important;
+            text-align: right !important;
+          }
+          .hero-orbit-node-2 {
+            top: 5% !important;
+            right: -15px !important;
+            text-align: left !important;
+          }
+          .hero-orbit-node-3 {
+            bottom: 12% !important;
+            left: -15px !important;
+            text-align: right !important;
+          }
+          .hero-orbit-node-4 {
+            bottom: 12% !important;
+            right: -15px !important;
+            text-align: left !important;
+          }
+          .hero-boxes-grid {
+            grid-template-columns: 1fr !important;
+            gap: 25px !important;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .hero-orbit-container {
+            max-width: 340px !important;
+            height: 340px !important;
+          }
+          .hero-partner-cutout {
+            width: 210px !important;
+          }
+          .hero-orbit-node {
+            font-size: 0.72rem !important;
+          }
+          .hero-orbit-node-1 {
+            left: -10px !important;
+          }
+          .hero-orbit-node-2 {
+            right: -10px !important;
+          }
+          .hero-orbit-node-3 {
+            left: -10px !important;
+          }
+          .hero-orbit-node-4 {
+            right: -10px !important;
           }
         }
       `}</style>
