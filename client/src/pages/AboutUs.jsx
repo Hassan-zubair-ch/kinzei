@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  ShieldCheck, Target, Eye, Award, CheckCircle2, Building2, Users, 
-  Mail, Phone, MapPin, ChevronDown, ChevronUp, Calendar, ArrowRight,
-  Globe2, Sparkles, Scale, BookOpen, Clock, FileCheck, Landmark
+  ShieldCheck, Target, Eye, CheckCircle2, 
+  Mail, Phone, ChevronDown, ChevronUp, Calendar, ArrowRight,
+  Sparkles, Scale, Lock, Award, Briefcase
 } from 'lucide-react';
 import AffiliationsSection from '../components/AffiliationsSection';
-import JavedZafarSection from '../components/JavedZafarSection';
 import CounterSection from '../components/CounterSection';
-import { PKFlag, USFlag, UKFlag, UAEFlag, KSAFlag, GermanyFlag } from '../components/CountryFlags';
 
 export default function AboutUs({ onOpenSchedule }) {
   const [openFaq, setOpenFaq] = useState(null);
@@ -21,24 +19,15 @@ export default function AboutUs({ onOpenSchedule }) {
       desc: "Every tax computation, audit engagement, and statutory filing is prepared strictly in accordance with IFRS, ISA, and national revenue laws."
     },
     {
-      icon: <Globe2 size={28} color="#D4A017" />,
-      title: "Cross-Border Tax Capabilities",
-      desc: "Seamless dual-jurisdiction structuring for IT exporters, non-resident founders, Amazon sellers, and multinational enterprises."
+      icon: <Award size={28} color="#D4A017" />,
+      title: "Institutional Excellence",
+      desc: "Directed by senior Chartered Accountants and tax consultants with extensive experience in public and private sector advisory."
     },
     {
-      icon: <ShieldCheck size={28} color="#D4A017" />,
-      title: "Absolute Client Confidentiality",
+      icon: <Lock size={28} color="#D4A017" />,
+      title: "Absolute Confidentiality",
       desc: "Enterprise-grade digital encryption and strict professional non-disclosure agreements protect every client document and audit record."
     }
-  ];
-
-  const globalDesks = [
-    { country: "Pakistan", Flag: PKFlag, subtitle: "FBR & SECP Regimes", desc: "Corporate tax, sales tax litigation, statutory audit, and company incorporation." },
-    { country: "United States", Flag: USFlag, subtitle: "IRS & State Tax", desc: "Federal Form 1120/5472, State Sales Tax, and non-resident LLC formation." },
-    { country: "United Kingdom", Flag: UKFlag, subtitle: "HMRC & Companies House", desc: "Corporation Tax, VAT returns, Making Tax Digital (MTD), and annual accounts." },
-    { country: "UAE", Flag: UAEFlag, subtitle: "FTA & Corporate Tax", desc: "9% Corporate Tax, VAT returns, ESR, and freezone mainland registration." },
-    { country: "Saudi Arabia", Flag: KSAFlag, subtitle: "ZATCA & MISA", desc: "Zakat & income tax filings, electronic invoicing, and regional setups." },
-    { country: "Germany", Flag: GermanyFlag, subtitle: "Federal Central Tax", desc: "German corporate tax advisory, EU VAT, and statutory commercial bookkeeping." }
   ];
 
   const faqs = [
@@ -125,11 +114,11 @@ export default function AboutUs({ onOpenSchedule }) {
               <span>15+ Years Combined Experience</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '6px 14px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.12)' }}>
-              <Globe2 size={16} color="#D4A017" />
-              <span>6 Global Jurisdictions</span>
+              <Briefcase size={16} color="#D4A017" />
+              <span>Institutional Quality Counsel</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '6px 14px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.12)' }}>
-              <Landmark size={16} color="#D4A017" />
+              <ShieldCheck size={16} color="#D4A017" />
               <span>FBR &amp; SECP Registered</span>
             </div>
           </div>
@@ -163,15 +152,15 @@ export default function AboutUs({ onOpenSchedule }) {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '1.02rem', color: '#374151', lineHeight: 1.75, fontWeight: 500 }}>
                 <p>
-                  <strong>Kinzei Consultants (Private) Limited</strong> is an institutional professional services firm providing statutory audit, corporate taxation, accounting, and legal advisory to enterprises, SMEs, and high-net-worth individuals.
+                  <strong>Kinzei Consultants (Private) Limited</strong> is a premier professional services firm providing audit, accounting, taxation, and corporate advisory services to businesses and individuals. The firm is led by senior professionals with over <strong>15+ years of professional experience</strong> across public and private sector organizations.
                 </p>
 
                 <p>
-                  The firm is directed by seasoned Chartered Accountants, Tax Attorneys, IRS Enrolled Agents, and CISA IT Auditors with over <strong>15+ years of combined experience</strong> across domestic revenue jurisdictions and multi-country tax systems.
+                  We are committed to delivering reliable, practical, and high-quality professional services that help our clients meet regulatory requirements, strengthen financial controls, and make informed business decisions. Our approach is based on integrity, technical expertise, and a clear understanding of our clients' business needs.
                 </p>
 
                 <p>
-                  Operating in close collaboration with our affiliated practice <strong>Javed Zafar &amp; Co. Chartered Accountants</strong>, we bridge the gap between complex statutory regulations and your commercial objectives.
+                  The firm offers a wide range of services including <strong>Audit &amp; Assurance, Accounting &amp; Financial Reporting, Taxation &amp; Litigation Support, Corporate &amp; Secretarial Advisory, and Information Technology support</strong>. We work closely with our clients to provide tailored solutions that are aligned with their operational and strategic objectives.
                 </p>
               </div>
 
@@ -255,7 +244,7 @@ export default function AboutUs({ onOpenSchedule }) {
       </section>
 
       {/* 3. CORE VALUE PILLARS */}
-      <section style={{ padding: '40px 0 75px 0', backgroundColor: '#FFFFFF' }}>
+      <section style={{ padding: '20px 0 75px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div style={{
             display: 'grid',
@@ -301,7 +290,168 @@ export default function AboutUs({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 4. VISION & MISSION BLOCK */}
+      {/* 4. CEO & MANAGING LEADERSHIP SPOTLIGHT (WITH CEO IMAGE) */}
+      <section style={{ padding: '85px 0 85px 0', backgroundColor: '#FFFFFF', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
+        <div className="container">
+          <div 
+            className="partner-spotlight-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '380px 1fr',
+              gap: '60px',
+              alignItems: 'center'
+            }}
+          >
+            
+            {/* Left Column: CEO Image Card */}
+            <div style={{ position: 'relative' }}>
+              <div style={{
+                borderRadius: '16px',
+                overflow: 'hidden',
+                boxShadow: '0 18px 45px rgba(0, 0, 0, 0.12)',
+                border: '1.5px solid #E5E7EB'
+              }}>
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" 
+                  alt="Senior Partner & Managing Director" 
+                  style={{
+                    width: '100%',
+                    height: '460px',
+                    objectFit: 'cover',
+                    objectPosition: 'center 15%',
+                    display: 'block'
+                  }}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop';
+                  }}
+                />
+              </div>
+
+              <div style={{
+                marginTop: '16px',
+                padding: '16px 20px',
+                backgroundColor: '#F8FAFC',
+                borderRadius: '12px',
+                border: '1.5px solid rgba(212, 160, 23, 0.35)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.03)'
+              }}>
+                <ShieldCheck size={28} color="#D4A017" style={{ flexShrink: 0 }} />
+                <div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#111827' }}>Senior Managing Leadership</div>
+                  <div style={{ fontSize: '0.8rem', color: '#4B5563', fontWeight: 600 }}>Chartered Accountants &amp; Advisory Partners</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Managing Director Profile & Message */}
+            <div>
+              <span className="badge-gold">Leadership &amp; Governance</span>
+
+              <h2 style={{
+                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
+                fontWeight: 800,
+                color: '#111827',
+                marginTop: '10px',
+                marginBottom: '4px',
+                fontFamily: 'var(--font-heading)'
+              }}>
+                Managing Partner &amp; Founder
+              </h2>
+
+              <div style={{
+                fontSize: '1rem',
+                fontWeight: 800,
+                color: '#D4A017',
+                marginBottom: '22px'
+              }}>
+                Chartered Accountants &amp; Senior Advisory Leadership
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.98rem', color: '#374151', lineHeight: 1.75, fontWeight: 500 }}>
+                <p>
+                  Our Founder and Managing Leadership Team bring extensive professional experience in audit, accounting, taxation, and financial reporting. Having served a wide range of public and private sector organizations, our partners bring deep expertise in financial management, compliance, governance, and internal controls.
+                </p>
+
+                <p>
+                  Our professional leadership includes senior experience from top tier chartered accountancy practices and international firms. We specialize in financial reporting under <strong>IFRS</strong>, statutory external audits, tax litigation defense with the FBR, financial modeling, budgeting, and strategic corporate advisory.
+                </p>
+
+                <p>
+                  Known for a practical, disciplined, and ethical approach, our partners work closely with clients to understand their business challenges and deliver clear, reliable, and value-driven solutions. Our focus remains on strengthening financial systems, ensuring regulatory compliance, and supporting sustainable business growth.
+                </p>
+              </div>
+
+              {/* Direct Contact Bar */}
+              <div style={{
+                marginTop: '28px',
+                paddingTop: '20px',
+                borderTop: '1px solid #E5E7EB',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '30px',
+                flexWrap: 'wrap'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(212, 160, 23, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Mail size={16} color="#D4A017" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.76rem', color: '#6B7280', fontWeight: 700 }}>Direct Email</div>
+                    <a 
+                      href="mailto:info@kinzeiconsultants.com" 
+                      style={{ color: '#111827', fontWeight: 800, fontSize: '0.9rem', textDecoration: 'none', transition: 'color 0.2s ease' }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#D4A017'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#111827'}
+                    >
+                      info@kinzeiconsultants.com
+                    </a>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(212, 160, 23, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Phone size={16} color="#D4A017" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.76rem', color: '#6B7280', fontWeight: 700 }}>Direct Phone</div>
+                    <a 
+                      href="tel:03034063970" 
+                      style={{ color: '#111827', fontWeight: 800, fontSize: '0.9rem', textDecoration: 'none', transition: 'color 0.2s ease' }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#D4A017'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#111827'}
+                    >
+                      03034063970
+                    </a>
+                  </div>
+                </div>
+
+                <button
+                  onClick={onOpenSchedule}
+                  className="btn-primary"
+                  style={{ padding: '9px 20px', fontSize: '0.85rem', marginLeft: 'auto' }}
+                >
+                  <Calendar size={14} />
+                  <span>Book Consultation</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <style>{`
+          @media (max-width: 992px) {
+            .partner-spotlight-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          }
+        `}</style>
+      </section>
+
+      {/* 5. VISION & MISSION BLOCK */}
       <section style={{
         backgroundColor: '#0B1120',
         color: '#FFFFFF',
@@ -428,72 +578,13 @@ export default function AboutUs({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 5. JAVED ZAFAR & CO. AFFILIATION */}
-      <JavedZafarSection onOpenSchedule={onOpenSchedule} />
-
-      {/* 6. AFFILIATIONS & CERTIFICATIONS (AS REQUESTED) */}
+      {/* 6. AFFILIATIONS & CERTIFICATIONS */}
       <AffiliationsSection />
 
       {/* 7. COUNTER & IMPACT METRICS */}
       <CounterSection />
 
-      {/* 8. 6 GLOBAL DESKS OVERVIEW */}
-      <section style={{ padding: '80px 0 85px 0', backgroundColor: '#FFFFFF', borderBottom: '1px solid #E5E7EB' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '45px' }}>
-            <span className="badge-gold">International Footprint</span>
-            <h2 style={{
-              fontSize: '2.4rem',
-              fontWeight: '800',
-              color: '#111827',
-              marginTop: '12px',
-              fontFamily: 'var(--font-heading)'
-            }}>
-              Global Jurisdictions We <span style={{ color: '#D4A017' }}>Directly Support</span>
-            </h2>
-            <p style={{ color: '#4B5563', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto', fontWeight: 500 }}>
-              Specialized desks providing local statutory compliance, corporate formation, and revenue filings across key economies.
-            </p>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px'
-          }}>
-            {globalDesks.map((d, idx) => {
-              const FlagComp = d.Flag;
-              return (
-                <div
-                  key={idx}
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    borderRadius: '16px',
-                    padding: '24px',
-                    border: '1.5px solid #E5E7EB',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
-                    transition: 'all 0.3s ease'
-                  }}
-                  className="pillar-card-hover"
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px' }}>
-                    <FlagComp size={32} />
-                    <div>
-                      <h3 style={{ fontSize: '1.18rem', fontWeight: 800, color: '#111827', margin: 0 }}>{d.country}</h3>
-                      <div style={{ fontSize: '0.82rem', color: '#D4A017', fontWeight: 800 }}>{d.subtitle}</div>
-                    </div>
-                  </div>
-                  <p style={{ fontSize: '0.92rem', color: '#4B5563', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
-                    {d.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 9. FREQUENTLY ASKED QUESTIONS (FAQ) */}
+      {/* 8. FREQUENTLY ASKED QUESTIONS (FAQ) */}
       <section style={{ padding: '85px 0 95px 0', backgroundColor: '#F8FAFC' }}>
         <div className="container" style={{ maxWidth: '840px' }}>
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
@@ -554,7 +645,7 @@ export default function AboutUs({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 10. EXECUTIVE BOTTOM CTA BANNER */}
+      {/* 9. EXECUTIVE BOTTOM CTA BANNER */}
       <section style={{
         background: 'linear-gradient(135deg, #0B1120 0%, #111827 100%)',
         padding: '75px 0',
