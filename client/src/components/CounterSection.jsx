@@ -170,12 +170,16 @@ export default function CounterSection() {
         @media (max-width: 900px) {
           .counter-grid {
             grid-template-columns: repeat(2, 1fr) !important;
-            gap: 40px 20px !important;
+            gap: 30px 16px !important;
           }
         }
         @media (max-width: 480px) {
           .counter-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 24px 10px !important;
+          }
+          .counter-item {
+            padding: 16px 8px !important;
           }
         }
       `}</style>

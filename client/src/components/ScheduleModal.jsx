@@ -57,16 +57,21 @@ export default function ScheduleModal({ isOpen, onClose }) {
       padding: '20px',
       animation: 'fadeIn 0.2s ease-out'
     }}>
-      <div style={{
-        backgroundColor: '#FFFFFF',
-        borderRadius: '24px',
-        maxWidth: '560px',
-        width: '100%',
-        padding: '36px',
-        border: '1.5px solid rgba(212, 160, 23, 0.45)',
-        boxShadow: '0 25px 60px rgba(0, 0, 0, 0.25)',
-        position: 'relative'
-      }}>
+      <div 
+        className="schedule-modal-content"
+        style={{
+          backgroundColor: '#FFFFFF',
+          borderRadius: '24px',
+          maxWidth: '560px',
+          width: '100%',
+          maxHeight: '92vh',
+          overflowY: 'auto',
+          padding: '36px 32px',
+          border: '1.5px solid rgba(212, 160, 23, 0.45)',
+          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.25)',
+          position: 'relative'
+        }}
+      >
         {/* Close Button */}
         <button
           onClick={onClose}

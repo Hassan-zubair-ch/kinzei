@@ -148,7 +148,7 @@ export default function Home({ onOpenSchedule }) {
             </div>
 
             {/* Right Hero Graphic */}
-            <div style={{ position: 'relative', textAlign: 'center', minHeight: '480px' }}>
+            <div style={{ position: 'relative', textAlign: 'center', minHeight: '380px' }} className="hero-graphic-wrapper">
               
               <div style={{
                 position: 'relative',
@@ -158,6 +158,7 @@ export default function Home({ onOpenSchedule }) {
               }}>
 
                 <svg 
+                  className="hero-orbit-svg"
                   style={{
                     position: 'absolute',
                     top: '0',
@@ -186,67 +187,79 @@ export default function Home({ onOpenSchedule }) {
                 </svg>
 
                 {/* 4 Orbit Node Labels */}
-                <div style={{
-                  position: 'absolute',
-                  top: '8%',
-                  left: '0%',
-                  zIndex: 10,
-                  width: '160px',
-                  textAlign: 'right',
-                  fontSize: '1.05rem',
-                  fontWeight: 800,
-                  color: '#111827',
-                  lineHeight: 1.25,
-                  fontFamily: 'var(--font-heading)'
-                }}>
+                <div 
+                  className="hero-orbit-node hero-orbit-node-1"
+                  style={{
+                    position: 'absolute',
+                    top: '8%',
+                    left: '0%',
+                    zIndex: 10,
+                    width: '160px',
+                    textAlign: 'right',
+                    fontSize: '1.05rem',
+                    fontWeight: 800,
+                    color: '#111827',
+                    lineHeight: 1.25,
+                    fontFamily: 'var(--font-heading)'
+                  }}
+                >
                   Accounting &amp;<br />Financial Reporting
                 </div>
 
-                <div style={{
-                  position: 'absolute',
-                  top: '8%',
-                  right: '0%',
-                  zIndex: 10,
-                  width: '150px',
-                  textAlign: 'left',
-                  fontSize: '1.05rem',
-                  fontWeight: 800,
-                  color: '#111827',
-                  lineHeight: 1.25,
-                  fontFamily: 'var(--font-heading)'
-                }}>
+                <div 
+                  className="hero-orbit-node hero-orbit-node-2"
+                  style={{
+                    position: 'absolute',
+                    top: '8%',
+                    right: '0%',
+                    zIndex: 10,
+                    width: '150px',
+                    textAlign: 'left',
+                    fontSize: '1.05rem',
+                    fontWeight: 800,
+                    color: '#111827',
+                    lineHeight: 1.25,
+                    fontFamily: 'var(--font-heading)'
+                  }}
+                >
                   Taxation<br />Services
                 </div>
 
-                <div style={{
-                  position: 'absolute',
-                  bottom: '16%',
-                  left: '-2%',
-                  zIndex: 10,
-                  width: '160px',
-                  textAlign: 'right',
-                  fontSize: '1.05rem',
-                  fontWeight: 800,
-                  color: '#111827',
-                  lineHeight: 1.25,
-                  fontFamily: 'var(--font-heading)'
-                }}>
+                <div 
+                  className="hero-orbit-node hero-orbit-node-3"
+                  style={{
+                    position: 'absolute',
+                    bottom: '16%',
+                    left: '-2%',
+                    zIndex: 10,
+                    width: '160px',
+                    textAlign: 'right',
+                    fontSize: '1.05rem',
+                    fontWeight: 800,
+                    color: '#111827',
+                    lineHeight: 1.25,
+                    fontFamily: 'var(--font-heading)'
+                  }}
+                >
                   Consultancy &amp;<br />Outsourcing
                 </div>
 
-                <div style={{
-                  position: 'absolute',
-                  bottom: '14%',
-                  right: '-2%',
-                  zIndex: 10,
-                  width: '170px',
-                  textAlign: 'left',
-                  fontSize: '1.05rem',
-                  fontWeight: 800,
-                  color: '#111827',
-                  lineHeight: 1.25,
-                  fontFamily: 'var(--font-heading)'
-                }}>
+                <div 
+                  className="hero-orbit-node hero-orbit-node-4"
+                  style={{
+                    position: 'absolute',
+                    bottom: '14%',
+                    right: '-2%',
+                    zIndex: 10,
+                    width: '170px',
+                    textAlign: 'left',
+                    fontSize: '1.05rem',
+                    fontWeight: 800,
+                    color: '#111827',
+                    lineHeight: 1.25,
+                    fontFamily: 'var(--font-heading)'
+                  }}
+                >
                   Information<br />Technology<br />Services
                 </div>
 
@@ -578,6 +591,16 @@ export default function Home({ onOpenSchedule }) {
         </div>
       </section>
 
+      <style>{`
+        @media (max-width: 992px) {
+          .hero-orbit-svg, .hero-orbit-node {
+            display: none !important;
+          }
+          .hero-graphic-wrapper {
+            min-height: auto !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
