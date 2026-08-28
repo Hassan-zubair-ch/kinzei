@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Calendar, Facebook, Linkedin, ShieldCheck } from 'lucide-react';
+import { Mail, Calendar, Linkedin, Instagram, ShieldCheck } from 'lucide-react';
 
 export default function TopHeader({ onOpenSchedule }) {
   return (
@@ -31,12 +31,28 @@ export default function TopHeader({ onOpenSchedule }) {
 
         {/* Right Side: Social Media & Action CTA */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingRight: '12px', borderRight: '1px solid #E5E7EB' }}>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" title="Facebook" style={{ color: '#4B5563', transition: 'color 0.2s' }}>
-              <Facebook size={14} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', paddingRight: '12px', borderRight: '1px solid #E5E7EB' }}>
+            <a 
+              href="https://www.linkedin.com/in/amina-batool-kc?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+              target="_blank" 
+              rel="noreferrer" 
+              title="LinkedIn" 
+              style={{ color: '#4B5563', display: 'flex', alignItems: 'center', transition: 'color 0.2s' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#0A66C2'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#4B5563'}
+            >
+              <Linkedin size={15} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" title="LinkedIn" style={{ color: '#4B5563', transition: 'color 0.2s' }}>
-              <Linkedin size={14} />
+            <a 
+              href="https://www.instagram.com/kinzei_consultants?igsi=MWtncDBkM2ZtNHA1" 
+              target="_blank" 
+              rel="noreferrer" 
+              title="Instagram" 
+              style={{ color: '#4B5563', display: 'flex', alignItems: 'center', transition: 'color 0.2s' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#E1306C'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#4B5563'}
+            >
+              <Instagram size={15} />
             </a>
           </div>
 

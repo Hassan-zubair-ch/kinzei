@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, Linkedin, ShieldCheck, Calendar } from 'lucide-react';
+import { Mail, Phone, ShieldCheck, Calendar } from 'lucide-react';
 
 export default function OurTeam({ onOpenSchedule }) {
   const teamMembers = [

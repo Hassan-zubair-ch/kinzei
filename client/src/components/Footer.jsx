@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import KinzeiLogo from './KinzeiLogo';
-import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowRight, Linkedin, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -34,6 +34,40 @@ export default function Footer() {
                 <Phone size={16} color="#FFD700" />
                 <span>03034063970</span>
               </a>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
+                <a 
+                  href="https://www.linkedin.com/in/amina-batool-kc?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  title="LinkedIn"
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    width: '32px', height: '32px', borderRadius: '50%',
+                    backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFD700',
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#0A66C2'; e.currentTarget.style.color = '#FFFFFF'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#FFD700'; }}
+                >
+                  <Linkedin size={16} />
+                </a>
+                <a 
+                  href="https://www.instagram.com/kinzei_consultants?igsi=MWtncDBkM2ZtNHA1" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  title="Instagram"
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    width: '32px', height: '32px', borderRadius: '50%',
+                    backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFD700',
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#E1306C'; e.currentTarget.style.color = '#FFFFFF'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#FFD700'; }}
+                >
+                  <Instagram size={16} />
+                </a>
+              </div>
             </div>
           </div>
 

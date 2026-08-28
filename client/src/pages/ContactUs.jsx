@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Linkedin, Instagram } from 'lucide-react';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -152,6 +152,58 @@ export default function ContactUs() {
                       Monday – Friday: 9:00 AM – 6:00 PM (PKT)
                     </p>
                   </div>
+                </div>
+              </div>
+
+              {/* Connect on Social Media */}
+              <div style={{
+                padding: '18px 22px',
+                backgroundColor: '#F9FAFB',
+                borderRadius: '16px',
+                border: '1.5px solid #E5E7EB',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '12px'
+              }}>
+                <div>
+                  <div style={{ fontSize: '0.94rem', fontWeight: 800, color: '#111827' }}>Connect on Social Media</div>
+                  <div style={{ fontSize: '0.82rem', color: '#6B7280' }}>Follow our official corporate profiles</div>
+                </div>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <a
+                    href="https://www.linkedin.com/in/amina-batool-kc?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      width: '42px', height: '42px', borderRadius: '10px',
+                      backgroundColor: '#FFFFFF', border: '1.5px solid #D1D5DB',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: '#0A66C2', transition: 'all 0.2s ease', boxShadow: '0 2px 4px rgba(0,0,0,0.04)'
+                    }}
+                    title="LinkedIn"
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#0A66C2'; e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.borderColor = '#0A66C2'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#FFFFFF'; e.currentTarget.style.color = '#0A66C2'; e.currentTarget.style.borderColor = '#D1D5DB'; }}
+                  >
+                    <Linkedin size={20} />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/kinzei_consultants?igsi=MWtncDBkM2ZtNHA1"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      width: '42px', height: '42px', borderRadius: '10px',
+                      backgroundColor: '#FFFFFF', border: '1.5px solid #D1D5DB',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: '#E1306C', transition: 'all 0.2s ease', boxShadow: '0 2px 4px rgba(0,0,0,0.04)'
+                    }}
+                    title="Instagram"
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#E1306C'; e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.borderColor = '#E1306C'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#FFFFFF'; e.currentTarget.style.color = '#E1306C'; e.currentTarget.style.borderColor = '#D1D5DB'; }}
+                  >
+                    <Instagram size={20} />
+                  </a>
                 </div>
               </div>
             </div>
