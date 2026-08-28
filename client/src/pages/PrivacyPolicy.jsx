@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
 
             <h3 style={{ color: '#111827', fontSize: '1.4rem', marginBottom: '12px', fontWeight: 800 }}>5. Contact Us Regarding Privacy</h3>
             <p>
-              If you have any questions regarding our privacy practices, please contact our compliance desk at <strong>kinzeiconsultants@gmail.com</strong> or call <strong>03034063970</strong>.
+              If you have any questions regarding our privacy practices, please contact our compliance desk at <strong>info@kinzeiconsultants.com</strong> or call <strong>03034063970</strong>.
             </p>
           </div>
         </div>

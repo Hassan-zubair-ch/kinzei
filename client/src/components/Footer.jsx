@@ -26,9 +26,9 @@ export default function Footer() {
               Kinzei Consultants (Private) Limited provides expert corporate tax, statutory audit, retainership, SECP registration, and international tax advisory services to navigate regulatory requirements with confidence, accuracy, and transparency.
             </p>
             <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <a href="mailto:kinzeiconsultants@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#FFD700', fontWeight: 600, fontSize: '0.9rem' }}>
+              <a href="mailto:info@kinzeiconsultants.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#FFD700', fontWeight: 600, fontSize: '0.9rem' }}>
                 <Mail size={16} color="#FFD700" />
-                <span>kinzeiconsultants@gmail.com</span>
+                <span>info@kinzeiconsultants.com</span>
               </a>
               <a href="tel:03034063970" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#FFFFFF', fontWeight: 800, fontSize: '0.95rem' }}>
                 <Phone size={16} color="#FFD700" />
@@ -108,7 +108,7 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.9rem' }}>
               <div style={{ display: 'flex', gap: '12px' }}>
                 <MapPin size={22} color="#FFD700" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ color: '#F3F4F6' }}>Office No. 1009, 10th Floor, Al-Hafeez Heights, 65-D1, Gulberg III, Lahore</span>
+                <span style={{ color: '#F3F4F6' }}>First Floor, Plot # 14, Main Road, Block 1 College Rd, Sector C2 Block 1 Twp Sector C 2 Township, Lahore, 54770</span>
               </div>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <Clock size={18} color="#FFD700" style={{ flexShrink: 0 }} />

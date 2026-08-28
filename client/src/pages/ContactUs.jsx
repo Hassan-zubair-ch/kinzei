@@ -91,7 +91,7 @@ export default function ContactUs() {
                   <div>
                     <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>Office Address</h4>
                     <p style={{ fontSize: '0.94rem', color: '#4B5563', marginTop: '4px' }}>
-                      Office No. 1009, 10th Floor, Al-Hafeez Heights, 65-D1, Gulberg III, Lahore, Pakistan
+                      First Floor, Plot # 14, Main Road, Block 1 College Rd, Sector C2 Block 1 Twp Sector C 2 Township, Lahore, 54770, Pakistan
                     </p>
                   </div>
                 </div>
@@ -106,9 +106,14 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>Phone / WhatsApp</h4>
-                    <a href="tel:03034063970" style={{ fontSize: '1.05rem', color: '#9E7B3B', fontWeight: 800, marginTop: '4px', display: 'block' }}>
-                      03034063970
-                    </a>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px' }}>
+                      <a href="tel:03034063970" style={{ fontSize: '1.02rem', color: '#9E7B3B', fontWeight: 800, textDecoration: 'none' }}>
+                        03034063970
+                      </a>
+                      <a href="tel:03170841452" style={{ fontSize: '1.02rem', color: '#9E7B3B', fontWeight: 800, textDecoration: 'none' }}>
+                        03170841452
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -122,9 +127,14 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>Email Address</h4>
-                    <a href="mailto:kinzeiconsultants@gmail.com" style={{ fontSize: '0.96rem', color: '#4B5563', marginTop: '4px', display: 'block', fontWeight: 600 }}>
-                      kinzeiconsultants@gmail.com
-                    </a>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px' }}>
+                      <a href="mailto:info@kinzeiconsultants.com" style={{ fontSize: '0.96rem', color: '#4B5563', textDecoration: 'none', fontWeight: 600 }}>
+                        info@kinzeiconsultants.com
+                      </a>
+                      <a href="mailto:hr@kinzeiconsultants.com" style={{ fontSize: '0.96rem', color: '#4B5563', textDecoration: 'none', fontWeight: 600 }}>
+                        hr@kinzeiconsultants.com
+                      </a>
+                    </div>
                   </div>
                 </div>
 

@@ -8,7 +8,7 @@ export default function OurTeam({ onOpenSchedule }) {
       title: "Lead Tax & Advisory Consultant",
       qualifications: "FCA, Master of Laws (Taxation)",
       bio: "Over 18 years of experience in corporate tax planning, FBR litigation defense, and cross-border M&A advisory.",
-      email: "kinzeiconsultants@gmail.com",
+      email: "info@kinzeiconsultants.com",
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -16,7 +16,7 @@ export default function OurTeam({ onOpenSchedule }) {
       title: "Head of Audit & Assurance",
       qualifications: "FCA, CIA (USA)",
       bio: "Specialist in statutory audits under IFRS, SECP financial reporting compliance, and internal control reviews.",
-      email: "kinzeiconsultants@gmail.com",
+      email: "info@kinzeiconsultants.com",
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -24,7 +24,7 @@ export default function OurTeam({ onOpenSchedule }) {
       title: "US & Cross-Border Tax Director",
       qualifications: "CPA (US), Enrolled Agent (IRS)",
       bio: "Expert in IRS federal tax compliance, Form 5472 filings, State Sales Tax, and non-resident US LLC structuring.",
-      email: "kinzeiconsultants@gmail.com",
+      email: "info@kinzeiconsultants.com",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -32,7 +32,7 @@ export default function OurTeam({ onOpenSchedule }) {
       title: "UK & European Advisory Partner",
       qualifications: "CTA (UK), ACCA",
       bio: "Directs UK corporate tax planning, HMRC VAT registrations, Making Tax Digital (MTD), and Companies House compliance.",
-      email: "kinzeiconsultants@gmail.com",
+      email: "info@kinzeiconsultants.com",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -40,7 +40,7 @@ export default function OurTeam({ onOpenSchedule }) {
       title: "SECP & Legal Advisory Specialist",
       qualifications: "LL.B, Corporate Secretary",
       bio: "Handles SECP company incorporation, partnership deeds, trademark registrations, and statutory board minutes.",
-      email: "kinzeiconsultants@gmail.com",
+      email: "info@kinzeiconsultants.com",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -48,7 +48,7 @@ export default function OurTeam({ onOpenSchedule }) {
       title: "IT Audit & Risk Management Lead",
       qualifications: "CISA, ISO 27001 Auditor",
       bio: "Specializes in IT system audits, SOC 2 readiness, cybersecurity framework testing, and disaster recovery evaluation.",
-      email: "kinzeiconsultants@gmail.com",
+      email: "info@kinzeiconsultants.com",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600&auto=format&fit=crop"
     }
   ];

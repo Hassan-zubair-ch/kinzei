@@ -14,9 +14,9 @@ export default function TopHeader({ onOpenSchedule }) {
         
         {/* Left Side: Email & Operating Hours (Clean & Professional, No duplicate phone number) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
-          <a href="mailto:kinzeiconsultants@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#8C6B2F', fontWeight: 700, transition: 'color 0.2s' }}>
+          <a href="mailto:info@kinzeiconsultants.com" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#8C6B2F', fontWeight: 700, transition: 'color 0.2s' }}>
             <Mail size={14} color="#8C6B2F" />
-            <span>kinzeiconsultants@gmail.com</span>
+            <span>info@kinzeiconsultants.com</span>
           </a>
           <span style={{ color: '#D1D5DB' }}>|</span>
           <span style={{ fontSize: '0.82rem', color: '#4B5563', fontWeight: 600 }}>

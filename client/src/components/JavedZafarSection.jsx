@@ -141,21 +141,19 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                 fontSize: '0.88rem'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#111827', fontWeight: 700 }}>
-                  <MapPin size={16} color="#C49A2C" />
-                  <span>61, G3 Johar Town, Lahore</span>
+                  <MapPin size={16} color="#C49A2C" style={{ flexShrink: 0 }} />
+                  <span>First Floor, Plot # 14, Main Road, Block 1 College Rd, Sector C2 Block 1 Twp Sector C 2 Township, Lahore, 54770</span>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#111827', fontWeight: 700 }}>
                   <Phone size={16} color="#C49A2C" />
-                  <a href="tel:+923037249070" style={{ color: '#111827', textDecoration: 'none' }}>+92 3037249070</a>
-                  <span>|</span>
-                  <a href="tel:+923007916353" style={{ color: '#111827', textDecoration: 'none' }}>+92 3007916353</a>
+                  <a href="tel:03034063970" style={{ color: '#111827', textDecoration: 'none' }}>03034063970</a>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#C49A2C', fontWeight: 700 }}>
                   <Mail size={16} color="#C49A2C" />
-                  <a href="mailto:jz@javedzafarandco.com" style={{ color: '#C49A2C', textDecoration: 'none' }}>
-                    jz@javedzafarandco.com
+                  <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#C49A2C', textDecoration: 'none' }}>
+                    info@kinzeiconsultants.com
                   </a>
                 </div>
               </div>

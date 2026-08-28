@@ -308,8 +308,8 @@ export default function AboutUs({ onOpenSchedule }) {
                   <Mail size={20} color="#C49A2C" />
                   <div>
                     <div style={{ fontSize: '0.78rem', color: '#6B7280', fontWeight: 600 }}>Email Address</div>
-                    <a href="mailto:kinzeiconsultants@gmail.com" style={{ color: '#111827', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>
-                      kinzeiconsultants@gmail.com
+                    <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#111827', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>
+                      info@kinzeiconsultants.com
                     </a>
                   </div>
                 </div>
