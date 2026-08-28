@@ -125,9 +125,10 @@ export default function JavedZafarSection({ onOpenSchedule }) {
 
               <p style={{
                 fontSize: '0.98rem',
-                color: '#4B5563',
+                color: '#1E293B',
                 lineHeight: 1.7,
-                marginBottom: '20px'
+                marginBottom: '20px',
+                fontWeight: 500
               }}>
                 <strong>Javed Zafar &amp; Co.</strong> is a Chartered Accountants firm offering expert accounting, taxation, bookkeeping, auditing, and compliance services. Operating under our agency <strong>Kinzei Consultants (Private) Limited</strong>, the practice helps businesses stay compliant, manage financial risks, and grow with confidence.
               </p>
@@ -140,19 +141,19 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                 flexWrap: 'wrap',
                 fontSize: '0.88rem'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#111827', fontWeight: 700 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0A0F1D', fontWeight: 800 }}>
                   <MapPin size={16} color="#C49A2C" style={{ flexShrink: 0 }} />
                   <span>First Floor, Plot # 14, Main Road, Block 1 College Rd, Sector C2 Block 1 Twp Sector C 2 Township, Lahore, 54770</span>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#111827', fontWeight: 700 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0A0F1D', fontWeight: 800 }}>
                   <Phone size={16} color="#C49A2C" />
-                  <a href="tel:03034063970" style={{ color: '#111827', textDecoration: 'none' }}>03034063970</a>
+                  <a href="tel:03034063970" style={{ color: '#0A0F1D', textDecoration: 'none' }}>03034063970</a>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#C49A2C', fontWeight: 700 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#9E7B3B', fontWeight: 800 }}>
                   <Mail size={16} color="#C49A2C" />
-                  <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#C49A2C', textDecoration: 'none' }}>
+                  <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#9E7B3B', textDecoration: 'none' }}>
                     info@kinzeiconsultants.com
                   </a>
                 </div>
@@ -167,12 +168,12 @@ export default function JavedZafarSection({ onOpenSchedule }) {
             gridTemplateColumns: '1fr 1fr',
             gap: '30px',
             paddingTop: '25px',
-            borderTop: '1px solid #E5E7EB'
+            borderTop: '1px solid #E2E8F0'
           }} className="jz-bottom-grid">
 
             {/* Column 1: Core Practice Services */}
             <div>
-              <div style={{ fontSize: '1rem', fontWeight: 800, color: '#111827', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 800, color: '#0A0F1D', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <ShieldCheck size={18} color="#C49A2C" />
                 <span>Practice Areas &amp; Services</span>
               </div>
@@ -181,8 +182,8 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={15} color="#C49A2C" style={{ flexShrink: 0 }} />
                     <div>
-                      <strong style={{ color: '#1F2937' }}>{ps.name}:</strong>{' '}
-                      <span style={{ color: '#6B7280' }}>{ps.desc}</span>
+                      <strong style={{ color: '#0A0F1D' }}>{ps.name}:</strong>{' '}
+                      <span style={{ color: '#1E293B', fontWeight: 500 }}>{ps.desc}</span>
                     </div>
                   </div>
                 ))}

@@ -144,9 +144,9 @@ export default function Footer() {
                 <MapPin size={22} color="#FFD700" style={{ flexShrink: 0, marginTop: '2px' }} />
                 <span style={{ color: '#F3F4F6' }}>First Floor, Plot # 14, Main Road, Block 1 College Rd, Sector C2 Block 1 Twp Sector C 2 Township, Lahore, 54770</span>
               </div>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                <Clock size={18} color="#FFD700" style={{ flexShrink: 0 }} />
-                <span style={{ color: '#F3F4F6' }}>9 AM - 6 PM , Monday - Friday</span>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                <Clock size={18} color="#FFD700" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span style={{ color: '#F3F4F6' }}>Morning: 10:00 AM – 6:00 PM<br/>Evening: 8:00 PM – 4:00 AM (PKT)</span>
               </div>
             </div>
           </div>

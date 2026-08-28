@@ -1,8 +1,8 @@
 :root {
   --bg-dark: #FFFFFF;
-  --bg-surface: #F8F9FA;
+  --bg-surface: #F8FAFC;
   --bg-card: #FFFFFF;
-  --bg-card-hover: #F3F4F6;
+  --bg-card-hover: #F1F5F9;
   
   --gold-primary: #9E7B3B;
   --gold-light: #C5A059;
@@ -12,15 +12,17 @@
   --gold-border: rgba(158, 123, 59, 0.35);
   --gold-glow: rgba(158, 123, 59, 0.08);
 
-  --text-main: #111827;
-  --text-muted: #4B5563;
+  --text-main: #0F172A;
+  --text-dark: #0A0F1D;
+  --text-body: #1E293B;
+  --text-muted: #334155;
   --text-gold: #9E7B3B;
 
-  --border-subtle: #E5E7EB;
+  --border-subtle: #E2E8F0;
   --border-gold: rgba(158, 123, 59, 0.3);
   
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Outfit', 'Inter', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -40,17 +42,29 @@
 body {
   font-family: var(--font-body);
   background-color: #FFFFFF;
-  color: var(--text-main);
-  line-height: 1.6;
+  color: var(--text-body);
+  line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  color: var(--text-body);
+  font-size: 0.98rem;
+  line-height: 1.7;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: #111827;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+::placeholder {
+  color: #64748B !important;
+  opacity: 1;
 }
 
 a {
