@@ -1,13 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" width="360" height="180">
-  <path d="M 10 100 Q 180 30 350 100 Q 180 52 10 100 Z" fill="#65B32E" />
-
-  <g transform="translate(180, 72)">
-    <polygon points="0,-35 6,-8 35,0 6,8 0,35 -6,8 -35,0 -6,-8" fill="#EAB308" stroke="#CA8A04" stroke-width="1" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="100%" height="100%">
+  <!-- Green Arch -->
+  <path d="M 20 62 C 90 28, 230 28, 300 62 C 225 40, 95 40, 20 62 Z" fill="#2E7D32" />
+  
+  <!-- Center Starburst -->
+  <g transform="translate(160, 48)">
+    <polygon points="0,-22 4,-5 22,0 4,5 0,22 -4,5 -22,0 -4,-5" fill="#F59E0B" />
   </g>
 
-  <g fill="#0072CE">
-    <path d="M 60 90 L 120 90 Q 128 90 128 98 L 128 104 Q 128 110 120 110 L 84 110 L 84 122 L 114 122 Q 120 122 120 128 L 120 134 Q 120 140 114 140 L 84 140 L 84 158 Q 84 164 76 164 L 68 164 Q 60 164 60 158 Z" />
-    <path d="M 136 90 L 180 90 Q 200 90 200 106 Q 200 118 186 122 Q 204 126 204 144 Q 204 164 180 164 L 136 164 Q 130 164 130 158 L 130 96 Q 130 90 136 90 Z M 154 108 L 154 120 L 174 120 Q 182 120 182 114 Q 182 108 174 108 Z M 154 134 L 154 146 L 176 146 Q 185 146 185 140 Q 185 134 176 134 Z" />
-    <path d="M 212 90 L 256 90 Q 278 90 278 110 Q 278 126 260 130 L 278 156 Q 282 164 272 164 L 260 164 Q 252 164 246 156 L 232 134 L 230 134 L 230 158 Q 230 164 222 164 L 218 164 Q 212 164 212 158 Z M 230 108 L 230 120 L 250 120 Q 258 120 258 114 Q 258 108 250 108 Z" />
-  </g>
+  <!-- FBR Letters -->
+  <text x="160" y="98" font-family="'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="900" fill="#00529B" text-anchor="middle" letter-spacing="4">FBR</text>
+  
+  <!-- Subtitle -->
+  <text x="160" y="114" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#4B5563" text-anchor="middle" letter-spacing="1">FEDERAL BOARD OF REVENUE</text>
 </svg>

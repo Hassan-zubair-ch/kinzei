@@ -4,80 +4,80 @@ export default function AffiliationsSection() {
   const affiliations = [
     {
       name: 'Federal Board of Revenue (FBR)',
-      logo: '/logos/fbr.png',
-      height: '65px'
+      logo: '/logos/fbr.svg'
     },
     {
       name: 'The Institute of Chartered Accountants of Pakistan (ICAP)',
-      logo: '/logos/icap.png',
-      height: '85px'
+      logo: '/logos/icap.svg'
     },
     {
       name: 'Internal Revenue Service (IRS)',
-      logo: '/logos/irs.png',
-      height: '55px'
+      logo: '/logos/irs.svg'
     },
     {
       name: 'HM Revenue & Customs (HMRC)',
-      logo: '/logos/hmrc.png',
-      height: '55px'
+      logo: '/logos/hmrc.svg'
     }
   ];
 
   return (
     <section style={{
-      padding: '65px 0 75px 0',
+      padding: '70px 0 80px 0',
       backgroundColor: '#FFFFFF',
       borderBottom: '1px solid #E5E7EB'
     }}>
-      <div className="container">
+      <div className="container" style={{ maxWidth: '1200px' }}>
         <div style={{ textAlign: 'center', marginBottom: '45px' }}>
-          <span className="badge-gold" style={{ marginBottom: '10px' }}>Global Regulatory &amp; Compliance</span>
+          <span className="badge-gold" style={{ marginBottom: '12px' }}>GLOBAL REGULATORY &amp; COMPLIANCE</span>
           <h2 style={{
-            fontSize: '2.2rem',
+            fontSize: '2.4rem',
             fontWeight: '800',
             color: '#111827',
-            marginTop: '10px',
+            marginTop: '12px',
             fontFamily: 'var(--font-heading)'
           }}>
             Affiliations &amp; <span style={{ color: '#D4A017' }}>Certifications</span>
           </h2>
         </div>
 
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '35px'
-        }}>
+        {/* Uniform Grid - Identical Card Sizes with Zero Gaps */}
+        <div 
+          className="affiliations-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '24px',
+            alignItems: 'stretch'
+          }}
+        >
           {affiliations.map((item, idx) => (
             <div 
               key={idx} 
+              className="affiliation-logo-card"
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '18px 30px',
-                borderRadius: '16px',
+                height: '125px',
+                padding: '16px 24px',
+                borderRadius: '18px',
                 backgroundColor: '#FFFFFF',
-                border: '1px solid #E5E7EB',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.04)',
-                transition: 'all 0.3s ease',
-                cursor: 'pointer',
-                minWidth: '190px'
+                border: '1.5px solid #E5E7EB',
+                boxShadow: '0 4px 18px rgba(0, 0, 0, 0.04)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                cursor: 'pointer'
               }}
-              className="affiliation-logo-card"
             >
               <img 
                 src={item.logo} 
                 alt={item.name} 
                 title={item.name}
                 style={{
-                  maxHeight: item.height,
-                  maxWidth: '210px',
+                  height: '62px',
+                  maxWidth: '92%',
                   width: 'auto',
-                  objectFit: 'contain'
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.02))'
                 }}
               />
             </div>
@@ -87,9 +87,21 @@ export default function AffiliationsSection() {
 
       <style>{`
         .affiliation-logo-card:hover {
-          transform: translateY(-5px);
+          transform: translateY(-6px);
           border-color: #D4A017 !important;
-          box-shadow: 0 12px 30px rgba(212, 160, 23, 0.2) !important;
+          box-shadow: 0 16px 35px rgba(212, 160, 23, 0.2) !important;
+        }
+        @media (max-width: 992px) {
+          .affiliations-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
+          }
+        }
+        @media (max-width: 520px) {
+          .affiliations-grid {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
         }
       `}</style>
     </section>

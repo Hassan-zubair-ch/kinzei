@@ -1,18 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 140" width="340" height="140">
-  <g transform="translate(20, 20)">
-    <rect x="0" y="0" width="100" height="100" rx="16" fill="#000000" />
-    <path d="M 20 25 C 16 35, 16 65, 25 80" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" />
-    <path d="M 18 35 Q 26 32 28 40" stroke="#FFFFFF" stroke-width="3" fill="none" />
-    <path d="M 18 50 Q 28 47 30 55" stroke="#FFFFFF" stroke-width="3" fill="none" />
-    <path d="M 20 65 Q 30 62 32 70" stroke="#FFFFFF" stroke-width="3" fill="none" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="100%" height="100%">
+  <!-- IRS Black Eagle Badge -->
+  <g transform="translate(30, 20)">
+    <rect x="0" y="0" width="80" height="80" rx="12" fill="#111827" />
+    <!-- Eagle outline & stripes -->
+    <path d="M 16 20 C 12 28, 12 52, 20 64" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" fill="none" />
+    <path d="M 14 28 Q 20 25 22 32" stroke="#FFFFFF" stroke-width="2.5" fill="none" />
+    <path d="M 14 40 Q 22 37 24 44" stroke="#FFFFFF" stroke-width="2.5" fill="none" />
+    <path d="M 16 52 Q 24 49 26 56" stroke="#FFFFFF" stroke-width="2.5" fill="none" />
     
-    <path d="M 65 30 Q 45 30 40 45 L 75 45 Z" fill="#FFFFFF" />
-    <path d="M 40 45 L 40 78 L 75 78 L 75 45 Z" fill="#FFFFFF" />
-    <circle cx="57.5" cy="55" r="4" fill="#000000" />
-    <polygon points="45,72 55,72 50,62" fill="#000000" />
-    <polygon points="65,72 75,72 70,62" fill="#000000" />
-    <line x1="42" y1="62" x2="73" y2="62" stroke="#000000" stroke-width="2" />
+    <!-- Scales & Shield inside -->
+    <path d="M 52 24 Q 36 24 32 36 L 60 36 Z" fill="#FFFFFF" />
+    <path d="M 32 36 L 32 62 L 60 62 L 60 36 Z" fill="#FFFFFF" />
+    <circle cx="46" cy="44" r="3.5" fill="#111827" />
+    <polygon points="36,58 44,58 40,50" fill="#111827" />
+    <polygon points="52,58 60,58 56,50" fill="#111827" />
+    <line x1="34" y1="50" x2="58" y2="50" stroke="#111827" stroke-width="1.8" />
   </g>
 
-  <text x="140" y="92" font-family="'Times New Roman', Georgia, serif" font-size="78" font-weight="900" fill="#000000" letter-spacing="3">IRS</text>
+  <!-- Typography Right Side -->
+  <g transform="translate(130, 28)">
+    <text x="0" y="42" font-family="'Times New Roman', Georgia, serif" font-size="46" font-weight="900" fill="#111827" letter-spacing="3">IRS</text>
+    <text x="0" y="62" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="800" fill="#4B5563" letter-spacing="1">INTERNAL REVENUE SERVICE</text>
+  </g>
 </svg>
