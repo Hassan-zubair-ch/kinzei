@@ -44,7 +44,7 @@ export default function TopHeader({ onOpenSchedule }) {
               <Clock size={12} color="#C5A059" />
             </div>
             <span>
-              <strong style={{ color: '#F8FAFC' }}>Morning:</strong> 10:00 AM – 6:00 PM &nbsp;|&nbsp; <strong style={{ color: '#F8FAFC' }}>Evening:</strong> 8:00 PM – 4:00 AM (PKT)
+              <strong style={{ color: '#F8FAFC' }}>Morning:</strong> 10:00 AM – 6:00 PM &nbsp;|&nbsp; <strong style={{ color: '#F8FAFC' }}>Evening:</strong> 8:00 PM – 4:00 AM
             </span>
           </div>
 

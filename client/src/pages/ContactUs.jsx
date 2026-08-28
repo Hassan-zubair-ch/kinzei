@@ -166,7 +166,7 @@ export default function ContactUs() {
                     <h4 style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 800 }}>Working Hours</h4>
                     <p style={{ fontSize: '0.95rem', color: '#1F2937', marginTop: '4px', lineHeight: 1.6, fontWeight: 600 }}>
                       Morning: 10:00 AM – 6:00 PM<br />
-                      Evening: 8:00 PM – 4:00 AM (PKT)
+                      Evening: 8:00 PM – 4:00 AM
                     </p>
                   </div>
                 </div>

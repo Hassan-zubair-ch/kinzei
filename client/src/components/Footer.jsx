@@ -146,7 +146,7 @@ export default function Footer() {
               </div>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                 <Clock size={18} color="#FFD700" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ color: '#F3F4F6' }}>Morning: 10:00 AM – 6:00 PM<br/>Evening: 8:00 PM – 4:00 AM (PKT)</span>
+                <span style={{ color: '#F3F4F6' }}>Morning: 10:00 AM – 6:00 PM<br/>Evening: 8:00 PM – 4:00 AM</span>
               </div>
             </div>
           </div>
