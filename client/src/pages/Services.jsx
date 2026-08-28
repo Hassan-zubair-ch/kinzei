@@ -37,26 +37,29 @@ export default function Services() {
       {/* PAGE HEADER BANNER */}
       <section style={{
         backgroundColor: '#F8FAFC',
-        padding: '60px 0 45px 0',
+        padding: '50px 0 40px 0',
         textAlign: 'center',
         borderBottom: '1px solid #E5E7EB'
       }}>
         <div className="container">
           <span className="badge-gold">Kinzei Global Offerings</span>
-          <h1 style={{ fontSize: '2.8rem', color: '#111827', marginTop: '12px', marginBottom: '16px', fontWeight: 800 }}>
+          <h1 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: '#111827', marginTop: '12px', marginBottom: '14px', fontWeight: 800 }}>
             Our International <span style={{ color: '#D4A017' }}>Services</span>
           </h1>
-          <p style={{ color: '#1F2937', fontSize: '1.08rem', maxWidth: '720px', margin: '0 auto 36px auto', fontWeight: 500 }}>
+          <p style={{ color: '#1F2937', fontSize: '1.02rem', maxWidth: '720px', margin: '0 auto 30px auto', fontWeight: 500 }}>
             Select your target country below to explore localized tax filing, statutory audit, corporate registration, and advisory solutions.
           </p>
 
-          {/* 6 Country Filter Buttons */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '12px',
-            flexWrap: 'wrap'
-          }}>
+          {/* 6 Country Filter Buttons - Symmetrical Grid on Mobile & Inline on Desktop */}
+          <div 
+            className="services-country-tabs"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '12px',
+              flexWrap: 'wrap'
+            }}
+          >
             {countryTabs.map((tab) => {
               const TabFlag = tab.Flag;
               const isActive = selectedCountry === tab.code;
@@ -64,13 +67,15 @@ export default function Services() {
                 <button
                   key={tab.code}
                   onClick={() => handleCountryChange(tab.code)}
+                  className="services-country-btn"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px',
-                    padding: '12px 24px',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    padding: '12px 22px',
                     borderRadius: '30px',
-                    fontSize: '0.94rem',
+                    fontSize: '0.92rem',
                     fontWeight: 800,
                     backgroundColor: isActive ? '#D4A017' : '#FFFFFF',
                     color: isActive ? '#FFFFFF' : '#111827',
@@ -94,7 +99,7 @@ export default function Services() {
                     }
                   }}
                 >
-                  <TabFlag size={22} />
+                  <TabFlag size={20} />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -104,7 +109,7 @@ export default function Services() {
       </section>
 
       {/* SERVICES GRID (INSTANT LOAD - ZERO DELAY) */}
-      <section style={{ padding: '60px 0 90px 0', backgroundColor: '#FFFFFF' }}>
+      <section style={{ padding: '55px 0 85px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           {services.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '60px 0', color: '#4B5563', fontWeight: 600 }}>
@@ -113,9 +118,9 @@ export default function Services() {
           ) : (
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-              gap: '30px'
-            }}>
+              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+              gap: '24px'
+            }} className="services-list-grid">
               {services.map(service => (
                 <ServiceCard key={service.id} service={service} isDarkTheme={false} />
               ))}
@@ -123,6 +128,32 @@ export default function Services() {
           )}
         </div>
       </section>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .services-country-tabs {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+          .services-country-btn {
+            width: 100% !important;
+            padding: 10px 8px !important;
+            font-size: 0.82rem !important;
+            border-radius: 12px !important;
+          }
+          .services-list-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+        }
+        @media (max-width: 400px) {
+          .services-country-btn {
+            padding: 8px 6px !important;
+            font-size: 0.78rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

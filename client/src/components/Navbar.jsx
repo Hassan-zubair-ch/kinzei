@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import KinzeiLogo from './KinzeiLogo';
 import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag } from './CountryFlags';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, Calendar } from 'lucide-react';
 
 export default function Navbar({ onOpenSchedule }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -69,15 +69,20 @@ export default function Navbar({ onOpenSchedule }) {
       borderBottom: '1px solid rgba(255, 215, 0, 0.3)',
       transition: 'all 0.3s ease'
     }}>
-      <div className="container" style={{
+      <div className="container navbar-container" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '84px'
+        height: '80px'
       }}>
         {/* Logo with White & Gold text for brown background */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <KinzeiLogo height={65} isBrownHeader={true} />
+          <div className="nav-logo-desktop">
+            <KinzeiLogo height={62} isBrownHeader={true} />
+          </div>
+          <div className="nav-logo-mobile">
+            <KinzeiLogo height={48} isBrownHeader={true} />
+          </div>
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -233,35 +238,41 @@ export default function Navbar({ onOpenSchedule }) {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           style={{
-            background: 'none',
+            width: '42px',
+            height: '42px',
+            borderRadius: '10px',
+            backgroundColor: 'rgba(255, 255, 255, 0.15)',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
             color: '#FFFFFF',
-            border: 'none',
-            padding: '8px',
+            display: 'none',
+            alignItems: 'center',
+            justifyContent: 'center',
             cursor: 'pointer',
-            display: 'none'
+            padding: 0
           }}
           className="mobile-toggle"
+          aria-label="Toggle navigation menu"
         >
-          {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div style={{
-          backgroundColor: '#7A5C24',
-          borderTop: '1px solid rgba(255, 215, 0, 0.3)',
-          padding: '20px 24px',
+          backgroundColor: '#0B1120',
+          borderTop: '2px solid #D4A017',
+          padding: '24px 20px 30px 20px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '16px',
-          boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
-          animation: 'fadeIn 0.2s ease-out'
+          gap: '12px',
+          boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
+          animation: 'fadeIn 0.25s ease-out'
         }}>
           {navLinks.map((link) => {
             if (link.isDropdown) {
               return (
-                <div key={link.name}>
+                <div key={link.name} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '12px' }}>
                   <div
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                     style={{
@@ -269,18 +280,24 @@ export default function Navbar({ onOpenSchedule }) {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                       color: '#FFD700',
-                      fontWeight: 700,
-                      fontSize: '1.1rem',
+                      fontWeight: 800,
+                      fontSize: '1.05rem',
                       padding: '8px 0',
                       cursor: 'pointer'
                     }}
                   >
                     <span>Services</span>
-                    <ChevronDown size={18} style={{ transform: mobileServicesOpen ? 'rotate(180deg)' : 'none' }} />
+                    <ChevronDown size={18} style={{ transform: mobileServicesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
                   </div>
 
                   {mobileServicesOpen && (
-                    <div style={{ paddingLeft: '16px', display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px' }}>
+                    <div style={{
+                      display: 'grid',
+                      gridTemplateColumns: '1fr 1fr',
+                      gap: '8px',
+                      marginTop: '10px',
+                      paddingTop: '6px'
+                    }}>
                       {countryItems.map((item) => {
                         const FlagComponent = item.Flag;
                         return (
@@ -290,16 +307,19 @@ export default function Navbar({ onOpenSchedule }) {
                             style={{
                               display: 'flex',
                               alignItems: 'center',
-                              gap: '12px',
-                              color: '#FFFFFF',
-                              fontWeight: 600,
-                              fontSize: '0.95rem',
-                              padding: '8px 0',
+                              gap: '8px',
+                              color: '#F8FAFC',
+                              fontWeight: 700,
+                              fontSize: '0.85rem',
+                              padding: '10px 12px',
+                              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                              border: '1px solid rgba(255, 255, 255, 0.1)',
+                              borderRadius: '8px',
                               cursor: 'pointer'
                             }}
                           >
-                            <FlagComponent size={22} />
-                            <span>{item.label}</span>
+                            <FlagComponent size={18} />
+                            <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.code.toUpperCase()}</span>
                           </div>
                         );
                       })}
@@ -315,10 +335,15 @@ export default function Navbar({ onOpenSchedule }) {
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
-                  color: location.pathname === link.path ? '#FFD700' : '#FFFFFF',
+                  color: location.pathname === link.path ? '#FFD700' : '#F1F5F9',
                   fontWeight: 700,
-                  fontSize: '1.1rem',
-                  padding: '8px 0'
+                  fontSize: '1.02rem',
+                  padding: '10px 12px',
+                  borderRadius: '8px',
+                  backgroundColor: location.pathname === link.path ? 'rgba(212, 160, 23, 0.12)' : 'transparent',
+                  border: location.pathname === link.path ? '1px solid rgba(212, 160, 23, 0.3)' : '1px solid transparent',
+                  display: 'block',
+                  textDecoration: 'none'
                 }}
               >
                 {link.name}
@@ -326,7 +351,19 @@ export default function Navbar({ onOpenSchedule }) {
             );
           })}
 
-          <div style={{ paddingTop: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.2)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px', paddingTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenSchedule) onOpenSchedule();
+              }}
+              className="btn-primary"
+              style={{ width: '100%', justifyContent: 'center', padding: '12px', fontSize: '0.92rem' }}
+            >
+              <Calendar size={16} />
+              <span>Book Consultation</span>
+            </button>
+
             <a
               href={whatsappUrl}
               target="_blank"
@@ -337,12 +374,13 @@ export default function Navbar({ onOpenSchedule }) {
                 backgroundColor: '#FFFFFF',
                 color: '#7A5C24',
                 fontWeight: 800,
-                padding: '12px',
-                borderRadius: '30px',
+                padding: '11px',
+                borderRadius: '8px',
                 textDecoration: 'none',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px'
+                gap: '8px',
+                fontSize: '0.9rem'
               }}
             >
               <span>WhatsApp: 03034063970</span>
@@ -352,9 +390,15 @@ export default function Navbar({ onOpenSchedule }) {
       )}
 
       <style>{`
+        .nav-logo-desktop { display: block; }
+        .nav-logo-mobile { display: none; }
+
         @media (max-width: 992px) {
           .desktop-nav, .desktop-cta { display: none !important; }
-          .mobile-toggle { display: block !important; }
+          .mobile-toggle { display: flex !important; }
+          .navbar-container { height: 68px !important; padding: 0 16px !important; }
+          .nav-logo-desktop { display: none !important; }
+          .nav-logo-mobile { display: block !important; }
         }
       `}</style>
     </header>

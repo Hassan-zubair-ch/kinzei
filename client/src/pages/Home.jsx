@@ -429,13 +429,16 @@ export default function Home({ onOpenSchedule }) {
           </div>
 
           {/* 6 Country Filter Buttons with Interactive Hover */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '12px',
-            flexWrap: 'wrap',
-            marginBottom: '40px'
-          }}>
+          <div 
+            className="home-country-tabs"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '12px',
+              flexWrap: 'wrap',
+              marginBottom: '40px'
+            }}
+          >
             {countryTabs.map((tab) => {
               const isActive = activeCountry === tab.code;
               const FlagIcon = tab.Flag;
@@ -443,6 +446,7 @@ export default function Home({ onOpenSchedule }) {
                 <button
                   key={tab.code}
                   onClick={() => handleCountryChange(tab.code)}
+                  className="home-country-btn"
                   style={{
                     backgroundColor: isActive ? '#D4A017' : '#FFFFFF',
                     color: isActive ? '#FFFFFF' : '#111827',
@@ -454,6 +458,7 @@ export default function Home({ onOpenSchedule }) {
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                     gap: '8px',
                     boxShadow: isActive ? '0 4px 14px rgba(212, 160, 23, 0.35)' : '0 2px 4px rgba(0,0,0,0.03)',
                     transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
