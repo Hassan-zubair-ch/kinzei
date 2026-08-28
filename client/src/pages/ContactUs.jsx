@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Linkedin, Instagram } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Linkedin, Instagram, ExternalLink } from 'lucide-react';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -354,6 +354,76 @@ export default function ContactUs() {
               </form>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* GOOGLE MAP EMBED SECTION */}
+      <section style={{ padding: '0 0 90px 0', backgroundColor: '#FFFFFF' }}>
+        <div className="container">
+          <div style={{
+            backgroundColor: '#F9FAFB',
+            borderRadius: '24px',
+            border: '1.5px solid #E5E7EB',
+            overflow: 'hidden',
+            boxShadow: '0 8px 30px rgba(0,0,0,0.04)'
+          }}>
+            {/* Map Header Bar */}
+            <div style={{
+              padding: '22px 28px',
+              backgroundColor: '#FFFFFF',
+              borderBottom: '1px solid #E5E7EB',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '16px'
+            }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                  <MapPin size={20} color="#9E7B3B" />
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#111827', margin: 0 }}>
+                    Our Office Location on Google Maps
+                  </h3>
+                </div>
+                <p style={{ margin: 0, fontSize: '0.9rem', color: '#6B7280' }}>
+                  First Floor, Plot # 14, Main Road, Block 1 College Rd, Sector C2 Township, Lahore, 54770
+                </p>
+              </div>
+
+              <a
+                href="https://share.google/5kXDl7CYu4aJsuvp2"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary"
+                style={{
+                  padding: '10px 20px',
+                  borderRadius: '10px',
+                  fontSize: '0.88rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  textDecoration: 'none'
+                }}
+              >
+                <ExternalLink size={16} />
+                <span>Open in Google Maps</span>
+              </a>
+            </div>
+
+            {/* Google Map Iframe */}
+            <div style={{ width: '100%', height: '420px', position: 'relative' }}>
+              <iframe
+                title="Kinzei Consultants Office Location"
+                src="https://maps.google.com/maps?q=Antztec%2C%20Plot%2014%2C%20College%20Rd%2C%20Sector%20C2%20Township%2C%20Lahore&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, display: 'block' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
