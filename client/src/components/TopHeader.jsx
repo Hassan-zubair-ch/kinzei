@@ -3,16 +3,19 @@ import { Mail, Calendar, Linkedin, Instagram, ShieldCheck, Clock } from 'lucide-
 
 export default function TopHeader({ onOpenSchedule }) {
   return (
-    <div style={{ 
-      backgroundColor: '#0B1120', 
-      borderBottom: '1px solid rgba(212, 160, 23, 0.25)', 
-      fontSize: '0.82rem',
-      padding: '8px 0',
-      color: '#E2E8F0'
-    }}>
+    <div 
+      className="top-header-bar"
+      style={{ 
+        backgroundColor: '#0B1120', 
+        borderBottom: '1px solid rgba(212, 160, 23, 0.25)', 
+        fontSize: '0.82rem',
+        padding: '8px 0',
+        color: '#E2E8F0'
+      }}
+    >
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
         
-        {/* Left Side: Email, Two-Shift Working Hours & Compliance Badge (No separation lines) */}
+        {/* Left Side: Email, Two-Shift Working Hours & Compliance Badge */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
           
           {/* Email */}
@@ -178,6 +181,14 @@ export default function TopHeader({ onOpenSchedule }) {
         </div>
 
       </div>
+
+      <style>{`
+        @media (max-width: 992px) {
+          .top-header-bar {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
