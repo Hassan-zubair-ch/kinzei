@@ -97,6 +97,7 @@ export default function AboutUs({ onOpenSchedule }) {
           <h1 style={{ 
             fontSize: 'clamp(2.4rem, 4.5vw, 3.4rem)', 
             fontWeight: 900, 
+            color: '#FFFFFF',
             letterSpacing: '-0.5px',
             marginBottom: '18px',
             fontFamily: 'var(--font-heading)',
