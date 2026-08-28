@@ -76,9 +76,9 @@ export function GermanyFlag({ size = 24 }) {
 export function OtherFlag({ size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ borderRadius: '50%', flexShrink: 0, boxShadow: '0 2px 5px rgba(0,0,0,0.15)' }}>
-      <circle cx="16" cy="16" r="15" fill="#FFFFFF" stroke="#9E7B3B" strokeWidth="1.5" />
-      <circle cx="14" cy="14" r="6" stroke="#9E7B3B" strokeWidth="2.5" />
-      <line x1="18.5" y1="18.5" x2="24" y2="24" stroke="#9E7B3B" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="16" cy="16" r="15" fill="#FFFFFF" stroke="#D4A017" strokeWidth="1.5" />
+      <circle cx="14" cy="14" r="6" stroke="#D4A017" strokeWidth="2.5" />
+      <line x1="18.5" y1="18.5" x2="24" y2="24" stroke="#D4A017" strokeWidth="3" strokeLinecap="round" />
     </svg>
   );
 }

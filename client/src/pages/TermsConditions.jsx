@@ -1,22 +1,21 @@
 import React from 'react';
-import { ShieldCheck, FileCheck, AlertCircle } from 'lucide-react';
 
 export default function TermsConditions() {
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
       {/* HEADER BANNER */}
       <section style={{
-        backgroundColor: '#F8F9FA',
-        padding: '60px 0 45px 0',
+        backgroundColor: '#F8FAFC',
+        padding: '65px 0 50px 0',
         textAlign: 'center',
         borderBottom: '1px solid #E5E7EB'
       }}>
         <div className="container">
           <span className="badge-gold">Legal Framework</span>
           <h1 style={{ fontSize: '2.6rem', color: '#111827', marginTop: '12px', marginBottom: '16px', fontWeight: 800 }}>
-            Terms & <span style={{ color: '#9E7B3B' }}>Conditions</span>
+            Terms &amp; <span style={{ color: '#D4A017' }}>Conditions</span>
           </h1>
-          <p style={{ color: '#4B5563', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ color: '#374151', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto', fontWeight: 500 }}>
             Terms governing professional advisory, audit engagements, retainership, and use of our online tools.
           </p>
         </div>
@@ -31,10 +30,10 @@ export default function TermsConditions() {
             padding: '40px',
             border: '1.5px solid #E5E7EB',
             boxShadow: '0 8px 25px rgba(0,0,0,0.04)',
-            color: '#374151',
+            color: '#1F2937',
             lineHeight: 1.8
           }}>
-            <p style={{ fontSize: '0.9rem', color: '#9E7B3B', fontWeight: 700, marginBottom: '24px' }}>
+            <p style={{ fontSize: '0.9rem', color: '#D4A017', fontWeight: 800, marginBottom: '24px' }}>
               Kinzei Consultants (Private) Limited Engagement Terms
             </p>
 
@@ -43,7 +42,7 @@ export default function TermsConditions() {
               All professional engagements for tax return filing, statutory audit, retainership, SECP business registration, and international tax advisory are performed strictly under written engagement letters detailing agreed scope, responsibilities, and professional fees.
             </p>
 
-            <h3 style={{ color: '#111827', fontSize: '1.4rem', marginBottom: '12px', fontWeight: 800 }}>2. Client Responsibilities & Data Accuracy</h3>
+            <h3 style={{ color: '#111827', fontSize: '1.4rem', marginBottom: '12px', fontWeight: 800 }}>2. Client Responsibilities &amp; Data Accuracy</h3>
             <p style={{ marginBottom: '20px' }}>
               Clients are responsible for providing complete, true, and accurate financial records, bank statements, and transaction documents. Kinzei Consultants relies on client-provided data to execute regulatory tax filings and audit procedures.
             </p>
@@ -53,7 +52,7 @@ export default function TermsConditions() {
               Our online Pakistan Tax Calculator provides estimates based on current published FBR tax slabs. Calculated values serve as preliminary guidance and do not replace formal tax advice tailored to complex corporate structures.
             </p>
 
-            <h3 style={{ color: '#111827', fontSize: '1.4rem', marginBottom: '12px', fontWeight: 800 }}>4. Intellectual Property & Brand Rights</h3>
+            <h3 style={{ color: '#111827', fontSize: '1.4rem', marginBottom: '12px', fontWeight: 800 }}>4. Intellectual Property &amp; Brand Rights</h3>
             <p style={{ marginBottom: '20px' }}>
               All content, logo graphics, design systems, and statutory templates on this website are the intellectual property of Kinzei Consultants (Private) Limited. Unauthorized reproduction or redistribution is strictly prohibited.
             </p>

@@ -44,9 +44,8 @@ export default function AboutUs({ onOpenSchedule }) {
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <h1 style={{ 
-            fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', 
-            color: '#FFFFFF', 
-            fontWeight: 800, 
+            fontSize: 'clamp(2.5rem, 4vw, 3.2rem)', 
+            fontWeight: 900, 
             letterSpacing: '-0.5px',
             marginBottom: '12px',
             fontFamily: 'var(--font-heading)'
@@ -56,7 +55,7 @@ export default function AboutUs({ onOpenSchedule }) {
           <div style={{
             width: '60px',
             height: '4px',
-            backgroundColor: '#C49A2C',
+            backgroundColor: '#D4A017',
             margin: '0 auto 16px auto',
             borderRadius: '2px'
           }} />
@@ -66,15 +65,15 @@ export default function AboutUs({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 2. WHO WE ARE SECTION (MATCHING TARGET SCREENSHOT) */}
+      {/* 2. WHO WE ARE SECTION */}
       <section style={{ padding: '90px 0 80px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
           <div style={{
             fontSize: '1.08rem',
-            color: '#C49A2C',
+            color: '#D4A017',
             fontStyle: 'italic',
-            fontWeight: 600,
+            fontWeight: 700,
             marginBottom: '10px',
             fontFamily: 'Georgia, serif'
           }}>
@@ -92,7 +91,7 @@ export default function AboutUs({ onOpenSchedule }) {
             About Us
           </h2>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', fontSize: '1.04rem', color: '#4B5563', lineHeight: 1.75 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', fontSize: '1.04rem', color: '#1F2937', lineHeight: 1.75 }}>
             <p>
               <strong>Kinzei Consultants (Private) Limited</strong> is a premier professional services firm providing audit, accounting, taxation, and corporate advisory services to businesses and individuals. The firm is led by senior professionals with over <strong>15+ years of professional experience</strong> across public and private sector organizations.
             </p>
@@ -118,7 +117,7 @@ export default function AboutUs({ onOpenSchedule }) {
             <button
               onClick={() => navigate('/contact')}
               style={{
-                backgroundColor: '#C49A2C',
+                background: 'linear-gradient(135deg, #E5B338 0%, #D4A017 50%, #B8860B 100%)',
                 color: '#FFFFFF',
                 border: 'none',
                 padding: '14px 34px',
@@ -126,18 +125,18 @@ export default function AboutUs({ onOpenSchedule }) {
                 fontWeight: 800,
                 letterSpacing: '0.8px',
                 textTransform: 'uppercase',
-                borderRadius: '2px',
+                borderRadius: '8px',
                 cursor: 'pointer',
-                boxShadow: '0 4px 16px rgba(196, 154, 44, 0.3)',
+                boxShadow: '0 4px 16px rgba(212, 160, 23, 0.35)',
                 transition: 'all 0.25s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#B28923';
                 e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(212, 160, 23, 0.45)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#C49A2C';
                 e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 16px rgba(212, 160, 23, 0.35)';
               }}
             >
               LET'S CONNECT
@@ -147,13 +146,13 @@ export default function AboutUs({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 3. COUNTER / STATS BAND (MATCHING TARGET SCREENSHOT - CHARCOAL BLACK & GOLD) */}
+      {/* 3. COUNTER / STATS BAND */}
       <section style={{
         backgroundColor: '#111827',
         color: '#FFFFFF',
         padding: '55px 0',
-        borderTop: '3px solid #C49A2C',
-        borderBottom: '3px solid #8C6B2F'
+        borderTop: '3px solid #D4A017',
+        borderBottom: '3px solid #D4A017'
       }}>
         <div className="container">
           <div 
@@ -166,78 +165,77 @@ export default function AboutUs({ onOpenSchedule }) {
             }}
           >
             <div>
-              <div style={{ fontSize: '3rem', fontWeight: 900, color: '#FFFFFF', fontFamily: 'var(--font-heading)', lineHeight: 1 }}>
-                15+
+              <div style={{ fontSize: '3rem', fontWeight: 900, color: '#D4A017', lineHeight: 1, fontFamily: 'var(--font-heading)' }}>
+                350+
               </div>
-              <div style={{ fontSize: '0.98rem', fontWeight: 700, color: '#C49A2C', marginTop: '8px' }}>
-                Years Experience
-              </div>
-            </div>
-
-            <div>
-              <div style={{ fontSize: '3rem', fontWeight: 900, color: '#FFFFFF', fontFamily: 'var(--font-heading)', lineHeight: 1 }}>
-                300+
-              </div>
-              <div style={{ fontSize: '0.98rem', fontWeight: 700, color: '#C49A2C', marginTop: '8px' }}>
+              <div style={{ fontSize: '0.98rem', fontWeight: 700, color: '#D4A017', marginTop: '8px' }}>
                 Satisfied Clients
               </div>
             </div>
 
             <div>
-              <div style={{ fontSize: '3rem', fontWeight: 900, color: '#FFFFFF', fontFamily: 'var(--font-heading)', lineHeight: 1 }}>
-                20+
+              <div style={{ fontSize: '3rem', fontWeight: 900, color: '#D4A017', lineHeight: 1, fontFamily: 'var(--font-heading)' }}>
+                500+
               </div>
-              <div style={{ fontSize: '0.98rem', fontWeight: 700, color: '#C49A2C', marginTop: '8px' }}>
-                Industries Served
+              <div style={{ fontSize: '0.98rem', fontWeight: 700, color: '#D4A017', marginTop: '8px' }}>
+                Completed Cases
               </div>
             </div>
 
             <div>
-              <div style={{ fontSize: '3rem', fontWeight: 900, color: '#FFFFFF', fontFamily: 'var(--font-heading)', lineHeight: 1 }}>
-                98%
+              <div style={{ fontSize: '3rem', fontWeight: 900, color: '#D4A017', lineHeight: 1, fontFamily: 'var(--font-heading)' }}>
+                15+
               </div>
-              <div style={{ fontSize: '0.98rem', fontWeight: 700, color: '#C49A2C', marginTop: '8px' }}>
-                Client Satisfaction
+              <div style={{ fontSize: '0.98rem', fontWeight: 700, color: '#D4A017', marginTop: '8px' }}>
+                Years Experience
               </div>
             </div>
 
+            <div>
+              <div style={{ fontSize: '3rem', fontWeight: 900, color: '#D4A017', lineHeight: 1, fontFamily: 'var(--font-heading)' }}>
+                15+
+              </div>
+              <div style={{ fontSize: '0.98rem', fontWeight: 700, color: '#D4A017', marginTop: '8px' }}>
+                Qualified Team
+              </div>
+            </div>
           </div>
         </div>
 
         <style>{`
-          @media (max-width: 768px) {
+          @media (max-width: 900px) {
             .about-counter-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; }
           }
         `}</style>
       </section>
 
-      {/* 4. MANAGING PARTNER & FOUNDER SPOTLIGHT (MATCHING TARGET SCREENSHOT) */}
+      {/* 4. MANAGING PARTNER SPOTLIGHT */}
       <section style={{ padding: '90px 0 85px 0', backgroundColor: '#FFFFFF', borderBottom: '1px solid #E5E7EB' }}>
         <div className="container">
           <div 
             className="partner-spotlight-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: '0.9fr 1.1fr',
+              gridTemplateColumns: '380px 1fr',
               gap: '60px',
               alignItems: 'center'
             }}
           >
-            {/* Left Column: Portrait Image */}
-            <div>
+            
+            {/* Left Column */}
+            <div style={{ position: 'relative' }}>
               <div style={{
                 borderRadius: '8px',
                 overflow: 'hidden',
-                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.1)',
-                border: '1px solid #E5E7EB',
-                backgroundColor: '#F8F9FA'
+                boxShadow: '0 15px 35px rgba(0, 0, 0, 0.1)',
+                border: '1px solid #E5E7EB'
               }}>
                 <img 
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" 
-                  alt="Managing Partner & Founder - Kinzei Consultants" 
+                  alt="Senior Partner & Managing Director" 
                   style={{
                     width: '100%',
-                    height: '500px',
+                    height: '460px',
                     objectFit: 'cover',
                     objectPosition: 'center 15%',
                     display: 'block'
@@ -248,9 +246,26 @@ export default function AboutUs({ onOpenSchedule }) {
                   }}
                 />
               </div>
+
+              <div style={{
+                marginTop: '16px',
+                padding: '16px 20px',
+                backgroundColor: '#F8F9FA',
+                borderRadius: '8px',
+                border: '1px solid #E5E7EB',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px'
+              }}>
+                <ShieldCheck size={28} color="#D4A017" style={{ flexShrink: 0 }} />
+                <div>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#111827' }}>Senior Managing Leadership</div>
+                  <div style={{ fontSize: '0.78rem', color: '#6B7280' }}>Chartered Accountants &amp; Advisory Partners</div>
+                </div>
+              </div>
             </div>
 
-            {/* Right Column: Bio & Qualifications */}
+            {/* Right Column */}
             <div>
               <div style={{
                 fontSize: '1rem',
@@ -274,13 +289,13 @@ export default function AboutUs({ onOpenSchedule }) {
               <div style={{
                 fontSize: '0.96rem',
                 fontWeight: 700,
-                color: '#C49A2C',
+                color: '#D4A017',
                 marginBottom: '22px'
               }}>
                 Chartered Accountants &amp; Senior Advisory Partners
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.96rem', color: '#4B5563', lineHeight: 1.7 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.96rem', color: '#1F2937', lineHeight: 1.7 }}>
                 <p>
                   Our Founder and Managing Leadership Team bring extensive professional experience in audit, accounting, taxation, and financial reporting. Having served a wide range of public and private sector organizations, our partners bring deep expertise in financial management, compliance, governance, and internal controls.
                 </p>
@@ -305,20 +320,20 @@ export default function AboutUs({ onOpenSchedule }) {
                 flexWrap: 'wrap'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <Mail size={20} color="#C49A2C" />
+                  <Mail size={20} color="#D4A017" />
                   <div>
                     <div style={{ fontSize: '0.78rem', color: '#6B7280', fontWeight: 600 }}>Email Address</div>
-                    <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#111827', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>
+                    <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#111827', fontWeight: 800, fontSize: '0.9rem', textDecoration: 'none' }}>
                       info@kinzeiconsultants.com
                     </a>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <Phone size={20} color="#C49A2C" />
+                  <Phone size={20} color="#D4A017" />
                   <div>
                     <div style={{ fontSize: '0.78rem', color: '#6B7280', fontWeight: 600 }}>Phone No.</div>
-                    <a href="tel:03034063970" style={{ color: '#111827', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>
+                    <a href="tel:03034063970" style={{ color: '#111827', fontWeight: 800, fontSize: '0.9rem', textDecoration: 'none' }}>
                       03034063970
                     </a>
                   </div>
@@ -337,7 +352,7 @@ export default function AboutUs({ onOpenSchedule }) {
         `}</style>
       </section>
 
-      {/* 5. OUR VALUES / VISION & MISSION BLOCK (MATCHING TARGET SCREENSHOT - DEEP CHARCOAL & GOLD) */}
+      {/* 5. OUR VALUES / VISION & MISSION BLOCK */}
       <section style={{
         backgroundColor: '#111827',
         color: '#FFFFFF',
@@ -358,9 +373,9 @@ export default function AboutUs({ onOpenSchedule }) {
             <div>
               <div style={{
                 fontSize: '1.08rem',
-                color: '#C49A2C',
+                color: '#D4A017',
                 fontStyle: 'italic',
-                fontWeight: 600,
+                fontWeight: 700,
                 marginBottom: '10px',
                 fontFamily: 'Georgia, serif'
               }}>
@@ -404,7 +419,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 backgroundColor: 'rgba(255, 255, 255, 0.05)',
                 borderRadius: '8px',
                 padding: '32px',
-                border: '1px solid rgba(196, 154, 44, 0.3)',
+                border: '1px solid rgba(212, 160, 23, 0.35)',
                 display: 'grid',
                 gridTemplateColumns: '50px 1fr',
                 gap: '20px',
@@ -413,7 +428,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 <div style={{
                   width: '50px',
                   height: '50px',
-                  backgroundColor: '#C49A2C',
+                  backgroundColor: '#D4A017',
                   borderRadius: '4px',
                   display: 'flex',
                   alignItems: 'center',
@@ -424,7 +439,7 @@ export default function AboutUs({ onOpenSchedule }) {
                   <Eye size={26} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#C49A2C', marginBottom: '10px' }}>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#D4A017', marginBottom: '10px' }}>
                     Our Vision
                   </h3>
                   <p style={{ fontSize: '0.95rem', color: '#E5E7EB', lineHeight: 1.6, margin: 0 }}>
@@ -438,7 +453,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 backgroundColor: 'rgba(255, 255, 255, 0.05)',
                 borderRadius: '8px',
                 padding: '32px',
-                border: '1px solid rgba(196, 154, 44, 0.3)',
+                border: '1px solid rgba(212, 160, 23, 0.35)',
                 display: 'grid',
                 gridTemplateColumns: '50px 1fr',
                 gap: '20px',
@@ -447,7 +462,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 <div style={{
                   width: '50px',
                   height: '50px',
-                  backgroundColor: '#C49A2C',
+                  backgroundColor: '#D4A017',
                   borderRadius: '4px',
                   display: 'flex',
                   alignItems: 'center',
@@ -458,7 +473,7 @@ export default function AboutUs({ onOpenSchedule }) {
                   <Target size={26} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#C49A2C', marginBottom: '10px' }}>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#D4A017', marginBottom: '10px' }}>
                     Our Mission
                   </h3>
                   <p style={{ fontSize: '0.95rem', color: '#E5E7EB', lineHeight: 1.6, margin: 0 }}>
@@ -485,7 +500,7 @@ export default function AboutUs({ onOpenSchedule }) {
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
             <span className="badge-gold">Common Queries</span>
             <h2 style={{ fontSize: '2.4rem', color: '#111827', marginTop: '10px', fontWeight: 800 }}>
-              Frequently Asked <span style={{ color: '#C49A2C' }}>Questions</span>
+              Frequently Asked <span style={{ color: '#D4A017' }}>Questions</span>
             </h2>
           </div>
 
@@ -496,10 +511,11 @@ export default function AboutUs({ onOpenSchedule }) {
                 <div
                   key={idx}
                   style={{
-                    backgroundColor: '#F8F9FA',
+                    backgroundColor: '#F8FAFC',
                     borderRadius: '10px',
-                    border: '1.5px solid #E5E7EB',
-                    overflow: 'hidden'
+                    border: isOpen ? '1.5px solid #D4A017' : '1.5px solid #E5E7EB',
+                    overflow: 'hidden',
+                    transition: 'border-color 0.25s ease'
                   }}
                 >
                   <button
@@ -513,17 +529,17 @@ export default function AboutUs({ onOpenSchedule }) {
                       backgroundColor: 'transparent',
                       color: '#111827',
                       fontSize: '1.02rem',
-                      fontWeight: 700,
+                      fontWeight: 800,
                       textAlign: 'left',
                       cursor: 'pointer'
                     }}
                   >
                     <span>{faq.q}</span>
-                    {isOpen ? <ChevronUp size={20} color="#C49A2C" /> : <ChevronDown size={20} color="#6B7280" />}
+                    {isOpen ? <ChevronUp size={20} color="#D4A017" /> : <ChevronDown size={20} color="#6B7280" />}
                   </button>
 
                   {isOpen && (
-                    <div style={{ padding: '0 24px 22px 24px', color: '#4B5563', fontSize: '0.96rem', lineHeight: 1.65 }}>
+                    <div style={{ padding: '0 24px 22px 24px', color: '#1F2937', fontSize: '0.96rem', lineHeight: 1.65, fontWeight: 500 }}>
                       {faq.a}
                     </div>
                   )}

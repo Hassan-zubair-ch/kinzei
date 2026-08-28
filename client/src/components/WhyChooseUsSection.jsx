@@ -81,16 +81,16 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               </div>
             </div>
 
-            {/* Top-Left Floating Badge: 15+ Years Experience (Matching Target Screenshot) */}
+            {/* Top-Left Floating Badge: 15+ Years Experience */}
             <div style={{
               position: 'absolute',
               top: '0px',
               left: '0px',
               backgroundColor: '#FFFFFF',
               padding: '24px 30px',
-              borderRadius: '4px',
+              borderRadius: '8px',
               boxShadow: '0 15px 35px rgba(0, 0, 0, 0.12)',
-              border: '2px solid #C49A2C',
+              border: '2px solid #D4A017',
               textAlign: 'center',
               zIndex: 10,
               minWidth: '170px'
@@ -98,7 +98,7 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               <div style={{
                 fontSize: '2.8rem',
                 fontWeight: 900,
-                color: '#C49A2C',
+                color: '#D4A017',
                 lineHeight: 1,
                 fontFamily: 'var(--font-heading)'
               }}>
@@ -106,7 +106,7 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               </div>
               <div style={{
                 fontSize: '0.88rem',
-                fontWeight: 700,
+                fontWeight: 800,
                 color: '#111827',
                 marginTop: '6px',
                 lineHeight: 1.3
@@ -121,9 +121,9 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
           <div>
             <div style={{
               fontSize: '1.08rem',
-              color: '#C49A2C',
+              color: '#D4A017',
               fontStyle: 'italic',
-              fontWeight: 600,
+              fontWeight: 700,
               marginBottom: '10px',
               fontFamily: 'Georgia, serif'
             }}>
@@ -162,18 +162,18 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
                     width: '24px',
                     height: '24px',
                     borderRadius: '50%',
-                    border: '1.8px solid #C49A2C',
+                    border: '1.8px solid #D4A017',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#C49A2C',
+                    color: '#D4A017',
                     flexShrink: 0
                   }}>
                     <span style={{ fontSize: '0.82rem', fontWeight: 900, lineHeight: 1 }}>➔</span>
                   </div>
                   <span style={{
                     fontSize: '0.96rem',
-                    color: '#374151',
+                    color: '#1F2937',
                     fontWeight: 600
                   }}>
                     {text}
@@ -187,26 +187,26 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               <button
                 onClick={() => navigate('/about')}
                 style={{
-                  backgroundColor: '#C49A2C',
+                  background: 'linear-gradient(135deg, #E5B338 0%, #D4A017 50%, #B8860B 100%)',
                   color: '#FFFFFF',
                   border: 'none',
                   padding: '13px 32px',
                   fontSize: '0.88rem',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   letterSpacing: '0.8px',
                   textTransform: 'uppercase',
-                  borderRadius: '2px',
+                  borderRadius: '8px',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 15px rgba(196, 154, 44, 0.3)',
+                  boxShadow: '0 4px 15px rgba(212, 160, 23, 0.35)',
                   transition: 'all 0.25s ease'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#B28923';
                   e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 8px 22px rgba(212, 160, 23, 0.45)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#C49A2C';
                   e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(212, 160, 23, 0.35)';
                 }}
               >
                 LEARN MORE
@@ -216,22 +216,24 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
                 onClick={() => navigate('/services')}
                 style={{
                   backgroundColor: 'transparent',
-                  color: '#C49A2C',
-                  border: '1.8px solid #C49A2C',
+                  color: '#D4A017',
+                  border: '1.8px solid #D4A017',
                   padding: '12px 30px',
                   fontSize: '0.88rem',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   letterSpacing: '0.8px',
                   textTransform: 'uppercase',
-                  borderRadius: '2px',
+                  borderRadius: '8px',
                   cursor: 'pointer',
                   transition: 'all 0.25s ease'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#FEF3C7';
+                  e.currentTarget.style.backgroundColor = '#FFFBEB';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 OUR SERVICES

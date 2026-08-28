@@ -1,42 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
-import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag, OtherFlag } from '../components/CountryFlags';
+import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag } from '../components/CountryFlags';
 import { Search } from 'lucide-react';
+import { servicesData } from '../data/servicesData';
 
-export default function Services({ onOpenSchedule }) {
+export default function Services() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCountry = searchParams.get('country') || 'pk';
   
   const [selectedCountry, setSelectedCountry] = useState(initialCountry);
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState(servicesData[initialCountry] || []);
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const c = searchParams.get('country') || 'pk';
     setSelectedCountry(c);
+    setServices(servicesData[c] || []);
   }, [searchParams]);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(`/api/services?country=${selectedCountry}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setServices(data.data);
-        }
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error fetching services:', err);
-        setLoading(false);
-      });
-  }, [selectedCountry]);
 
   const handleCountryChange = (code) => {
     setSelectedCountry(code);
     setSearchParams({ country: code });
+    setServices(servicesData[code] || []);
   };
 
   const countryTabs = [
@@ -57,7 +43,7 @@ export default function Services({ onOpenSchedule }) {
     <div style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', color: '#111827' }}>
       {/* PAGE HEADER BANNER */}
       <section style={{
-        backgroundColor: '#F8F9FA',
+        backgroundColor: '#F8FAFC',
         padding: '60px 0 45px 0',
         textAlign: 'center',
         borderBottom: '1px solid #E5E7EB'
@@ -65,9 +51,9 @@ export default function Services({ onOpenSchedule }) {
         <div className="container">
           <span className="badge-gold">Kinzei Global Offerings</span>
           <h1 style={{ fontSize: '2.8rem', color: '#111827', marginTop: '12px', marginBottom: '16px', fontWeight: 800 }}>
-            Our International <span style={{ color: '#9E7B3B' }}>Services</span>
+            Our International <span style={{ color: '#D4A017' }}>Services</span>
           </h1>
-          <p style={{ color: '#4B5563', fontSize: '1.08rem', maxWidth: '720px', margin: '0 auto 36px auto' }}>
+          <p style={{ color: '#1F2937', fontSize: '1.08rem', maxWidth: '720px', margin: '0 auto 36px auto', fontWeight: 500 }}>
             Select your target country below to explore localized tax filing, statutory audit, corporate registration, and advisory solutions.
           </p>
 
@@ -90,15 +76,30 @@ export default function Services({ onOpenSchedule }) {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
-                    padding: '12px 22px',
+                    padding: '12px 24px',
                     borderRadius: '30px',
                     fontSize: '0.94rem',
-                    fontWeight: 700,
-                    backgroundColor: isActive ? '#9E7B3B' : '#FFFFFF',
-                    color: isActive ? '#FFFFFF' : '#1F2937',
-                    border: isActive ? '1.5px solid #7A5C24' : '1.5px solid #E5E7EB',
-                    boxShadow: isActive ? '0 8px 20px rgba(158, 123, 59, 0.25)' : '0 2px 8px rgba(0,0,0,0.04)',
-                    transition: 'all 0.25s ease'
+                    fontWeight: 800,
+                    backgroundColor: isActive ? '#D4A017' : '#FFFFFF',
+                    color: isActive ? '#FFFFFF' : '#111827',
+                    border: isActive ? '1.5px solid #D4A017' : '1.5px solid #D1D5DB',
+                    boxShadow: isActive ? '0 8px 20px rgba(212, 160, 23, 0.35)' : '0 2px 8px rgba(0,0,0,0.04)',
+                    transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = '#D4A017';
+                      e.currentTarget.style.color = '#D4A017';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = '#D1D5DB';
+                      e.currentTarget.style.color = '#111827';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }
                   }}
                 >
                   <TabFlag size={22} />
@@ -121,25 +122,22 @@ export default function Services({ onOpenSchedule }) {
                 padding: '12px 16px 12px 46px',
                 borderRadius: '30px',
                 backgroundColor: '#FFFFFF',
-                border: '1.5px solid rgba(158, 123, 59, 0.35)',
+                border: '1.5px solid rgba(212, 160, 23, 0.45)',
                 color: '#111827',
                 fontSize: '0.95rem',
-                outline: 'none'
+                outline: 'none',
+                fontWeight: 600
               }}
             />
           </div>
         </div>
       </section>
 
-      {/* SERVICES GRID */}
+      {/* SERVICES GRID (INSTANT LOAD - ZERO DELAY) */}
       <section style={{ padding: '60px 0 90px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
-          {loading ? (
-            <div style={{ textAlign: 'center', padding: '80px 0', color: '#9E7B3B', fontWeight: 700 }}>
-              Loading country service catalog...
-            </div>
-          ) : filteredServices.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '60px 0', color: '#4B5563' }}>
+          {filteredServices.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '60px 0', color: '#4B5563', fontWeight: 600 }}>
               No services found matching "{searchQuery}". Try selecting another country tab above.
             </div>
           ) : (

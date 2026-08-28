@@ -55,19 +55,20 @@ export default function JavedZafarSection({ onOpenSchedule }) {
             marginBottom: '35px'
           }} className="jz-top-grid">
 
-            {/* Left: EXACT JAZVED ZAFAR LOGO IMAGE CARD (NO PEOPLE FACES) */}
+            {/* Left: EXACT JAVED ZAFAR LOGO IMAGE CARD */}
             <div style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '12px',
+              borderRadius: '16px',
               padding: '24px 20px',
-              border: '2px solid #C49A2C',
-              boxShadow: '0 8px 25px rgba(196, 154, 44, 0.12)',
+              border: '2px solid #D4A017',
+              boxShadow: '0 8px 25px rgba(212, 160, 23, 0.15)',
               textAlign: 'center',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center'
-            }}>
+              justifyContent: 'center',
+              transition: 'all 0.3s ease'
+            }} className="interactive-card">
               <img 
                 src="/javed-zafar-logo.png" 
                 alt="Javed Zafar & Co. Chartered Accountants" 
@@ -85,7 +86,7 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                 borderTop: '1px solid #E5E7EB',
                 fontSize: '0.78rem',
                 fontWeight: 800,
-                color: '#8C6B2F',
+                color: '#D4A017',
                 letterSpacing: '0.5px',
                 textTransform: 'uppercase'
               }}>
@@ -99,17 +100,18 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                backgroundColor: '#FEF3C7',
-                color: '#92400E',
+                backgroundColor: '#FFFBEB',
+                color: '#B8860B',
                 fontSize: '0.78rem',
                 fontWeight: 800,
                 padding: '4px 12px',
                 borderRadius: '20px',
                 textTransform: 'uppercase',
                 letterSpacing: '0.6px',
-                marginBottom: '12px'
+                marginBottom: '12px',
+                border: '1px solid rgba(212, 160, 23, 0.3)'
               }}>
-                <Sparkles size={13} color="#D97706" />
+                <Sparkles size={13} color="#D4A017" />
                 <span>Operating Under Kinzei Consultants Agency</span>
               </div>
 
@@ -120,7 +122,7 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                 marginBottom: '10px',
                 lineHeight: 1.2
               }}>
-                Javed Zafar &amp; Co. <span style={{ color: '#C49A2C' }}>Chartered Accountants</span>
+                Javed Zafar &amp; Co. <span style={{ color: '#D4A017' }}>Chartered Accountants</span>
               </h2>
 
               <p style={{
@@ -142,18 +144,18 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                 fontSize: '0.88rem'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0A0F1D', fontWeight: 800 }}>
-                  <MapPin size={16} color="#C49A2C" style={{ flexShrink: 0 }} />
+                  <MapPin size={16} color="#D4A017" style={{ flexShrink: 0 }} />
                   <span>First Floor, Plot # 14, Main Road, Block 1 College Rd, Sector C2 Block 1 Twp Sector C 2 Township, Lahore, 54770</span>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0A0F1D', fontWeight: 800 }}>
-                  <Phone size={16} color="#C49A2C" />
+                  <Phone size={16} color="#D4A017" />
                   <a href="tel:03034063970" style={{ color: '#0A0F1D', textDecoration: 'none' }}>03034063970</a>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#9E7B3B', fontWeight: 800 }}>
-                  <Mail size={16} color="#C49A2C" />
-                  <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#9E7B3B', textDecoration: 'none' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#D4A017', fontWeight: 800 }}>
+                  <Mail size={16} color="#D4A017" />
+                  <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#D4A017', textDecoration: 'none' }}>
                     info@kinzeiconsultants.com
                   </a>
                 </div>
@@ -162,7 +164,7 @@ export default function JavedZafarSection({ onOpenSchedule }) {
 
           </div>
 
-          {/* LOWER DATA GRID: SERVICES & KEY QUALIFIED TEAM DATA */}
+          {/* LOWER DATA GRID */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
@@ -174,13 +176,13 @@ export default function JavedZafarSection({ onOpenSchedule }) {
             {/* Column 1: Core Practice Services */}
             <div>
               <div style={{ fontSize: '1rem', fontWeight: 800, color: '#0A0F1D', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={18} color="#C49A2C" />
+                <ShieldCheck size={18} color="#D4A017" />
                 <span>Practice Areas &amp; Services</span>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {practiceServices.map((ps, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem' }}>
-                    <CheckCircle2 size={15} color="#C49A2C" style={{ flexShrink: 0 }} />
+                    <CheckCircle2 size={15} color="#D4A017" style={{ flexShrink: 0 }} />
                     <div>
                       <strong style={{ color: '#0A0F1D' }}>{ps.name}:</strong>{' '}
                       <span style={{ color: '#1E293B', fontWeight: 500 }}>{ps.desc}</span>
@@ -193,12 +195,12 @@ export default function JavedZafarSection({ onOpenSchedule }) {
             {/* Column 2: Key Professional Team & Sectors */}
             <div>
               <div style={{ fontSize: '1rem', fontWeight: 800, color: '#111827', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Users size={18} color="#C49A2C" />
+                <Users size={18} color="#D4A017" />
                 <span>Key Qualified Professionals</span>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '18px' }}>
                 {keyTeamData.map((tm, i) => (
-                  <div key={i} style={{ padding: '8px 12px', backgroundColor: '#F9FAFB', borderRadius: '6px', borderLeft: '3px solid #C49A2C' }}>
+                  <div key={i} style={{ padding: '8px 12px', backgroundColor: '#F9FAFB', borderRadius: '6px', borderLeft: '3px solid #D4A017' }}>
                     <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#111827' }}>{tm.name}</div>
                     <div style={{ fontSize: '0.78rem', color: '#6B7280' }}>{tm.role}</div>
                   </div>
@@ -212,7 +214,7 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                   {sectors.map((sec, i) => (
-                    <span key={i} style={{ backgroundColor: '#FEF3C7', color: '#92400E', fontSize: '0.74rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px' }}>
+                    <span key={i} style={{ backgroundColor: '#FFFBEB', color: '#B8860B', border: '1px solid rgba(212, 160, 23, 0.25)', fontSize: '0.74rem', fontWeight: 800, padding: '2px 8px', borderRadius: '4px' }}>
                       {sec}
                     </span>
                   ))}

@@ -1,22 +1,21 @@
 import React from 'react';
-import { Shield, Lock, FileText, CheckCircle2 } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
       {/* HEADER BANNER */}
       <section style={{
-        backgroundColor: '#F8F9FA',
-        padding: '60px 0 45px 0',
+        backgroundColor: '#F8FAFC',
+        padding: '65px 0 50px 0',
         textAlign: 'center',
         borderBottom: '1px solid #E5E7EB'
       }}>
         <div className="container">
           <span className="badge-gold">Legal Information</span>
           <h1 style={{ fontSize: '2.6rem', color: '#111827', marginTop: '12px', marginBottom: '16px', fontWeight: 800 }}>
-            Privacy <span style={{ color: '#9E7B3B' }}>Policy</span>
+            Privacy <span style={{ color: '#D4A017' }}>Policy</span>
           </h1>
-          <p style={{ color: '#4B5563', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ color: '#374151', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto', fontWeight: 500 }}>
             Kinzei Consultants (Private) Limited is committed to maintaining strict confidentiality and protecting your corporate and financial data.
           </p>
         </div>
@@ -31,10 +30,10 @@ export default function PrivacyPolicy() {
             padding: '40px',
             border: '1.5px solid #E5E7EB',
             boxShadow: '0 8px 25px rgba(0,0,0,0.04)',
-            color: '#374151',
+            color: '#1F2937',
             lineHeight: 1.8
           }}>
-            <p style={{ fontSize: '0.9rem', color: '#9E7B3B', fontWeight: 700, marginBottom: '24px' }}>
+            <p style={{ fontSize: '0.9rem', color: '#D4A017', fontWeight: 800, marginBottom: '24px' }}>
               Effective Date: January 1, 2026 | Last Updated: Tax Year 2026
             </p>
 
@@ -48,7 +47,7 @@ export default function PrivacyPolicy() {
               Your confidential information is strictly used to prepare tax returns, complete statutory audits, file regulatory reports with the FBR, SECP, IRS, or HMRC, and deliver requested advisory services. We do not sell, rent, or trade client data under any circumstances.
             </p>
 
-            <h3 style={{ color: '#111827', fontSize: '1.4rem', marginBottom: '12px', fontWeight: 800 }}>3. Data Protection & Confidentiality</h3>
+            <h3 style={{ color: '#111827', fontSize: '1.4rem', marginBottom: '12px', fontWeight: 800 }}>3. Data Protection &amp; Confidentiality</h3>
             <p style={{ marginBottom: '20px' }}>
               All client documents and correspondence are protected under strict professional non-disclosure protocols and encrypted digital storage systems. Access is restricted strictly to assigned chartered accountants and tax consultants.
             </p>

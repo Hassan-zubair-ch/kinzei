@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, ShieldCheck, Calendar } from 'lucide-react';
+import { Mail, Calendar } from 'lucide-react';
 
 export default function OurTeam({ onOpenSchedule }) {
   const teamMembers = [
@@ -57,24 +57,24 @@ export default function OurTeam({ onOpenSchedule }) {
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
       {/* BANNER */}
       <section style={{
-        backgroundColor: '#F8F9FA',
-        padding: '60px 0 45px 0',
+        backgroundColor: '#F8FAFC',
+        padding: '65px 0 50px 0',
         textAlign: 'center',
         borderBottom: '1px solid #E5E7EB'
       }}>
         <div className="container">
-          <span className="badge-gold">Leadership & Experts</span>
+          <span className="badge-gold">Leadership &amp; Experts</span>
           <h1 style={{ fontSize: '2.8rem', color: '#111827', marginTop: '12px', marginBottom: '16px', fontWeight: 800 }}>
-            Meet Our <span style={{ color: '#9E7B3B' }}>Advisory Team</span>
+            Meet Our <span style={{ color: '#D4A017' }}>Advisory Team</span>
           </h1>
-          <p style={{ color: '#4B5563', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto' }}>
+          <p style={{ color: '#374151', fontSize: '1.08rem', maxWidth: '700px', margin: '0 auto', fontWeight: 500 }}>
             Our team comprises Chartered Accountants, tax attorneys, IRS Enrolled Agents, and IT auditors committed to safeguarding your financial interest.
           </p>
         </div>
       </section>
 
       {/* TEAM GRID */}
-      <section style={{ padding: '70px 0 100px 0', backgroundColor: '#FFFFFF' }}>
+      <section style={{ padding: '75px 0 100px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div style={{
             display: 'grid',
@@ -84,21 +84,14 @@ export default function OurTeam({ onOpenSchedule }) {
             {teamMembers.map((m, idx) => (
               <div
                 key={idx}
+                className="team-card-hover"
                 style={{
                   backgroundColor: '#FFFFFF',
                   borderRadius: '20px',
                   border: '1.5px solid #E5E7EB',
                   overflow: 'hidden',
                   boxShadow: '0 8px 25px rgba(0,0,0,0.04)',
-                  transition: 'transform 0.3s ease, border-color 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.borderColor = '#9E7B3B';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E5E7EB';
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                 }}
               >
                 <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
@@ -112,7 +105,8 @@ export default function OurTeam({ onOpenSchedule }) {
                     bottom: '12px',
                     left: '12px',
                     backgroundColor: '#FFFFFF',
-                    color: '#9E7B3B',
+                    color: '#D4A017',
+                    border: '1px solid #D4A017',
                     fontSize: '0.78rem',
                     fontWeight: 800,
                     padding: '4px 12px',
@@ -125,17 +119,17 @@ export default function OurTeam({ onOpenSchedule }) {
 
                 <div style={{ padding: '24px' }}>
                   <h3 style={{ fontSize: '1.3rem', color: '#111827', marginBottom: '4px', fontWeight: 800 }}>{m.name}</h3>
-                  <div style={{ fontSize: '0.9rem', color: '#9E7B3B', fontWeight: 700, marginBottom: '14px' }}>{m.title}</div>
-                  <p style={{ fontSize: '0.92rem', color: '#4B5563', lineHeight: 1.6, marginBottom: '20px' }}>{m.bio}</p>
+                  <div style={{ fontSize: '0.9rem', color: '#D4A017', fontWeight: 800, marginBottom: '14px' }}>{m.title}</div>
+                  <p style={{ fontSize: '0.92rem', color: '#374151', lineHeight: 1.6, marginBottom: '20px', fontWeight: 500 }}>{m.bio}</p>
 
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #E5E7EB', paddingTop: '16px' }}>
-                    <a href={`mailto:${m.email}`} style={{ color: '#4B5563', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
-                      <Mail size={14} color="#9E7B3B" />
+                    <a href={`mailto:${m.email}`} style={{ color: '#1F2937', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, textDecoration: 'none' }}>
+                      <Mail size={15} color="#D4A017" />
                       <span>Contact Partner</span>
                     </a>
 
-                    <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '6px 14px', fontSize: '0.8rem', borderRadius: '15px' }}>
-                      <Calendar size={12} />
+                    <button onClick={onOpenSchedule} className="btn-primary" style={{ padding: '7px 16px', fontSize: '0.8rem', borderRadius: '15px' }}>
+                      <Calendar size={13} />
                       <span>Book</span>
                     </button>
                   </div>
@@ -145,6 +139,14 @@ export default function OurTeam({ onOpenSchedule }) {
           </div>
         </div>
       </section>
+
+      <style>{`
+        .team-card-hover:hover {
+          transform: translateY(-6px);
+          border-color: #D4A017 !important;
+          box-shadow: 0 16px 35px rgba(212, 160, 23, 0.15) !important;
+        }
+      `}</style>
     </div>
   );
 }

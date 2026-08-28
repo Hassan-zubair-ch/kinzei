@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, User, Mail, Phone, CheckCircle } from 'lucide-react';
+import { X, CheckCircle } from 'lucide-react';
 
 export default function ScheduleModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -63,8 +63,8 @@ export default function ScheduleModal({ isOpen, onClose }) {
         maxWidth: '560px',
         width: '100%',
         padding: '36px',
-        border: '1.5px solid rgba(158, 123, 59, 0.4)',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.2)',
+        border: '1.5px solid rgba(212, 160, 23, 0.45)',
+        boxShadow: '0 25px 60px rgba(0, 0, 0, 0.25)',
         position: 'relative'
       }}>
         {/* Close Button */}
@@ -75,10 +75,15 @@ export default function ScheduleModal({ isOpen, onClose }) {
             top: '20px',
             right: '20px',
             background: 'none',
+            border: 'none',
             color: '#6B7280',
             cursor: 'pointer',
-            padding: '4px'
+            padding: '4px',
+            borderRadius: '50%',
+            transition: 'color 0.2s'
           }}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#111827'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}
         >
           <X size={24} />
         </button>
@@ -124,17 +129,20 @@ export default function ScheduleModal({ isOpen, onClose }) {
                 required
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                placeholder="e.g. Hassan Zubair"
+                placeholder="Name"
                 style={{
                   width: '100%',
                   padding: '12px 14px',
-                  backgroundColor: '#F9FAFB',
+                  backgroundColor: '#FFFFFF',
                   border: '1.5px solid #D1D5DB',
                   borderRadius: '8px',
                   color: '#111827',
                   fontSize: '0.95rem',
-                  outline: 'none'
+                  outline: 'none',
+                  transition: 'all 0.2s ease'
                 }}
+                onFocus={(e) => { e.target.style.borderColor = '#D4A017'; e.target.style.boxShadow = '0 0 0 3px rgba(212, 160, 23, 0.2)'; }}
+                onBlur={(e) => { e.target.style.borderColor = '#D1D5DB'; e.target.style.boxShadow = 'none'; }}
               />
             </div>
 
@@ -148,17 +156,20 @@ export default function ScheduleModal({ isOpen, onClose }) {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="name@domain.com"
+                  placeholder="Email"
                   style={{
                     width: '100%',
                     padding: '12px 14px',
-                    backgroundColor: '#F9FAFB',
+                    backgroundColor: '#FFFFFF',
                     border: '1.5px solid #D1D5DB',
                     borderRadius: '8px',
                     color: '#111827',
                     fontSize: '0.95rem',
-                    outline: 'none'
+                    outline: 'none',
+                    transition: 'all 0.2s ease'
                   }}
+                  onFocus={(e) => { e.target.style.borderColor = '#D4A017'; e.target.style.boxShadow = '0 0 0 3px rgba(212, 160, 23, 0.2)'; }}
+                  onBlur={(e) => { e.target.style.borderColor = '#D1D5DB'; e.target.style.boxShadow = 'none'; }}
                 />
               </div>
 
@@ -171,17 +182,20 @@ export default function ScheduleModal({ isOpen, onClose }) {
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="03001234567"
+                  placeholder="Phone Number"
                   style={{
                     width: '100%',
                     padding: '12px 14px',
-                    backgroundColor: '#F9FAFB',
+                    backgroundColor: '#FFFFFF',
                     border: '1.5px solid #D1D5DB',
                     borderRadius: '8px',
                     color: '#111827',
                     fontSize: '0.95rem',
-                    outline: 'none'
+                    outline: 'none',
+                    transition: 'all 0.2s ease'
                   }}
+                  onFocus={(e) => { e.target.style.borderColor = '#D4A017'; e.target.style.boxShadow = '0 0 0 3px rgba(212, 160, 23, 0.2)'; }}
+                  onBlur={(e) => { e.target.style.borderColor = '#D1D5DB'; e.target.style.boxShadow = 'none'; }}
                 />
               </div>
             </div>
@@ -198,13 +212,16 @@ export default function ScheduleModal({ isOpen, onClose }) {
                   style={{
                     width: '100%',
                     padding: '12px 14px',
-                    backgroundColor: '#F9FAFB',
+                    backgroundColor: '#FFFFFF',
                     border: '1.5px solid #D1D5DB',
                     borderRadius: '8px',
                     color: '#111827',
                     fontSize: '0.95rem',
-                    outline: 'none'
+                    outline: 'none',
+                    transition: 'all 0.2s ease'
                   }}
+                  onFocus={(e) => { e.target.style.borderColor = '#D4A017'; e.target.style.boxShadow = '0 0 0 3px rgba(212, 160, 23, 0.2)'; }}
+                  onBlur={(e) => { e.target.style.borderColor = '#D1D5DB'; e.target.style.boxShadow = 'none'; }}
                 />
               </div>
 
@@ -218,18 +235,22 @@ export default function ScheduleModal({ isOpen, onClose }) {
                   style={{
                     width: '100%',
                     padding: '12px 14px',
-                    backgroundColor: '#F9FAFB',
+                    backgroundColor: '#FFFFFF',
                     border: '1.5px solid #D1D5DB',
                     borderRadius: '8px',
                     color: '#111827',
                     fontSize: '0.95rem',
-                    outline: 'none'
+                    outline: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
                   }}
+                  onFocus={(e) => { e.target.style.borderColor = '#D4A017'; e.target.style.boxShadow = '0 0 0 3px rgba(212, 160, 23, 0.2)'; }}
+                  onBlur={(e) => { e.target.style.borderColor = '#D1D5DB'; e.target.style.boxShadow = 'none'; }}
                 >
-                  <option value="10:00 AM">10:00 AM PKT</option>
-                  <option value="12:00 PM">12:00 PM PKT</option>
-                  <option value="03:00 PM">03:00 PM PKT</option>
-                  <option value="05:00 PM">05:00 PM PKT</option>
+                  <option value="10:00 AM">10:00 AM</option>
+                  <option value="12:00 PM">12:00 PM</option>
+                  <option value="03:00 PM">03:00 PM</option>
+                  <option value="05:00 PM">05:00 PM</option>
                 </select>
               </div>
             </div>
@@ -244,13 +265,17 @@ export default function ScheduleModal({ isOpen, onClose }) {
                 style={{
                   width: '100%',
                   padding: '12px 14px',
-                  backgroundColor: '#F9FAFB',
+                  backgroundColor: '#FFFFFF',
                   border: '1.5px solid #D1D5DB',
                   borderRadius: '8px',
                   color: '#111827',
                   fontSize: '0.95rem',
-                  outline: 'none'
+                  outline: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
                 }}
+                onFocus={(e) => { e.target.style.borderColor = '#D4A017'; e.target.style.boxShadow = '0 0 0 3px rgba(212, 160, 23, 0.2)'; }}
+                onBlur={(e) => { e.target.style.borderColor = '#D1D5DB'; e.target.style.boxShadow = 'none'; }}
               >
                 <option value="Pakistan Tax & Financial Advisory">Pakistan Income / Sales Tax Advisory</option>
                 <option value="Statutory Audit & Assurance">Statutory Financial Audit</option>

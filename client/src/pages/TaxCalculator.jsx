@@ -87,7 +87,7 @@ export default function TaxCalculator({ onOpenSchedule }) {
               alignItems: 'center',
               gap: '10px'
             }}>
-              <Calculator color="#9E7B3B" size={28} />
+              <Calculator color="#D4A017" size={28} />
               <span>Tax Calculator Pakistan</span>
             </h2>
           </div>
@@ -105,17 +105,17 @@ export default function TaxCalculator({ onOpenSchedule }) {
               style={{
                 width: '100%',
                 padding: '14px 16px',
-                backgroundColor: '#F9FAFB',
+                backgroundColor: '#FFFFFF',
                 border: '1.5px solid #D1D5DB',
                 borderRadius: '10px',
                 color: '#111827',
                 fontSize: '1.2rem',
                 fontWeight: 800,
                 outline: 'none',
-                transition: 'border-color 0.2s'
+                transition: 'all 0.2s ease'
               }}
-              onFocus={(e) => e.target.style.borderColor = '#9E7B3B'}
-              onBlur={(e) => e.target.style.borderColor = '#D1D5DB'}
+              onFocus={(e) => { e.target.style.borderColor = '#D4A017'; e.target.style.boxShadow = '0 0 0 3px rgba(212, 160, 23, 0.2)'; }}
+              onBlur={(e) => { e.target.style.borderColor = '#D1D5DB'; e.target.style.boxShadow = 'none'; }}
             />
           </div>
 
@@ -130,7 +130,7 @@ export default function TaxCalculator({ onOpenSchedule }) {
               style={{
                 width: '100%',
                 padding: '14px 16px',
-                backgroundColor: '#F9FAFB',
+                backgroundColor: '#FFFFFF',
                 border: '1.5px solid #D1D5DB',
                 borderRadius: '10px',
                 color: '#111827',
@@ -138,10 +138,10 @@ export default function TaxCalculator({ onOpenSchedule }) {
                 fontWeight: 700,
                 outline: 'none',
                 cursor: 'pointer',
-                transition: 'border-color 0.2s'
+                transition: 'all 0.2s ease'
               }}
-              onFocus={(e) => e.target.style.borderColor = '#9E7B3B'}
-              onBlur={(e) => e.target.style.borderColor = '#D1D5DB'}
+              onFocus={(e) => { e.target.style.borderColor = '#D4A017'; e.target.style.boxShadow = '0 0 0 3px rgba(212, 160, 23, 0.2)'; }}
+              onBlur={(e) => { e.target.style.borderColor = '#D1D5DB'; e.target.style.boxShadow = 'none'; }}
             >
               <option value="2026-2027">2026 to 2027</option>
               <option value="2025-2026">2025 to 2026</option>
@@ -153,52 +153,30 @@ export default function TaxCalculator({ onOpenSchedule }) {
           {/* 3. Output List Rows (Exact Match to taxcalculator.pk) */}
           {taxResult && (
             <div style={{
-              backgroundColor: '#F9FAFB',
+              backgroundColor: '#F8FAFC',
               borderRadius: '16px',
               padding: '24px',
               border: '1.5px solid #E5E7EB',
               marginBottom: '32px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '14px'
+              gap: '12px'
             }}>
-              
-              {/* Monthly Income */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '1.05rem', color: '#111827', fontWeight: 600 }}>
-                <span>Monthly Income</span>
-                <span style={{ fontWeight: 800 }}>{taxResult.monthlyGross.toLocaleString()}</span>
-              </div>
-
-              {/* Monthly Tax */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '1.05rem', color: '#DC2626', fontWeight: 700 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #E5E7EB', color: '#374151', fontSize: '0.96rem', fontWeight: 600 }}>
                 <span>Monthly Tax</span>
-                <span>{taxResult.monthlyTax.toLocaleString()}</span>
+                <span style={{ color: '#DC2626', fontWeight: 800 }}>{taxResult.monthlyTax.toLocaleString()}</span>
               </div>
-
-              {/* Salary After Tax */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '1.05rem', color: '#059669', fontWeight: 700 }}>
-                <span>Salary After Tax</span>
-                <span>{taxResult.monthlyNet.toLocaleString()}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #E5E7EB', color: '#374151', fontSize: '0.96rem', fontWeight: 600 }}>
+                <span>Monthly Income After Tax</span>
+                <span style={{ color: '#059669', fontWeight: 800 }}>{taxResult.monthlyNet.toLocaleString()}</span>
               </div>
-
-              <div style={{ height: '1px', backgroundColor: '#E5E7EB', margin: '4px 0' }} />
-
-              {/* Yearly Income */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '1.05rem', color: '#111827', fontWeight: 600 }}>
-                <span>Yearly Income</span>
-                <span style={{ fontWeight: 800 }}>{taxResult.annualGross.toLocaleString()}</span>
-              </div>
-
-              {/* Yearly Tax */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '1.05rem', color: '#DC2626', fontWeight: 700 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #E5E7EB', color: '#374151', fontSize: '0.96rem', fontWeight: 600 }}>
                 <span>Yearly Tax</span>
-                <span>{taxResult.annualTax.toLocaleString()}</span>
+                <span style={{ color: '#DC2626', fontWeight: 800 }}>{taxResult.annualTax.toLocaleString()}</span>
               </div>
-
-              {/* Yearly Income After Tax */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '1.05rem', color: '#059669', fontWeight: 700 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', color: '#111827', fontSize: '1.05rem', fontWeight: 800 }}>
                 <span>Yearly Income After Tax</span>
-                <span>{taxResult.annualNet.toLocaleString()}</span>
+                <span style={{ color: '#D4A017' }}>{taxResult.annualNet.toLocaleString()}</span>
               </div>
 
             </div>
@@ -207,7 +185,7 @@ export default function TaxCalculator({ onOpenSchedule }) {
           {/* 4. Detailed Tax Slabs Table */}
           <div style={{ marginTop: '24px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-              <FileText color="#9E7B3B" size={20} />
+              <FileText color="#D4A017" size={20} />
               <h3 style={{ fontSize: '1.2rem', color: '#111827', fontWeight: 800 }}>
                 Income Tax Slabs ({taxYear})
               </h3>
@@ -265,12 +243,12 @@ export default function TaxCalculator({ onOpenSchedule }) {
                         backgroundColor: isCurrentSlab ? '#FFFBEB' : (idx % 2 === 0 ? '#FFFFFF' : '#F9FAFB'),
                         borderBottom: '1px solid #E5E7EB',
                         fontWeight: isCurrentSlab ? 700 : 400,
-                        color: isCurrentSlab ? '#9E7B3B' : '#374151'
+                        color: isCurrentSlab ? '#D4A017' : '#374151'
                       }}>
                         <td style={{ padding: '10px 14px' }}>{idx + 1}</td>
                         <td style={{ padding: '10px 14px' }}>
                           {slab.range}
-                          {isCurrentSlab && <span style={{ marginLeft: '8px', fontSize: '0.72rem', backgroundColor: '#9E7B3B', color: '#FFF', padding: '2px 8px', borderRadius: '10px' }}>Your Slab</span>}
+                          {isCurrentSlab && <span style={{ marginLeft: '8px', fontSize: '0.72rem', backgroundColor: '#D4A017', color: '#FFF', padding: '2px 8px', borderRadius: '10px', fontWeight: 800 }}>Your Slab</span>}
                         </td>
                         <td style={{ padding: '10px 14px' }}>{slab.rate}</td>
                         <td style={{ padding: '10px 14px' }}>{slab.formula}</td>

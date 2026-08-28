@@ -40,7 +40,7 @@ export default function AffiliationsSection() {
             marginTop: '10px',
             fontFamily: 'var(--font-heading)'
           }}>
-            Affiliations &amp; <span style={{ color: '#9E7B3B' }}>Certifications</span>
+            Affiliations &amp; <span style={{ color: '#D4A017' }}>Certifications</span>
           </h2>
         </div>
 
@@ -88,8 +88,8 @@ export default function AffiliationsSection() {
       <style>{`
         .affiliation-logo-card:hover {
           transform: translateY(-5px);
-          border-color: #9E7B3B !important;
-          box-shadow: 0 12px 30px rgba(158, 123, 59, 0.18) !important;
+          border-color: #D4A017 !important;
+          box-shadow: 0 12px 30px rgba(212, 160, 23, 0.2) !important;
         }
       `}</style>
     </section>

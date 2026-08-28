@@ -11,28 +11,17 @@ import {
   ShieldCheck, Award, CheckCircle2, Phone, Calendar, 
   ArrowRight, Calculator 
 } from 'lucide-react';
+import { servicesData } from '../data/servicesData';
 
 export default function Home({ onOpenSchedule }) {
   const [activeCountry, setActiveCountry] = useState('pk');
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [services, setServices] = useState(servicesData['pk'] || []);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setLoading(true);
-    fetch(`/api/services?country=${activeCountry}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setServices(data.data);
-        }
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error fetching home services:', err);
-        setLoading(false);
-      });
-  }, [activeCountry]);
+  const handleCountryChange = (code) => {
+    setActiveCountry(code);
+    setServices(servicesData[code] || []);
+  };
 
   const countryTabs = [
     { code: 'pk', label: 'PK Services', name: 'Pakistan', Flag: PKFlag },
@@ -72,11 +61,11 @@ export default function Home({ onOpenSchedule }) {
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M-100 350 C100 250, 300 450, 500 280 C550 240, 580 200, 600 150" stroke="#C49A2C" strokeWidth="1.5" />
-          <path d="M-100 370 C120 270, 320 470, 520 300 C570 260, 590 220, 620 170" stroke="#C49A2C" strokeWidth="1.2" />
-          <path d="M-100 390 C140 290, 340 490, 540 320 C590 280, 610 240, 640 190" stroke="#C49A2C" strokeWidth="1.2" />
-          <path d="M-100 330 C80 230, 280 430, 480 260 C530 220, 560 180, 580 130" stroke="#C49A2C" strokeWidth="1.5" />
-          <path d="M-100 310 C60 210, 260 410, 460 240 C510 200, 540 160, 560 110" stroke="#C49A2C" strokeWidth="1" />
+          <path d="M-100 350 C100 250, 300 450, 500 280 C550 240, 580 200, 600 150" stroke="#D4A017" strokeWidth="1.5" />
+          <path d="M-100 370 C120 270, 320 470, 520 300 C570 260, 590 220, 620 170" stroke="#D4A017" strokeWidth="1.2" />
+          <path d="M-100 390 C140 290, 340 490, 540 320 C590 280, 610 240, 640 190" stroke="#D4A017" strokeWidth="1.2" />
+          <path d="M-100 330 C80 230, 280 430, 480 260 C530 220, 560 180, 580 130" stroke="#D4A017" strokeWidth="1.5" />
+          <path d="M-100 310 C60 210, 260 410, 460 240 C510 200, 540 160, 560 110" stroke="#D4A017" strokeWidth="1" />
         </svg>
 
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -91,9 +80,9 @@ export default function Home({ onOpenSchedule }) {
             <div style={{ paddingRight: '10px' }}>
               <div style={{
                 fontSize: '1.12rem',
-                color: '#C49A2C',
+                color: '#D4A017',
                 fontStyle: 'italic',
-                fontWeight: 600,
+                fontWeight: 700,
                 marginBottom: '16px',
                 fontFamily: 'Georgia, serif'
               }}>
@@ -104,7 +93,7 @@ export default function Home({ onOpenSchedule }) {
                 fontSize: 'clamp(2.4rem, 4.5vw, 3.5rem)',
                 lineHeight: 1.16,
                 marginBottom: '20px',
-                fontWeight: 800,
+                fontWeight: 900,
                 color: '#111827',
                 fontFamily: 'var(--font-heading)'
               }}>
@@ -113,10 +102,11 @@ export default function Home({ onOpenSchedule }) {
 
               <p style={{
                 fontSize: '1.08rem',
-                color: '#4B5563',
+                color: '#374151',
                 lineHeight: 1.7,
                 marginBottom: '36px',
-                maxWidth: '580px'
+                maxWidth: '580px',
+                fontWeight: 500
               }}>
                 We provide reliable audit, accounting, taxation, and advisory services to help businesses stay compliant, grow confidently, and make informed financial decisions.
               </p>
@@ -125,29 +115,29 @@ export default function Home({ onOpenSchedule }) {
                 <button 
                   onClick={onOpenSchedule} 
                   style={{
-                    backgroundColor: '#C49A2C',
+                    background: 'linear-gradient(135deg, #E5B338 0%, #D4A017 50%, #B8860B 100%)',
                     color: '#FFFFFF',
                     border: 'none',
                     padding: '14px 34px',
                     fontSize: '0.92rem',
-                    fontWeight: 700,
+                    fontWeight: 800,
                     letterSpacing: '0.8px',
                     textTransform: 'uppercase',
-                    borderRadius: '2px',
+                    borderRadius: '8px',
                     cursor: 'pointer',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '10px',
-                    boxShadow: '0 6px 20px rgba(196, 154, 44, 0.3)',
+                    boxShadow: '0 6px 20px rgba(212, 160, 23, 0.35)',
                     transition: 'all 0.25s ease'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#B28923';
                     e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(212, 160, 23, 0.45)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#C49A2C';
                     e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(212, 160, 23, 0.35)';
                   }}
                 >
                   <span>GET STARTED</span>
@@ -157,7 +147,7 @@ export default function Home({ onOpenSchedule }) {
 
             </div>
 
-            {/* Right Hero Graphic: Perfectly Balanced CEO Orbit Ring & Photo (Matching Target Screenshot Layout) */}
+            {/* Right Hero Graphic */}
             <div style={{ position: 'relative', textAlign: 'center', minHeight: '480px' }}>
               
               <div style={{
@@ -167,7 +157,6 @@ export default function Home({ onOpenSchedule }) {
                 margin: '0 auto'
               }}>
 
-                {/* Silver/Grey Orbit Arch Ring Background SVG */}
                 <svg 
                   style={{
                     position: 'absolute',
@@ -183,23 +172,20 @@ export default function Home({ onOpenSchedule }) {
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  {/* Circular Arc Line */}
                   <path 
                     d="M 50 420 A 220 220 0 1 1 490 420" 
                     stroke="#CBD5E1" 
                     strokeWidth="1.8" 
                     strokeDasharray="none"
                   />
-                  {/* Orbit Node Dots */}
-                  <circle cx="90" cy="170" r="5" fill="#C49A2C" />
-                  <circle cx="270" cy="50" r="5" fill="#C49A2C" />
-                  <circle cx="450" cy="170" r="5" fill="#C49A2C" />
-                  <circle cx="65" cy="370" r="5" fill="#C49A2C" />
-                  <circle cx="475" cy="370" r="5" fill="#C49A2C" />
+                  <circle cx="90" cy="170" r="5" fill="#D4A017" />
+                  <circle cx="270" cy="50" r="5" fill="#D4A017" />
+                  <circle cx="450" cy="170" r="5" fill="#D4A017" />
+                  <circle cx="65" cy="370" r="5" fill="#D4A017" />
+                  <circle cx="475" cy="370" r="5" fill="#D4A017" />
                 </svg>
 
-                {/* 4 Orbit Node Labels positioned OUTSIDE the Arc (Matching mirfanco.pk) */}
-                {/* 1. Top-Left */}
+                {/* 4 Orbit Node Labels */}
                 <div style={{
                   position: 'absolute',
                   top: '8%',
@@ -216,7 +202,6 @@ export default function Home({ onOpenSchedule }) {
                   Accounting &amp;<br />Financial Reporting
                 </div>
 
-                {/* 2. Top-Right */}
                 <div style={{
                   position: 'absolute',
                   top: '8%',
@@ -233,7 +218,6 @@ export default function Home({ onOpenSchedule }) {
                   Taxation<br />Services
                 </div>
 
-                {/* 3. Bottom-Left */}
                 <div style={{
                   position: 'absolute',
                   bottom: '16%',
@@ -250,7 +234,6 @@ export default function Home({ onOpenSchedule }) {
                   Consultancy &amp;<br />Outsourcing
                 </div>
 
-                {/* 4. Bottom-Right */}
                 <div style={{
                   position: 'absolute',
                   bottom: '14%',
@@ -267,7 +250,7 @@ export default function Home({ onOpenSchedule }) {
                   Information<br />Technology<br />Services
                 </div>
 
-                {/* Senior Partner Cutout Image Container - Centered inside Arc */}
+                {/* Senior Partner Cutout Image Container */}
                 <div style={{
                   position: 'relative',
                   zIndex: 2,
@@ -294,7 +277,7 @@ export default function Home({ onOpenSchedule }) {
                     }}
                   />
 
-                  {/* Gradient Shadow Overlay for Name */}
+                  {/* Gradient Shadow Overlay */}
                   <div style={{
                     position: 'absolute',
                     bottom: 0,
@@ -327,13 +310,13 @@ export default function Home({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 2. 3 SLEEK FEATURE BOXES BAND (THEME: CHARCOAL BLACK & GOLD, NO BLUE) */}
+      {/* 2. 3 SLEEK FEATURE BOXES BAND */}
       <section style={{
         backgroundColor: '#111827',
         color: '#FFFFFF',
         position: 'relative',
         zIndex: 5,
-        borderTop: '3px solid #C49A2C'
+        borderTop: '3px solid #D4A017'
       }}>
         <div className="container" style={{ padding: '42px 24px' }}>
           <div 
@@ -349,8 +332,8 @@ export default function Home({ onOpenSchedule }) {
             <div>
               <h3 style={{
                 fontSize: '1.3rem',
-                fontWeight: 700,
-                color: '#C49A2C',
+                fontWeight: 800,
+                color: '#D4A017',
                 marginBottom: '10px',
                 fontFamily: 'var(--font-heading)'
               }}>
@@ -371,8 +354,8 @@ export default function Home({ onOpenSchedule }) {
             <div>
               <h3 style={{
                 fontSize: '1.3rem',
-                fontWeight: 700,
-                color: '#C49A2C',
+                fontWeight: 800,
+                color: '#D4A017',
                 marginBottom: '10px',
                 fontFamily: 'var(--font-heading)'
               }}>
@@ -393,8 +376,8 @@ export default function Home({ onOpenSchedule }) {
             <div>
               <h3 style={{
                 fontSize: '1.3rem',
-                fontWeight: 700,
-                color: '#C49A2C',
+                fontWeight: 800,
+                color: '#D4A017',
                 marginBottom: '10px',
                 fontFamily: 'var(--font-heading)'
               }}>
@@ -414,8 +397,7 @@ export default function Home({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Bottom Gold Accent Bar */}
-        <div style={{ width: '100%', height: '4px', backgroundColor: '#8C6B2F' }} />
+        <div style={{ width: '100%', height: '4px', backgroundColor: '#D4A017' }} />
 
         <style>{`
           @media (max-width: 992px) {
@@ -427,26 +409,26 @@ export default function Home({ onOpenSchedule }) {
         `}</style>
       </section>
 
-      {/* 3. JAVED ZAFAR & CO. CHARTERED ACCOUNTANTS PRACTICE SECTION (RIGHT BELOW KC HERO/BLOCKS) */}
+      {/* 3. JAVED ZAFAR & CO. CHARTERED ACCOUNTANTS PRACTICE SECTION */}
       <JavedZafarSection onOpenSchedule={onOpenSchedule} />
 
       {/* 4. WHY CHOOSE US SECTION */}
       <WhyChooseUsSection onOpenSchedule={onOpenSchedule} />
 
       {/* 5. SERVICES SECTION (BROWSE SERVICES BY COUNTRY) */}
-      <section style={{ padding: '80px 0 90px 0', backgroundColor: '#F8F9FA', borderBottom: '1px solid #E5E7EB' }}>
+      <section style={{ padding: '80px 0 90px 0', backgroundColor: '#F8FAFC', borderBottom: '1px solid #E5E7EB' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 40px auto' }}>
             <span className="badge-gold">Global Capabilities</span>
             <h2 style={{ fontSize: '2.4rem', color: '#111827', marginTop: '10px', marginBottom: '14px', fontWeight: 800 }}>
-              Browse Services by <span style={{ color: '#9E7B3B' }}>Service Country</span>
+              Browse Services by <span style={{ color: '#D4A017' }}>Service Country</span>
             </h2>
-            <p style={{ color: '#4B5563', fontSize: '1.02rem' }}>
+            <p style={{ color: '#374151', fontSize: '1.02rem', fontWeight: 500 }}>
               Select any of our 6 core operating regions below to view specialized financial, tax, and registration services.
             </p>
           </div>
 
-          {/* 6 Country Filter Buttons */}
+          {/* 6 Country Filter Buttons with Interactive Hover */}
           <div style={{
             display: 'flex',
             justifyContent: 'center',
@@ -460,21 +442,35 @@ export default function Home({ onOpenSchedule }) {
               return (
                 <button
                   key={tab.code}
-                  onClick={() => setActiveCountry(tab.code)}
+                  onClick={() => handleCountryChange(tab.code)}
                   style={{
-                    backgroundColor: isActive ? '#9E7B3B' : '#FFFFFF',
-                    color: isActive ? '#FFFFFF' : '#374151',
-                    border: isActive ? '1px solid #9E7B3B' : '1px solid #D1D5DB',
+                    backgroundColor: isActive ? '#D4A017' : '#FFFFFF',
+                    color: isActive ? '#FFFFFF' : '#111827',
+                    border: isActive ? '1.5px solid #D4A017' : '1.5px solid #D1D5DB',
                     padding: '10px 22px',
                     borderRadius: '30px',
-                    fontWeight: 700,
+                    fontWeight: 800,
                     fontSize: '0.9rem',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '8px',
-                    boxShadow: isActive ? '0 4px 12px rgba(158, 123, 59, 0.3)' : '0 2px 4px rgba(0,0,0,0.03)',
-                    transition: 'all 0.25s ease'
+                    boxShadow: isActive ? '0 4px 14px rgba(212, 160, 23, 0.35)' : '0 2px 4px rgba(0,0,0,0.03)',
+                    transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = '#D4A017';
+                      e.currentTarget.style.color = '#D4A017';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = '#D1D5DB';
+                      e.currentTarget.style.color = '#111827';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }
                   }}
                 >
                   <FlagIcon size={18} />
@@ -484,28 +480,22 @@ export default function Home({ onOpenSchedule }) {
             })}
           </div>
 
-          {/* Services Grid */}
-          {loading ? (
-            <div style={{ textAlign: 'center', padding: '40px', color: '#6B7280' }}>
-              Loading services...
-            </div>
-          ) : (
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '30px'
-            }}>
-              {displayedServices.map((service) => (
-                <ServiceCard key={service.id} service={service} />
-              ))}
-            </div>
-          )}
+          {/* Services Grid (INSTANT RENDER) */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '30px'
+          }}>
+            {displayedServices.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
 
           <div style={{ textAlign: 'center', marginTop: '45px' }}>
             <button
               onClick={() => navigate(`/services?country=${activeCountry}`)}
               className="btn-primary"
-              style={{ padding: '14px 32px' }}
+              style={{ padding: '14px 34px' }}
             >
               View All {currentTab.name} Services ({services.length})
             </button>
@@ -514,7 +504,7 @@ export default function Home({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 6. AFFILIATIONS & CERTIFICATION LOGOS / ICONS SECTION */}
+      {/* 6. AFFILIATIONS SECTION */}
       <AffiliationsSection />
 
       {/* 7. OUR PROCESS SECTION */}
@@ -523,7 +513,7 @@ export default function Home({ onOpenSchedule }) {
       {/* 8. COUNTER / STATS SECTION */}
       <CounterSection />
 
-      {/* 9. CALL TO ACTION BANNER & NEXT SECTIONS */}
+      {/* 9. CALL TO ACTION BANNER */}
       <section style={{
         backgroundColor: '#111827',
         color: '#FFFFFF',
@@ -534,28 +524,17 @@ export default function Home({ onOpenSchedule }) {
         <div className="container">
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '16px', color: '#FFFFFF' }}>
-              Ready to Streamline Your <span style={{ color: '#C49A2C' }}>Tax &amp; Financial Operations?</span>
+              Ready to Streamline Your <span style={{ color: '#D4A017' }}>Tax &amp; Financial Operations?</span>
             </h2>
-            <p style={{ fontSize: '1.1rem', color: '#D1D5DB', marginBottom: '32px', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '1.1rem', color: '#E5E7EB', marginBottom: '32px', lineHeight: 1.6, fontWeight: 500 }}>
               Get in touch with our senior partners today for a confidential consultation tailored to your business needs in Pakistan, USA, UK, UAE, Saudi Arabia, or Germany.
             </p>
             
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
               <button 
                 onClick={onOpenSchedule}
-                style={{
-                  backgroundColor: '#C49A2C',
-                  color: '#FFFFFF',
-                  border: 'none',
-                  padding: '14px 34px',
-                  fontSize: '0.92rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.8px',
-                  textTransform: 'uppercase',
-                  borderRadius: '2px',
-                  cursor: 'pointer',
-                  boxShadow: '0 6px 20px rgba(196, 154, 44, 0.3)'
-                }}
+                className="btn-primary"
+                style={{ padding: '14px 34px', fontSize: '0.92rem', borderRadius: '8px' }}
               >
                 Schedule Free Consultation
               </button>
@@ -568,11 +547,22 @@ export default function Home({ onOpenSchedule }) {
                   border: '1.8px solid #FFFFFF',
                   padding: '13px 32px',
                   fontSize: '0.92rem',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   letterSpacing: '0.8px',
                   textTransform: 'uppercase',
-                  borderRadius: '2px',
-                  cursor: 'pointer'
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#FFFFFF';
+                  e.currentTarget.style.color = '#111827';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#FFFFFF';
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 Contact Our Office

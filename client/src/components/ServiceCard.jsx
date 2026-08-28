@@ -14,12 +14,12 @@ const iconMap = {
   Layers, Shield
 };
 
-export default function ServiceCard({ service, isDarkTheme = false }) {
+export default function ServiceCard({ service }) {
   const IconComponent = iconMap[service.icon] || Building2;
 
   return (
     <div 
-      className="service-card"
+      className="interactive-card"
       style={{
         backgroundColor: '#FFFFFF',
         color: '#111827',
@@ -29,49 +29,46 @@ export default function ServiceCard({ service, isDarkTheme = false }) {
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
-        boxShadow: '0 8px 25px rgba(0, 0, 0, 0.05)',
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.05)',
         border: '1.5px solid #E5E7EB',
-        transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
         position: 'relative',
         overflow: 'hidden'
       }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-6px)';
-        e.currentTarget.style.boxShadow = '0 16px 35px rgba(158, 123, 59, 0.18)';
-        e.currentTarget.style.borderColor = '#9E7B3B';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.05)';
-        e.currentTarget.style.borderColor = '#E5E7EB';
-      }}
     >
-      {/* Top Gold Graphic Banner / Icon Avatar */}
-      <div style={{
-        width: '62px',
-        height: '62px',
-        borderRadius: '16px',
-        background: 'linear-gradient(135deg, rgba(158, 123, 59, 0.12) 0%, rgba(158, 123, 59, 0.04) 100%)',
-        border: '1.5px solid rgba(158, 123, 59, 0.35)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: '20px',
-        color: '#9E7B3B',
-        boxShadow: '0 6px 15px rgba(158, 123, 59, 0.12)'
-      }}>
-        <IconComponent size={28} strokeWidth={2} />
+      {/* Top Gold Icon Avatar */}
+      <div 
+        className="service-icon-box"
+        style={{
+          width: '64px',
+          height: '64px',
+          borderRadius: '16px',
+          background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)',
+          border: '1.5px solid #D4A017',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginBottom: '20px',
+          color: '#D4A017',
+          boxShadow: '0 6px 16px rgba(212, 160, 23, 0.15)',
+          transition: 'transform 0.3s ease, background 0.3s ease'
+        }}
+      >
+        <IconComponent size={28} strokeWidth={2.2} />
       </div>
 
       {/* Country Badge if available */}
       {service.countryName && (
         <span style={{
-          fontSize: '0.75rem',
+          fontSize: '0.76rem',
           fontWeight: 800,
-          color: '#9E7B3B',
+          color: '#D4A017',
           textTransform: 'uppercase',
-          letterSpacing: '0.1em',
-          marginBottom: '8px'
+          letterSpacing: '0.08em',
+          marginBottom: '8px',
+          backgroundColor: '#FFFBEB',
+          padding: '2px 10px',
+          borderRadius: '12px',
+          border: '1px solid rgba(212, 160, 23, 0.25)'
         }}>
           {service.countryName}
         </span>
@@ -94,42 +91,45 @@ export default function ServiceCard({ service, isDarkTheme = false }) {
 
       {/* Short Description */}
       <p style={{
-        fontSize: '0.92rem',
-        color: '#4B5563',
+        fontSize: '0.94rem',
+        color: '#374151',
         lineHeight: 1.6,
         marginBottom: '24px',
-        flexGrow: 1
+        flexGrow: 1,
+        fontWeight: 500
       }}>
         {service.shortDescription}
       </p>
 
-      {/* Read More Link */}
+      {/* Read More Link with Hover */}
       <Link 
         to={`/services/detail/${service.id}`}
         style={{
-          color: '#9E7B3B',
-          fontWeight: 700,
+          color: '#D4A017',
+          fontWeight: 800,
           fontSize: '0.9rem',
           display: 'inline-flex',
           alignItems: 'center',
           gap: '6px',
-          padding: '8px 18px',
-          borderRadius: '20px',
+          padding: '9px 20px',
+          borderRadius: '25px',
           backgroundColor: '#FFFBEB',
-          border: '1.5px solid rgba(158, 123, 59, 0.3)',
+          border: '1.5px solid #D4A017',
           transition: 'all 0.25s ease'
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = '#9E7B3B';
+          e.currentTarget.style.backgroundColor = '#D4A017';
           e.currentTarget.style.color = '#FFFFFF';
+          e.currentTarget.style.transform = 'translateX(2px)';
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.backgroundColor = '#FFFBEB';
-          e.currentTarget.style.color = '#9E7B3B';
+          e.currentTarget.style.color = '#D4A017';
+          e.currentTarget.style.transform = 'translateX(0)';
         }}
       >
         <span>Read Detail</span>
-        <ArrowRight size={14} />
+        <ArrowRight size={15} />
       </Link>
     </div>
   );
