@@ -244,33 +244,33 @@ export default function AboutUs({ onOpenSchedule }) {
                 top: '-25px',
                 left: '-25px',
                 backgroundColor: '#FFFFFF',
-                padding: '24px 28px',
+                padding: '22px 24px',
                 borderRadius: '4px',
                 boxShadow: '0 12px 30px rgba(0, 0, 0, 0.12)',
                 border: '2px solid #D4A017',
                 textAlign: 'center',
-                minWidth: '150px',
+                minWidth: '160px',
                 zIndex: 3
               }}>
                 <div style={{
-                  fontSize: '2.5rem',
+                  fontSize: '2.4rem',
                   fontWeight: 900,
                   color: '#D4A017',
                   lineHeight: 1,
                   fontFamily: 'var(--font-heading)',
-                  marginBottom: '6px'
+                  marginBottom: '4px'
                 }}>
-                  3+
+                  15+
                 </div>
                 <div style={{
-                  fontSize: '0.82rem',
+                  fontSize: '0.78rem',
                   fontWeight: 800,
                   color: '#0F172A',
                   lineHeight: 1.3,
                   textTransform: 'uppercase',
-                  letterSpacing: '0.5px'
+                  letterSpacing: '0.4px'
                 }}>
-                  Years of<br />Experience
+                  Years Combined<br />CA Experience
                 </div>
               </div>
 
@@ -291,7 +291,7 @@ export default function AboutUs({ onOpenSchedule }) {
                   KINZEI CONSULTANTS
                 </div>
                 <div style={{ fontSize: '0.72rem', color: '#CBD5E1', fontWeight: 600, letterSpacing: '0.3px' }}>
-                  CHARTERED ACCOUNTANTS &amp; TAX ADVISORS
+                  IN ASSOCIATION WITH JAVED ZAFAR &amp; CO. CA
                 </div>
               </div>
 
@@ -319,7 +319,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 marginBottom: '18px',
                 fontFamily: 'var(--font-heading)'
               }}>
-                Trusted Financial Partners for Your Business
+                Trusted Financial &amp; CA Partners for Your Business
               </h2>
 
               <p style={{
@@ -329,7 +329,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 marginBottom: '24px',
                 fontWeight: 500
               }}>
-                Kinzei Consultants is a premier firm providing audit, accounting, taxation, and advisory services to businesses across various sectors. Established in <strong>2023</strong> and led by experienced senior professionals with over <strong>3+ years of dedicated practice</strong>, we focus on delivering practical solutions, clear advice, and dependable service.
+                <strong>Kinzei Consultants (Private) Limited</strong> (Est. 2023), in association with <strong>Javed Zafar &amp; Co. Chartered Accountants</strong>, delivers top-tier statutory audit, accounting, taxation, and corporate advisory services. Guided by senior leadership with over <strong>15+ years of combined CA &amp; corporate practice</strong> (ex-Deloitte &amp; leading advisory firms), we provide dependable, practical solutions tailored for growth.
               </p>
 
               {/* Divider Line */}
@@ -338,10 +338,10 @@ export default function AboutUs({ onOpenSchedule }) {
               {/* 5 Clean Bullet Items */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
                 {[
-                  "3+ years of professional experience (Est. 2023)",
-                  "Qualified and experienced team of Chartered Accountants",
-                  "Complete audit, tax & advisory services",
-                  "Ethical, confidential, and reliable corporate governance",
+                  "15+ years of combined CA & corporate advisory experience (with JZ & Co.)",
+                  "Qualified team of Chartered Accountants, CPAs & tax advocates",
+                  "Complete audit, tax, litigation & secretarial services",
+                  "Ethical, confidential, and reliable governance standards",
                   "Client-focused and practical solutions tailored to scale"
                 ].map((point, pIdx) => (
                   <div key={pIdx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>

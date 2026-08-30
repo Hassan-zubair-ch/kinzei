@@ -54,7 +54,7 @@ export default function CounterSection() {
   const stats = [
     { target: 350, suffix: '+', label: 'Corporate & Tax Clients', Icon: ClientsIcon },
     { target: 500, suffix: '+', label: 'Statutory Filings Completed', Icon: CasesIcon },
-    { target: 3, suffix: '+', label: 'Years Of Advisory (Est. 2023)', Icon: ExperienceIcon },
+    { target: 15, suffix: '+', label: 'Years Combined CA Practice (with JZ & Co.)', Icon: ExperienceIcon },
     { target: 99, suffix: '%', label: 'Statutory Compliance Rate', Icon: TeamIcon }
   ];
 
