@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
+import RegistrationCompliance from './pages/RegistrationCompliance';
 import TaxCalculator from './pages/TaxCalculator';
 import OurTeam from './pages/OurTeam';
 import ContactUs from './pages/ContactUs';
@@ -35,6 +36,8 @@ export default function App() {
             <Route path="/" element={<Home onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/about" element={<AboutUs onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/services" element={<Services onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/services/registration-licensing-compliance" element={<RegistrationCompliance onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/registration-compliance" element={<RegistrationCompliance onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/services/detail/:id" element={<ServiceDetail onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/tax-calculator" element={<TaxCalculator onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/team" element={<OurTeam onOpenSchedule={handleOpenSchedule} />} />

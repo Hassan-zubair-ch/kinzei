@@ -112,7 +112,7 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                 border: '1px solid rgba(212, 160, 23, 0.3)'
               }}>
                 <Sparkles size={13} color="#D4A017" />
-                <span>Operating Under Kinzei Consultants Agency</span>
+                <span>IN ASSOCIATION WITH KINZEI CONSULTANTS (PRIVATE) LIMITED</span>
               </div>
 
               <h2 style={{
@@ -132,7 +132,7 @@ export default function JavedZafarSection({ onOpenSchedule }) {
                 marginBottom: '20px',
                 fontWeight: 500
               }}>
-                <strong>Javed Zafar &amp; Co.</strong> is a Chartered Accountants firm offering expert accounting, taxation, bookkeeping, auditing, and compliance services. Operating under our agency <strong>Kinzei Consultants (Private) Limited</strong>, the practice helps businesses stay compliant, manage financial risks, and grow with confidence.
+                <strong>Javed Zafar &amp; Co.</strong> is a Chartered Accountants firm offering expert accounting, taxation, bookkeeping, auditing, and compliance services. In association with <strong>Kinzei Consultants (Private) Limited</strong>, the practice helps businesses stay compliant, manage financial risks, and grow with confidence.
               </p>
 
               {/* Contact Bar Row */}

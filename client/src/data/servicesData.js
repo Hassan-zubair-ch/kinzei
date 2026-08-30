@@ -74,26 +74,34 @@ export const servicesData = {
       ]
     },
     {
-      id: "business-registration-services",
+      id: "registration-licensing-compliance",
       country: "pk",
       countryName: "Pakistan",
-      title: "Business Registration Services",
-      shortDescription: "Complete entity incorporation with SECP, FBR NTN/GST, trademark registration, and banking setup.",
+      title: "Registration, Licensing & Compliance Services",
+      shortDescription: "Complete business registration, licensing, regulatory approvals, and statutory compliance solutions for companies, partnerships, IT exporters, NGOs, and specialized sectors.",
       icon: "Building2",
       bannerImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
-      overview: "Starting a business in Pakistan requires navigating legal structures and regulatory approvals. Kinzei Consultants guides entrepreneurs and established corporations through smooth, hassle-free registration.",
+      overview: "Setting up, licensing, and legally maintaining a business entity in Pakistan requires comprehensive coordination with multiple federal, provincial, and sector-specific regulatory bodies. Kinzei Consultants provides full-spectrum registration, statutory licensing, government registrations (SECP, FBR, PSEB, PEC, PSW, WeBOC, EOBI, PESSI), and ongoing annual compliance services.",
       paragraphs: [
-        "Whether forming a Private Limited Company, Single Member Company (SMC-Pvt), LLP, Partnership, or Sole Proprietorship, our legal registration specialists handle name reservation, statutory documentation, and official licensing.",
-        "We also assist with corporate bank account opening, FBR NTN & Sales Tax (STRN) registration, and Chambers of Commerce membership."
+        "From corporate incorporation with SECP to federal and provincial tax active status (FBR, PRA, SRB, KPRA, BRA), labor department enrollments, chamber memberships, and specialized industry licensing, our corporate legal team ensures swift, zero-penalty execution.",
+        "Whether you are launching a Private Limited Company, IT Software House, Export/Import venture, Construction firm, or Non-Profit (Section 42), we provide complete end-to-end documentation, liaison with authorities, and proactive post-registration compliance."
       ],
       features: [
-        "Company Formation: SECP incorporation for Pvt Ltd, SMC, Public Ltd, and Branch/Liaison offices.",
-        "Business Name Reservation: Fast-track SECP name availability search and protection.",
-        "Tax Registration: Instant FBR NTN registration, Sales Tax Active Status, and Provincial Revenue registration.",
-        "Licensing & Permits: Obtaining trade licenses, Chamber of Commerce membership, and sector-specific permits.",
-        "Bank Account Opening: Streamlined corporate banking setup with major Pakistani banks.",
-        "Legal Document Drafting: MOA, AOA, Partnership Deeds, and Shareholders Agreements.",
-        "Trademark & IP Registration: Protecting your brand name, logo, and intellectual property with IPO Pakistan."
+        "1. Corporate & Company Registration: SECP Pvt Ltd, SMC, Public Ltd, LLP, Branch Office & conversion.",
+        "2. Business & Individual Tax Registration: FBR NTN, Sole Proprietorship, AOP, and Corporate Tax registration.",
+        "3. Sales Tax & Provincial Revenue Registration: FBR STRN, PRA (Punjab), SRB (Sindh), KPRA (KP), BRA (Balochistan).",
+        "4. Partnership & Firm Registration: Registrar of Firms Form C, Partnership Deeds, AOP setup & dissolution.",
+        "5. IT & Software Industry Registrations: PSEB registration, P@SHA membership, IT exporter 100% tax credit.",
+        "6. Import & Export Registrations: Pakistan Single Window (PSW), WeBOC ID, Customs & Trade registration.",
+        "7. Professional & Industry Licensing: PEC, NHA, PMC, Food Authorities, Drug Licensing (DRAP), EPA NOCs.",
+        "8. Labor & Social Security: EOBI, PESSI (Punjab), SESSI (Sindh), Labor Department & Shops registration.",
+        "9. Local & Municipal Business Registrations: Trade licenses, Municipal Corporation permits, Professional Tax.",
+        "10. NGO, NPO & Non-Profit: Societies Act 1860, Trust Deeds, SECP Section 42, FBR NPO tax exemptions.",
+        "11. Chamber & Trade Registrations: LCCI, KCCI, ICCI membership, trade association certificates & export visas.",
+        "12. Specialized Government Registrations: End-to-end liaison with all federal and provincial regulatory bodies.",
+        "13. Licenses, Permits & NOCs: Commercial operating licenses, environmental approvals, and timely license renewals.",
+        "14. Ongoing Regulatory Compliance: SECP Annual returns (Form A/29), FBR monthly returns, statutory records.",
+        "15. Business Closure & Deregistration: SECP Strike-off, formal winding-up, NTN & Sales Tax cancellation."
       ]
     },
     {

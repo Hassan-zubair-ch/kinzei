@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CheckCircle2, Phone, Calendar } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
+import RegistrationCompliance from './RegistrationCompliance';
 
 export default function ServiceDetail({ onOpenSchedule }) {
   const { id } = useParams();
   
+  if (id === 'registration-licensing-compliance' || id === 'business-registration-services') {
+    return <RegistrationCompliance onOpenSchedule={onOpenSchedule} />;
+  }
+
   // Find service instantly from preloaded dataset
   const allServices = Object.values(servicesData).flat();
   const initialService = allServices.find(s => s.id === id) || null;
