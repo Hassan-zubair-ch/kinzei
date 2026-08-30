@@ -4,12 +4,11 @@ import {
   Building2, FileText, Landmark, Users, Cpu, Globe2, 
   Award, ShieldCheck, MapPin, HeartHandshake, Briefcase, 
   Sliders, KeyRound, Clock, AlertTriangle, CheckCircle2, 
-  Phone, Calendar, ArrowRight, Sparkles, Search, ChevronRight,
+  Phone, Calendar, ArrowRight, Sparkles, ChevronRight,
   Shield, HelpCircle
 } from 'lucide-react';
 
 export default function RegistrationCompliance({ onOpenSchedule }) {
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('all');
   const navigate = useNavigate();
 
@@ -326,12 +325,7 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
   ];
 
   const filteredCategories = registrationCategories.filter((cat) => {
-    const matchesFilter = selectedFilter === 'all' || cat.tag === selectedFilter;
-    const matchesSearch = searchTerm.trim() === '' || 
-      cat.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      cat.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      cat.items.some(item => item.toLowerCase().includes(searchTerm.toLowerCase()));
-    return matchesFilter && matchesSearch;
+    return selectedFilter === 'all' || cat.tag === selectedFilter;
   });
 
   return (
@@ -500,63 +494,6 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
             margin: '0 auto'
           }}>
             
-            {/* Search Input Bar */}
-            <div style={{
-              position: 'relative',
-              width: '100%',
-              maxWidth: '650px',
-              margin: '0 auto'
-            }}>
-              <Search 
-                size={20} 
-                color="#94A3B8" 
-                style={{ position: 'absolute', left: '18px', top: '50%', transform: 'translateY(-50%)' }} 
-              />
-              <input 
-                type="text"
-                placeholder="Search by license name, authority (e.g. SECP, PSEB, PEC, PRA, EOBI)..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '14px 20px 14px 50px',
-                  borderRadius: '30px',
-                  border: '2px solid #E2E8F0',
-                  fontSize: '0.98rem',
-                  outline: 'none',
-                  transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-                  backgroundColor: '#F8FAFC'
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = '#D4A017';
-                  e.target.style.boxShadow = '0 0 0 4px rgba(212, 160, 23, 0.15)';
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = '#E2E8F0';
-                  e.target.style.boxShadow = 'none';
-                }}
-              />
-              {searchTerm && (
-                <button
-                  onClick={() => setSearchTerm('')}
-                  style={{
-                    position: 'absolute',
-                    right: '16px',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    background: 'none',
-                    border: 'none',
-                    fontSize: '0.85rem',
-                    color: '#64748B',
-                    fontWeight: 700,
-                    cursor: 'pointer'
-                  }}
-                >
-                  Clear
-                </button>
-              )}
-            </div>
-
             {/* Category Filter Pills */}
             <div style={{
               display: 'flex',
