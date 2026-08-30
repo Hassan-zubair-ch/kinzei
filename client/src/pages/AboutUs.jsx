@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { 
   ShieldCheck, Target, Eye, CheckCircle2, 
   Mail, Phone, ChevronDown, ChevronUp, Calendar, ArrowRight,
   Sparkles, Scale, Lock, Award, Briefcase, Globe, Building2, MapPin,
-  ArrowRightCircle
+  ArrowRightCircle, ChevronRight
 } from 'lucide-react';
 import AffiliationsSection from '../components/AffiliationsSection';
 import CounterSection from '../components/CounterSection';
@@ -57,133 +57,152 @@ export default function AboutUs({ onOpenSchedule }) {
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
       
-      {/* 1. HIGH-END EXECUTIVE HERO BANNER */}
+      {/* 1. PROFESSIONAL EXECUTIVE HERO BANNER */}
       <section style={{
         position: 'relative',
-        padding: '100px 0 85px 0',
-        backgroundColor: '#0B1120',
-        backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(212, 160, 23, 0.18) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(30, 41, 59, 0.5) 0%, transparent 70%)',
+        padding: '85px 0 75px 0',
+        background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
         color: '#FFFFFF',
-        textAlign: 'center',
-        borderBottom: '3px solid #D4A017',
-        overflow: 'hidden'
+        borderBottom: '3px solid #D4A017'
       }}>
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          
-          {/* Eyebrow Pill */}
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '6px 18px',
-            borderRadius: '30px',
-            backgroundColor: 'rgba(212, 160, 23, 0.15)',
-            border: '1px solid rgba(212, 160, 23, 0.45)',
-            color: '#FCD34D',
-            fontSize: '0.82rem',
-            fontWeight: 800,
-            textTransform: 'uppercase',
-            letterSpacing: '1px',
-            marginBottom: '20px'
-          }}>
-            <Sparkles size={14} color="#D4A017" />
-            <span>WELCOME TO KINZEI CONSULTANTS</span>
-          </div>
+        <div className="container">
+          <div style={{ maxWidth: '880px', margin: '0 auto', textAlign: 'center' }}>
+            
+            {/* Breadcrumb */}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontSize: '0.86rem',
+              color: '#94A3B8',
+              marginBottom: '16px'
+            }}>
+              <Link to="/" style={{ color: '#CBD5E1', textDecoration: 'none' }}>Home</Link>
+              <ChevronRight size={13} />
+              <span style={{ color: '#FCD34D', fontWeight: 700 }}>About Us</span>
+            </div>
 
-          {/* Main Heading */}
-          <h1 style={{ 
-            fontSize: 'clamp(2.6rem, 5vw, 4rem)', 
-            fontWeight: 900, 
-            color: '#FFFFFF',
-            letterSpacing: '-0.5px',
-            marginBottom: '20px',
-            fontFamily: 'var(--font-heading)',
-            lineHeight: 1.15
-          }}>
-            About <span style={{ color: '#D4A017' }}>Us</span>
-          </h1>
-
-          {/* Core Narrative Paragraph */}
-          <p style={{ 
-            color: '#E2E8F0', 
-            fontSize: '1.18rem', 
-            maxWidth: '860px', 
-            margin: '0 auto 34px auto', 
-            lineHeight: 1.8, 
-            fontWeight: 500 
-          }}>
-            Kinzei Consultants is a premier corporate and tax consultancy firm with a global presence, operating in key financial hubs across Pakistan, the USA, the UK, and the UAE. Our expertise spans income tax, sales tax, and corporate advisory services, providing comprehensive solutions to individuals and businesses worldwide.
-          </p>
-
-          {/* Financial Hubs / Global Presence Pills */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '12px',
-            flexWrap: 'wrap',
-            marginBottom: '36px'
-          }}>
-            {[
-              { flag: "🇵🇰", hub: "Pakistan", desc: "SECP, FBR & PRA" },
-              { flag: "🇺🇸", hub: "USA", desc: "IRS, LLC & State Tax" },
-              { flag: "🇬🇧", hub: "UK", desc: "Companies House & HMRC" },
-              { flag: "🇦🇪", hub: "UAE", desc: "FTA Corporate Tax & VAT" }
-            ].map((item, idx) => (
-              <div 
-                key={idx}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.07)',
-                  border: '1px solid rgba(212, 160, 23, 0.3)',
-                  padding: '8px 16px',
-                  borderRadius: '24px',
-                  fontSize: '0.86rem'
-                }}
-              >
-                <span style={{ fontSize: '1.1rem' }}>{item.flag}</span>
-                <span style={{ fontWeight: 800, color: '#FFFFFF' }}>{item.hub}</span>
-                <span style={{ color: '#94A3B8', fontSize: '0.78rem' }}>({item.desc})</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Quick Consultation Actions */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
-            <button 
-              onClick={onOpenSchedule} 
-              className="btn-primary" 
-              style={{ padding: '13px 32px', fontSize: '0.94rem', borderRadius: '8px' }}
-            >
-              <Calendar size={16} />
-              <span>Book Advisory Session</span>
-            </button>
-
-            <a 
-              href={whatsappUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{
-                backgroundColor: '#25D366',
-                color: '#FFFFFF',
-                padding: '13px 26px',
-                borderRadius: '8px',
-                fontWeight: 800,
-                fontSize: '0.94rem',
+            {/* Eyebrow Badge */}
+            <div style={{ display: 'block', marginBottom: '16px' }}>
+              <span style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '8px',
-                textDecoration: 'none',
-                boxShadow: '0 4px 14px rgba(37, 211, 102, 0.3)'
-              }}
-            >
-              <Phone size={16} />
-              <span>WhatsApp: 03034063970</span>
-            </a>
-          </div>
+                gap: '6px',
+                padding: '5px 16px',
+                borderRadius: '20px',
+                backgroundColor: 'rgba(212, 160, 23, 0.18)',
+                border: '1px solid rgba(212, 160, 23, 0.45)',
+                color: '#FCD34D',
+                fontSize: '0.8rem',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                letterSpacing: '0.8px'
+              }}>
+                <Sparkles size={13} color="#FCD34D" />
+                <span>Welcome to Kinzei Consultants</span>
+              </span>
+            </div>
 
+            {/* Main Heading */}
+            <h1 style={{ 
+              fontSize: 'clamp(2.4rem, 4.4vw, 3.6rem)', 
+              fontWeight: 900, 
+              color: '#FFFFFF',
+              marginBottom: '18px',
+              fontFamily: 'var(--font-heading)',
+              lineHeight: 1.18
+            }}>
+              About <span style={{ color: '#D4A017' }}>Us</span>
+            </h1>
+
+            {/* Core Narrative */}
+            <p style={{ 
+              color: '#CBD5E1', 
+              fontSize: '1.12rem', 
+              lineHeight: 1.75, 
+              marginBottom: '36px', 
+              fontWeight: 500 
+            }}>
+              Kinzei Consultants is a premier corporate and tax consultancy firm with a global presence, operating in key financial hubs across Pakistan, the USA, the UK, and the UAE. Our expertise spans income tax, sales tax, and corporate advisory services, providing comprehensive solutions to individuals and businesses worldwide.
+            </p>
+
+            {/* Structured Financial Hubs Strip */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
+              gap: '14px',
+              marginBottom: '36px',
+              textAlign: 'left'
+            }}>
+              {[
+                { flag: "🇵🇰", hub: "Pakistan", desc: "SECP, FBR & PRA" },
+                { flag: "🇺🇸", hub: "USA", desc: "IRS, LLC & State Tax" },
+                { flag: "🇬🇧", hub: "UK", desc: "Companies House & HMRC" },
+                { flag: "🇦🇪", hub: "UAE", desc: "FTA Corporate Tax & VAT" }
+              ].map((item, idx) => (
+                <div 
+                  key={idx}
+                  style={{
+                    backgroundColor: 'rgba(30, 41, 59, 0.65)',
+                    border: '1px solid rgba(212, 160, 23, 0.25)',
+                    padding: '12px 16px',
+                    borderRadius: '10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px'
+                  }}
+                >
+                  <span style={{ fontSize: '1.2rem' }}>{item.flag}</span>
+                  <div>
+                    <div style={{ fontWeight: 800, color: '#FFFFFF', fontSize: '0.92rem' }}>{item.hub}</div>
+                    <div style={{ color: '#94A3B8', fontSize: '0.78rem', fontWeight: 500 }}>{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Action CTAs */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
+              <button 
+                onClick={onOpenSchedule} 
+                className="btn-primary" 
+                style={{ padding: '13px 32px', fontSize: '0.92rem', borderRadius: '8px' }}
+              >
+                <Calendar size={16} />
+                <span>Schedule Consultation</span>
+              </button>
+
+              <a 
+                href="tel:03034063970" 
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#FFFFFF',
+                  border: '1.5px solid #CBD5E1',
+                  padding: '13px 26px',
+                  borderRadius: '8px',
+                  fontWeight: 800,
+                  fontSize: '0.92rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#FFFFFF';
+                  e.currentTarget.style.color = '#0F172A';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#FFFFFF';
+                }}
+              >
+                <Phone size={16} />
+                <span>Call 03034063970</span>
+              </a>
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -431,26 +450,27 @@ export default function AboutUs({ onOpenSchedule }) {
               {/* Head Office */}
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                 <div style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '10px',
-                  backgroundColor: '#F0F9FF',
-                  border: '1px solid #BAE6FD',
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '12px',
+                  backgroundColor: '#FFFBEB',
+                  border: '1.5px solid rgba(212, 160, 23, 0.45)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#0284C7',
+                  color: '#D4A017',
                   flexShrink: 0,
-                  marginTop: '2px'
+                  marginTop: '2px',
+                  boxShadow: '0 4px 12px rgba(212, 160, 23, 0.12)'
                 }}>
                   <Building2 size={22} />
                 </div>
                 <div>
                   <h4 style={{ fontSize: '1.08rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
-                    Head Office
+                    Office Address
                   </h4>
                   <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
-                    Office No 47, 7th Floor, Madina Heights, Molana Shokat Ali Road, Johar Town, Lahore
+                    First Floor, Plot # 14, Main Road, Block 1 College Rd, Sector C2 Block 1 Twp Sector C 2 Township, Lahore, 54770, Pakistan
                   </p>
                 </div>
               </div>
@@ -458,27 +478,28 @@ export default function AboutUs({ onOpenSchedule }) {
               {/* Contact */}
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                 <div style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '10px',
-                  backgroundColor: '#F0F9FF',
-                  border: '1px solid #BAE6FD',
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '12px',
+                  backgroundColor: '#FFFBEB',
+                  border: '1.5px solid rgba(212, 160, 23, 0.45)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#0284C7',
+                  color: '#D4A017',
                   flexShrink: 0,
-                  marginTop: '2px'
+                  marginTop: '2px',
+                  boxShadow: '0 4px 12px rgba(212, 160, 23, 0.12)'
                 }}>
                   <Phone size={20} />
                 </div>
                 <div>
                   <h4 style={{ fontSize: '1.08rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
-                    Contact
+                    Phone / WhatsApp
                   </h4>
                   <div style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.6, fontWeight: 500 }}>
-                    <div>Phone: <a href="tel:03034063970" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>+92 303 4063970</a></div>
-                    <div>WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>+92 303 4063970</a></div>
+                    <div>Phone: <a href="tel:03034063970" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>03034063970</a></div>
+                    <div>WhatsApp: <a href="tel:03170841452" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>03170841452</a></div>
                   </div>
                 </div>
               </div>
@@ -486,17 +507,18 @@ export default function AboutUs({ onOpenSchedule }) {
               {/* Email */}
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                 <div style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '10px',
-                  backgroundColor: '#F0F9FF',
-                  border: '1px solid #BAE6FD',
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '12px',
+                  backgroundColor: '#FFFBEB',
+                  border: '1.5px solid rgba(212, 160, 23, 0.45)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#0284C7',
+                  color: '#D4A017',
                   flexShrink: 0,
-                  marginTop: '2px'
+                  marginTop: '2px',
+                  boxShadow: '0 4px 12px rgba(212, 160, 23, 0.12)'
                 }}>
                   <Mail size={20} />
                 </div>
@@ -518,20 +540,20 @@ export default function AboutUs({ onOpenSchedule }) {
             <div style={{
               backgroundColor: '#FFFFFF',
               borderRadius: '20px',
-              border: '1px solid #E2E8F0',
+              border: '1.5px solid #E2E8F0',
               padding: '42px 36px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               boxShadow: '0 4px 16px rgba(0, 0, 0, 0.02)'
             }}>
-              <div style={{ fontSize: '1.1rem', color: '#0F172A', fontWeight: 700, marginBottom: '4px' }}>
+              <div style={{ fontSize: '1.1rem', color: '#0F172A', fontWeight: 800, marginBottom: '4px' }}>
                 Established
               </div>
               <div style={{
-                fontSize: 'clamp(2.8rem, 4.5vw, 3.6rem)',
+                fontSize: 'clamp(2.8rem, 4.5vw, 3.8rem)',
                 fontWeight: 900,
-                color: '#0284C7',
+                color: '#D4A017',
                 fontFamily: 'var(--font-heading)',
                 lineHeight: 1.1,
                 marginBottom: '16px'
