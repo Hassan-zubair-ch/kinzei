@@ -147,39 +147,39 @@ export default function Home({ onOpenSchedule }) {
 
             </div>
 
-            {/* Right Hero Graphic: Exact Benchmark Orbit with 4 Service Nodes and Partner Cutout */}
+            {/* Right Hero Graphic: Precision Benchmark Orbit Alignment */}
             <div className="hero-orbit-wrapper">
               <div className="hero-orbit-frame">
 
-                {/* Circular Orbit Ring with 4 Neutral Slate Grey Dots */}
+                {/* Circular Orbit Ring with 4 Exact Neutral Slate Grey Dots */}
                 <svg 
                   className="hero-orbit-svg"
-                  viewBox="0 0 600 520" 
+                  viewBox="0 0 660 530" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <circle 
-                    cx="300" 
-                    cy="260" 
-                    r="200" 
+                    cx="330" 
+                    cy="265" 
+                    r="210" 
                     stroke="#D1D5DB" 
                     strokeWidth="1.8" 
                   />
-                  {/* Dot 1: Top-Right (θ = 40°) */}
-                  <circle cx="430" cy="107" r="6" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="430" cy="107" r="3" fill="#9CA3AF" />
+                  {/* Dot 1: Top-Right (θ = -40°) */}
+                  <circle cx="490" cy="130" r="6.5" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="490" cy="130" r="3.5" fill="#94A3B8" />
 
-                  {/* Dot 2: Mid-Left (θ = 155°) */}
-                  <circle cx="120" cy="175" r="6" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="120" cy="175" r="3" fill="#9CA3AF" />
+                  {/* Dot 2: Top-Left (θ = -140°) */}
+                  <circle cx="170" cy="130" r="6.5" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="170" cy="130" r="3.5" fill="#94A3B8" />
 
-                  {/* Dot 3: Bottom-Left (θ = 215°) */}
-                  <circle cx="137" cy="375" r="6" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="137" cy="375" r="3" fill="#9CA3AF" />
+                  {/* Dot 3: Bottom-Left (θ = 140°) */}
+                  <circle cx="170" cy="400" r="6.5" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="170" cy="400" r="3.5" fill="#94A3B8" />
 
-                  {/* Dot 4: Bottom-Right (θ = 330°) */}
-                  <circle cx="473" cy="360" r="6" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="473" cy="360" r="3" fill="#9CA3AF" />
+                  {/* Dot 4: Bottom-Right (θ = 40°) */}
+                  <circle cx="490" cy="400" r="6.5" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="490" cy="400" r="3.5" fill="#94A3B8" />
                 </svg>
 
                 {/* 4 Orbit Node Labels matching the reference benchmark */}
@@ -603,8 +603,8 @@ export default function Home({ onOpenSchedule }) {
         .hero-orbit-frame {
           position: relative;
           width: 100%;
-          max-width: 600px;
-          height: 520px;
+          max-width: 660px;
+          height: 530px;
           margin: 0 auto;
         }
 
@@ -632,8 +632,8 @@ export default function Home({ onOpenSchedule }) {
         }
 
         .hero-partner-cutout-img {
-          width: 440px;
-          max-height: 500px;
+          width: 350px;
+          max-height: 480px;
           object-fit: contain;
           display: block;
         }
@@ -650,40 +650,40 @@ export default function Home({ onOpenSchedule }) {
         }
 
         .hero-orbit-label-1 {
-          top: 8%;
+          top: 6%;
           left: 0%;
-          font-size: 1.32rem;
+          font-size: 1.30rem;
         }
 
         .hero-orbit-label-2 {
-          top: 8%;
-          right: 2%;
-          font-size: 1.32rem;
+          top: 6%;
+          right: 0%;
+          font-size: 1.30rem;
         }
 
         .hero-orbit-label-3 {
-          bottom: 14%;
+          bottom: 12%;
           left: 0%;
-          font-size: 1.32rem;
+          font-size: 1.30rem;
         }
 
         .hero-orbit-label-4 {
-          bottom: 8%;
+          bottom: 10%;
           right: 0%;
-          font-size: 1.32rem;
+          font-size: 1.30rem;
         }
 
         @media (max-width: 1200px) {
           .hero-orbit-frame {
-            max-width: 520px;
-            height: 480px;
+            max-width: 560px;
+            height: 470px;
           }
           .hero-partner-cutout-img {
-            width: 380px;
-            max-height: 460px;
+            width: 300px;
+            max-height: 430px;
           }
           .hero-orbit-label {
-            font-size: 1.15rem;
+            font-size: 1.10rem;
           }
         }
 
@@ -694,33 +694,33 @@ export default function Home({ onOpenSchedule }) {
             text-align: center;
           }
           .hero-orbit-frame {
-            max-width: 400px !important;
-            height: 400px !important;
+            max-width: 380px !important;
+            height: 380px !important;
             margin: 20px auto 0 auto !important;
           }
           .hero-partner-cutout-img {
-            width: 290px !important;
-            max-height: 380px !important;
+            width: 200px !important;
+            max-height: 310px !important;
           }
           .hero-orbit-label {
-            font-size: 0.84rem !important;
-            line-height: 1.2 !important;
+            font-size: 0.78rem !important;
+            line-height: 1.15 !important;
           }
           .hero-orbit-label-1 {
-            top: 4% !important;
-            left: -6px !important;
+            top: 3% !important;
+            left: -8px !important;
           }
           .hero-orbit-label-2 {
-            top: 4% !important;
-            right: -6px !important;
+            top: 3% !important;
+            right: -8px !important;
           }
           .hero-orbit-label-3 {
             bottom: 8% !important;
-            left: -6px !important;
+            left: -8px !important;
           }
           .hero-orbit-label-4 {
             bottom: 8% !important;
-            right: -6px !important;
+            right: -8px !important;
           }
           .hero-boxes-grid {
             grid-template-columns: 1fr !important;
@@ -730,15 +730,15 @@ export default function Home({ onOpenSchedule }) {
 
         @media (max-width: 440px) {
           .hero-orbit-frame {
-            max-width: 340px !important;
-            height: 340px !important;
+            max-width: 330px !important;
+            height: 330px !important;
           }
           .hero-partner-cutout-img {
-            width: 240px !important;
-            max-height: 320px !important;
+            width: 180px !important;
+            max-height: 270px !important;
           }
           .hero-orbit-label {
-            font-size: 0.74rem !important;
+            font-size: 0.70rem !important;
           }
         }
       `}</style>
