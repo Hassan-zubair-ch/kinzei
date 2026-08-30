@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { 
   ShieldCheck, Target, Eye, CheckCircle2, 
   Mail, Phone, ChevronDown, ChevronUp, Calendar, ArrowRight,
-  Sparkles, Scale, Lock, Award, Briefcase, Globe
+  Sparkles, Scale, Lock, Award, Briefcase, Globe, Building2, MapPin
 } from 'lucide-react';
 import AffiliationsSection from '../components/AffiliationsSection';
 import CounterSection from '../components/CounterSection';
@@ -304,7 +304,159 @@ export default function AboutUs({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 3. CORE VALUE PILLARS */}
+      {/* 3. FIRM OVERVIEW SECTION */}
+      <section style={{ padding: '60px 0 75px 0', backgroundColor: '#FFFFFF', borderTop: '1px solid #F1F5F9' }}>
+        <div className="container" style={{ maxWidth: '1100px' }}>
+          
+          <div style={{ marginBottom: '32px' }}>
+            <h2 style={{
+              fontSize: '2.2rem',
+              fontWeight: 900,
+              color: '#0F172A',
+              margin: 0,
+              fontFamily: 'var(--font-heading)'
+            }}>
+              Firm Overview
+            </h2>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1.2fr 1fr',
+            gap: '40px',
+            alignItems: 'stretch'
+          }} className="firm-overview-grid">
+            
+            {/* Left Column: Office, Contact, Email */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', justifyContent: 'center' }}>
+              
+              {/* Head Office */}
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                <div style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '10px',
+                  backgroundColor: '#F0F9FF',
+                  border: '1px solid #BAE6FD',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#0284C7',
+                  flexShrink: 0,
+                  marginTop: '2px'
+                }}>
+                  <Building2 size={22} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.12rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
+                    Head Office
+                  </h4>
+                  <p style={{ fontSize: '0.96rem', color: '#475569', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+                    Office No 47, 7th Floor, Madina Heights, Molana Shokat Ali Road, Johar Town, Lahore
+                  </p>
+                </div>
+              </div>
+
+              {/* Contact */}
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                <div style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '10px',
+                  backgroundColor: '#F0F9FF',
+                  border: '1px solid #BAE6FD',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#0284C7',
+                  flexShrink: 0,
+                  marginTop: '2px'
+                }}>
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.12rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
+                    Contact
+                  </h4>
+                  <div style={{ fontSize: '0.96rem', color: '#475569', lineHeight: 1.6, fontWeight: 500 }}>
+                    <div>Phone: <a href="tel:03034063970" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>+92 303 4063970</a></div>
+                    <div>WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>+92 303 4063970</a></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                <div style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '10px',
+                  backgroundColor: '#F0F9FF',
+                  border: '1px solid #BAE6FD',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#0284C7',
+                  flexShrink: 0,
+                  marginTop: '2px'
+                }}>
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.12rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
+                    Email
+                  </h4>
+                  <p style={{ fontSize: '0.96rem', color: '#475569', margin: 0, fontWeight: 500 }}>
+                    <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>
+                      info@kinzeiconsultants.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Right Column: Established Card */}
+            <div style={{
+              backgroundColor: '#F8FAFC',
+              borderRadius: '20px',
+              border: '1px solid #E2E8F0',
+              padding: '42px 36px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)'
+            }}>
+              <div style={{ fontSize: '1.1rem', color: '#0F172A', fontWeight: 700, marginBottom: '4px' }}>
+                Established
+              </div>
+              <div style={{
+                fontSize: 'clamp(2.8rem, 4.5vw, 3.6rem)',
+                fontWeight: 900,
+                color: '#0284C7',
+                fontFamily: 'var(--font-heading)',
+                lineHeight: 1.1,
+                marginBottom: '16px'
+              }}>
+                2017
+              </div>
+              <p style={{
+                fontSize: '1.02rem',
+                color: '#475569',
+                lineHeight: 1.65,
+                margin: 0,
+                fontWeight: 500
+              }}>
+                Founded with a vision to provide comprehensive corporate and financial solutions to businesses across Pakistan and internationally.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* 4. CORE VALUE PILLARS */}
       <section style={{ padding: '20px 0 75px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div style={{
@@ -768,7 +920,7 @@ export default function AboutUs({ onOpenSchedule }) {
           box-shadow: 0 16px 35px rgba(212, 160, 23, 0.15) !important;
         }
         @media (max-width: 992px) {
-          .about-narrative-grid, .values-grid, .about-pillars-grid {
+          .about-narrative-grid, .values-grid, .about-pillars-grid, .firm-overview-grid {
             grid-template-columns: 1fr !important;
             gap: 35px !important;
           }
