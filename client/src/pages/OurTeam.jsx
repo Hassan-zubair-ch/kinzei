@@ -22,8 +22,8 @@ export default function OurTeam({ onOpenSchedule }) {
     },
     {
       name: "Khurram Sheikh",
-      role: "Advocate High Court",
-      department: "Taxation & Legal Affairs",
+      role: "",
+      department: "",
       summary: "Specialist in corporate tax litigation, FBR & Provincial Revenue Authority appeals, and statutory legal defense.",
       image: "/team/khurram-sheikh.png"
     },
