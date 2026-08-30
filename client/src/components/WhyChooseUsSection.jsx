@@ -7,7 +7,7 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
   const navigate = useNavigate();
 
   const bulletPoints = [
-    "15+ years of professional experience",
+    "8+ years of professional experience (Est. 2017)",
     "Qualified team of CA, ACCA, CPA, and ACMA members",
     "Complete audit, tax, litigation & corporate secretarial services",
     "Ethical, confidential, and reliable client-centric approach",
@@ -34,7 +34,7 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
             alignItems: 'center'
           }}
         >
-          {/* Left Column: Image with Floating 15+ Years Badge & Favicon Logo */}
+          {/* Left Column: Image with Floating 8+ Years Badge & Favicon Logo */}
           <div style={{ position: 'relative', paddingLeft: '15px', paddingTop: '15px' }}>
             
             {/* Main Desk Image Container */}
@@ -81,7 +81,7 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               </div>
             </div>
 
-            {/* Top-Left Floating Badge: 15+ Years Experience */}
+            {/* Top-Left Floating Badge: 8+ Years Experience */}
             <div style={{
               position: 'absolute',
               top: '0px',
@@ -102,7 +102,7 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
                 lineHeight: 1,
                 fontFamily: 'var(--font-heading)'
               }}>
-                15+
+                8+
               </div>
               <div style={{
                 fontSize: '0.88rem',
@@ -148,7 +148,7 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               marginBottom: '24px',
               fontWeight: 500
             }}>
-              <strong>Kinzei Consultants (Private) Limited</strong>, in association with <strong>Javed Zafar &amp; Co. Chartered Accountants</strong>, is a premier professional firm offering statutory audit, accounting, taxation, and corporate advisory services to businesses across diverse industries. Guided by senior leadership with over <strong>15+ years of experience</strong> (ex-Deloitte &amp; leading advisory practices), we deliver practical solutions, transparent guidance, and dependable execution.
+              <strong>Kinzei Consultants (Private) Limited</strong>, in association with <strong>Javed Zafar &amp; Co. Chartered Accountants</strong>, is a premier professional firm offering statutory audit, accounting, taxation, and corporate advisory services to businesses across diverse industries. Established in <strong>2017</strong> with over <strong>8+ years of dedicated experience</strong>, we deliver practical solutions, transparent guidance, and dependable execution.
             </p>
 
             {/* Subtle Divider Line */}

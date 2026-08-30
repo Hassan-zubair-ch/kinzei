@@ -260,7 +260,7 @@ export default function AboutUs({ onOpenSchedule }) {
                   fontFamily: 'var(--font-heading)',
                   marginBottom: '6px'
                 }}>
-                  15+
+                  8+
                 </div>
                 <div style={{
                   fontSize: '0.82rem',
@@ -329,7 +329,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 marginBottom: '24px',
                 fontWeight: 500
               }}>
-                Kinzei Consultants is a premier firm providing audit, accounting, taxation, and advisory services to businesses across various sectors. Led by senior professionals with over <strong>15+ years of experience</strong>, we focus on delivering practical solutions, clear advice, and dependable service.
+                Kinzei Consultants is a premier firm providing audit, accounting, taxation, and advisory services to businesses across various sectors. Established in <strong>2017</strong> and led by experienced senior professionals with over <strong>8+ years of dedicated practice</strong>, we focus on delivering practical solutions, clear advice, and dependable service.
               </p>
 
               {/* Divider Line */}
@@ -338,7 +338,7 @@ export default function AboutUs({ onOpenSchedule }) {
               {/* 5 Clean Bullet Items */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
                 {[
-                  "15+ years of professional experience",
+                  "8+ years of professional experience (Est. 2017)",
                   "Qualified and experienced team of Chartered Accountants",
                   "Complete audit, tax & advisory services",
                   "Ethical, confidential, and reliable corporate governance",
