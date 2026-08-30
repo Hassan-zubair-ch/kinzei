@@ -260,7 +260,7 @@ export default function AboutUs({ onOpenSchedule }) {
                   fontFamily: 'var(--font-heading)',
                   marginBottom: '6px'
                 }}>
-                  8+
+                  3+
                 </div>
                 <div style={{
                   fontSize: '0.82rem',
@@ -329,7 +329,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 marginBottom: '24px',
                 fontWeight: 500
               }}>
-                Kinzei Consultants is a premier firm providing audit, accounting, taxation, and advisory services to businesses across various sectors. Established in <strong>2017</strong> and led by experienced senior professionals with over <strong>8+ years of dedicated practice</strong>, we focus on delivering practical solutions, clear advice, and dependable service.
+                Kinzei Consultants is a premier firm providing audit, accounting, taxation, and advisory services to businesses across various sectors. Established in <strong>2023</strong> and led by experienced senior professionals with over <strong>3+ years of dedicated practice</strong>, we focus on delivering practical solutions, clear advice, and dependable service.
               </p>
 
               {/* Divider Line */}
@@ -338,7 +338,7 @@ export default function AboutUs({ onOpenSchedule }) {
               {/* 5 Clean Bullet Items */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
                 {[
-                  "8+ years of professional experience (Est. 2017)",
+                  "3+ years of professional experience (Est. 2023)",
                   "Qualified and experienced team of Chartered Accountants",
                   "Complete audit, tax & advisory services",
                   "Ethical, confidential, and reliable corporate governance",
@@ -558,7 +558,7 @@ export default function AboutUs({ onOpenSchedule }) {
                 lineHeight: 1.1,
                 marginBottom: '16px'
               }}>
-                2017
+                2023
               </div>
               <p style={{
                 fontSize: '1.02rem',
