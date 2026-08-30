@@ -14,7 +14,7 @@ export default function OurTeam({ onOpenSchedule }) {
 
   const teamMembers = [
     {
-      name: "Muhammad Haroon",
+      name: "Saud Mustafa",
       role: "",
       department: "",
       summary: "Specializes in statutory audit engagements, IFRS financial reporting, and internal control reviews for corporate enterprises.",
@@ -28,7 +28,7 @@ export default function OurTeam({ onOpenSchedule }) {
       image: "/team/khurram-sheikh.png"
     },
     {
-      name: "Azeem Usman",
+      name: "Abdul Rehman",
       role: "",
       department: "",
       summary: "Directs ERP implementations, QuickBooks/Xero integrations, and digital financial workflows.",
@@ -36,13 +36,13 @@ export default function OurTeam({ onOpenSchedule }) {
     },
     {
       name: "Muhammad Abdullah",
-      role: "Senior Audit Supervisor",
-      department: "Assurance & Due Diligence",
+      role: "",
+      department: "",
       summary: "Oversees statutory field audits, forensic reviews, and financial due diligence for investments.",
       image: "/team/nisar-ahmed.png"
     },
     {
-      name: "Sidra Ashraf",
+      name: "Komal Muskan",
       role: "",
       department: "",
       summary: "Manages SECP company incorporations, statutory annual returns (Form A/29), and regulatory filings.",
@@ -50,8 +50,8 @@ export default function OurTeam({ onOpenSchedule }) {
     },
     {
       name: "Tanzeela Abbasi",
-      role: "Tax Supervisor",
-      department: "Direct Taxation & Bookkeeping",
+      role: "",
+      department: "",
       summary: "Handles corporate and individual NTN tax filings, withholding statements, and sales tax returns.",
       image: "/team/tanzeela-abbasi.png"
     }
