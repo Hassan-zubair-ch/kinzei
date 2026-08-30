@@ -218,7 +218,7 @@ export default function Home({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 2. 3 SLEEK FEATURE BOXES BAND */}
+      {/* 2. 4 SLEEK FEATURE BOXES BAND */}
       <section style={{
         backgroundColor: '#111827',
         color: '#FFFFFF',
@@ -231,15 +231,15 @@ export default function Home({ onOpenSchedule }) {
             className="hero-boxes-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '40px',
-              alignItems: 'flex-start'
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '30px',
+              alignItems: 'stretch'
             }}
           >
             {/* Box 1 */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
               <h3 style={{
-                fontSize: '1.3rem',
+                fontSize: '1.22rem',
                 fontWeight: 800,
                 color: '#D4A017',
                 marginBottom: '10px',
@@ -248,20 +248,39 @@ export default function Home({ onOpenSchedule }) {
                 Audit &amp; Assurance
               </h3>
               <p style={{
-                fontSize: '0.94rem',
+                fontSize: '0.92rem',
                 color: '#E5E7EB',
                 lineHeight: '1.6',
-                margin: 0,
+                marginBottom: '14px',
+                flexGrow: 1,
                 fontFamily: 'var(--font-body)'
               }}>
                 Independent audit services to ensure transparency, compliance, and confidence in your financial reporting.
               </p>
+              <Link 
+                to="/services/detail/audit-assurance" 
+                style={{
+                  color: '#FCD34D',
+                  fontSize: '0.86rem',
+                  fontWeight: 800,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.transform = 'translateX(3px)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#FCD34D'; e.currentTarget.style.transform = 'translateX(0)'; }}
+              >
+                <span>Read More</span>
+                <span>&rarr;</span>
+              </Link>
             </div>
 
             {/* Box 2 */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
               <h3 style={{
-                fontSize: '1.3rem',
+                fontSize: '1.22rem',
                 fontWeight: 800,
                 color: '#D4A017',
                 marginBottom: '10px',
@@ -270,20 +289,39 @@ export default function Home({ onOpenSchedule }) {
                 Accounting &amp; Reporting
               </h3>
               <p style={{
-                fontSize: '0.94rem',
+                fontSize: '0.92rem',
                 color: '#E5E7EB',
                 lineHeight: '1.6',
-                margin: 0,
+                marginBottom: '14px',
+                flexGrow: 1,
                 fontFamily: 'var(--font-body)'
               }}>
                 Accurate accounting and financial reporting services to support informed decision-making and business growth.
               </p>
+              <Link 
+                to="/services?country=pk" 
+                style={{
+                  color: '#FCD34D',
+                  fontSize: '0.86rem',
+                  fontWeight: 800,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.transform = 'translateX(3px)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#FCD34D'; e.currentTarget.style.transform = 'translateX(0)'; }}
+              >
+                <span>Read More</span>
+                <span>&rarr;</span>
+              </Link>
             </div>
 
             {/* Box 3 */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
               <h3 style={{
-                fontSize: '1.3rem',
+                fontSize: '1.22rem',
                 fontWeight: 800,
                 color: '#D4A017',
                 marginBottom: '10px',
@@ -292,14 +330,74 @@ export default function Home({ onOpenSchedule }) {
                 Tax &amp; Advisory
               </h3>
               <p style={{
-                fontSize: '0.94rem',
+                fontSize: '0.92rem',
                 color: '#E5E7EB',
                 lineHeight: '1.6',
-                margin: 0,
+                marginBottom: '14px',
+                flexGrow: 1,
                 fontFamily: 'var(--font-body)'
               }}>
                 Comprehensive tax and advisory services to help manage compliance, planning, and regulatory matters effectively.
               </p>
+              <Link 
+                to="/services/detail/taxation-services" 
+                style={{
+                  color: '#FCD34D',
+                  fontSize: '0.86rem',
+                  fontWeight: 800,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.transform = 'translateX(3px)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#FCD34D'; e.currentTarget.style.transform = 'translateX(0)'; }}
+              >
+                <span>Read More</span>
+                <span>&rarr;</span>
+              </Link>
+            </div>
+
+            {/* Box 4: Registration & Compliance */}
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{
+                fontSize: '1.22rem',
+                fontWeight: 800,
+                color: '#D4A017',
+                marginBottom: '10px',
+                fontFamily: 'var(--font-heading)'
+              }}>
+                Registration &amp; Compliance
+              </h3>
+              <p style={{
+                fontSize: '0.92rem',
+                color: '#E5E7EB',
+                lineHeight: '1.6',
+                marginBottom: '14px',
+                flexGrow: 1,
+                fontFamily: 'var(--font-body)'
+              }}>
+                Complete business registration, licensing (SECP, FBR, PSEB, PEC, PSW, EOBI), and regulatory compliance solutions.
+              </p>
+              <Link 
+                to="/registration-compliance" 
+                style={{
+                  color: '#FCD34D',
+                  fontSize: '0.86rem',
+                  fontWeight: 800,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.transform = 'translateX(3px)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#FCD34D'; e.currentTarget.style.transform = 'translateX(0)'; }}
+              >
+                <span>Read More</span>
+                <span>&rarr;</span>
+              </Link>
             </div>
 
           </div>
@@ -308,7 +406,13 @@ export default function Home({ onOpenSchedule }) {
         <div style={{ width: '100%', height: '4px', backgroundColor: '#D4A017' }} />
 
         <style>{`
-          @media (max-width: 992px) {
+          @media (max-width: 1080px) {
+            .hero-boxes-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 30px !important;
+            }
+          }
+          @media (max-width: 640px) {
             .hero-boxes-grid {
               grid-template-columns: 1fr !important;
               gap: 25px !important;
