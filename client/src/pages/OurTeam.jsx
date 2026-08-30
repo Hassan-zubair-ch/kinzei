@@ -15,9 +15,9 @@ export default function OurTeam({ onOpenSchedule }) {
   const teamMembers = [
     {
       name: "Muhammad Haroon",
-      role: "Audit Manager",
-      department: "Audit & Assurance",
-      summary: "Leads statutory audit engagements, IFRS financial reporting, and internal control reviews for corporate enterprises.",
+      role: "",
+      department: "",
+      summary: "Specializes in statutory audit engagements, IFRS financial reporting, and internal control reviews for corporate enterprises.",
       image: "/team/muhammad-haroon.png"
     },
     {
@@ -29,13 +29,13 @@ export default function OurTeam({ onOpenSchedule }) {
     },
     {
       name: "Azeem Usman",
-      role: "Head of IT & Digital Systems",
-      department: "ERP & Cloud Advisory",
+      role: "",
+      department: "",
       summary: "Directs ERP implementations, QuickBooks/Xero integrations, and digital financial workflows.",
       image: "/team/azeem-usman.png"
     },
     {
-      name: "Nisar Ahmed",
+      name: "Muhammad Abdullah",
       role: "Senior Audit Supervisor",
       department: "Assurance & Due Diligence",
       summary: "Oversees statutory field audits, forensic reviews, and financial due diligence for investments.",
@@ -43,8 +43,8 @@ export default function OurTeam({ onOpenSchedule }) {
     },
     {
       name: "Sidra Ashraf",
-      role: "Corporate Supervisor",
-      department: "SECP & Regulatory Filings",
+      role: "",
+      department: "",
       summary: "Manages SECP company incorporations, statutory annual returns (Form A/29), and regulatory filings.",
       image: "/team/sidra-ashraf.png"
     },
@@ -183,23 +183,31 @@ export default function OurTeam({ onOpenSchedule }) {
                     {member.name}
                   </h3>
 
-                  {/* Role & Department */}
-                  <div style={{
-                    fontSize: '0.86rem',
-                    marginBottom: '14px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexWrap: 'wrap',
-                    gap: '6px'
-                  }}>
-                    <span style={{ fontWeight: 800, color: '#B8860B' }}>
-                      {member.role}
-                    </span>
-                    <span style={{ color: '#CBD5E1' }}>•</span>
-                    <span style={{ color: '#64748B', fontWeight: 600 }}>
-                      {member.department}
-                    </span>
-                  </div>
+                  {/* Role & Department (only if specified) */}
+                  {member.role ? (
+                    <div style={{
+                      fontSize: '0.86rem',
+                      marginBottom: '12px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexWrap: 'wrap',
+                      gap: '6px'
+                    }}>
+                      <span style={{ fontWeight: 800, color: '#B8860B' }}>
+                        {member.role}
+                      </span>
+                      {member.department && (
+                        <>
+                          <span style={{ color: '#CBD5E1' }}>•</span>
+                          <span style={{ color: '#64748B', fontWeight: 600 }}>
+                            {member.department}
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  ) : (
+                    <div style={{ marginBottom: '10px' }} />
+                  )}
 
                   {/* Concise Summary */}
                   <p style={{
