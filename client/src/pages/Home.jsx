@@ -108,7 +108,7 @@ export default function Home({ onOpenSchedule }) {
                 maxWidth: '580px',
                 fontWeight: 500
               }}>
-                We provide reliable audit, accounting, taxation, and advisory services to help businesses stay compliant, grow confidently, and make informed financial decisions.
+                We provide reliable audit, accounting, taxation, compliance, and advisory services to help businesses stay compliant, grow confidently, and make informed financial decisions.
               </p>
 
               <div>
@@ -147,19 +147,16 @@ export default function Home({ onOpenSchedule }) {
 
             </div>
 
-            {/* Right Hero Graphic: Clean Integrated Artwork */}
-            <div className="hero-graphic-wrapper">
-              <picture>
-                <source srcSet="/hero-partner.webp" type="image/webp" />
-                <img 
-                  src="/hero-partner.png" 
-                  alt="Kinzei Leadership & Advisory Practice" 
-                  className="hero-main-artwork"
-                  loading="eager"
-                  decoding="sync"
-                  fetchPriority="high"
-                />
-              </picture>
+            {/* Right Hero Graphic: Exact 1:1 Layout matching benchmark */}
+            <div className="hero-right-image-container">
+              <img 
+                src="/hero-partner.png" 
+                alt="Kinzei Consultants - Trusted Chartered Accountants" 
+                className="hero-partner-image-exact"
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
+              />
             </div>
 
           </div>
@@ -539,26 +536,26 @@ export default function Home({ onOpenSchedule }) {
       </section>
 
       <style>{`
-        /* Hero Graphic Layout - Desktop & Mobile */
-        .hero-graphic-wrapper {
-          position: relative;
-          width: 100%;
+        /* Hero Graphic Layout - Exact 1:1 Reference Match */
+        .hero-right-image-container {
           display: flex;
           justify-content: center;
           align-items: center;
+          width: 100%;
         }
 
-        .hero-main-artwork {
+        .hero-partner-image-exact {
+          height: 600px;
           width: 100%;
-          max-width: 620px;
-          height: auto;
+          max-width: 600px;
           object-fit: contain;
           display: block;
         }
 
-        @media (max-width: 1200px) {
-          .hero-main-artwork {
-            max-width: 520px;
+        @media (max-width: 1024px) {
+          .hero-partner-image-exact {
+            height: 425px;
+            max-width: 425px;
           }
         }
 
@@ -568,19 +565,16 @@ export default function Home({ onOpenSchedule }) {
             gap: 35px !important;
             text-align: center;
           }
-          .hero-main-artwork {
-            max-width: 440px !important;
-            margin: 10px auto 0 auto !important;
-          }
           .hero-boxes-grid {
             grid-template-columns: 1fr !important;
             gap: 25px !important;
           }
         }
 
-        @media (max-width: 480px) {
-          .hero-main-artwork {
-            max-width: 320px !important;
+        @media (max-width: 767px) {
+          .hero-partner-image-exact {
+            height: 320px;
+            max-width: 320px;
           }
         }
       `}</style>
