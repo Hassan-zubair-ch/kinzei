@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { 
   ShieldCheck, Target, Eye, CheckCircle2, 
   Mail, Phone, ChevronDown, ChevronUp, Calendar, ArrowRight,
-  Sparkles, Scale, Lock, Award, Briefcase, Globe, Building2, MapPin
+  Sparkles, Scale, Lock, Award, Briefcase, Globe, Building2, MapPin,
+  ArrowRightCircle
 } from 'lucide-react';
 import AffiliationsSection from '../components/AffiliationsSection';
 import CounterSection from '../components/CounterSection';
@@ -186,118 +187,205 @@ export default function AboutUs({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 2. WHO WE ARE & COMPANY NARRATIVE */}
-      <section style={{ padding: '85px 0 75px 0', backgroundColor: '#FFFFFF' }}>
+      {/* 2. WHY CHOOSE US / TRUSTED FINANCIAL PARTNERS (BENCHMARK LAYOUT) */}
+      <section style={{ padding: '85px 0 80px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1.1fr 1fr',
-            gap: '60px',
+            gridTemplateColumns: '1fr 1.15fr',
+            gap: '65px',
             alignItems: 'center'
           }} className="about-narrative-grid">
             
-            {/* Left Story Column */}
+            {/* Left Column: Image with Overlapping Floating Experience Badge */}
+            <div style={{ position: 'relative' }}>
+              
+              {/* Main Image Container */}
+              <div style={{
+                borderRadius: '8px',
+                overflow: 'hidden',
+                boxShadow: '0 15px 35px rgba(0, 0, 0, 0.08)',
+                position: 'relative'
+              }}>
+                <img 
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop" 
+                  alt="Kinzei Financial Advisory and Consulting" 
+                  style={{
+                    width: '100%',
+                    height: '480px',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </div>
+
+              {/* Floating Experience Badge (Top Left Overlap) */}
+              <div style={{
+                position: 'absolute',
+                top: '-25px',
+                left: '-25px',
+                backgroundColor: '#FFFFFF',
+                padding: '24px 28px',
+                borderRadius: '4px',
+                boxShadow: '0 12px 30px rgba(0, 0, 0, 0.12)',
+                border: '2px solid #D4A017',
+                textAlign: 'center',
+                minWidth: '150px',
+                zIndex: 3
+              }}>
+                <div style={{
+                  fontSize: '2.5rem',
+                  fontWeight: 900,
+                  color: '#D4A017',
+                  lineHeight: 1,
+                  fontFamily: 'var(--font-heading)',
+                  marginBottom: '6px'
+                }}>
+                  15+
+                </div>
+                <div style={{
+                  fontSize: '0.82rem',
+                  fontWeight: 800,
+                  color: '#0F172A',
+                  lineHeight: 1.3,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px'
+                }}>
+                  Years of<br />Experience
+                </div>
+              </div>
+
+              {/* Floating Brand Badge (Bottom Right) */}
+              <div style={{
+                position: 'absolute',
+                bottom: '20px',
+                right: '20px',
+                backgroundColor: 'rgba(15, 23, 42, 0.92)',
+                backdropFilter: 'blur(8px)',
+                padding: '12px 20px',
+                borderRadius: '6px',
+                border: '1px solid rgba(212, 160, 23, 0.4)',
+                color: '#FFFFFF',
+                zIndex: 3
+              }}>
+                <div style={{ fontSize: '0.88rem', fontWeight: 900, color: '#FCD34D', letterSpacing: '0.5px' }}>
+                  KINZEI CONSULTANTS
+                </div>
+                <div style={{ fontSize: '0.72rem', color: '#CBD5E1', fontWeight: 600, letterSpacing: '0.3px' }}>
+                  CHARTERED ACCOUNTANTS &amp; TAX ADVISORS
+                </div>
+              </div>
+
+            </div>
+
+            {/* Right Column: Narrative, Bullets, and Action Buttons */}
             <div>
-              <span className="badge-gold">Corporate Overview</span>
+              
+              <div style={{
+                fontStyle: 'italic',
+                color: '#B8860B',
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                marginBottom: '10px',
+                fontFamily: 'serif'
+              }}>
+                Why Choose Us
+              </div>
+
               <h2 style={{
-                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
-                lineHeight: 1.25,
-                marginTop: '12px',
-                marginBottom: '22px',
-                fontWeight: 800,
-                color: '#111827',
+                fontSize: 'clamp(2.1rem, 3.4vw, 2.7rem)',
+                fontWeight: 900,
+                color: '#0F172A',
+                lineHeight: 1.2,
+                marginBottom: '18px',
                 fontFamily: 'var(--font-heading)'
               }}>
-                Strategic Advisory Built on <span style={{ color: '#D4A017' }}>Integrity &amp; Results</span>
+                Trusted Financial Partners for Your Business
               </h2>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '1.02rem', color: '#374151', lineHeight: 1.75, fontWeight: 500 }}>
-                <p>
-                  <strong>Kinzei Consultants (Private) Limited</strong> is a premier professional services firm providing audit, accounting, taxation, and corporate advisory services to businesses and individuals. The firm is led by senior professionals with over <strong>15+ years of professional experience</strong> across public and private sector organizations.
-                </p>
+              <p style={{
+                fontSize: '1rem',
+                color: '#475569',
+                lineHeight: 1.75,
+                marginBottom: '24px',
+                fontWeight: 500
+              }}>
+                Kinzei Consultants is a premier firm providing audit, accounting, taxation, and advisory services to businesses across various sectors. Led by senior professionals with over <strong>15+ years of experience</strong>, we focus on delivering practical solutions, clear advice, and dependable service.
+              </p>
 
-                <p>
-                  We are committed to delivering reliable, practical, and high-quality professional services that help our clients meet regulatory requirements, strengthen financial controls, and make informed business decisions. Our approach is based on integrity, technical expertise, and a clear understanding of our clients' business needs.
-                </p>
+              {/* Divider Line */}
+              <div style={{ width: '100%', height: '1px', backgroundColor: '#E2E8F0', marginBottom: '22px' }} />
 
-                <p>
-                  The firm offers a wide range of services including <strong>Audit &amp; Assurance, Accounting &amp; Financial Reporting, Taxation &amp; Litigation Support, Corporate &amp; Secretarial Advisory, and Information Technology support</strong>. We work closely with our clients to provide tailored solutions that are aligned with their operational and strategic objectives.
-                </p>
+              {/* 5 Clean Bullet Items */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
+                {[
+                  "15+ years of professional experience",
+                  "Qualified and experienced team of Chartered Accountants",
+                  "Complete audit, tax & advisory services",
+                  "Ethical, confidential, and reliable corporate governance",
+                  "Client-focused and practical solutions tailored to scale"
+                ].map((point, pIdx) => (
+                  <div key={pIdx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <ArrowRightCircle size={18} color="#D4A017" style={{ flexShrink: 0 }} />
+                    <span style={{ fontSize: '0.94rem', color: '#1E293B', fontWeight: 600 }}>
+                      {point}
+                    </span>
+                  </div>
+                ))}
               </div>
 
               {/* Action Buttons */}
-              <div style={{ display: 'flex', gap: '16px', marginTop: '30px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
                 <button
                   onClick={onOpenSchedule}
-                  className="btn-primary"
-                  style={{ padding: '12px 28px', fontSize: '0.95rem' }}
+                  style={{
+                    backgroundColor: '#D4A017',
+                    color: '#FFFFFF',
+                    border: 'none',
+                    padding: '13px 30px',
+                    borderRadius: '4px',
+                    fontSize: '0.88rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.8px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    boxShadow: '0 4px 14px rgba(212, 160, 23, 0.3)'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#B8860B'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#D4A017'}
                 >
-                  <Calendar size={16} />
-                  <span>Book Partner Consultation</span>
+                  Book Consultation
                 </button>
 
                 <button
                   onClick={() => navigate('/services')}
                   style={{
                     backgroundColor: '#FFFFFF',
-                    color: '#111827',
-                    border: '1.5px solid #D1D5DB',
-                    padding: '12px 24px',
-                    borderRadius: '8px',
-                    fontSize: '0.95rem',
-                    fontWeight: 700,
+                    color: '#0F172A',
+                    border: '1.5px solid #CBD5E1',
+                    padding: '12px 28px',
+                    borderRadius: '4px',
+                    fontSize: '0.88rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.8px',
                     cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
                     transition: 'all 0.2s ease'
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D4A017'; e.currentTarget.style.color = '#D4A017'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#D1D5DB'; e.currentTarget.style.color = '#111827'; }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#D4A017';
+                    e.currentTarget.style.color = '#D4A017';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#CBD5E1';
+                    e.currentTarget.style.color = '#0F172A';
+                  }}
                 >
-                  <span>Explore Services</span>
-                  <ArrowRight size={16} />
+                  Our Services
                 </button>
               </div>
-            </div>
 
-            {/* Right Visual Card */}
-            <div style={{ position: 'relative' }}>
-              <div style={{
-                borderRadius: '20px',
-                overflow: 'hidden',
-                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.12)',
-                border: '1.5px solid #E5E7EB',
-                position: 'relative'
-              }}>
-                <img 
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Kinzei Corporate Financial Consultation" 
-                  style={{ width: '100%', height: '420px', objectFit: 'cover', display: 'block' }}
-                />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to top, rgba(11, 17, 32, 0.85) 0%, rgba(11, 17, 32, 0.2) 60%, transparent 100%)'
-                }} />
-                <div style={{
-                  position: 'absolute',
-                  bottom: '24px',
-                  left: '24px',
-                  right: '24px',
-                  color: '#FFFFFF'
-                }}>
-                  <div style={{ fontSize: '0.82rem', color: '#D4A017', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                    FCA &amp; CISA Led Practice
-                  </div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#FFFFFF', marginTop: '4px', marginBottom: '6px' }}>
-                    Trusted by 350+ Businesses Worldwide
-                  </h3>
-                  <p style={{ fontSize: '0.88rem', color: '#E2E8F0', margin: 0, lineHeight: 1.5 }}>
-                    Dedicated corporate tax desk, statutory compliance, and digital bookkeeping.
-                  </p>
-                </div>
-              </div>
             </div>
 
           </div>
