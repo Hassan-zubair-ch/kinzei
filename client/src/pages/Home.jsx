@@ -202,13 +202,17 @@ export default function Home({ onOpenSchedule }) {
 
                 {/* Center Cutout Partner Image - Large & Dominant */}
                 <div className="hero-partner-image-box">
-                  <img 
-                    src="/hero-partner.png" 
-                    alt="Kinzei Leadership & Managing Advisory Partner" 
-                    className="hero-partner-cutout"
-                    loading="eager"
-                    fetchPriority="high"
-                  />
+                  <picture>
+                    <source srcSet="/hero-partner.webp" type="image/webp" />
+                    <img 
+                      src="/hero-partner.png" 
+                      alt="Kinzei Leadership & Managing Advisory Partner" 
+                      className="hero-partner-cutout"
+                      loading="eager"
+                      decoding="sync"
+                      fetchPriority="high"
+                    />
+                  </picture>
                 </div>
 
               </div>
