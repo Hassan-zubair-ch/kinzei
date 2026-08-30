@@ -147,16 +147,71 @@ export default function Home({ onOpenSchedule }) {
 
             </div>
 
-            {/* Right Hero Graphic: Exact 1:1 Layout matching benchmark */}
-            <div className="hero-right-image-container">
-              <img 
-                src="/hero-partner.png" 
-                alt="Kinzei Consultants - Trusted Chartered Accountants" 
-                className="hero-partner-image-exact"
-                loading="eager"
-                decoding="sync"
-                fetchPriority="high"
-              />
+            {/* Right Hero Graphic: Exact Benchmark Orbit with 4 Service Nodes and Partner Cutout */}
+            <div className="hero-orbit-wrapper">
+              <div className="hero-orbit-frame">
+
+                {/* Circular Orbit Ring with 4 Neutral Slate Grey Dots */}
+                <svg 
+                  className="hero-orbit-svg"
+                  viewBox="0 0 600 520" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle 
+                    cx="300" 
+                    cy="260" 
+                    r="200" 
+                    stroke="#D1D5DB" 
+                    strokeWidth="1.8" 
+                  />
+                  {/* Dot 1: Top-Right (θ = 40°) */}
+                  <circle cx="430" cy="107" r="6" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="430" cy="107" r="3" fill="#9CA3AF" />
+
+                  {/* Dot 2: Mid-Left (θ = 155°) */}
+                  <circle cx="120" cy="175" r="6" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="120" cy="175" r="3" fill="#9CA3AF" />
+
+                  {/* Dot 3: Bottom-Left (θ = 215°) */}
+                  <circle cx="137" cy="375" r="6" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="137" cy="375" r="3" fill="#9CA3AF" />
+
+                  {/* Dot 4: Bottom-Right (θ = 330°) */}
+                  <circle cx="473" cy="360" r="6" fill="#D1D5DB" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="473" cy="360" r="3" fill="#9CA3AF" />
+                </svg>
+
+                {/* 4 Orbit Node Labels matching the reference benchmark */}
+                <div className="hero-orbit-label hero-orbit-label-1">
+                  Accounting &amp;<br />Financial Reporting
+                </div>
+
+                <div className="hero-orbit-label hero-orbit-label-2">
+                  Taxation<br />Services
+                </div>
+
+                <div className="hero-orbit-label hero-orbit-label-3">
+                  Consultancy &amp;<br />Outsourcing
+                </div>
+
+                <div className="hero-orbit-label hero-orbit-label-4">
+                  Information<br />Technology<br />Services
+                </div>
+
+                {/* Center Cutout Partner Image */}
+                <div className="hero-partner-cutout-box">
+                  <img 
+                    src="/hero-partner.png" 
+                    alt="Kinzei Leadership & Advisory Practice" 
+                    className="hero-partner-cutout-img"
+                    loading="eager"
+                    decoding="sync"
+                    fetchPriority="high"
+                  />
+                </div>
+
+              </div>
             </div>
 
           </div>
@@ -536,26 +591,99 @@ export default function Home({ onOpenSchedule }) {
       </section>
 
       <style>{`
-        /* Hero Graphic Layout - Exact 1:1 Reference Match */
-        .hero-right-image-container {
+        /* Hero Graphic Orbit Layout - Exact Reference Match */
+        .hero-orbit-wrapper {
+          position: relative;
+          width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 100%;
         }
 
-        .hero-partner-image-exact {
-          height: 600px;
+        .hero-orbit-frame {
+          position: relative;
           width: 100%;
           max-width: 600px;
+          height: 520px;
+          margin: 0 auto;
+        }
+
+        .hero-orbit-svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .hero-partner-cutout-box {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          pointer-events: none;
+        }
+
+        .hero-partner-cutout-img {
+          width: 440px;
+          max-height: 500px;
           object-fit: contain;
           display: block;
         }
 
-        @media (max-width: 1024px) {
-          .hero-partner-image-exact {
-            height: 425px;
-            max-width: 425px;
+        .hero-orbit-label {
+          position: absolute;
+          font-weight: 700;
+          color: #1E2548;
+          line-height: 1.22;
+          font-family: var(--font-heading);
+          z-index: 10;
+          white-space: nowrap;
+          text-align: left;
+        }
+
+        .hero-orbit-label-1 {
+          top: 8%;
+          left: 0%;
+          font-size: 1.32rem;
+        }
+
+        .hero-orbit-label-2 {
+          top: 8%;
+          right: 2%;
+          font-size: 1.32rem;
+        }
+
+        .hero-orbit-label-3 {
+          bottom: 14%;
+          left: 0%;
+          font-size: 1.32rem;
+        }
+
+        .hero-orbit-label-4 {
+          bottom: 8%;
+          right: 0%;
+          font-size: 1.32rem;
+        }
+
+        @media (max-width: 1200px) {
+          .hero-orbit-frame {
+            max-width: 520px;
+            height: 480px;
+          }
+          .hero-partner-cutout-img {
+            width: 380px;
+            max-height: 460px;
+          }
+          .hero-orbit-label {
+            font-size: 1.15rem;
           }
         }
 
@@ -565,16 +693,52 @@ export default function Home({ onOpenSchedule }) {
             gap: 35px !important;
             text-align: center;
           }
+          .hero-orbit-frame {
+            max-width: 400px !important;
+            height: 400px !important;
+            margin: 20px auto 0 auto !important;
+          }
+          .hero-partner-cutout-img {
+            width: 290px !important;
+            max-height: 380px !important;
+          }
+          .hero-orbit-label {
+            font-size: 0.84rem !important;
+            line-height: 1.2 !important;
+          }
+          .hero-orbit-label-1 {
+            top: 4% !important;
+            left: -6px !important;
+          }
+          .hero-orbit-label-2 {
+            top: 4% !important;
+            right: -6px !important;
+          }
+          .hero-orbit-label-3 {
+            bottom: 8% !important;
+            left: -6px !important;
+          }
+          .hero-orbit-label-4 {
+            bottom: 8% !important;
+            right: -6px !important;
+          }
           .hero-boxes-grid {
             grid-template-columns: 1fr !important;
             gap: 25px !important;
           }
         }
 
-        @media (max-width: 767px) {
-          .hero-partner-image-exact {
-            height: 320px;
-            max-width: 320px;
+        @media (max-width: 440px) {
+          .hero-orbit-frame {
+            max-width: 340px !important;
+            height: 340px !important;
+          }
+          .hero-partner-cutout-img {
+            width: 240px !important;
+            max-height: 320px !important;
+          }
+          .hero-orbit-label {
+            font-size: 0.74rem !important;
           }
         }
       `}</style>

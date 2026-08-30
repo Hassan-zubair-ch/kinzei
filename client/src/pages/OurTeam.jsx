@@ -54,6 +54,13 @@ export default function OurTeam({ onOpenSchedule }) {
       department: "",
       summary: "Handles corporate and individual NTN tax filings, withholding statements, and sales tax returns.",
       image: "/team/tanzeela-abbasi.png"
+    },
+    {
+      name: "Zeeshan Khalid",
+      role: "",
+      department: "",
+      summary: "Specializes in corporate advisory, financial planning, and statutory tax compliance for growing businesses.",
+      image: "/team/zeeshan-khalid.png"
     }
   ];
 
