@@ -303,7 +303,7 @@ export default function Home({ onOpenSchedule }) {
                 Accurate accounting and financial reporting services to support informed decision-making and business growth.
               </p>
               <Link 
-                to="/services?country=pk" 
+                to="/services/detail/accounting-financial-reporting" 
                 style={{
                   color: '#FCD34D',
                   fontSize: '0.86rem',

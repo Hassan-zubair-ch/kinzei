@@ -8,28 +8,29 @@ import {
 export default function OurTeam({ onOpenSchedule }) {
   const navigate = useNavigate();
 
+  const phoneNumber = "923034063970";
+  const defaultMessage = encodeURIComponent("Hello Kinzei Consultants, I would like to consult with your specialized advisory team.");
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
+
   const teamMembers = [
     {
       name: "Muhammad Haroon",
       designation: "AUDIT MANAGER",
       department: "Audit & Financial Assurance",
-      qualifications: "CPA / CA Associate (ex-Audit Lead)",
-      bio: "Leads statutory audit engagements, IFRS financial reporting compliance, and internal controls evaluations across diverse corporate sectors.",
+      bio: "Leads statutory audit engagements, IFRS financial reporting compliance, and internal control reviews for corporate enterprises.",
       image: "/team/muhammad-haroon.png"
     },
     {
       name: "Khurram Sheikh",
-      designation: "TAX SUPERVISOR & LITIGATION LEAD",
-      department: "Corporate Taxation & FBR Advisory",
-      qualifications: "Advocate High Court / Tax Specialist",
-      bio: "Specializes in direct and indirect taxation, FBR appeals, provincial revenue authority compliance (PRA/SRB), and tax structuring.",
+      designation: "ADVOCATE HIGH COURT",
+      department: "Director Taxation & Legal Affairs",
+      bio: "Specialist in corporate tax litigation, FBR & Provincial Revenue Authority appeals (PRA/SRB), and statutory legal defense.",
       image: "/team/khurram-sheikh.png"
     },
     {
       name: "Azeem Usman",
       designation: "HEAD OF IT & DIGITAL SYSTEMS",
-      department: "Information Technology & ERP Systems",
-      qualifications: "BS-IT / Cloud Infrastructure Specialist",
+      department: "Information Technology & ERP Advisory",
       bio: "Directs ERP implementations, QuickBooks/Xero financial integrations, IT system security audits, and digital workflows.",
       image: "/team/azeem-usman.png"
     },
@@ -37,24 +38,21 @@ export default function OurTeam({ onOpenSchedule }) {
       name: "Nisar Ahmed",
       designation: "SENIOR AUDIT SUPERVISOR",
       department: "Financial Assurance & Due Diligence",
-      qualifications: "Senior Auditor / Financial Analyst",
-      bio: "Oversees field audit teams, forensic reviews, financial statement compilations, and pre-investment due diligence assessments.",
+      bio: "Oversees comprehensive field audits, forensic reviews, financial statement compilations, and pre-investment due diligence.",
       image: "/team/nisar-ahmed.png"
     },
     {
       name: "Sidra Ashraf",
-      designation: "SENIOR AUDITOR & COMPLIANCE ASSOCIATE",
-      department: "Corporate Secretarial & Compliance",
-      qualifications: "M.Com / Corporate Compliance Associate",
-      bio: "Manages SECP corporate filings, annual statutory returns, partnership registrations, and corporate governance documentation.",
+      designation: "CORPORATE COMPLIANCE & SECP SUPERVISOR",
+      department: "Corporate Secretarial & Regulatory Filings",
+      bio: "Manages SECP company incorporation, statutory annual returns (Form A/29), director changes, and regulatory documentation.",
       image: "/team/sidra-ashraf.png"
     },
     {
       name: "Tanzeela Abbasi",
-      designation: "TAX & FINANCIAL REPORTING CONSULTANT",
-      department: "Tax Compliance & Bookkeeping",
-      qualifications: "B.Com / Tax Advisory Associate",
-      bio: "Handles individual and corporate NTN tax filings, monthly withholding statements, sales tax returns, and digital bookkeeping.",
+      designation: "TAX & FINANCIAL REPORTING SUPERVISOR",
+      department: "Direct Taxation & Bookkeeping",
+      bio: "Handles corporate and individual NTN tax filings, monthly withholding statements, sales tax returns, and digital bookkeeping.",
       image: "/team/tanzeela-abbasi.png"
     }
   ];
@@ -65,13 +63,13 @@ export default function OurTeam({ onOpenSchedule }) {
       {/* 1. HERO BANNER */}
       <section style={{
         backgroundColor: '#FFFFFF',
-        padding: '75px 0 45px 0',
+        padding: '80px 0 50px 0',
         textAlign: 'center'
       }}>
-        <div className="container" style={{ maxWidth: '860px' }}>
+        <div className="container" style={{ maxWidth: '880px' }}>
           
           <div style={{
-            fontSize: '1.08rem',
+            fontSize: '1.1rem',
             color: '#D4A017',
             fontStyle: 'italic',
             fontWeight: 700,
@@ -94,7 +92,7 @@ export default function OurTeam({ onOpenSchedule }) {
 
           {/* Accent Line */}
           <div style={{
-            width: '120px',
+            width: '130px',
             height: '4px',
             borderRadius: '4px',
             background: 'linear-gradient(90deg, #D4A017 0%, #10B981 100%)',
@@ -115,7 +113,7 @@ export default function OurTeam({ onOpenSchedule }) {
       </section>
 
       {/* 2. TEAM MEMBERS GRID */}
-      <section style={{ padding: '30px 0 90px 0', backgroundColor: '#FFFFFF' }}>
+      <section style={{ padding: '20px 0 95px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container" style={{ maxWidth: '1180px' }}>
           
           <div 
@@ -129,23 +127,23 @@ export default function OurTeam({ onOpenSchedule }) {
             {teamMembers.map((member, idx) => (
               <div
                 key={idx}
-                className="interactive-card team-card"
+                className="team-card-corporate"
                 style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '16px',
+                  borderRadius: '12px',
                   border: '1.5px solid #E2E8F0',
                   overflow: 'hidden',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.04)',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
                   display: 'flex',
                   flexDirection: 'column',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                 }}
               >
-                {/* Member Portrait Image */}
+                {/* Member Portrait Image Container */}
                 <div style={{
                   width: '100%',
-                  height: '350px',
-                  backgroundColor: '#F1F5F9',
+                  height: '380px',
+                  backgroundColor: '#F8FAFC',
                   overflow: 'hidden',
                   position: 'relative'
                 }}>
@@ -157,24 +155,17 @@ export default function OurTeam({ onOpenSchedule }) {
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
-                      objectPosition: 'top center',
+                      objectPosition: 'center 12%',
                       display: 'block',
                       transition: 'transform 0.4s ease'
                     }}
-                    className="team-img-hover"
+                    className="team-img-portrait"
                   />
-                  {/* Subtle Gradient at Bottom of Image */}
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(to top, rgba(15, 23, 42, 0.45) 0%, transparent 40%)',
-                    pointerEvents: 'none'
-                  }} />
                 </div>
 
                 {/* Member Details */}
                 <div style={{
-                  padding: '28px 24px',
+                  padding: '24px 22px 28px 22px',
                   textAlign: 'center',
                   display: 'flex',
                   flexDirection: 'column',
@@ -184,7 +175,7 @@ export default function OurTeam({ onOpenSchedule }) {
                   
                   {/* Name */}
                   <h3 style={{
-                    fontSize: '1.32rem',
+                    fontSize: '1.36rem',
                     fontWeight: 800,
                     color: '#0F172A',
                     marginBottom: '6px',
@@ -195,36 +186,32 @@ export default function OurTeam({ onOpenSchedule }) {
 
                   {/* Designation */}
                   <div style={{
-                    fontSize: '0.84rem',
+                    fontSize: '0.86rem',
                     fontWeight: 800,
-                    color: '#D4A017',
+                    color: '#B8860B',
                     letterSpacing: '0.6px',
                     textTransform: 'uppercase',
-                    marginBottom: '10px'
+                    marginBottom: '4px'
                   }}>
                     {member.designation}
                   </div>
 
-                  {/* Department Tag */}
+                  {/* Department Subtitle */}
                   <div style={{
-                    fontSize: '0.78rem',
+                    fontSize: '0.8rem',
                     fontWeight: 700,
-                    color: '#475569',
-                    backgroundColor: '#F8FAFC',
-                    padding: '4px 12px',
-                    borderRadius: '20px',
-                    border: '1px solid #E2E8F0',
-                    display: 'inline-block',
-                    alignSelf: 'center',
+                    color: '#64748B',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.4px',
                     marginBottom: '14px'
                   }}>
-                    {member.department}
+                    ({member.department})
                   </div>
 
                   {/* Bio */}
                   <p style={{
-                    fontSize: '0.9rem',
-                    color: '#64748B',
+                    fontSize: '0.92rem',
+                    color: '#475569',
                     lineHeight: 1.6,
                     margin: '0 0 20px 0',
                     flexGrow: 1,
@@ -233,17 +220,17 @@ export default function OurTeam({ onOpenSchedule }) {
                     {member.bio}
                   </p>
 
-                  {/* Quick Action Button */}
+                  {/* Consultation Button */}
                   <button
                     onClick={onOpenSchedule}
                     style={{
                       width: '100%',
-                      backgroundColor: '#F8FAFC',
+                      backgroundColor: '#FFFFFF',
                       color: '#0F172A',
-                      border: '1.5px solid #E2E8F0',
-                      padding: '10px 16px',
+                      border: '1.5px solid #CBD5E1',
+                      padding: '11px 16px',
                       borderRadius: '8px',
-                      fontSize: '0.84rem',
+                      fontSize: '0.86rem',
                       fontWeight: 800,
                       cursor: 'pointer',
                       display: 'flex',
@@ -258,13 +245,13 @@ export default function OurTeam({ onOpenSchedule }) {
                       e.currentTarget.style.borderColor = '#0F172A';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = '#F8FAFC';
+                      e.currentTarget.style.backgroundColor = '#FFFFFF';
                       e.currentTarget.style.color = '#0F172A';
-                      e.currentTarget.style.borderColor = '#E2E8F0';
+                      e.currentTarget.style.borderColor = '#CBD5E1';
                     }}
                   >
-                    <Calendar size={14} />
-                    <span>Consult with Team</span>
+                    <Calendar size={15} />
+                    <span>Consult with Specialist</span>
                   </button>
 
                 </div>
@@ -277,7 +264,7 @@ export default function OurTeam({ onOpenSchedule }) {
       </section>
 
       {/* 3. WHY OUR MULTI-DISCIPLINARY TEAM EXCELS */}
-      <section style={{ backgroundColor: '#0F172A', color: '#FFFFFF', padding: '80px 0' }}>
+      <section style={{ backgroundColor: '#0F172A', color: '#FFFFFF', padding: '85px 0' }}>
         <div className="container" style={{ maxWidth: '1080px' }}>
           
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 50px auto' }}>
@@ -381,8 +368,13 @@ export default function OurTeam({ onOpenSchedule }) {
       </section>
 
       <style>{`
-        .team-card:hover .team-img-hover {
-          transform: scale(1.04);
+        .team-card-corporate:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08) !important;
+          border-color: #CBD5E1 !important;
+        }
+        .team-card-corporate:hover .team-img-portrait {
+          transform: scale(1.03);
         }
         @media (max-width: 992px) {
           .team-grid {

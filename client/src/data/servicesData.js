@@ -51,6 +51,30 @@ export const servicesData = {
       ]
     },
     {
+      id: "accounting-financial-reporting",
+      country: "pk",
+      countryName: "Pakistan",
+      title: "Accounting & Reporting",
+      shortDescription: "Accurate accounting, monthly management reporting, bookkeeping, and IFRS-compliant financial statements to support informed decision-making.",
+      icon: "FileSpreadsheet",
+      bannerImage: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=1200&auto=format&fit=crop",
+      overview: "Reliable, up-to-date accounting and transparent financial reporting form the bedrock of sustainable business management. Kinzei Consultants delivers institutional-quality accounting and financial reporting services, providing business leaders with clear financial visibility, robust internal controls, and complete compliance with local and international reporting standards (IFRS / GAAP).",
+      paragraphs: [
+        "Our dedicated accounting specialists assist organizations of all scales—from growing startups and SMEs to large multinational subsidiaries—in maintaining meticulous books of accounts, automating transaction entries, and producing insightful management information systems (MIS).",
+        "We combine technical proficiency under the Companies Act 2017 with modern cloud-based ERP systems (QuickBooks Online, Xero, Odoo, Zoho Books) to deliver real-time reporting, seamless bank reconciliations, and stress-free year-end audits."
+      ],
+      features: [
+        "Management Accounts: Preparation of monthly, quarterly, and annual Profit & Loss, Balance Sheets, and Cash Flow statements.",
+        "Bookkeeping & General Ledger: Systematic maintenance of day-to-day general ledger records, journal vouchers, and ledger reconciliations.",
+        "IFRS Financial Statements: Compilation of statutory annual financial statements compliant with SECP and IFRS frameworks.",
+        "Bank & Vendor Reconciliations: Periodic reconciliation of bank accounts, receivables, payables, and inter-company balances.",
+        "Fixed Asset Management: Establishing fixed asset registers, tracking capitalization, and calculating depreciation schedules.",
+        "Payroll & Deduction Processing: Accurate salary computation, provident fund accounting, tax deduction certificates, and monthly payslips.",
+        "Cloud Accounting Integrations: Complete chart-of-accounts design, migration, and automation on QuickBooks, Xero, and ERP platforms.",
+        "Financial Analysis & KPIs: Variance analysis, cost-benefit reporting, working capital monitoring, and financial health forecasting."
+      ]
+    },
+    {
       id: "retainership-services",
       country: "pk",
       countryName: "Pakistan",
