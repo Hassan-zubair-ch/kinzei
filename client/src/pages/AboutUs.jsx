@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { 
   ShieldCheck, Target, Eye, CheckCircle2, 
   Mail, Phone, ChevronDown, ChevronUp, Calendar, ArrowRight,
-  Sparkles, Scale, Lock, Award, Briefcase
+  Sparkles, Scale, Lock, Award, Briefcase, Globe
 } from 'lucide-react';
 import AffiliationsSection from '../components/AffiliationsSection';
 import CounterSection from '../components/CounterSection';
@@ -11,6 +11,10 @@ import CounterSection from '../components/CounterSection';
 export default function AboutUs({ onOpenSchedule }) {
   const [openFaq, setOpenFaq] = useState(null);
   const navigate = useNavigate();
+
+  const phoneNumber = "923034063970";
+  const defaultMessage = encodeURIComponent("Hello Kinzei Consultants, I would like to learn more about your global corporate and tax advisory services.");
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
   const corePillars = [
     {
@@ -55,73 +59,130 @@ export default function AboutUs({ onOpenSchedule }) {
       {/* 1. HIGH-END EXECUTIVE HERO BANNER */}
       <section style={{
         position: 'relative',
-        padding: '95px 0 85px 0',
+        padding: '100px 0 85px 0',
         backgroundColor: '#0B1120',
         backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(212, 160, 23, 0.18) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(30, 41, 59, 0.5) 0%, transparent 70%)',
         color: '#FFFFFF',
         textAlign: 'center',
-        borderBottom: '2px solid #D4A017',
+        borderBottom: '3px solid #D4A017',
         overflow: 'hidden'
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          
+          {/* Eyebrow Pill */}
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            padding: '6px 16px',
+            padding: '6px 18px',
             borderRadius: '30px',
             backgroundColor: 'rgba(212, 160, 23, 0.15)',
-            border: '1px solid rgba(212, 160, 23, 0.4)',
+            border: '1px solid rgba(212, 160, 23, 0.45)',
             color: '#FCD34D',
             fontSize: '0.82rem',
             fontWeight: 800,
             textTransform: 'uppercase',
             letterSpacing: '1px',
-            marginBottom: '18px'
+            marginBottom: '20px'
           }}>
             <Sparkles size={14} color="#D4A017" />
-            <span>ABOUT KINZEI CONSULTANTS</span>
+            <span>WELCOME TO KINZEI CONSULTANTS</span>
           </div>
 
+          {/* Main Heading */}
           <h1 style={{ 
-            fontSize: 'clamp(2.4rem, 4.5vw, 3.4rem)', 
+            fontSize: 'clamp(2.6rem, 5vw, 4rem)', 
             fontWeight: 900, 
             color: '#FFFFFF',
             letterSpacing: '-0.5px',
-            marginBottom: '18px',
+            marginBottom: '20px',
             fontFamily: 'var(--font-heading)',
-            lineHeight: 1.2
+            lineHeight: 1.15
           }}>
-            Your Trusted Partner in <span style={{ color: '#D4A017' }}>Tax, Audit &amp; Global Advisory</span>
+            About <span style={{ color: '#D4A017' }}>Us</span>
           </h1>
 
-          <p style={{ color: '#E2E8F0', fontSize: '1.12rem', maxWidth: '780px', margin: '0 auto 32px auto', lineHeight: 1.7, fontWeight: 500 }}>
-            Kinzei Consultants (Private) Limited delivers chartered accountancy, corporate tax litigation defense, SECP compliance, and international desk operations with institutional excellence.
+          {/* Core Narrative Paragraph */}
+          <p style={{ 
+            color: '#E2E8F0', 
+            fontSize: '1.18rem', 
+            maxWidth: '860px', 
+            margin: '0 auto 34px auto', 
+            lineHeight: 1.8, 
+            fontWeight: 500 
+          }}>
+            Kinzei Consultants is a premier corporate and tax consultancy firm with a global presence, operating in key financial hubs across Pakistan, the USA, the UK, and the UAE. Our expertise spans income tax, sales tax, and corporate advisory services, providing comprehensive solutions to individuals and businesses worldwide.
           </p>
 
-          {/* Quick Metrics Badges */}
+          {/* Financial Hubs / Global Presence Pills */}
           <div style={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '24px',
+            gap: '12px',
             flexWrap: 'wrap',
-            fontSize: '0.9rem',
-            color: '#F8FAFC'
+            marginBottom: '36px'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '6px 14px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.12)' }}>
-              <ShieldCheck size={16} color="#D4A017" />
-              <span>15+ Years Combined Experience</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '6px 14px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.12)' }}>
-              <Briefcase size={16} color="#D4A017" />
-              <span>Institutional Quality Counsel</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '6px 14px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.12)' }}>
-              <ShieldCheck size={16} color="#D4A017" />
-              <span>FBR &amp; SECP Registered</span>
-            </div>
+            {[
+              { flag: "🇵🇰", hub: "Pakistan", desc: "SECP, FBR & PRA" },
+              { flag: "🇺🇸", hub: "USA", desc: "IRS, LLC & State Tax" },
+              { flag: "🇬🇧", hub: "UK", desc: "Companies House & HMRC" },
+              { flag: "🇦🇪", hub: "UAE", desc: "FTA Corporate Tax & VAT" }
+            ].map((item, idx) => (
+              <div 
+                key={idx}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.07)',
+                  border: '1px solid rgba(212, 160, 23, 0.3)',
+                  padding: '8px 16px',
+                  borderRadius: '24px',
+                  fontSize: '0.86rem'
+                }}
+              >
+                <span style={{ fontSize: '1.1rem' }}>{item.flag}</span>
+                <span style={{ fontWeight: 800, color: '#FFFFFF' }}>{item.hub}</span>
+                <span style={{ color: '#94A3B8', fontSize: '0.78rem' }}>({item.desc})</span>
+              </div>
+            ))}
           </div>
+
+          {/* Quick Consultation Actions */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
+            <button 
+              onClick={onOpenSchedule} 
+              className="btn-primary" 
+              style={{ padding: '13px 32px', fontSize: '0.94rem', borderRadius: '8px' }}
+            >
+              <Calendar size={16} />
+              <span>Book Advisory Session</span>
+            </button>
+
+            <a 
+              href={whatsappUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                backgroundColor: '#25D366',
+                color: '#FFFFFF',
+                padding: '13px 26px',
+                borderRadius: '8px',
+                fontWeight: 800,
+                fontSize: '0.94rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                textDecoration: 'none',
+                boxShadow: '0 4px 14px rgba(37, 211, 102, 0.3)'
+              }}
+            >
+              <Phone size={16} />
+              <span>WhatsApp: 03034063970</span>
+            </a>
+          </div>
+
         </div>
       </section>
 
