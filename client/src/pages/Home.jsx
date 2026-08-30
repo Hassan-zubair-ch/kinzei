@@ -147,75 +147,19 @@ export default function Home({ onOpenSchedule }) {
 
             </div>
 
-            {/* Right Hero Graphic with Large Cutout Partner and Orbit Arc */}
+            {/* Right Hero Graphic: Clean Integrated Artwork */}
             <div className="hero-graphic-wrapper">
-              <div className="hero-orbit-container">
-
-                {/* Circular Orbit Arc with 4 Exact Neutral Grey Dots matching reference */}
-                <svg 
-                  className="hero-orbit-svg"
-                  viewBox="0 0 600 540" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <ellipse 
-                    cx="300" 
-                    cy="270" 
-                    rx="205" 
-                    ry="215" 
-                    stroke="#CBD5E1" 
-                    strokeWidth="2" 
-                  />
-                  {/* Dot 1: Top-Right (θ = 45°) */}
-                  <circle cx="445" cy="118" r="6.5" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="445" cy="118" r="3.5" fill="#94A3B8" />
-
-                  {/* Dot 2: Mid-Left (θ = 155°) */}
-                  <circle cx="114" cy="179" r="6.5" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="114" cy="179" r="3.5" fill="#94A3B8" />
-
-                  {/* Dot 3: Bottom-Left (θ = 215°) */}
-                  <circle cx="132" cy="393" r="6.5" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="132" cy="393" r="3.5" fill="#94A3B8" />
-
-                  {/* Dot 4: Bottom-Right (θ = 330°) */}
-                  <circle cx="477" cy="377" r="6.5" fill="#CBD5E1" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="477" cy="377" r="3.5" fill="#94A3B8" />
-                </svg>
-
-                {/* 4 Orbit Node Labels (Left-Aligned exact like reference) */}
-                <div className="hero-orbit-node hero-orbit-node-1">
-                  Accounting &amp;<br />Financial Reporting
-                </div>
-
-                <div className="hero-orbit-node hero-orbit-node-2">
-                  Taxation<br />Services
-                </div>
-
-                <div className="hero-orbit-node hero-orbit-node-3">
-                  Consultancy &amp;<br />Outsourcing
-                </div>
-
-                <div className="hero-orbit-node hero-orbit-node-4">
-                  Information<br />Technology<br />Services
-                </div>
-
-                {/* Center Cutout Partner Image - Large & Dominant */}
-                <div className="hero-partner-image-box">
-                  <picture>
-                    <source srcSet="/hero-partner.webp" type="image/webp" />
-                    <img 
-                      src="/hero-partner.png" 
-                      alt="Kinzei Leadership & Managing Advisory Partner" 
-                      className="hero-partner-cutout"
-                      loading="eager"
-                      decoding="sync"
-                      fetchPriority="high"
-                    />
-                  </picture>
-                </div>
-
-              </div>
+              <picture>
+                <source srcSet="/hero-partner.webp" type="image/webp" />
+                <img 
+                  src="/hero-partner.png" 
+                  alt="Kinzei Leadership & Advisory Practice" 
+                  className="hero-main-artwork"
+                  loading="eager"
+                  decoding="sync"
+                  fetchPriority="high"
+                />
+              </picture>
             </div>
 
           </div>
@@ -604,127 +548,29 @@ export default function Home({ onOpenSchedule }) {
           align-items: center;
         }
 
-        .hero-orbit-container {
-          position: relative;
+        .hero-main-artwork {
           width: 100%;
           max-width: 620px;
-          height: 580px;
-          margin: 0 auto;
-        }
-
-        .hero-orbit-svg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 1;
-        }
-
-        .hero-partner-image-box {
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 2;
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          pointer-events: none;
-          width: 100%;
-        }
-
-        .hero-partner-cutout {
-          width: 480px;
-          max-height: 560px;
+          height: auto;
           object-fit: contain;
           display: block;
         }
 
-        .hero-orbit-node {
-          position: absolute;
-          font-weight: 700;
-          color: #1E2548;
-          line-height: 1.25;
-          font-family: var(--font-heading);
-          z-index: 10;
-          white-space: nowrap;
-          text-align: left;
-        }
-
-        .hero-orbit-node-1 {
-          top: 10%;
-          left: 0%;
-          font-size: 1.32rem;
-        }
-
-        .hero-orbit-node-2 {
-          top: 10%;
-          right: 2%;
-          font-size: 1.32rem;
-        }
-
-        .hero-orbit-node-3 {
-          bottom: 12%;
-          left: 0%;
-          font-size: 1.32rem;
-        }
-
-        .hero-orbit-node-4 {
-          bottom: 8%;
-          right: 0%;
-          font-size: 1.32rem;
-        }
-
         @media (max-width: 1200px) {
-          .hero-orbit-container {
-            max-width: 540px;
-            height: 520px;
-          }
-          .hero-partner-cutout {
-            width: 420px;
-            max-height: 500px;
-          }
-          .hero-orbit-node {
-            font-size: 1.15rem;
+          .hero-main-artwork {
+            max-width: 520px;
           }
         }
 
         @media (max-width: 992px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 30px !important;
+            gap: 35px !important;
             text-align: center;
           }
-          .hero-orbit-container {
-            max-width: 400px !important;
-            height: 400px !important;
-            margin: 25px auto 0 auto !important;
-          }
-          .hero-partner-cutout {
-            width: 290px !important;
-            max-height: 380px !important;
-          }
-          .hero-orbit-node {
-            font-size: 0.82rem !important;
-            line-height: 1.2 !important;
-          }
-          .hero-orbit-node-1 {
-            top: 4% !important;
-            left: -8px !important;
-          }
-          .hero-orbit-node-2 {
-            top: 4% !important;
-            right: -8px !important;
-          }
-          .hero-orbit-node-3 {
-            bottom: 8% !important;
-            left: -8px !important;
-          }
-          .hero-orbit-node-4 {
-            bottom: 8% !important;
-            right: -8px !important;
+          .hero-main-artwork {
+            max-width: 440px !important;
+            margin: 10px auto 0 auto !important;
           }
           .hero-boxes-grid {
             grid-template-columns: 1fr !important;
@@ -732,29 +578,9 @@ export default function Home({ onOpenSchedule }) {
           }
         }
 
-        @media (max-width: 420px) {
-          .hero-orbit-container {
-            max-width: 350px !important;
-            height: 350px !important;
-          }
-          .hero-partner-cutout {
-            width: 250px !important;
-            max-height: 340px !important;
-          }
-          .hero-orbit-node {
-            font-size: 0.74rem !important;
-          }
-          .hero-orbit-node-1 {
-            left: -6px !important;
-          }
-          .hero-orbit-node-2 {
-            right: -6px !important;
-          }
-          .hero-orbit-node-3 {
-            left: -6px !important;
-          }
-          .hero-orbit-node-4 {
-            right: -6px !important;
+        @media (max-width: 480px) {
+          .hero-main-artwork {
+            max-width: 320px !important;
           }
         }
       `}</style>
