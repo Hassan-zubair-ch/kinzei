@@ -19,19 +19,19 @@ export default function AboutUs({ onOpenSchedule }) {
 
   const corePillars = [
     {
-      icon: <Scale size={28} color="#D4A017" />,
+      icon: <Scale size={26} color="#D4A017" />,
       title: "Technical Precision & Ethics",
-      desc: "Every tax computation, audit engagement, and statutory filing is prepared strictly in accordance with IFRS, ISA, and national revenue laws."
+      desc: "Every tax computation, statutory audit engagement, and SECP filing is prepared strictly in accordance with IFRS, ISA, and national tax legislation."
     },
     {
-      icon: <Award size={28} color="#D4A017" />,
-      title: "Institutional Excellence",
-      desc: "Directed by senior Chartered Accountants and tax consultants with extensive experience in public and private sector advisory."
+      icon: <Award size={26} color="#D4A017" />,
+      title: "Institutional Quality Counsel",
+      desc: "Directed by senior Chartered Accountants and tax consultants with extensive experience advising both emerging startups and established enterprises."
     },
     {
-      icon: <Lock size={28} color="#D4A017" />,
-      title: "Absolute Confidentiality",
-      desc: "Enterprise-grade digital encryption and strict professional non-disclosure agreements protect every client document and audit record."
+      icon: <Lock size={26} color="#D4A017" />,
+      title: "Absolute Client Confidentiality",
+      desc: "Enterprise-grade digital records management and strict professional non-disclosure protocols protect every corporate ledger and audit file."
     }
   ];
 
@@ -49,7 +49,7 @@ export default function AboutUs({ onOpenSchedule }) {
       a: "Our monthly retainership covers routine management accounting, monthly sales tax & withholding tax statements, SECP annual return filings (Form A/29), payroll processing, and direct phone/in-person access to senior consultants for ongoing advisory."
     },
     {
-      q: "What industries do your partners specialize in?",
+      q: "What industries do your consultants specialize in?",
       a: "We actively serve clients across Information Technology & Software, Real Estate & Construction, Textiles & Manufacturing, Pharmaceuticals, Electronics, Import/Export, Education, and Non-Profit Organizations (NPOs)."
     }
   ];
@@ -188,7 +188,7 @@ export default function AboutUs({ onOpenSchedule }) {
       </section>
 
       {/* 2. WHY CHOOSE US / TRUSTED FINANCIAL PARTNERS (BENCHMARK LAYOUT) */}
-      <section style={{ padding: '85px 0 80px 0', backgroundColor: '#FFFFFF' }}>
+      <section style={{ padding: '90px 0 85px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div style={{
             display: 'grid',
@@ -393,7 +393,7 @@ export default function AboutUs({ onOpenSchedule }) {
       </section>
 
       {/* 3. FIRM OVERVIEW SECTION */}
-      <section style={{ padding: '60px 0 75px 0', backgroundColor: '#FFFFFF', borderTop: '1px solid #F1F5F9' }}>
+      <section style={{ padding: '80px 0 85px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
         <div className="container" style={{ maxWidth: '1100px' }}>
           
           <div style={{ marginBottom: '32px' }}>
@@ -416,7 +416,17 @@ export default function AboutUs({ onOpenSchedule }) {
           }} className="firm-overview-grid">
             
             {/* Left Column: Office, Contact, Email */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', justifyContent: 'center' }}>
+            <div style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: '20px',
+              border: '1px solid #E2E8F0',
+              padding: '36px 32px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '26px',
+              justifyContent: 'center',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.02)'
+            }}>
               
               {/* Head Office */}
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
@@ -436,10 +446,10 @@ export default function AboutUs({ onOpenSchedule }) {
                   <Building2 size={22} />
                 </div>
                 <div>
-                  <h4 style={{ fontSize: '1.12rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
+                  <h4 style={{ fontSize: '1.08rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
                     Head Office
                   </h4>
-                  <p style={{ fontSize: '0.96rem', color: '#475569', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+                  <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
                     Office No 47, 7th Floor, Madina Heights, Molana Shokat Ali Road, Johar Town, Lahore
                   </p>
                 </div>
@@ -463,10 +473,10 @@ export default function AboutUs({ onOpenSchedule }) {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <h4 style={{ fontSize: '1.12rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
+                  <h4 style={{ fontSize: '1.08rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
                     Contact
                   </h4>
-                  <div style={{ fontSize: '0.96rem', color: '#475569', lineHeight: 1.6, fontWeight: 500 }}>
+                  <div style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.6, fontWeight: 500 }}>
                     <div>Phone: <a href="tel:03034063970" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>+92 303 4063970</a></div>
                     <div>WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>+92 303 4063970</a></div>
                   </div>
@@ -491,10 +501,10 @@ export default function AboutUs({ onOpenSchedule }) {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <h4 style={{ fontSize: '1.12rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
+                  <h4 style={{ fontSize: '1.08rem', fontWeight: 800, color: '#0F172A', margin: 0, marginBottom: '6px' }}>
                     Email
                   </h4>
-                  <p style={{ fontSize: '0.96rem', color: '#475569', margin: 0, fontWeight: 500 }}>
+                  <p style={{ fontSize: '0.94rem', color: '#475569', margin: 0, fontWeight: 500 }}>
                     <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 700 }}>
                       info@kinzeiconsultants.com
                     </a>
@@ -506,14 +516,14 @@ export default function AboutUs({ onOpenSchedule }) {
 
             {/* Right Column: Established Card */}
             <div style={{
-              backgroundColor: '#F8FAFC',
+              backgroundColor: '#FFFFFF',
               borderRadius: '20px',
               border: '1px solid #E2E8F0',
               padding: '42px 36px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)'
+              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.02)'
             }}>
               <div style={{ fontSize: '1.1rem', color: '#0F172A', fontWeight: 700, marginBottom: '4px' }}>
                 Established
@@ -545,8 +555,19 @@ export default function AboutUs({ onOpenSchedule }) {
       </section>
 
       {/* 4. CORE VALUE PILLARS */}
-      <section style={{ padding: '20px 0 75px 0', backgroundColor: '#FFFFFF' }}>
+      <section style={{ padding: '85px 0 90px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
+          
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px auto' }}>
+            <span className="badge-gold">Our Foundation</span>
+            <h2 style={{ fontSize: '2.3rem', fontWeight: 900, color: '#0F172A', marginTop: '10px', marginBottom: '14px' }}>
+              Core Principles of Advisory
+            </h2>
+            <p style={{ color: '#64748B', fontSize: '1.02rem', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+              The foundational ethical and professional standards that govern every client engagement at Kinzei Consultants.
+            </p>
+          </div>
+
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -558,16 +579,16 @@ export default function AboutUs({ onOpenSchedule }) {
                 style={{
                   backgroundColor: '#F8FAFC',
                   borderRadius: '16px',
-                  padding: '30px 26px',
-                  border: '1.5px solid #E5E7EB',
+                  padding: '32px 28px',
+                  border: '1.5px solid #E2E8F0',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.03)'
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.02)'
                 }}
                 className="pillar-card-hover"
               >
                 <div style={{
-                  width: '56px',
-                  height: '56px',
+                  width: '54px',
+                  height: '54px',
                   borderRadius: '14px',
                   backgroundColor: '#FFFFFF',
                   border: '1.5px solid rgba(212, 160, 23, 0.4)',
@@ -579,21 +600,20 @@ export default function AboutUs({ onOpenSchedule }) {
                 }}>
                   {p.icon}
                 </div>
-                <h3 style={{ fontSize: '1.22rem', color: '#111827', fontWeight: 800, marginBottom: '10px' }}>
+                <h3 style={{ fontSize: '1.22rem', color: '#0F172A', fontWeight: 800, marginBottom: '10px' }}>
                   {p.title}
                 </h3>
-                <p style={{ fontSize: '0.94rem', color: '#4B5563', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
+                <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
                   {p.desc}
                 </p>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-
-
-      {/* 5. VISION & MISSION BLOCK */}
+      {/* 5. PURPOSE, VISION & MISSION BLOCK */}
       <section style={{
         backgroundColor: '#0B1120',
         color: '#FFFFFF',
@@ -613,7 +633,7 @@ export default function AboutUs({ onOpenSchedule }) {
             {/* Left Column */}
             <div>
               <div style={{
-                fontSize: '1rem',
+                fontSize: '0.88rem',
                 color: '#D4A017',
                 fontWeight: 800,
                 textTransform: 'uppercase',
