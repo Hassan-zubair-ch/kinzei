@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  Building2, Phone, Mail, MapPin, CheckCircle2, 
-  Sparkles, Calendar, ArrowRight, ShieldCheck, ChevronDown, 
-  ChevronUp, Scale, Lock, Award, Briefcase, MessageSquare
+  ShieldCheck, Target, Eye, CheckCircle2, 
+  Mail, Phone, ChevronDown, ChevronUp, Calendar, ArrowRight,
+  Sparkles, Scale, Lock, Award, Briefcase
 } from 'lucide-react';
 import AffiliationsSection from '../components/AffiliationsSection';
 import CounterSection from '../components/CounterSection';
@@ -12,26 +12,21 @@ export default function AboutUs({ onOpenSchedule }) {
   const [openFaq, setOpenFaq] = useState(null);
   const navigate = useNavigate();
 
-  const phoneNumber = "923034063970";
-  const defaultMessage = encodeURIComponent("Hello Kinzei Consultants, I would like to inquire about your corporate tax, audit, and advisory services.");
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
-
-  const whyChoosePoints = [
+  const corePillars = [
     {
-      title: "Global Reach",
-      desc: "With specialized desks and operational networks in Pakistan, the USA, the UK, the UAE, Saudi Arabia, and Germany, we offer seamless cross-border corporate and tax advisory to clients worldwide."
+      icon: <Scale size={28} color="#D4A017" />,
+      title: "Technical Precision & Ethics",
+      desc: "Every tax computation, audit engagement, and statutory filing is prepared strictly in accordance with IFRS, ISA, and national revenue laws."
     },
     {
-      title: "Expert Multi-Disciplinary Team",
-      desc: "In association with Javed Zafar & Co. Chartered Accountants, our professionals possess extensive experience in accounting, auditing, corporate taxation, and business advisory (ex-Deloitte & leading practices)."
+      icon: <Award size={28} color="#D4A017" />,
+      title: "Institutional Excellence",
+      desc: "Directed by senior Chartered Accountants and tax consultants with extensive experience in public and private sector advisory."
     },
     {
-      title: "Personalized & Scalable Solutions",
-      desc: "We tailor our accounting frameworks, tax planning, corporate structuring, and retainership services to meet the precise operational scale and industry needs of each client."
-    },
-    {
-      title: "Cutting-Edge Expertise & Zero-Penalty Compliance",
-      desc: "Our continuous engagement with regulatory bodies (SECP, FBR, PRA, SRB, EOBI, IRS, HMRC) ensures clients benefit from current statutory standards and proactive risk protection."
+      icon: <Lock size={28} color="#D4A017" />,
+      title: "Absolute Confidentiality",
+      desc: "Enterprise-grade digital encryption and strict professional non-disclosure agreements protect every client document and audit record."
     }
   ];
 
@@ -57,415 +52,548 @@ export default function AboutUs({ onOpenSchedule }) {
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
       
-      {/* 1. TOP HEADER & ABOUT INTRO SECTION */}
+      {/* 1. HIGH-END EXECUTIVE HERO BANNER */}
       <section style={{
-        padding: '80px 0 50px 0',
-        backgroundColor: '#FFFFFF',
-        textAlign: 'center'
+        position: 'relative',
+        padding: '95px 0 85px 0',
+        backgroundColor: '#0B1120',
+        backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(212, 160, 23, 0.18) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(30, 41, 59, 0.5) 0%, transparent 70%)',
+        color: '#FFFFFF',
+        textAlign: 'center',
+        borderBottom: '2px solid #D4A017',
+        overflow: 'hidden'
       }}>
-        <div className="container" style={{ maxWidth: '920px' }}>
-          
-          <h3 style={{
-            fontSize: 'clamp(1.1rem, 2vw, 1.4rem)',
-            fontWeight: 900,
-            letterSpacing: '1.5px',
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '6px 16px',
+            borderRadius: '30px',
+            backgroundColor: 'rgba(212, 160, 23, 0.15)',
+            border: '1px solid rgba(212, 160, 23, 0.4)',
+            color: '#FCD34D',
+            fontSize: '0.82rem',
+            fontWeight: 800,
             textTransform: 'uppercase',
-            color: '#111827',
-            marginBottom: '10px',
-            fontFamily: 'var(--font-heading)'
+            letterSpacing: '1px',
+            marginBottom: '18px'
           }}>
-            WELCOME TO KINZEI CONSULTANTS
-          </h3>
+            <Sparkles size={14} color="#D4A017" />
+            <span>ABOUT KINZEI CONSULTANTS</span>
+          </div>
 
-          <h1 style={{
-            fontSize: 'clamp(2.4rem, 4vw, 3.2rem)',
-            fontWeight: 900,
-            color: '#0F172A',
-            marginBottom: '16px',
-            fontFamily: 'var(--font-heading)'
+          <h1 style={{ 
+            fontSize: 'clamp(2.4rem, 4.5vw, 3.4rem)', 
+            fontWeight: 900, 
+            color: '#FFFFFF',
+            letterSpacing: '-0.5px',
+            marginBottom: '18px',
+            fontFamily: 'var(--font-heading)',
+            lineHeight: 1.2
           }}>
-            About Us
+            Your Trusted Partner in <span style={{ color: '#D4A017' }}>Tax, Audit &amp; Global Advisory</span>
           </h1>
 
-          {/* Gradient Accent Bar */}
-          <div style={{
-            width: '140px',
-            height: '4.5px',
-            borderRadius: '4px',
-            background: 'linear-gradient(90deg, #D4A017 0%, #10B981 100%)',
-            margin: '0 auto 30px auto'
-          }} />
-
-          <p style={{
-            fontSize: '1.1rem',
-            color: '#334155',
-            lineHeight: 1.8,
-            fontWeight: 500,
-            textAlign: 'center'
-          }}>
-            <strong>Kinzei Consultants (Private) Limited</strong> is a premier corporate, tax, and chartered accountancy advisory firm with a global presence, operating in key financial hubs across Pakistan, the USA, the UK, the UAE, Saudi Arabia, and Germany. Our multidisciplinary expertise spans income tax, sales tax, corporate licensing, statutory audit &amp; assurance, and financial advisory services, providing comprehensive solutions to individuals, enterprises, and multinational corporations worldwide.
+          <p style={{ color: '#E2E8F0', fontSize: '1.12rem', maxWidth: '780px', margin: '0 auto 32px auto', lineHeight: 1.7, fontWeight: 500 }}>
+            Kinzei Consultants (Private) Limited delivers chartered accountancy, corporate tax litigation defense, SECP compliance, and international desk operations with institutional excellence.
           </p>
 
+          {/* Quick Metrics Badges */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '24px',
+            flexWrap: 'wrap',
+            fontSize: '0.9rem',
+            color: '#F8FAFC'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '6px 14px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.12)' }}>
+              <ShieldCheck size={16} color="#D4A017" />
+              <span>15+ Years Combined Experience</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '6px 14px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.12)' }}>
+              <Briefcase size={16} color="#D4A017" />
+              <span>Institutional Quality Counsel</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '6px 14px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.12)' }}>
+              <ShieldCheck size={16} color="#D4A017" />
+              <span>FBR &amp; SECP Registered</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 2. FIRM OVERVIEW SECTION */}
-      <section style={{ padding: '40px 0 70px 0', backgroundColor: '#FFFFFF' }}>
-        <div className="container" style={{ maxWidth: '1060px' }}>
-          
-          <div style={{
-            borderBottom: '1.5px solid #E2E8F0',
-            paddingBottom: '16px',
-            marginBottom: '35px'
-          }}>
-            <h2 style={{
-              fontSize: '1.85rem',
-              fontWeight: 800,
-              color: '#0F172A',
-              margin: 0,
-              fontFamily: 'var(--font-heading)'
-            }}>
-              Firm Overview
-            </h2>
-          </div>
-
+      {/* 2. WHO WE ARE & COMPANY NARRATIVE */}
+      <section style={{ padding: '85px 0 75px 0', backgroundColor: '#FFFFFF' }}>
+        <div className="container">
           <div style={{
             display: 'grid',
             gridTemplateColumns: '1.1fr 1fr',
-            gap: '45px',
-            alignItems: 'stretch'
-          }} className="firm-overview-grid">
+            gap: '60px',
+            alignItems: 'center'
+          }} className="about-narrative-grid">
             
-            {/* Left Column: Office & Contact Credentials */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '26px' }}>
-              
-              {/* Head Office */}
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                <div style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '10px',
-                  backgroundColor: '#FFFBEB',
-                  border: '1.5px solid #D4A017',
-                  color: '#B8860B',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Building2 size={22} />
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
-                    Principal Head Office
-                  </h4>
-                  <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
-                    First Floor, Plot # 14, Main Road, Block 1 College Rd, Sector C2 Block 1 Twp Sector C 2 Township, Lahore, 54770, Pakistan
-                  </p>
-                </div>
-              </div>
-
-              {/* Contact */}
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                <div style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '10px',
-                  backgroundColor: '#FFFBEB',
-                  border: '1.5px solid #D4A017',
-                  color: '#B8860B',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Phone size={22} />
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
-                    Direct Inquiries &amp; Support
-                  </h4>
-                  <div style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.6, fontWeight: 600 }}>
-                    <div>Phone:{' '}
-                      <a href="tel:03034063970" style={{ color: '#0F172A', textDecoration: 'none', fontWeight: 800 }}>
-                        03034063970
-                      </a>
-                    </div>
-                    <div>WhatsApp:{' '}
-                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#16A34A', textDecoration: 'none', fontWeight: 800 }}>
-                        +92 303 4063970
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                <div style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '10px',
-                  backgroundColor: '#FFFBEB',
-                  border: '1.5px solid #D4A017',
-                  color: '#B8860B',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Mail size={22} />
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
-                    Official Corporate Email
-                  </h4>
-                  <p style={{ fontSize: '0.94rem', margin: 0 }}>
-                    <a href="mailto:info@kinzeiconsultants.com" style={{ color: '#0F172A', fontWeight: 800, textDecoration: 'none' }}>
-                      info@kinzeiconsultants.com
-                    </a>
-                  </p>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Right Column: Highlight Card */}
-            <div style={{
-              backgroundColor: '#F8FAFC',
-              borderRadius: '16px',
-              padding: '36px 32px',
-              border: '1.5px solid #E2E8F0',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              boxShadow: '0 4px 18px rgba(0, 0, 0, 0.02)'
-            }}>
-              <div style={{
-                fontSize: '1rem',
+            {/* Left Story Column */}
+            <div>
+              <span className="badge-gold">Corporate Overview</span>
+              <h2 style={{
+                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
+                lineHeight: 1.25,
+                marginTop: '12px',
+                marginBottom: '22px',
                 fontWeight: 800,
-                color: '#64748B',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px',
-                marginBottom: '8px'
-              }}>
-                Established Practice
-              </div>
-
-              <div style={{
-                fontSize: 'clamp(2.5rem, 3.8vw, 3.2rem)',
-                fontWeight: 900,
-                color: '#0F172A',
-                lineHeight: 1.1,
-                marginBottom: '16px',
+                color: '#111827',
                 fontFamily: 'var(--font-heading)'
               }}>
-                15+ <span style={{ color: '#D4A017', fontSize: '2rem' }}>Years Experience</span>
+                Strategic Advisory Built on <span style={{ color: '#D4A017' }}>Integrity &amp; Results</span>
+              </h2>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '1.02rem', color: '#374151', lineHeight: 1.75, fontWeight: 500 }}>
+                <p>
+                  <strong>Kinzei Consultants (Private) Limited</strong> is a premier professional services firm providing audit, accounting, taxation, and corporate advisory services to businesses and individuals. The firm is led by senior professionals with over <strong>15+ years of professional experience</strong> across public and private sector organizations.
+                </p>
+
+                <p>
+                  We are committed to delivering reliable, practical, and high-quality professional services that help our clients meet regulatory requirements, strengthen financial controls, and make informed business decisions. Our approach is based on integrity, technical expertise, and a clear understanding of our clients' business needs.
+                </p>
+
+                <p>
+                  The firm offers a wide range of services including <strong>Audit &amp; Assurance, Accounting &amp; Financial Reporting, Taxation &amp; Litigation Support, Corporate &amp; Secretarial Advisory, and Information Technology support</strong>. We work closely with our clients to provide tailored solutions that are aligned with their operational and strategic objectives.
+                </p>
               </div>
 
-              <p style={{
-                fontSize: '0.98rem',
-                color: '#475569',
-                lineHeight: 1.7,
-                margin: 0,
-                fontWeight: 500
+              {/* Action Buttons */}
+              <div style={{ display: 'flex', gap: '16px', marginTop: '30px', flexWrap: 'wrap' }}>
+                <button
+                  onClick={onOpenSchedule}
+                  className="btn-primary"
+                  style={{ padding: '12px 28px', fontSize: '0.95rem' }}
+                >
+                  <Calendar size={16} />
+                  <span>Book Partner Consultation</span>
+                </button>
+
+                <button
+                  onClick={() => navigate('/services')}
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    color: '#111827',
+                    border: '1.5px solid #D1D5DB',
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    fontSize: '0.95rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D4A017'; e.currentTarget.style.color = '#D4A017'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#D1D5DB'; e.currentTarget.style.color = '#111827'; }}
+                >
+                  <span>Explore Services</span>
+                  <ArrowRight size={16} />
+                </button>
+              </div>
+            </div>
+
+            {/* Right Visual Card */}
+            <div style={{ position: 'relative' }}>
+              <div style={{
+                borderRadius: '20px',
+                overflow: 'hidden',
+                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.12)',
+                border: '1.5px solid #E5E7EB',
+                position: 'relative'
               }}>
-                Founded with a steadfast vision to provide comprehensive corporate, financial, chartered accounting, and statutory tax solutions to businesses and entrepreneurs across Pakistan and international jurisdictions.
-              </p>
+                <img 
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop" 
+                  alt="Kinzei Corporate Financial Consultation" 
+                  style={{ width: '100%', height: '420px', objectFit: 'cover', display: 'block' }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(11, 17, 32, 0.85) 0%, rgba(11, 17, 32, 0.2) 60%, transparent 100%)'
+                }} />
+                <div style={{
+                  position: 'absolute',
+                  bottom: '24px',
+                  left: '24px',
+                  right: '24px',
+                  color: '#FFFFFF'
+                }}>
+                  <div style={{ fontSize: '0.82rem', color: '#D4A017', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    FCA &amp; CISA Led Practice
+                  </div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#FFFFFF', marginTop: '4px', marginBottom: '6px' }}>
+                    Trusted by 350+ Businesses Worldwide
+                  </h3>
+                  <p style={{ fontSize: '0.88rem', color: '#E2E8F0', margin: 0, lineHeight: 1.5 }}>
+                    Dedicated corporate tax desk, statutory compliance, and digital bookkeeping.
+                  </p>
+                </div>
+              </div>
             </div>
 
           </div>
-
         </div>
       </section>
 
-      {/* 3. WHY CHOOSE KINZEI? */}
-      <section style={{ padding: '70px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
-        <div className="container" style={{ maxWidth: '960px' }}>
-          
-          <div style={{ textAlign: 'center', marginBottom: '35px' }}>
-            <h2 style={{
-              fontSize: 'clamp(2rem, 3.2vw, 2.7rem)',
-              fontWeight: 900,
-              color: '#0F172A',
-              marginBottom: '14px',
-              fontFamily: 'var(--font-heading)'
-            }}>
-              Why Choose Kinzei?
-            </h2>
-
-            {/* Gradient Accent Bar */}
-            <div style={{
-              width: '140px',
-              height: '4px',
-              borderRadius: '4px',
-              background: 'linear-gradient(90deg, #D4A017 0%, #10B981 100%)',
-              margin: '0 auto 24px auto'
-            }} />
-
-            <p style={{
-              fontSize: '1.05rem',
-              color: '#475569',
-              lineHeight: 1.7,
-              margin: '0 auto',
-              maxWidth: '820px',
-              fontWeight: 500
-            }}>
-              At Kinzei Consultants, we pride ourselves on delivering exceptional consultancy services that cater to the unique needs of our clients. Here are a few reasons why you should choose us:
-            </p>
-          </div>
-
-          {/* List of 4 Why Choose Us Points */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '22px', marginTop: '35px' }}>
-            {whyChoosePoints.map((pt, idx) => (
+      {/* 3. CORE VALUE PILLARS */}
+      <section style={{ padding: '20px 0 75px 0', backgroundColor: '#FFFFFF' }}>
+        <div className="container">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '26px'
+          }} className="about-pillars-grid">
+            {corePillars.map((p, idx) => (
               <div 
                 key={idx}
                 style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '16px',
-                  backgroundColor: '#FFFFFF',
-                  padding: '24px 28px',
-                  borderRadius: '14px',
-                  border: '1.5px solid #E2E8F0',
-                  boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
-                  transition: 'all 0.25s ease'
+                  backgroundColor: '#F8FAFC',
+                  borderRadius: '16px',
+                  padding: '30px 26px',
+                  border: '1.5px solid #E5E7EB',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.03)'
                 }}
+                className="pillar-card-hover"
               >
-                <CheckCircle2 size={24} color="#0F172A" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <div>
-                  <h4 style={{ fontSize: '1.08rem', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
-                    {pt.title}:
-                  </h4>
-                  <p style={{ fontSize: '0.96rem', color: '#475569', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
-                    {pt.desc}
-                  </p>
+                <div style={{
+                  width: '56px',
+                  height: '56px',
+                  borderRadius: '14px',
+                  backgroundColor: '#FFFFFF',
+                  border: '1.5px solid rgba(212, 160, 23, 0.4)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '18px',
+                  boxShadow: '0 6px 16px rgba(212, 160, 23, 0.12)'
+                }}>
+                  {p.icon}
                 </div>
+                <h3 style={{ fontSize: '1.22rem', color: '#111827', fontWeight: 800, marginBottom: '10px' }}>
+                  {p.title}
+                </h3>
+                <p style={{ fontSize: '0.94rem', color: '#4B5563', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
+                  {p.desc}
+                </p>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* 4. PARTNER WITH KINZEI */}
-      <section style={{ padding: '75px 0 85px 0', backgroundColor: '#FFFFFF' }}>
-        <div className="container" style={{ maxWidth: '900px', textAlign: 'center' }}>
-          
-          <h2 style={{
-            fontSize: 'clamp(2rem, 3.2vw, 2.7rem)',
-            fontWeight: 900,
-            color: '#0F172A',
-            marginBottom: '14px',
-            fontFamily: 'var(--font-heading)'
-          }}>
-            Partner with Kinzei
-          </h2>
+      {/* 4. CEO & MANAGING LEADERSHIP SPOTLIGHT (WITH CEO IMAGE) */}
+      <section style={{ padding: '85px 0 85px 0', backgroundColor: '#FFFFFF', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
+        <div className="container">
+          <div 
+            className="partner-spotlight-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '380px 1fr',
+              gap: '60px',
+              alignItems: 'center'
+            }}
+          >
+            
+            {/* Left Column: CEO Image Card */}
+            <div style={{ position: 'relative' }}>
+              <div style={{
+                borderRadius: '16px',
+                overflow: 'hidden',
+                boxShadow: '0 18px 45px rgba(0, 0, 0, 0.12)',
+                border: '1.5px solid #E5E7EB'
+              }}>
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" 
+                  alt="Senior Partner & Managing Director" 
+                  style={{
+                    width: '100%',
+                    height: '460px',
+                    objectFit: 'cover',
+                    objectPosition: 'center 15%',
+                    display: 'block'
+                  }}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop';
+                  }}
+                />
+              </div>
 
-          {/* Gradient Accent Bar */}
-          <div style={{
-            width: '140px',
-            height: '4px',
-            borderRadius: '4px',
-            background: 'linear-gradient(90deg, #D4A017 0%, #10B981 100%)',
-            margin: '0 auto 26px auto'
-          }} />
-
-          <p style={{
-            fontSize: '1.08rem',
-            color: '#334155',
-            lineHeight: 1.8,
-            marginBottom: '36px',
-            fontWeight: 500
-          }}>
-            Whether you're an individual or a business, Kinzei Consultants is your trusted partner for navigating the complexities of corporate and tax consultancy. Our commitment to excellence, integrity, and client satisfaction sets us apart as a leader in our field. Contact us today to discover how we can support your financial goals and drive your business forward.
-          </p>
-
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <button
-              onClick={onOpenSchedule}
-              className="btn-primary"
-              style={{ padding: '14px 34px', fontSize: '0.96rem', borderRadius: '8px' }}
-            >
-              <Calendar size={18} />
-              <span>Schedule Free Consultation</span>
-            </button>
-
-            <a
-              href="tel:03034063970"
-              style={{
-                backgroundColor: '#FFFFFF',
-                color: '#0F172A',
-                border: '1.8px solid #CBD5E1',
-                padding: '13px 28px',
-                borderRadius: '8px',
-                fontSize: '0.96rem',
-                fontWeight: 800,
-                textDecoration: 'none',
-                display: 'inline-flex',
+              <div style={{
+                marginTop: '16px',
+                padding: '16px 20px',
+                backgroundColor: '#F8FAFC',
+                borderRadius: '12px',
+                border: '1.5px solid rgba(212, 160, 23, 0.35)',
+                display: 'flex',
                 alignItems: 'center',
-                gap: '8px',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#0F172A';
-                e.currentTarget.style.backgroundColor = '#F8FAFC';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#CBD5E1';
-                e.currentTarget.style.backgroundColor = '#FFFFFF';
-              }}
-            >
-              <Phone size={16} />
-              <span>Call 03034063970</span>
-            </a>
+                gap: '12px',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.03)'
+              }}>
+                <ShieldCheck size={28} color="#D4A017" style={{ flexShrink: 0 }} />
+                <div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#111827' }}>Senior Managing Leadership</div>
+                  <div style={{ fontSize: '0.8rem', color: '#4B5563', fontWeight: 600 }}>Chartered Accountants &amp; Advisory Partners</div>
+                </div>
+              </div>
+            </div>
 
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                backgroundColor: '#25D366',
-                color: '#FFFFFF',
-                padding: '14px 28px',
-                borderRadius: '8px',
-                fontSize: '0.96rem',
+            {/* Right Column: Managing Director Profile & Message */}
+            <div>
+              <span className="badge-gold">Leadership &amp; Governance</span>
+
+              <h2 style={{
+                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
                 fontWeight: 800,
-                textDecoration: 'none',
-                display: 'inline-flex',
+                color: '#111827',
+                marginTop: '10px',
+                marginBottom: '4px',
+                fontFamily: 'var(--font-heading)'
+              }}>
+                Managing Partner &amp; Founder
+              </h2>
+
+              <div style={{
+                fontSize: '1rem',
+                fontWeight: 800,
+                color: '#D4A017',
+                marginBottom: '22px'
+              }}>
+                Chartered Accountants &amp; Senior Advisory Leadership
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.98rem', color: '#374151', lineHeight: 1.75, fontWeight: 500 }}>
+                <p>
+                  Our Founder and Managing Leadership Team bring extensive professional experience in audit, accounting, taxation, and financial reporting. Having served a wide range of public and private sector organizations, our partners bring deep expertise in financial management, compliance, governance, and internal controls.
+                </p>
+
+                <p>
+                  Our professional leadership includes senior experience from top tier chartered accountancy practices and international firms. We specialize in financial reporting under <strong>IFRS</strong>, statutory external audits, tax litigation defense with the FBR, financial modeling, budgeting, and strategic corporate advisory.
+                </p>
+
+                <p>
+                  Known for a practical, disciplined, and ethical approach, our partners work closely with clients to understand their business challenges and deliver clear, reliable, and value-driven solutions. Our focus remains on strengthening financial systems, ensuring regulatory compliance, and supporting sustainable business growth.
+                </p>
+              </div>
+
+              {/* Direct Contact Bar */}
+              <div style={{
+                marginTop: '28px',
+                paddingTop: '20px',
+                borderTop: '1px solid #E5E7EB',
+                display: 'flex',
                 alignItems: 'center',
-                gap: '8px',
-                boxShadow: '0 4px 14px rgba(37, 211, 102, 0.3)',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-            >
-              <MessageSquare size={16} />
-              <span>WhatsApp Us</span>
-            </a>
+                gap: '30px',
+                flexWrap: 'wrap'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(212, 160, 23, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Mail size={16} color="#D4A017" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.76rem', color: '#6B7280', fontWeight: 700 }}>Direct Email</div>
+                    <a 
+                      href="mailto:info@kinzeiconsultants.com" 
+                      style={{ color: '#111827', fontWeight: 800, fontSize: '0.9rem', textDecoration: 'none', transition: 'color 0.2s ease' }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#D4A017'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#111827'}
+                    >
+                      info@kinzeiconsultants.com
+                    </a>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(212, 160, 23, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Phone size={16} color="#D4A017" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.76rem', color: '#6B7280', fontWeight: 700 }}>Direct Phone</div>
+                    <a 
+                      href="tel:03034063970" 
+                      style={{ color: '#111827', fontWeight: 800, fontSize: '0.9rem', textDecoration: 'none', transition: 'color 0.2s ease' }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#D4A017'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#111827'}
+                    >
+                      03034063970
+                    </a>
+                  </div>
+                </div>
+
+                <button
+                  onClick={onOpenSchedule}
+                  className="btn-primary"
+                  style={{ padding: '9px 20px', fontSize: '0.85rem', marginLeft: 'auto' }}
+                >
+                  <Calendar size={14} />
+                  <span>Book Consultation</span>
+                </button>
+              </div>
+
+            </div>
+
           </div>
+        </div>
 
+        <style>{`
+          @media (max-width: 992px) {
+            .partner-spotlight-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          }
+        `}</style>
+      </section>
+
+      {/* 5. VISION & MISSION BLOCK */}
+      <section style={{
+        backgroundColor: '#0B1120',
+        color: '#FFFFFF',
+        padding: '85px 0',
+        borderTop: '2px solid #D4A017',
+        borderBottom: '2px solid #D4A017',
+        position: 'relative'
+      }}>
+        <div className="container">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '50px',
+            alignItems: 'center'
+          }} className="values-grid">
+            
+            {/* Left Column */}
+            <div>
+              <div style={{
+                fontSize: '1rem',
+                color: '#D4A017',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                marginBottom: '10px'
+              }}>
+                PURPOSE &amp; GOVERNANCE
+              </div>
+
+              <h2 style={{
+                fontSize: 'clamp(2.2rem, 3.5vw, 2.8rem)',
+                lineHeight: 1.2,
+                marginBottom: '20px',
+                fontWeight: 800,
+                color: '#FFFFFF',
+                fontFamily: 'var(--font-heading)'
+              }}>
+                Building Trust Through <span style={{ color: '#D4A017' }}>Professional Excellence</span>
+              </h2>
+
+              <p style={{ fontSize: '1rem', color: '#E2E8F0', lineHeight: 1.7, marginBottom: '16px', fontWeight: 500 }}>
+                We create sustainable value for our clients by delivering reliable audit, accounting, taxation, and advisory services. Our approach is based on uncompromising integrity, technical expertise, and an in-depth understanding of your business model.
+              </p>
+
+              <p style={{ fontSize: '1rem', color: '#E2E8F0', lineHeight: 1.7, fontWeight: 500 }}>
+                We focus on building long-term relationships through clear counsel, prompt execution, and proactive advisory that shields your firm from regulatory risk.
+              </p>
+            </div>
+
+            {/* Right Column: Vision & Mission Cards */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              
+              {/* Vision Card */}
+              <div style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                borderRadius: '16px',
+                padding: '28px',
+                border: '1.5px solid rgba(212, 160, 23, 0.35)',
+                display: 'flex',
+                gap: '20px',
+                alignItems: 'flex-start'
+              }}>
+                <div style={{
+                  width: '50px',
+                  height: '50px',
+                  backgroundColor: '#D4A017',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF',
+                  flexShrink: 0,
+                  boxShadow: '0 6px 15px rgba(212, 160, 23, 0.35)'
+                }}>
+                  <Eye size={26} />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#D4A017', marginBottom: '8px' }}>
+                    Our Vision
+                  </h3>
+                  <p style={{ fontSize: '0.94rem', color: '#E2E8F0', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+                    To be the leading professional services firm recognized globally for technical excellence, institutional integrity, and practical solutions that empower businesses to scale with confidence.
+                  </p>
+                </div>
+              </div>
+
+              {/* Mission Card */}
+              <div style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                borderRadius: '16px',
+                padding: '28px',
+                border: '1.5px solid rgba(212, 160, 23, 0.35)',
+                display: 'flex',
+                gap: '20px',
+                alignItems: 'flex-start'
+              }}>
+                <div style={{
+                  width: '50px',
+                  height: '50px',
+                  backgroundColor: '#D4A017',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF',
+                  flexShrink: 0,
+                  boxShadow: '0 6px 15px rgba(212, 160, 23, 0.35)'
+                }}>
+                  <Target size={26} />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#D4A017', marginBottom: '8px' }}>
+                    Our Mission
+                  </h3>
+                  <p style={{ fontSize: '0.94rem', color: '#E2E8F0', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+                    To deliver highest-tier audit, tax litigation, corporate secretarial, and cross-border advisory through experienced chartered accountants while upholding strict confidentiality and client care.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </section>
 
-      {/* 5. AFFILIATIONS & CERTIFICATIONS */}
+      {/* 6. AFFILIATIONS & CERTIFICATIONS */}
       <AffiliationsSection />
 
-      {/* 6. COUNTER & STATS */}
+      {/* 7. COUNTER & IMPACT METRICS */}
       <CounterSection />
 
-      {/* 7. FREQUENTLY ASKED QUESTIONS */}
-      <section style={{ padding: '80px 0 90px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid #E2E8F0' }}>
+      {/* 8. FREQUENTLY ASKED QUESTIONS (FAQ) */}
+      <section style={{ padding: '85px 0 95px 0', backgroundColor: '#F8FAFC' }}>
         <div className="container" style={{ maxWidth: '840px' }}>
-          
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
             <span className="badge-gold">Common Queries</span>
-            <h2 style={{ fontSize: '2.3rem', color: '#0F172A', marginTop: '10px', fontWeight: 800 }}>
+            <h2 style={{ fontSize: '2.4rem', color: '#111827', marginTop: '10px', fontWeight: 800 }}>
               Frequently Asked <span style={{ color: '#D4A017' }}>Questions</span>
             </h2>
-            <p style={{ color: '#64748B', fontSize: '1.02rem', marginTop: '8px', fontWeight: 500 }}>
-              Direct answers to questions regarding our corporate advisory and statutory compliance engagements.
+            <p style={{ color: '#4B5563', fontSize: '1.02rem', marginTop: '8px', fontWeight: 500 }}>
+              Direct answers to questions regarding our advisory services and compliance engagements.
             </p>
           </div>
 
@@ -478,9 +606,9 @@ export default function AboutUs({ onOpenSchedule }) {
                   style={{
                     backgroundColor: '#FFFFFF',
                     borderRadius: '14px',
-                    border: isOpen ? '1.5px solid #D4A017' : '1.5px solid #E2E8F0',
+                    border: isOpen ? '1.5px solid #D4A017' : '1.5px solid #E5E7EB',
                     overflow: 'hidden',
-                    boxShadow: isOpen ? '0 8px 25px rgba(212, 160, 23, 0.12)' : '0 2px 8px rgba(0,0,0,0.02)',
+                    boxShadow: isOpen ? '0 8px 25px rgba(212, 160, 23, 0.12)' : '0 2px 8px rgba(0,0,0,0.03)',
                     transition: 'all 0.25s ease'
                   }}
                 >
@@ -493,7 +621,7 @@ export default function AboutUs({ onOpenSchedule }) {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                       backgroundColor: 'transparent',
-                      color: '#0F172A',
+                      color: '#111827',
                       fontSize: '1.02rem',
                       fontWeight: 800,
                       textAlign: 'left',
@@ -502,11 +630,11 @@ export default function AboutUs({ onOpenSchedule }) {
                     }}
                   >
                     <span>{faq.q}</span>
-                    {isOpen ? <ChevronUp size={20} color="#D4A017" /> : <ChevronDown size={20} color="#64748B" />}
+                    {isOpen ? <ChevronUp size={20} color="#D4A017" /> : <ChevronDown size={20} color="#6B7280" />}
                   </button>
 
                   {isOpen && (
-                    <div style={{ padding: '0 24px 22px 24px', color: '#475569', fontSize: '0.96rem', lineHeight: 1.7, fontWeight: 500, borderTop: '1px solid #F1F5F9', paddingTop: '16px' }}>
+                    <div style={{ padding: '0 24px 22px 24px', color: '#374151', fontSize: '0.96rem', lineHeight: 1.7, fontWeight: 500, borderTop: '1px solid #F1F5F9', paddingTop: '16px' }}>
                       {faq.a}
                     </div>
                   )}
@@ -514,19 +642,77 @@ export default function AboutUs({ onOpenSchedule }) {
               );
             })}
           </div>
+        </div>
+      </section>
 
+      {/* 9. EXECUTIVE BOTTOM CTA BANNER */}
+      <section style={{
+        background: 'linear-gradient(135deg, #0B1120 0%, #111827 100%)',
+        padding: '75px 0',
+        color: '#FFFFFF',
+        textAlign: 'center',
+        borderTop: '2px solid #D4A017'
+      }}>
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <span className="badge-gold" style={{ marginBottom: '14px' }}>CONFIDENTIAL CONSULTATION</span>
+          <h2 style={{
+            fontSize: 'clamp(2rem, 3.5vw, 2.6rem)',
+            fontWeight: 800,
+            marginBottom: '16px',
+            color: '#FFFFFF',
+            fontFamily: 'var(--font-heading)'
+          }}>
+            Ready to Protect &amp; Grow Your Enterprise?
+          </h2>
+          <p style={{ fontSize: '1.08rem', color: '#E2E8F0', marginBottom: '32px', lineHeight: 1.6, fontWeight: 500 }}>
+            Connect with our senior partners for comprehensive tax planning, statutory audit, and strategic financial advisory.
+          </p>
+
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            <button
+              onClick={onOpenSchedule}
+              className="btn-primary"
+              style={{ padding: '14px 34px', fontSize: '0.98rem' }}
+            >
+              <Calendar size={18} />
+              <span>Schedule Free Consultation</span>
+            </button>
+
+            <button
+              onClick={() => navigate('/contact')}
+              style={{
+                backgroundColor: 'transparent',
+                color: '#FFFFFF',
+                border: '1.5px solid #FFFFFF',
+                padding: '14px 28px',
+                borderRadius: '8px',
+                fontSize: '0.98rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D4A017'; e.currentTarget.style.color = '#D4A017'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#FFFFFF'; e.currentTarget.style.color = '#FFFFFF'; }}
+            >
+              Contact Our Office
+            </button>
+          </div>
         </div>
       </section>
 
       <style>{`
-        @media (max-width: 900px) {
-          .firm-overview-grid {
+        .pillar-card-hover:hover {
+          transform: translateY(-5px);
+          border-color: #D4A017 !important;
+          box-shadow: 0 16px 35px rgba(212, 160, 23, 0.15) !important;
+        }
+        @media (max-width: 992px) {
+          .about-narrative-grid, .values-grid, .about-pillars-grid {
             grid-template-columns: 1fr !important;
-            gap: 30px !important;
+            gap: 35px !important;
           }
         }
       `}</style>
-
     </div>
   );
 }
