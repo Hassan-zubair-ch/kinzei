@@ -25,19 +25,19 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       icon: Building2,
       title: 'Corporate & Company Registration',
       authority: 'SECP (Securities & Exchange Commission of Pakistan)',
-      summary: 'End-to-end company incorporation, legal structure selection, statutory filings, and corporate restructuring.',
+      summary: 'Complete company incorporation, corporate structuring, statutory filing, and legal entity setup.',
       items: [
-        'SECP Company Incorporation & Fast-track Setup',
-        'Private Limited Company (Pvt Ltd) Formation',
-        'Single Member Company (SMC-Pvt Ltd) Setup',
-        'Public Limited Company (Listed & Unlisted)',
-        'Limited Liability Partnership (LLP) Registration',
-        'Company Name Reservation & Availability Clearance',
-        'Company Conversion & Corporate Restructuring',
-        'Branch / Liaison Office of Foreign Companies',
-        'Company Changes, Share Capital & Object Amendments',
-        'Annual Returns & Statutory Filings (Form A, 29, 19, 45)',
-        'Company Strike-Off & Easy Exit Closures'
+        'SECP Company Incorporation',
+        'Private Limited Company',
+        'Single Member Company (SMC)',
+        'Public Limited Company',
+        'LLP Registration',
+        'Company Name Reservation',
+        'Company Conversion / Restructuring',
+        'Branch / Liaison Office Registration',
+        'Company Changes & Amendments',
+        'Annual Returns & Statutory Filings',
+        'Company Strike-Off / Closure'
       ]
     },
     {
@@ -47,17 +47,17 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       icon: FileText,
       title: 'Business & Individual Tax Registration',
       authority: 'FBR (Federal Board of Revenue)',
-      summary: 'Comprehensive National Tax Number (NTN) registration, business profiles, and corporate tax enrollments.',
+      summary: 'National Tax Number (NTN) registration, Active Taxpayer status, and corporate tax enrollments.',
       items: [
-        'FBR / NTN Registration (Fast-Track Iris 2.0 Setup)',
-        'Individual Salaried & Business Tax Registration',
-        'Sole Proprietorship Registration & Bank Certification',
+        'FBR / NTN Registration',
+        'Individual Tax Registration',
+        'Sole Proprietorship Registration',
         'AOP / Partnership Tax Registration',
-        'Company Tax Registration & Principal Officer Assignment',
-        'Income Tax Registration & Active Taxpayer Status (ATL)',
-        'Withholding Tax Agent Registration & Deductions',
-        'Tax Profile Updates, Business Addition & Modification',
-        'Tax Deregistration & Clean Tax Exit Certificates'
+        'Company Tax Registration',
+        'Income Tax Registration & Compliance',
+        'Withholding Tax Registration',
+        'Tax Profile Updates',
+        'Tax Deregistration'
       ]
     },
     {
@@ -66,16 +66,16 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       num: '03',
       icon: Landmark,
       title: 'Sales Tax & Provincial Tax Registration',
-      authority: 'FBR (STRN) + Provincial Authorities (PRA, SRB, KPRA, BRA)',
-      summary: 'Federal Sales Tax (STRN) and provincial sales tax on services enrollments with monthly filing setup.',
+      authority: 'FBR (STRN) + PRA / SRB / KPRA / BRA',
+      summary: 'Federal Sales Tax (STRN) and provincial sales tax on services registrations with monthly compliance.',
       items: [
-        'Federal Sales Tax Registration (FBR STRN & Bio-metric)',
-        'Punjab Revenue Authority (PRA) Registration',
-        'Sindh Revenue Board (SRB) Registration',
-        'Khyber Pakhtunkhwa Revenue Authority (KPRA) Registration',
-        'Balochistan Revenue Authority (BRA) Registration',
-        'Monthly Sales Tax Returns & Withholding Compliance',
-        'Provincial Tax Registration & Voluntary Deregistration'
+        'Federal Sales Tax Registration',
+        'Punjab Revenue Authority (PRA)',
+        'Sindh Revenue Board (SRB)',
+        'Khyber Pakhtunkhwa Revenue Authority (KPRA)',
+        'Balochistan Revenue Authority (BRA)',
+        'Sales Tax Returns & Compliance',
+        'Provincial Tax Registration & Deregistration'
       ]
     },
     {
@@ -85,15 +85,15 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       icon: Users,
       title: 'Partnership & Firm Registration',
       authority: 'Registrar of Firms & FBR',
-      summary: 'Legal partnership deed drafting, firm registration under Partnership Act 1932, and AOP management.',
+      summary: 'Partnership deed drafting, firm registration under Partnership Act 1932, and AOP enrollments.',
       items: [
-        'Registrar of Firms Registration (Form C Certification)',
-        'Comprehensive Partnership Deed Drafting & Attestation',
-        'Partnership Firm Official Registration',
-        'Association of Persons (AOP) FBR Registration',
-        'Change of Partners, Admission & Retirement Filings',
-        'Change of Business Address & Branches Registration',
-        'Partnership Dissolution & Form D Closure Certificates'
+        'Registrar of Firms Registration',
+        'Partnership Deed',
+        'Partnership Firm Registration',
+        'AOP Registration',
+        'Change of Partners',
+        'Change of Business Address',
+        'Partnership Dissolution'
       ]
     },
     {
@@ -103,15 +103,15 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       icon: Cpu,
       title: 'IT & Software Industry Registrations',
       authority: 'PSEB, P@SHA & Ministry of IT',
-      summary: 'Specialized incentives, 100% tax credit compliance, export rebates, and software house setups.',
+      summary: 'PSEB registration, 100% tax credit qualification, export rebates, and technology startup setups.',
       items: [
-        'PSEB (Pakistan Software Export Board) Registration',
-        'P@SHA (Pakistan IT Industry Association) Membership',
-        'IT / Software House & Tech Agency Registration',
-        'IT Exporter Registration & 100% Tax Credit Compliance',
-        'IT Company State Bank FX & Regulatory Compliance',
-        'Freelancer / Remote IT Professional Business Setup',
-        'Technology & SaaS Startup Venture Incorporation'
+        'PSEB Registration',
+        'P@SHA Membership',
+        'IT / Software House Registration',
+        'IT Exporter Registration',
+        'IT Company Compliance',
+        'Freelancer / IT Business Registration',
+        'Technology / Software Business Setup'
       ]
     },
     {
@@ -120,16 +120,16 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       num: '06',
       icon: Globe2,
       title: 'Import & Export Registrations',
-      authority: 'PSW (Pakistan Single Window) & Customs',
-      summary: 'Full trade enablement, WeBOC user ID creation, customs tariffs, and international shipping clearance.',
+      authority: 'Pakistan Single Window (PSW) & Pakistan Customs',
+      summary: 'Trade enablement, WeBOC user ID creation, customs tariffs, and international shipping clearance.',
       items: [
-        'Pakistan Single Window (PSW) Subscription & Biometrics',
-        'WeBOC Registration & Commercial User ID Issuance',
-        'Commercial & Industrial Importer Registration',
-        'Commercial & Manufacturer Exporter Registration',
-        'Customs Registration & Bonded Warehousing Setup',
-        'Trade-related Regulatory Approvals & Form-E/Form-I',
-        'Import / Export Customs & Tariff Compliance'
+        'Pakistan Single Window (PSW)',
+        'WeBOC Registration',
+        'Importer Registration',
+        'Exporter Registration',
+        'Customs Registration',
+        'Trade-related Registrations',
+        'Import / Export Compliance'
       ]
     },
     {
@@ -138,20 +138,20 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       num: '07',
       icon: Award,
       title: 'Professional & Industry Registrations',
-      authority: 'PEC, NHA, DRAP, Food Authorities, Healthcare Councils',
-      summary: 'Engineering, construction, healthcare, pharmaceuticals, food authority, and specialized certifications.',
+      authority: 'PEC, NHA, Healthcare Councils, DRAP & Food Authorities',
+      summary: 'Engineering, construction, healthcare, food authorities, and industry-specific licenses.',
       items: [
-        'PEC (Pakistan Engineering Council) Contractor / Operator Licensing',
-        'NHA (National Highway Authority) Registration & Enlistment',
-        'Pakistan Medical Commission / Healthcare Entity Registrations',
-        'Pharmacy & Drug Regulatory Authority (DRAP) Licensing',
-        'Provincial Food Authority Registration & Halal NOCs',
-        'Education & Vocational Training Institute Registration',
-        'Travel & Tourism Licensing (DTS Certification)',
-        'Real Estate Developer & Builder Registrations',
-        'Construction Contractor C6 through C-A Registrations',
-        'Environmental Protection Agency (EPA) Approvals & NOCs',
-        'Other Sector-Specific Specialized Licenses'
+        'PEC Registration / Licensing',
+        'NHA Registration / Licensing',
+        'Pakistan Medical Commission / Relevant Healthcare Registrations',
+        'Pharmacy / Drug-related Licensing',
+        'Food Authority Registration',
+        'Education / Training Institute Registration',
+        'Travel & Tourism Licensing',
+        'Real Estate-related Registrations',
+        'Construction / Contractor Registrations',
+        'Environmental Approvals & NOCs',
+        'Other Sector-Specific Licenses'
       ]
     },
     {
@@ -160,16 +160,16 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       num: '08',
       icon: ShieldCheck,
       title: 'Labor, Employee & Social Security Registration',
-      authority: 'EOBI, PESSI, SESSI & Labor Directorate',
-      summary: 'Statutory pensions, social security institutions, employee cards, and labor court compliance.',
+      authority: 'EOBI, PESSI, SESSI & Labor Department',
+      summary: 'Statutory pensions, social security institutions, employee cards, and labor compliance.',
       items: [
-        'EOBI (Employees\' Old-Age Benefits Institution) Registration',
-        'PESSI Registration – Punjab Social Security',
-        'SESSI Registration – Sindh Social Security',
-        'KP Employee Social Security Institution (ESSI) Registration',
-        'Employee Biometric Enrollment & Contribution Compliance',
-        'Labor Department Registration & Factory Act Inspections',
-        'Shops & Commercial Establishments Act Registration'
+        'EOBI Registration',
+        'PESSI Registration – Punjab',
+        'SESSI Registration – Sindh',
+        'KP Employee Social Security Registration',
+        'Employee Registration & Compliance',
+        'Labor Department Registration',
+        'Shops & Establishment Registration'
       ]
     },
     {
@@ -181,13 +181,14 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       authority: 'Municipal Corporations & Local Government',
       summary: 'Trade licenses, municipal health certificates, commercial permits, and provincial professional tax.',
       items: [
-        'Local Government Business Registration',
-        'Municipal Corporation Trade License Issuance & Renewals',
-        'Local Government & Town Committee Registration',
-        'Commercial Shops & Establishment Registration',
-        'Provincial Professional Tax Registration & Challan Filings',
-        'Commercial Business Permits & Outdoor Signage NOCs',
-        'Local Fire Safety, Civil Defense & Municipal NOCs'
+        'Business Registration',
+        'Trade License',
+        'Municipal Corporation Registration',
+        'Local Government Registration',
+        'Shops & Establishment Registration',
+        'Professional Tax Registration',
+        'Business Permits',
+        'Local NOCs'
       ]
     },
     {
@@ -196,16 +197,17 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       num: '10',
       icon: HeartHandshake,
       title: 'NGO, NPO & Non-Profit Registration',
-      authority: 'Societies Act 1860, SECP (Section 42), Charities Commission',
-      summary: 'Charitable trusts, voluntary welfare agencies, non-profit foundations, and FBR tax exemption status.',
+      authority: 'Societies Act 1860, Trust Act & SECP (Section 42)',
+      summary: 'Charitable trusts, voluntary welfare agencies, non-profit foundations, and FBR tax exemption.',
       items: [
-        'Societies Registration Act 1860 (Society Formation)',
-        'Voluntary Social Welfare Agencies (NGO Registration)',
-        'Public & Private Charitable Trust Deed Registration',
-        'Section 42 Non-Profit Company License with SECP',
-        'Non-Profit Organization (NPO) FBR 100% Tax Exemption',
-        'Provincial Charities Commission Registration & NOCs',
-        'Economic Affairs Division (EAD) & Foreign Funding Approvals'
+        'Society Registration',
+        'NGO Registration',
+        'Trust Registration',
+        'Section 42 Company',
+        'NPO Registration',
+        'Punjab / Provincial NGO Registration',
+        'NPO Tax Exemption',
+        'Relevant Government NOCs & Approvals'
       ]
     },
     {
@@ -214,14 +216,14 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       num: '11',
       icon: Briefcase,
       title: 'Chamber & Trade Registrations',
-      authority: 'Chambers of Commerce (LCCI, KCCI, ICCI, etc.)',
+      authority: 'Chambers of Commerce (LCCI, KCCI, ICCI, FCCI, etc.)',
       summary: 'Corporate chamber memberships, trade body affiliations, export certificates, and visa support.',
       items: [
-        'Chamber of Commerce Registration (LCCI, KCCI, ICCI, FCCI, etc.)',
-        'All-Pakistan Trade Association Membership',
-        'Specialized Sectoral Industry Association Registration',
-        'Business Membership Certificates & Attestations',
-        'Commercial Exporter & Foreign Visa Recommendation Letters'
+        'Chamber of Commerce Registration',
+        'Trade Association Membership',
+        'Industry Association Registration',
+        'Business Membership Certificates',
+        'Exporter / Business Certificates'
       ]
     },
     {
@@ -230,18 +232,21 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       num: '12',
       icon: Sliders,
       title: 'Specialized Government Registrations',
-      authority: 'Federal & Provincial Regulatory Departments',
-      summary: 'Direct liaison and centralized representation before all statutory bodies and enforcement directorates.',
+      authority: 'Federal & Provincial Regulators',
+      summary: 'Centralized representation and direct liaison before all statutory regulatory bodies.',
       items: [
-        'PSEB (Pakistan Software Export Board)',
-        'PEC (Pakistan Engineering Council)',
-        'PSW (Pakistan Single Window)',
-        'WeBOC (Web Based One Customs)',
-        'EOBI & Social Security Institutions (PESSI / SESSI)',
-        'Provincial Revenue Authorities (PRA / SRB / KPRA / BRA)',
-        'SECP & FBR Centralized Corporate Registry',
-        'NHA & National Infrastructure Authorities',
-        'Relevant Federal, Provincial & Sectoral Regulators'
+        'PSEB',
+        'PEC',
+        'PSW',
+        'WeBOC',
+        'EOBI',
+        'PESSI / SESSI',
+        'PRA / SRB / KPRA / BRA',
+        'SECP',
+        'FBR',
+        'NHA',
+        'Relevant Federal & Provincial Departments',
+        'Sector-Specific Authorities & Regulators'
       ]
     },
     {
@@ -251,16 +256,17 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       icon: KeyRound,
       title: 'Licenses, Permits & NOCs',
       authority: 'Federal, Provincial & District Authorities',
-      summary: 'Operational commercial licenses, environmental NOCs, building permits, and annual license renewals.',
+      summary: 'Commercial operating licenses, environmental NOCs, building permits, and annual renewals.',
       items: [
-        'Commercial Business & Enterprise Operating Licenses',
-        'Municipal & District Trade Licenses',
-        'Professional Practice Licenses & Permits',
-        'Environmental Protection Agency (EPA) Impact NOCs',
-        'Building, Construction & Commercial Premises NOCs',
-        'Industry-Specific Specialized Operational NOCs',
-        'Government Permissions, Import Quotas & Clearances',
-        'Timely License Renewals & Audit Readiness'
+        'Business Licenses',
+        'Operating Licenses',
+        'Trade Licenses',
+        'Professional Licenses',
+        'Environmental NOCs',
+        'Building / Commercial NOCs',
+        'Industry-Specific NOCs',
+        'Government Permissions & Approvals',
+        'License Renewals'
       ]
     },
     {
@@ -270,18 +276,19 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       icon: Clock,
       title: 'Ongoing Regulatory Compliance',
       authority: 'Continuous Statutory Compliance Desk',
-      summary: 'Prevent fines and blacklisting with proactive SECP, FBR, Sales Tax, and EOBI statutory management.',
+      summary: 'Proactive SECP, FBR, Sales Tax, and EOBI statutory management to prevent penalties.',
       items: [
-        'SECP Annual Statutory Compliance (Form A, Form 29, Financials)',
-        'FBR Monthly & Annual Income Tax Compliance',
-        'Sales Tax Monthly Return Filings & Input Adjustments',
-        'Provincial Withholding Tax Filings (PRA/SRB/KPRA/BRA)',
-        'EOBI & Social Security Monthly Contribution Returns',
-        'Mandatory Annual License & Permit Renewals',
-        'Drafting Board Resolutions, Statutory Minutes & Registers',
-        'Changes in Directors, Capital Increases & Object Clauses',
-        'Ultimate Beneficial Ownership (UBO) Registry Filings',
-        'Registered Office Updates & Regulatory Record Maintenance'
+        'SECP Annual Compliance',
+        'FBR Tax Compliance',
+        'Sales Tax Compliance',
+        'Provincial Tax Returns',
+        'EOBI / Social Security Compliance',
+        'License Renewals',
+        'Statutory Filings',
+        'Changes in Company Particulars',
+        'Directors / Shareholders Updates',
+        'Registered Office Updates',
+        'Regulatory Record Maintenance'
       ]
     },
     {
@@ -291,16 +298,17 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
       icon: AlertTriangle,
       title: 'Business Closure & Deregistration',
       authority: 'SECP, FBR, Revenue Authorities & Courts',
-      summary: 'Clean corporate exit, easy strike-off, voluntary winding up, tax cancellations, and formal settlements.',
+      summary: 'Clean corporate exit, easy strike-off, voluntary winding up, tax cancellations, and settlements.',
       items: [
-        'SECP Easy Exit Scheme & Company Strike-Off',
-        'Members & Creditors Voluntary Winding-Up',
-        'FBR NTN Cancellation & Clean Tax Certificates',
-        'Federal & Provincial Sales Tax Deregistration',
-        'PSEB, WeBOC & Customs Account Deregistration',
-        'Commercial Trade License & Municipality Cancellations',
-        'Formal Partnership Dissolution & Form D Filing',
-        'Regulatory Deregistration & Asset Realization Filings'
+        'Company Strike-Off',
+        'Company Winding-Up',
+        'NTN Cancellation',
+        'Sales Tax Deregistration',
+        'PSEB Deregistration',
+        'License Cancellation',
+        'Business Closure',
+        'Partnership Dissolution',
+        'Regulatory Deregistration'
       ]
     }
   ];
