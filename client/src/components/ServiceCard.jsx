@@ -24,24 +24,34 @@ export default function ServiceCard({ service }) {
         backgroundColor: '#FFFFFF',
         color: '#111827',
         borderRadius: '16px',
-        padding: '34px 28px',
+        padding: '36px 28px 32px 28px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
-        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.05)',
-        border: '1.5px solid #E5E7EB',
+        boxShadow: '0 10px 30px -4px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02)',
+        border: '1px solid #E2E8F0',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
+      {/* Top Subtle Gold Accent Line */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '3px',
+        background: 'linear-gradient(90deg, #E5B338 0%, #D4A017 50%, #B8860B 100%)'
+      }} />
+
       {/* Top Gold Icon Avatar */}
       <div 
         className="service-icon-box"
         style={{
-          width: '64px',
-          height: '64px',
-          borderRadius: '16px',
+          width: '68px',
+          height: '68px',
+          borderRadius: '18px',
           background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)',
           border: '1.5px solid #D4A017',
           display: 'flex',
@@ -49,7 +59,7 @@ export default function ServiceCard({ service }) {
           justifyContent: 'center',
           marginBottom: '20px',
           color: '#D4A017',
-          boxShadow: '0 6px 16px rgba(212, 160, 23, 0.15)',
+          boxShadow: '0 8px 20px rgba(212, 160, 23, 0.18)',
           transition: 'transform 0.3s ease, background 0.3s ease'
         }}
       >

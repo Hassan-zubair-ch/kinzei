@@ -11,6 +11,9 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
+import AuditAssurance from './pages/AuditAssurance';
+import AccountingReporting from './pages/AccountingReporting';
+import TaxAdvisory from './pages/TaxAdvisory';
 import RegistrationCompliance from './pages/RegistrationCompliance';
 import TaxCalculator from './pages/TaxCalculator';
 import OurTeam from './pages/OurTeam';
@@ -36,6 +39,10 @@ export default function App() {
             <Route path="/" element={<Home onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/about" element={<AboutUs onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/services" element={<Services onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/services/audit-assurance" element={<AuditAssurance onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/services/accounting-financial-reporting" element={<AccountingReporting onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/services/tax-advisory" element={<TaxAdvisory onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/services/taxation-services" element={<TaxAdvisory onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/services/registration-licensing-compliance" element={<RegistrationCompliance onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/registration-compliance" element={<RegistrationCompliance onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/services/detail/:id" element={<ServiceDetail onOpenSchedule={handleOpenSchedule} />} />
