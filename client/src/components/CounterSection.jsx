@@ -52,10 +52,10 @@ export default function CounterSection() {
   const animatedRef = useRef(false);
 
   const stats = [
-    { target: 350, label: 'Happy Clients', Icon: ClientsIcon },
-    { target: 500, label: 'Cases Completed', Icon: CasesIcon },
-    { target: 15, label: 'Years Of Experience', Icon: ExperienceIcon },
-    { target: 15, label: 'Professional Team', Icon: TeamIcon }
+    { target: 350, suffix: '+', label: 'Corporate & Tax Clients', Icon: ClientsIcon },
+    { target: 500, suffix: '+', label: 'Statutory Filings Completed', Icon: CasesIcon },
+    { target: 3, suffix: '+', label: 'Years Of Advisory (Est. 2023)', Icon: ExperienceIcon },
+    { target: 99, suffix: '%', label: 'Statutory Compliance Rate', Icon: TeamIcon }
   ];
 
   useEffect(() => {
@@ -145,11 +145,11 @@ export default function CounterSection() {
                   fontFamily: 'var(--font-heading)'
                 }}>
                   <span>{counts[idx]}</span>
-                  <span style={{ color: '#D4A017', fontWeight: '800', fontSize: '2.1rem' }}>+</span>
+                  <span style={{ color: '#D4A017', fontWeight: '800', fontSize: '2.1rem' }}>{stat.suffix}</span>
                 </div>
 
                 <div style={{
-                  fontSize: '1rem',
+                  fontSize: '0.96rem',
                   fontWeight: '700',
                   color: '#374151',
                   letterSpacing: '0.2px',
