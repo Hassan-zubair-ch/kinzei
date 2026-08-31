@@ -1,7 +1,4 @@
 import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 // SMTP Transporter configured for Hostinger Email
 const transporter = nodemailer.createTransport({
