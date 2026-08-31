@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "cd client && npm run dev",
-    "build": "cd client && npm install && npm run build",
+    "build": "cd client && npm install --include=dev && npm run build",
     "start": "cd server && node index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nodemailer": "^9.1.0"
   }
 }

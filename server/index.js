@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { servicesData } from './data/servicesData.js';
 import { calculatePakistanSalaryTax, calculateUSSalaryTax, calculateUKSalaryTax, calculateUAETax } from './data/taxSlabs.js';
+import { sendContactEmail, sendConsultationEmail } from './services/emailService.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -70,27 +71,49 @@ app.post('/api/calculate-tax', (req, res) => {
 });
 
 // Contact form submission endpoint
-app.post('/api/contact', (req, res) => {
-  const { name, email, phone, country, service, message } = req.body;
-  if (!name || !email || !message) {
-    return res.status(400).json({ success: false, message: 'Name, email, and message are required.' });
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, phone, country, service, message } = req.body;
+    if (!name || !email || !message) {
+      return res.status(400).json({ success: false, message: 'Name, email, and message are required.' });
+    }
+
+    await sendContactEmail({ name, email, phone, country, service, message });
+
+    return res.json({
+      success: true,
+      message: 'Thank you for reaching out to Kinzei Consultants. Your message has been sent to our official team, and our advisory specialist will contact you within 24 hours.'
+    });
+  } catch (error) {
+    console.error('Contact Form Email Error:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to send message via email. Please try again or reach our desk directly on WhatsApp at 03034063970.'
+    });
   }
-  return res.json({
-    success: true,
-    message: 'Thank you for reaching out to Kinzei Consultants. Our senior tax & advisory specialist will contact you within 24 hours.'
-  });
 });
 
 // Schedule consultation booking endpoint
-app.post('/api/consultation', (req, res) => {
-  const { fullName, email, phone, preferredDate, preferredTime, topic } = req.body;
-  if (!fullName || !email || !phone) {
-    return res.status(400).json({ success: false, message: 'Please provide full name, email, and phone number.' });
+app.post('/api/consultation', async (req, res) => {
+  try {
+    const { fullName, email, phone, preferredDate, preferredTime, topic, notes } = req.body;
+    if (!fullName || !email || !phone) {
+      return res.status(400).json({ success: false, message: 'Please provide full name, email, and phone number.' });
+    }
+
+    await sendConsultationEmail({ fullName, email, phone, preferredDate, preferredTime, topic, notes });
+
+    return res.json({
+      success: true,
+      message: `Consultation session successfully reserved for ${fullName}. Confirmation email sent to ${email}.`
+    });
+  } catch (error) {
+    console.error('Consultation Booking Email Error:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to schedule consultation session. Please connect directly via WhatsApp at 03034063970.'
+    });
   }
-  return res.json({
-    success: true,
-    message: `Consultation session successfully reserved for ${fullName}. Confirmation email sent to ${email}.`
-  });
 });
 
 app.get('/api/health', (req, res) => {
