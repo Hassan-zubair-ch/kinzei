@@ -576,8 +576,234 @@ export default function AboutUs({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* 4. CORE VALUE PILLARS */}
-      <section style={{ padding: '85px 0 90px 0', backgroundColor: '#FFFFFF' }}>
+      {/* 4. FOUNDER & CEO LEADERSHIP SECTION */}
+      <section style={{ 
+        padding: '90px 0 95px 0', 
+        backgroundColor: '#FFFFFF',
+        borderBottom: '1px solid #E2E8F0',
+        position: 'relative'
+      }}>
+        <div className="container" style={{ maxWidth: '1180px' }}>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'minmax(320px, 440px) 1fr',
+            gap: '55px',
+            alignItems: 'center'
+          }} className="ceo-leadership-grid">
+            
+            {/* Left Column: Executive Emblem Card */}
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}>
+              <div style={{
+                width: '100%',
+                maxWidth: '430px',
+                minHeight: '440px',
+                background: 'linear-gradient(145deg, #0B1120 0%, #0F172A 50%, #1E293B 100%)',
+                borderRadius: '20px',
+                border: '2px solid rgba(212, 160, 23, 0.35)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '40px 24px',
+                boxShadow: '0 20px 45px rgba(15, 23, 42, 0.12), inset 0 0 40px rgba(212, 160, 23, 0.05)',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                
+                {/* Subtle Radial Glow */}
+                <div style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '240px',
+                  height: '240px',
+                  background: 'radial-gradient(circle, rgba(212, 160, 23, 0.18) 0%, rgba(212, 160, 23, 0) 70%)',
+                  pointerEvents: 'none'
+                }} />
+
+                {/* Metallic Gold Seal Logo */}
+                <img
+                  src="/favicon.png"
+                  alt="Kinzei Consultants Executive Seal"
+                  style={{
+                    width: '180px',
+                    height: '180px',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5))',
+                    marginBottom: '20px',
+                    position: 'relative',
+                    zIndex: 1
+                  }}
+                />
+
+                <div style={{
+                  color: '#FFFFFF',
+                  fontSize: '1.25rem',
+                  fontWeight: 900,
+                  fontFamily: 'var(--font-heading)',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  textAlign: 'center',
+                  marginBottom: '6px',
+                  position: 'relative',
+                  zIndex: 1
+                }}>
+                  Kinzei Consultants
+                </div>
+
+                <div style={{
+                  color: '#D4A017',
+                  fontSize: '0.86rem',
+                  fontWeight: 700,
+                  letterSpacing: '1.2px',
+                  textTransform: 'uppercase',
+                  textAlign: 'center',
+                  position: 'relative',
+                  zIndex: 1
+                }}>
+                  Executive Leadership
+                </div>
+
+              </div>
+
+              {/* Floating Badge below emblem */}
+              <div style={{
+                marginTop: '-22px',
+                background: '#FFFFFF',
+                border: '1.5px solid #D4A017',
+                borderRadius: '30px',
+                padding: '8px 24px',
+                boxShadow: '0 8px 20px rgba(0,0,0,0.08)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                zIndex: 3
+              }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#D4A017' }} />
+                <span style={{ fontSize: '0.84rem', fontWeight: 800, color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.6px' }}>
+                  Professional Experience: 2021 – Present
+                </span>
+              </div>
+            </div>
+
+            {/* Right Column: Founder & CEO Profile */}
+            <div>
+              
+              <div style={{
+                fontSize: '1.05rem',
+                color: '#D4A017',
+                fontStyle: 'italic',
+                fontWeight: 700,
+                marginBottom: '6px',
+                fontFamily: 'Georgia, serif'
+              }}>
+                Managing Partner &amp; Chief Executive Officer
+              </div>
+
+              <h2 style={{
+                fontSize: 'clamp(2.2rem, 3.5vw, 2.7rem)',
+                fontWeight: 900,
+                color: '#0F172A',
+                marginBottom: '6px',
+                lineHeight: 1.15,
+                fontFamily: 'var(--font-heading)'
+              }}>
+                Amina Batool
+              </h2>
+
+              <div style={{
+                fontSize: '0.96rem',
+                color: '#64748B',
+                fontWeight: 700,
+                marginBottom: '18px',
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignItems: 'center',
+                gap: '8px'
+              }}>
+                <span style={{ color: '#0F172A' }}>CA Finalist</span>
+                <span style={{ color: '#CBD5E1' }}>•</span>
+                <span>BBA (Hons) – Finance</span>
+                <span style={{ color: '#CBD5E1' }}>•</span>
+                <span style={{ color: '#B8860B' }}>Taxation &amp; Bookkeeping Certified</span>
+              </div>
+
+              <div style={{
+                width: '65px',
+                height: '3px',
+                backgroundColor: '#D4A017',
+                marginBottom: '20px',
+                borderRadius: '2px'
+              }} />
+
+              {/* Bio Narrative */}
+              <div style={{
+                fontSize: '0.96rem',
+                color: '#334155',
+                lineHeight: 1.75,
+                marginBottom: '20px',
+                fontWeight: 500
+              }}>
+                <p style={{ margin: '0 0 14px 0' }}>
+                  <strong>Amina Batool</strong>, Chief Executive Officer of <strong>Kinzei Consultants (Private) Limited</strong>, is a finance and corporate advisory professional with intensive hands-on experience in reputable Chartered Accountancy practice environments since <strong>2021</strong>. She steers the firm’s statutory audit engagements, regulatory compliance, and cross-border financial advisory practice.
+                </p>
+                <p style={{ margin: '0 0 14px 0' }}>
+                  Her professional expertise encompasses full-scope financial reporting under <strong>IFRS</strong>, general ledger management, accounts payable &amp; receivable, cash flow reconciliations, payroll &amp; expense management, and corporate tax compliance. In audit and assurance, she oversees financial statement audits, internal control reviews, substantive testing, analytical procedures, and statutory audit working papers.
+                </p>
+                <p style={{ margin: 0 }}>
+                  With proven cross-border consulting acumen serving clients across <strong>US, UK, UAE, and Pakistan</strong>, she specializes in business registrations, budgeting, corporate governance, and cloud accounting implementations across <strong>Xero, QuickBooks, Yardi, EPOSmatic, Fast Accounts, and Zoho</strong>.
+                </p>
+              </div>
+
+              {/* Core Competency Badges */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: '10px',
+                marginTop: '20px',
+                paddingTop: '18px',
+                borderTop: '1px solid #E2E8F0'
+              }} className="ceo-skills-grid">
+                {[
+                  "Audit & Assurance (IFRS Reporting)",
+                  "Tax Preparation & Regulatory Filings",
+                  "Cross-Border Advisory (US, UK, UAE, PK)",
+                  "ERP & Cloud Accounting (Xero, QuickBooks, Yardi)",
+                  "Budgeting & Corporate Financial Strategy",
+                  "Internal Controls & Risk Assessment"
+                ].map((skill, sIdx) => (
+                  <div key={sIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      backgroundColor: '#D4A017',
+                      flexShrink: 0
+                    }} />
+                    <span style={{ fontSize: '0.86rem', fontWeight: 700, color: '#1E293B' }}>
+                      {skill}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5. CORE VALUE PILLARS */}
+      <section style={{ padding: '85px 0 90px 0', backgroundColor: '#F8FAFC' }}>
         <div className="container">
           
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px auto' }}>
@@ -891,9 +1117,14 @@ export default function AboutUs({ onOpenSchedule }) {
           box-shadow: 0 16px 35px rgba(212, 160, 23, 0.15) !important;
         }
         @media (max-width: 992px) {
-          .about-narrative-grid, .values-grid, .about-pillars-grid, .firm-overview-grid {
+          .about-narrative-grid, .values-grid, .about-pillars-grid, .firm-overview-grid, .ceo-leadership-grid {
             grid-template-columns: 1fr !important;
             gap: 35px !important;
+          }
+        }
+        @media (max-width: 580px) {
+          .ceo-skills-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>
