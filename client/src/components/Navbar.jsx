@@ -2,7 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import KinzeiLogo from './KinzeiLogo';
 import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag } from './CountryFlags';
-import { ChevronDown, Menu, X, Calendar } from 'lucide-react';
+import { ChevronDown, Menu, X, Calendar, Users } from 'lucide-react';
+
+function StaffingIcon({ size = 24 }) {
+  return (
+    <div style={{
+      width: `${size}px`,
+      height: `${size}px`,
+      borderRadius: '50%',
+      background: 'linear-gradient(135deg, #D4A017 0%, #B8860B 100%)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.18)',
+      flexShrink: 0
+    }}>
+      <Users size={size * 0.58} color="#FFFFFF" strokeWidth={2.2} />
+    </div>
+  );
+}
 
 export default function Navbar({ onOpenSchedule }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -35,12 +53,6 @@ export default function Navbar({ onOpenSchedule }) {
     setMobileServicesOpen(false);
   }, [location.pathname]);
 
-  const handleCountrySelect = (countryCode) => {
-    setDropdownOpen(false);
-    setMobileMenuOpen(false);
-    navigate(`/services?country=${countryCode}`);
-  };
-
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
@@ -50,13 +62,14 @@ export default function Navbar({ onOpenSchedule }) {
     { name: 'Contact Us', path: '/contact' },
   ];
 
-  const countryItems = [
-    { code: 'pk', label: 'Pakistan Services', Flag: PKFlag },
-    { code: 'us', label: 'USA Services', Flag: USFlag },
-    { code: 'uk', label: 'UK Services', Flag: UKFlag },
-    { code: 'uae', label: 'UAE Services', Flag: UAEFlag },
-    { code: 'uks', label: 'UKS (Saudi Arabia)', Flag: KSAFlag },
-    { code: 'de', label: 'Germany Services', Flag: GermanyFlag },
+  const serviceDropdownItems = [
+    { code: 'inhouse', label: 'In-House Staffing & Secondment', path: '/services/detail/inhouse-specialist-staffing', Flag: StaffingIcon },
+    { code: 'pk', label: 'Pakistan Services', path: '/services?country=pk', Flag: PKFlag },
+    { code: 'us', label: 'USA Services', path: '/services?country=us', Flag: USFlag },
+    { code: 'uk', label: 'UK Services', path: '/services?country=uk', Flag: UKFlag },
+    { code: 'uae', label: 'UAE Services', path: '/services?country=uae', Flag: UAEFlag },
+    { code: 'uks', label: 'UKS (Saudi Arabia)', path: '/services?country=uks', Flag: KSAFlag },
+    { code: 'de', label: 'Germany Services', path: '/services?country=de', Flag: GermanyFlag },
   ];
 
   return (
@@ -124,7 +137,7 @@ export default function Navbar({ onOpenSchedule }) {
                       position: 'absolute',
                       top: '100%',
                       left: '0',
-                      width: '260px',
+                      width: '320px',
                       backgroundColor: '#FFFFFF',
                       borderRadius: '12px',
                       boxShadow: '0 18px 40px rgba(0, 0, 0, 0.25)',
@@ -133,12 +146,15 @@ export default function Navbar({ onOpenSchedule }) {
                       animation: 'fadeIn 0.2s ease-out',
                       border: '1.5px solid #8C6B2F'
                     }}>
-                      {countryItems.map((item) => {
-                        const FlagComponent = item.Flag;
+                      {serviceDropdownItems.map((item, idx) => {
+                        const IconComponent = item.Flag;
                         return (
                           <div
                             key={item.code}
-                            onClick={() => handleCountrySelect(item.code)}
+                            onClick={() => {
+                              setDropdownOpen(false);
+                              navigate(item.path);
+                            }}
                             style={{
                               display: 'flex',
                               alignItems: 'center',
@@ -148,7 +164,7 @@ export default function Navbar({ onOpenSchedule }) {
                               color: '#111827',
                               fontWeight: 700,
                               fontSize: '0.92rem',
-                              borderBottom: '1px solid #F3F4F6',
+                              borderBottom: idx === serviceDropdownItems.length - 1 ? 'none' : '1px solid #F3F4F6',
                               transition: 'all 0.2s ease'
                             }}
                             onMouseEnter={(e) => {
@@ -160,8 +176,8 @@ export default function Navbar({ onOpenSchedule }) {
                               e.currentTarget.style.color = '#111827';
                             }}
                           >
-                            <FlagComponent size={24} />
-                            <span>{item.label}</span>
+                            <IconComponent size={24} />
+                            <span style={{ whiteSpace: 'nowrap' }}>{item.label}</span>
                           </div>
                         );
                       })}
@@ -292,34 +308,37 @@ export default function Navbar({ onOpenSchedule }) {
 
                   {mobileServicesOpen && (
                     <div style={{
-                      display: 'grid',
-                      gridTemplateColumns: '1fr 1fr',
+                      display: 'flex',
+                      flexDirection: 'column',
                       gap: '8px',
                       marginTop: '10px',
                       paddingTop: '6px'
                     }}>
-                      {countryItems.map((item) => {
-                        const FlagComponent = item.Flag;
+                      {serviceDropdownItems.map((item) => {
+                        const IconComponent = item.Flag;
                         return (
                           <div
                             key={item.code}
-                            onClick={() => handleCountrySelect(item.code)}
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              navigate(item.path);
+                            }}
                             style={{
                               display: 'flex',
                               alignItems: 'center',
-                              gap: '8px',
+                              gap: '12px',
                               color: '#F8FAFC',
                               fontWeight: 700,
-                              fontSize: '0.85rem',
-                              padding: '10px 12px',
+                              fontSize: '0.90rem',
+                              padding: '10px 14px',
                               backgroundColor: 'rgba(255, 255, 255, 0.05)',
                               border: '1px solid rgba(255, 255, 255, 0.1)',
                               borderRadius: '8px',
                               cursor: 'pointer'
                             }}
                           >
-                            <FlagComponent size={18} />
-                            <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.code.toUpperCase()}</span>
+                            <IconComponent size={20} />
+                            <span>{item.label}</span>
                           </div>
                         );
                       })}

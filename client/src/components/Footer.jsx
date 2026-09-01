@@ -151,6 +151,7 @@ export default function Footer() {
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '9px', fontSize: '0.88rem' }}>
               {[
+                { name: 'In-House Dedicated Staffing & Secondment', id: 'inhouse-specialist-staffing' },
                 { name: 'Audit & Assurance', id: 'audit-assurance' },
                 { name: 'Taxation & FBR Litigation', id: 'taxation-services' },
                 { name: 'Corporate Business Registration', id: 'business-registration-services' },
