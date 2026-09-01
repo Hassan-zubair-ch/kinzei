@@ -1,6 +1,31 @@
 export const servicesData = {
   pk: [
     {
+      id: "inhouse-specialist-staffing",
+      country: "pk",
+      countryName: "Pakistan",
+      title: "In-House Dedicated Staffing & Secondment",
+      shortDescription: "Provision of dedicated accounting and tax specialists who work directly inside your company under our continuous Chartered Accountant supervision.",
+      icon: "Users",
+      bannerImage: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop",
+      overview: "Get fully dedicated, specialist accounting and taxation professionals placed directly into your company’s finance department. The personnel remain on Kinzei Consultants' payroll while working exclusively for your business under a clear B2B service contract—supervised, reviewed, and supported by our senior Chartered Accountants.",
+      paragraphs: [
+        "Finding, training, and retaining competent accounting and tax personnel is one of the biggest challenges for growing businesses. With Kinzei Consultants' Managed In-House Staffing & Secondment solution, your company gets high-caliber finance professionals deployed directly into your office or embedded remotely, completely eliminating your recruitment overheads, HR liabilities, and training burdens.",
+        "Under this arrangement, the specialist is an employee of Kinzei Consultants (Private) Limited, and your company engages with us through a straightforward professional service contract. You receive daily dedicated execution of accounts payable, receivable, general ledger, payroll, bank reconciliations, and tax return preparation.",
+        "Crucially, all work performed by the embedded specialist is continuously monitored, reviewed, and backed by Kinzei Consultants' senior Chartered Accountants. This ensures strict adherence to IFRS, FBR and Provincial Revenue Authority tax regulations, internal control rigor, and zero compliance penalties."
+      ],
+      features: [
+        "Dedicated On-Site or Remote Specialist: Fully trained accounts or tax professional working exclusively for your company.",
+        "Direct Chartered Accountant Supervision: Continuous quality control, technical oversight, and review of all working papers by senior CA partners.",
+        "Zero HR & Employer Liabilities: Staff is employed on Kinzei's payroll—no gratuity, EOBI, leave liabilities, or severance issues for your business.",
+        "Seamless Backup & Replacement: Guaranteed instant backup support and replacement if your assigned staff is on leave or unavailable.",
+        "Complete Bookkeeping & Ledger Management: Daily invoicing, bill processing, cash/bank reconciliations, and monthly financial closings.",
+        "Full Tax Compliance & E-Filing: Timely preparation of monthly sales tax returns (FBR / PRA / SRB), withholding statements, and advance tax.",
+        "Accounting Software Proficiency: Ready expertise in QuickBooks, Xero, ERP software, Fast Accounts, and Zoho Books.",
+        "Flexible B2B Secondment Contracts: Tailored full-time, part-time, or project-based agreements designed for startups, SMEs, and corporate entities."
+      ]
+    },
+    {
       id: "audit-assurance",
       country: "pk",
       countryName: "Pakistan",

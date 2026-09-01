@@ -744,22 +744,19 @@ export default function AboutUs({ onOpenSchedule }) {
                 borderRadius: '2px'
               }} />
 
-              {/* Bio Narrative */}
+              {/* Bio Narrative - Simple, Elegant & Short */}
               <div style={{
-                fontSize: '0.96rem',
+                fontSize: '1rem',
                 color: '#334155',
                 lineHeight: 1.75,
                 marginBottom: '20px',
                 fontWeight: 500
               }}>
-                <p style={{ margin: '0 0 14px 0' }}>
-                  <strong>Amina Batool</strong>, Chief Executive Officer of <strong>Kinzei Consultants (Private) Limited</strong>, is a finance and corporate advisory professional with intensive hands-on experience in reputable Chartered Accountancy practice environments since <strong>2021</strong>. She steers the firm’s statutory audit engagements, regulatory compliance, and cross-border financial advisory practice.
-                </p>
-                <p style={{ margin: '0 0 14px 0' }}>
-                  Her professional expertise encompasses full-scope financial reporting under <strong>IFRS</strong>, general ledger management, accounts payable &amp; receivable, cash flow reconciliations, payroll &amp; expense management, and corporate tax compliance. In audit and assurance, she oversees financial statement audits, internal control reviews, substantive testing, analytical procedures, and statutory audit working papers.
+                <p style={{ margin: '0 0 12px 0' }}>
+                  <strong>Amina Batool</strong>, Chief Executive Officer of <strong>Kinzei Consultants (Private) Limited</strong>, brings active practice experience from reputable Chartered Accountancy firms since <strong>2021</strong>. She leads the firm’s statutory accounting, audit, and tax compliance advisory.
                 </p>
                 <p style={{ margin: 0 }}>
-                  With proven cross-border consulting acumen serving clients across <strong>US, UK, UAE, and Pakistan</strong>, she specializes in business registrations, budgeting, corporate governance, and cloud accounting implementations across <strong>Xero, QuickBooks, Yardi, EPOSmatic, Fast Accounts, and Zoho</strong>.
+                  Her expertise includes full-cycle accounting under IFRS, corporate tax filings, and internal control reviews for businesses across Pakistan, US, UK, and UAE. She also specializes in cloud accounting implementations across QuickBooks, Xero, Zoho, and ERP systems.
                 </p>
               </div>
 
@@ -767,18 +764,16 @@ export default function AboutUs({ onOpenSchedule }) {
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '10px',
-                marginTop: '20px',
-                paddingTop: '18px',
+                gap: '12px',
+                marginTop: '18px',
+                paddingTop: '16px',
                 borderTop: '1px solid #E2E8F0'
               }} className="ceo-skills-grid">
                 {[
                   "Audit & Assurance (IFRS Reporting)",
-                  "Tax Preparation & Regulatory Filings",
-                  "Cross-Border Advisory (US, UK, UAE, PK)",
-                  "ERP & Cloud Accounting (Xero, QuickBooks, Yardi)",
-                  "Budgeting & Corporate Financial Strategy",
-                  "Internal Controls & Risk Assessment"
+                  "Corporate Tax & Statutory Compliance",
+                  "Cross-Border Accounting (US, UK, UAE, PK)",
+                  "Cloud ERP Systems (QuickBooks, Xero, Zoho)"
                 ].map((skill, sIdx) => (
                   <div key={sIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <div style={{
@@ -788,7 +783,7 @@ export default function AboutUs({ onOpenSchedule }) {
                       backgroundColor: '#D4A017',
                       flexShrink: 0
                     }} />
-                    <span style={{ fontSize: '0.86rem', fontWeight: 700, color: '#1E293B' }}>
+                    <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#1E293B' }}>
                       {skill}
                     </span>
                   </div>

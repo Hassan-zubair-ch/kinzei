@@ -284,6 +284,7 @@ export default function ScheduleModal({ isOpen, onClose }) {
               >
                 <option value="Pakistan Tax & Financial Advisory">Pakistan Income / Sales Tax Advisory</option>
                 <option value="Statutory Audit & Assurance">Statutory Financial Audit</option>
+                <option value="In-House Dedicated Staffing">In-House Dedicated Staffing (Under CA Oversight)</option>
                 <option value="SECP Company Registration">SECP Company Incorporation</option>
                 <option value="International Desk (US, UK, UAE, Saudi, German)">International Desk (US, UK, UAE, Saudi, German)</option>
               </select>

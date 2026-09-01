@@ -510,6 +510,7 @@ export default function ContactUs() {
                     >
                       <option value="Taxation Services">Taxation Services</option>
                       <option value="Audit & Assurance">Audit & Assurance</option>
+                      <option value="In-House Dedicated Staffing">In-House Dedicated Staffing (Under CA Oversight)</option>
                       <option value="Business Registration">Business Registration</option>
                       <option value="Retainership Services">Retainership Services</option>
                       <option value="US/UK Entity Advisory">US/UK/UAE Entity Advisory</option>
