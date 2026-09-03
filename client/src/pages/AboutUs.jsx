@@ -99,7 +99,7 @@ export default function AboutUs({ onOpenSchedule }) {
               <div style={{
                 width: '100%',
                 maxWidth: '430px',
-                aspectRatio: '800 / 1007',
+                aspectRatio: '738 / 985',
                 borderRadius: '20px',
                 border: '2px solid rgba(212, 160, 23, 0.45)',
                 boxShadow: '0 20px 45px rgba(15, 23, 42, 0.16)',
