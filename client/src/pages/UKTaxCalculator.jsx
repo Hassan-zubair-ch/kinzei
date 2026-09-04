@@ -25,6 +25,7 @@ import {
   Award
 } from 'lucide-react';
 import { UKFlag, USFlag, PKFlag } from '../components/CountryFlags';
+import UKBreakdownTable from '../components/UKBreakdownTable';
 import { 
   UK_TAX_YEARS, 
   UK_CALCULATORS_DIRECTORY, 
@@ -1258,88 +1259,12 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
               </div>
 
               {/* COMPLETE BREAKDOWN TABLE (Matching TheSalaryCalculator Table Format) */}
-              <div style={{
-                borderRadius: '12px',
-                border: '1px solid #E2E8F0',
-                overflow: 'hidden',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.04)',
-                marginBottom: '30px'
-              }}>
-                <div style={{
-                  backgroundColor: '#0F172A',
-                  color: '#FFFFFF',
-                  padding: '14px 20px',
-                  fontSize: '0.96rem',
-                  fontWeight: 800,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between'
-                }}>
-                  <span>Complete UK PAYE Salary & Deductions Breakdown</span>
-                  <span style={{ fontSize: '0.8rem', color: '#D4A017', fontWeight: 600 }}>
-                    Tax Year: {taxYear} • {isScotland ? 'Scottish Bands' : 'England & Wales Rates'}
-                  </span>
-                </div>
-
-                <div style={{ overflowX: 'auto' }}>
-                  <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'right', fontSize: '0.88rem' }}>
-                    <thead>
-                      <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '2px solid #E2E8F0', color: '#475569', fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase' }}>
-                        <th style={{ padding: '12px 16px', textAlign: 'left' }}>Period</th>
-                        <th style={{ padding: '12px 14px' }}>Gross Salary</th>
-                        <th style={{ padding: '12px 14px' }}>Tax-free</th>
-                        <th style={{ padding: '12px 14px' }}>Total Taxable</th>
-                        <th style={{ padding: '12px 14px' }}>Total Tax</th>
-                        <th style={{ padding: '12px 14px' }}>Nat. Insurance</th>
-                        {takeHomeResult.periods.studentLoan.yearly > 0 && <th style={{ padding: '12px 14px' }}>Student Loan</th>}
-                        {takeHomeResult.periods.pension.yearly > 0 && <th style={{ padding: '12px 14px' }}>Pension</th>}
-                        <th style={{ padding: '12px 14px' }}>Total Deductions</th>
-                        <th style={{ padding: '12px 16px', color: '#0F172A', fontWeight: 800, backgroundColor: '#FEF3C7' }}>Take-Home Pay</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {[
-                        { key: 'yearly', label: 'Yearly' },
-                        { key: 'monthly', label: 'Monthly' },
-                        { key: 'fourWeekly', label: '4 Weekly' },
-                        { key: 'twoWeekly', label: '2 Weekly' },
-                        { key: 'weekly', label: 'Weekly' },
-                        { key: 'daily', label: 'Daily' }
-                      ].filter(p => showPeriods[p.key]).map((p, idx) => {
-                        const isEven = idx % 2 === 0;
-                        const grossVal = takeHomeResult.periods.gross[p.key];
-                        const allowanceVal = takeHomeResult.personalAllowance / (p.key === 'yearly' ? 1 : p.key === 'monthly' ? 12 : p.key === 'fourWeekly' ? 13 : p.key === 'twoWeekly' ? 26 : p.key === 'weekly' ? 52 : 260);
-                        const taxableVal = takeHomeResult.periods.taxable[p.key];
-                        const taxVal = takeHomeResult.periods.tax[p.key];
-                        const niVal = takeHomeResult.periods.ni[p.key];
-                        const slVal = takeHomeResult.periods.studentLoan[p.key];
-                        const penVal = takeHomeResult.periods.pension[p.key];
-                        const deductionsVal = taxVal + niVal + slVal + penVal;
-                        const takeHomeVal = takeHomeResult.periods.takeHome[p.key];
-
-                        return (
-                          <tr key={p.key} style={{ backgroundColor: isEven ? '#FFFFFF' : '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
-                            <td style={{ padding: '12px 16px', textAlign: 'left', fontWeight: 700, color: '#0F172A' }}>
-                              {p.label}
-                            </td>
-                            <td style={{ padding: '12px 14px', fontWeight: 600 }}>{formatGBP(grossVal)}</td>
-                            <td style={{ padding: '12px 14px', color: '#64748B' }}>{formatGBP(allowanceVal)}</td>
-                            <td style={{ padding: '12px 14px' }}>{formatGBP(taxableVal)}</td>
-                            <td style={{ padding: '12px 14px', color: '#B45309', fontWeight: 600 }}>{formatGBP(taxVal)}</td>
-                            <td style={{ padding: '12px 14px', color: '#334155' }}>{formatGBP(niVal)}</td>
-                            {takeHomeResult.periods.studentLoan.yearly > 0 && <td style={{ padding: '12px 14px', color: '#475569' }}>{formatGBP(slVal)}</td>}
-                            {takeHomeResult.periods.pension.yearly > 0 && <td style={{ padding: '12px 14px', color: '#475569' }}>{formatGBP(penVal)}</td>}
-                            <td style={{ padding: '12px 14px', fontWeight: 700, color: '#B4820E' }}>{formatGBP(deductionsVal)}</td>
-                            <td style={{ padding: '12px 16px', fontWeight: 800, color: '#047857', backgroundColor: '#FEF3C7', fontSize: '0.92rem' }}>
-                              {formatGBP(takeHomeVal)}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <UKBreakdownTable
+                takeHomeResult={takeHomeResult}
+                title="Complete UK Take-Home Pay Breakdown"
+                taxYear={taxYear}
+                isScotland={isScotland}
+              />
             </div>
           )}
 
@@ -1414,6 +1339,15 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
                   <span style={{ fontSize: '0.82rem', color: '#64748B' }}>In-pocket per hour worked</span>
                 </div>
               </div>
+
+              {/* Hourly Wage Breakdown Table (Matching thesalarycalculator.co.uk/hourly.php) */}
+              <UKBreakdownTable
+                takeHomeResult={hourlyWageResult.takeHomeResult}
+                title="Hourly Wage PAYE Breakdown Table"
+                customSubtitle={`With an hourly wage of £${Number(hourlyRate).toFixed(2)} and ${hourlyHoursPerWeek} hours per week (${hourlyDaysPerWeek} days/week), your estimated take-home is as follows:`}
+                taxYear={taxYear}
+                isScotland={isScotland}
+              />
             </div>
           )}
 
@@ -1538,6 +1472,15 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
                   <span style={{ fontSize: '0.82rem', color: '#64748B' }}>Tax: {formatGBP(requiredSalaryResult.result.incomeTax)} • NI: {formatGBP(requiredSalaryResult.result.nationalInsurance)}</span>
                 </div>
               </div>
+
+              {/* Required Salary Breakdown Table */}
+              <UKBreakdownTable
+                takeHomeResult={requiredSalaryResult.result}
+                title="Required Salary PAYE Breakdown"
+                customSubtitle={`To take home ${formatGBP(desiredMonthlyNet)} per month, you require a gross annual salary of ${formatGBP(requiredSalaryResult.requiredAnnualSalary)}`}
+                taxYear={taxYear}
+                isScotland={isScotland}
+              />
             </div>
           )}
 
@@ -1667,6 +1610,15 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
                   <span style={{ fontSize: '0.82rem', color: '#64748B' }}>If working {standardFteHours}h full time</span>
                 </div>
               </div>
+
+              {/* Pro-Rata Breakdown Table */}
+              <UKBreakdownTable
+                takeHomeResult={proRataResult.proRataTakeHome}
+                title="Pro-Rata Part-Time PAYE Breakdown"
+                customSubtitle={`Breakdown for ${actualPartHours} hours/week (${proRataResult.proRataPercentage} of ${standardFteHours}h full-time @ ${formatGBP(proRataResult.fteSalary)})`}
+                taxYear={taxYear}
+                isScotland={isScotland}
+              />
             </div>
           )}
 

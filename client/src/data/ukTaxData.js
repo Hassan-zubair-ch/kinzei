@@ -30,13 +30,13 @@ export const UK_TAX_YEARS = {
       mainRate: 0.08, // 8% between PT and UEL
       upperRate: 0.02 // 2% above UEL
     },
-    // Student Loan Annual Thresholds
+    // Student Loan Annual Thresholds (2026/27)
     studentLoans: {
-      plan1: { threshold: 24990, rate: 0.09 },
-      plan2: { threshold: 27295, rate: 0.09 },
-      plan4: { threshold: 31395, rate: 0.09 }, // Scotland
-      plan5: { threshold: 25000, rate: 0.09 },
-      postgrad: { threshold: 21000, rate: 0.06 }
+      plan1: { threshold: 26933, rate: 0.09 },
+      plan2: { threshold: 29400, rate: 0.09 },
+      plan4: { threshold: 33800, rate: 0.09 }, // Scotland
+      plan5: { threshold: 25133, rate: 0.09 },
+      postgrad: { threshold: 21200, rate: 0.06 }
     },
     autoEnrolment: {
       qualifyingEarningsLower: 6240,
@@ -239,7 +239,8 @@ export function calculateUKTakeHome({
   // Additional Options
   isOverStatePensionAge = false, // No Employee NI
   isBlind = false,
-  hasMarriageAllowance = false
+  hasMarriageAllowance = false,
+  _isPriorYearCalc = false
 }) {
   const config = UK_TAX_YEARS[taxYear] || UK_TAX_YEARS['2026/27'];
 
@@ -394,42 +395,145 @@ export function calculateUKTakeHome({
   const totalDeductions = incomeTax + nationalInsurance + studentLoan + preTaxPensionDeduction + postTaxPensionDeduction;
   const takeHomePay = Math.max(0, totalGrossIncome - totalSalarySacrifice - totalDeductions);
 
-  // Frequency breakdowns
-  const toPeriods = (annualAmount) => ({
-    yearly: annualAmount,
-    monthly: annualAmount / 12,
-    fourWeekly: annualAmount / 13,
-    twoWeekly: annualAmount / 26,
-    weekly: annualAmount / 52,
-    daily: annualAmount / 260
-  });
+  // Accurate 2-decimal currency helpers
+  const round2 = (num) => Math.round((Number(num) || 0) * 100) / 100;
+  const floor2 = (num) => Math.floor((Number(num) || 0) * 100) / 100;
+
+  // Detailed tax bands breakdown
+  const taxBandsBreakdown = [];
+  if (flatTaxRate !== null) {
+    taxBandsBreakdown.push({
+      name: `Flat Rate (${(flatTaxRate * 100).toFixed(0)}%)`,
+      rate: flatTaxRate,
+      taxable: round2(taxablePay),
+      tax: round2(incomeTax)
+    });
+  } else {
+    taxBandsBreakdown.push({
+      name: 'Personal Allowance (0%)',
+      rate: 0,
+      taxable: round2(Math.min(adjustedNetIncome, effectiveAllowance)),
+      tax: 0
+    });
+    const activeBands = isScotland ? [
+      { name: 'Starter Rate (19%)', min: 0, max: 2306, rate: 0.19 },
+      { name: 'Basic Rate (20%)', min: 2306, max: 13991, rate: 0.20 },
+      { name: 'Intermediate Rate (21%)', min: 13991, max: 31092, rate: 0.21 },
+      { name: 'Higher Rate (42%)', min: 31092, max: 62430, rate: 0.42 },
+      { name: 'Advanced Rate (45%)', min: 62430, max: 125140, rate: 0.45 },
+      { name: 'Top Rate (48%)', min: 125140, max: Infinity, rate: 0.48 }
+    ] : [
+      { name: 'Basic Rate (20%)', min: 0, max: 37700, rate: 0.20 },
+      { name: 'Higher Rate (40%)', min: 37700, max: 125140, rate: 0.40 },
+      { name: 'Additional Rate (45%)', min: 125140, max: Infinity, rate: 0.45 }
+    ];
+
+    for (const b of activeBands) {
+      if (taxablePay > b.min) {
+        const taxableInBand = Math.min(taxablePay - b.min, b.max - b.min);
+        const taxInBand = taxableInBand * b.rate;
+        taxBandsBreakdown.push({
+          name: b.name,
+          rate: b.rate,
+          taxable: round2(taxableInBand),
+          tax: round2(taxInBand)
+        });
+      }
+    }
+  }
+
+  // Calculate prior tax year (2025/26) take home for side-by-side comparison
+  let priorYearTakeHomePeriods = null;
+  if (!_isPriorYearCalc && taxYear === '2026/27') {
+    try {
+      const priorResult = calculateUKTakeHome({
+        annualSalary: grossSalary,
+        isScotland,
+        taxYear: '2025/26',
+        taxCode,
+        studentLoanPlan,
+        hasPostgradLoan,
+        pensionType,
+        pensionPercent,
+        pensionFixedAmount,
+        pensionReliefType,
+        bonusAmount,
+        overtimeHours15,
+        overtimeHours20,
+        standardWeeklyHours,
+        overtimeCashMonthly,
+        childcareVouchersMonthly,
+        salarySacrificeAnnual,
+        taxableBenefitsAnnual,
+        isOverStatePensionAge,
+        isBlind,
+        hasMarriageAllowance,
+        _isPriorYearCalc: true
+      });
+      priorYearTakeHomePeriods = priorResult.periods.takeHome;
+    } catch (e) {
+      console.error('Error calculating prior year comparison:', e);
+    }
+  }
+
+  const periodsList = [
+    { key: 'yearly', divisor: 1, taxFn: round2 },
+    { key: 'monthly', divisor: 12, taxFn: floor2 },
+    { key: 'fourWeekly', divisor: 13, taxFn: round2 },
+    { key: 'twoWeekly', divisor: 26, taxFn: round2 },
+    { key: 'weekly', divisor: 52, taxFn: round2 },
+    { key: 'daily', divisor: 260, taxFn: floor2 }
+  ];
+
+  const periods = {
+    gross: {},
+    taxable: {},
+    tax: {},
+    ni: {},
+    studentLoan: {},
+    pension: {},
+    takeHome: {},
+    takeHomePriorYear: {}
+  };
+
+  for (const p of periodsList) {
+    const g = round2(totalGrossIncome / p.divisor);
+    const tb = round2(taxablePay / p.divisor);
+    const t = p.taxFn(incomeTax / p.divisor);
+    const n = round2(nationalInsurance / p.divisor);
+    const sl = round2(studentLoan / p.divisor);
+    const pen = round2(employeePension / p.divisor);
+    const th = round2(g - t - n - sl - pen);
+
+    periods.gross[p.key] = g;
+    periods.taxable[p.key] = tb;
+    periods.tax[p.key] = t;
+    periods.ni[p.key] = n;
+    periods.studentLoan[p.key] = sl;
+    periods.pension[p.key] = pen;
+    periods.takeHome[p.key] = th;
+    periods.takeHomePriorYear[p.key] = priorYearTakeHomePeriods ? priorYearTakeHomePeriods[p.key] : th;
+  }
 
   return {
-    grossSalary,
-    overtimeAnnual,
-    bonusAnnual,
-    totalGrossIncome,
-    adjustedGross,
-    personalAllowance: effectiveAllowance,
-    taxablePay,
-    incomeTax: Math.round(incomeTax),
-    nationalInsurance: Math.round(nationalInsurance),
-    studentLoan: Math.round(studentLoan),
-    employeePension: Math.round(employeePension),
-    employerPension: Math.round(employerPension),
-    totalDeductions: Math.round(totalDeductions),
-    takeHomePay: Math.round(takeHomePay),
+    grossSalary: round2(grossSalary),
+    overtimeAnnual: round2(overtimeAnnual),
+    bonusAnnual: round2(bonusAnnual),
+    totalGrossIncome: round2(totalGrossIncome),
+    adjustedGross: round2(adjustedGross),
+    personalAllowance: round2(effectiveAllowance),
+    taxablePay: round2(taxablePay),
+    incomeTax: round2(incomeTax),
+    nationalInsurance: round2(nationalInsurance),
+    studentLoan: round2(studentLoan),
+    employeePension: round2(employeePension),
+    employerPension: round2(employerPension),
+    totalDeductions: round2(totalDeductions),
+    takeHomePay: round2(takeHomePay),
     effectiveTaxRate: totalGrossIncome > 0 ? (incomeTax / totalGrossIncome) : 0,
     effectiveTotalDeductionRate: totalGrossIncome > 0 ? (totalDeductions / totalGrossIncome) : 0,
-    periods: {
-      gross: toPeriods(totalGrossIncome),
-      taxable: toPeriods(taxablePay),
-      tax: toPeriods(incomeTax),
-      ni: toPeriods(nationalInsurance),
-      studentLoan: toPeriods(studentLoan),
-      pension: toPeriods(employeePension),
-      takeHome: toPeriods(takeHomePay)
-    }
+    taxBandsBreakdown,
+    periods
   };
 }
 

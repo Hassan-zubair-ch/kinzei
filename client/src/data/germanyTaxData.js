@@ -1,6 +1,7 @@
 // Germany Tax & Social Security Calculation Engine (2024 - 2026)
 // Aligned with German Federal Ministry of Finance (BMF) Programmablaufplan (PAP)
 // and statutory social security regulations (SGB IV, V, VI, XI).
+import { calculate } from 'lohnsteuerrechner';
 
 export const GERMAN_FEDERAL_STATES = [
   { code: 'BW', name: 'Baden-Württemberg', churchRate: 0.08 },
@@ -66,27 +67,6 @@ export const GERMAN_TAX_YEARS_DATA = {
   }
 };
 
-// German Income Tax Formula (§ 32a EStG)
-function computeSection32aTax(zve, year = '2026') {
-  const yZve = Math.max(0, Math.floor(zve));
-  const cfg = GERMAN_TAX_YEARS_DATA[year] || GERMAN_TAX_YEARS_DATA['2026'];
-  const gfb = cfg.basicAllowance;
-
-  if (yZve <= gfb) return 0;
-
-  if (yZve <= 17005) {
-    const y = (yZve - gfb) / 10000;
-    return (995.21 * y + 1400) * y;
-  } else if (yZve <= 66760) {
-    const z = (yZve - 17005) / 10000;
-    return (208.85 * z + 2397) * z + 1015.65;
-  } else if (yZve <= 277825) {
-    return 0.42 * yZve - 10636.31;
-  } else {
-    return 0.45 * yZve - 18971.06;
-  }
-}
-
 // Master German Tax Engine
 export function calculateGermanTaxes({
   grossIncome = 3000,
@@ -117,126 +97,107 @@ export function calculateGermanTaxes({
   const totalMonthlyGrossTaxable = monthlyGross + monthlyMonetaryBenefit;
   const totalAnnualGrossTaxable = annualGross + annualMonetaryBenefit;
 
+  const stateObj = GERMAN_FEDERAL_STATES.find(s => s.name.includes(federalState) || federalState.includes(s.name));
+
   // 1. Social Security Contributions (Employee Share)
-  const cappedPensionAnnual = Math.min(annualGross, cfg.bbgPensionYear);
-  const cappedHealthAnnual = Math.min(annualGross, cfg.bbgHealthYear);
+  const cappedPensionMonthly = Math.min(monthlyGross, cfg.bbgPensionYear / 12);
+  const cappedHealthMonthly = Math.min(monthlyGross, cfg.bbgHealthYear / 12);
 
   // Pension Insurance (Rentenversicherung): 9.3%
-  let annualPension = 0;
+  let monthlyPension = 0;
   if (pensionInsurance === 'legal') {
-    annualPension = cappedPensionAnnual * cfg.pensionRateEmployee;
+    monthlyPension = Math.round(cappedPensionMonthly * cfg.pensionRateEmployee * 100) / 100;
   }
-  const monthlyPension = annualPension / 12;
+  const annualPension = Math.round(monthlyPension * 12 * 100) / 100;
 
   // Unemployment Insurance (Arbeitslosenversicherung): 1.3%
-  let annualUnemployment = 0;
+  let monthlyUnemployment = 0;
   if (unemploymentInsurance === 'legal') {
-    annualUnemployment = cappedPensionAnnual * cfg.unemploymentRateEmployee;
+    monthlyUnemployment = Math.round(cappedPensionMonthly * cfg.unemploymentRateEmployee * 100) / 100;
   }
-  const monthlyUnemployment = annualUnemployment / 12;
+  const annualUnemployment = Math.round(monthlyUnemployment * 12 * 100) / 100;
 
   // Health Insurance (Krankenversicherung): 7.3% base + half supplementary rate
-  let annualHealth = 0;
+  let monthlyHealth = 0;
   if (healthInsuranceType === 'legal') {
     const suppEmployeeShare = (Number(healthSupplementaryRate) || 0) / 100 / 2;
-    annualHealth = cappedHealthAnnual * (cfg.healthBaseRateEmployee + suppEmployeeShare);
+    monthlyHealth = Math.round(cappedHealthMonthly * (cfg.healthBaseRateEmployee + suppEmployeeShare) * 100) / 100;
   }
-  const monthlyHealth = annualHealth / 12;
+  const annualHealth = Math.round(monthlyHealth * 12 * 100) / 100;
 
   // Long-Term Care Insurance (Pflegeversicherung):
   // Childless age 23+ pays 2.4% (or 2.9% in Saxony)
   // With children pays 1.8% (or 2.3% in Saxony)
-  let annualCare = 0;
+  let monthlyCare = 0;
   if (healthInsuranceType === 'legal') {
     const isChildlessAge23 = !hasChildren && Number(age) >= 23;
     let careRate = isChildlessAge23 ? cfg.careRateChildlessAge23 : cfg.careRateWithChildren;
-
-    const stateObj = GERMAN_FEDERAL_STATES.find(s => s.name.includes(federalState) || federalState.includes(s.name));
     if (stateObj && stateObj.specialCareSplit) {
       careRate += 0.005; // Saxony employee extra 0.5%
     }
-
-    annualCare = cappedHealthAnnual * careRate;
+    monthlyCare = Math.round(cappedHealthMonthly * careRate * 100) / 100;
   }
-  const monthlyCare = annualCare / 12;
+  const annualCare = Math.round(monthlyCare * 12 * 100) / 100;
 
-  const totalMonthlySocialSecurity = monthlyPension + monthlyUnemployment + monthlyHealth + monthlyCare;
-  const totalAnnualSocialSecurity = annualPension + annualUnemployment + annualHealth + annualCare;
+  const totalMonthlySocialSecurity = Math.round((monthlyPension + monthlyUnemployment + monthlyHealth + monthlyCare) * 100) / 100;
+  const totalAnnualSocialSecurity = Math.round((annualPension + annualUnemployment + annualHealth + annualCare) * 100) / 100;
 
-  // 2. Income Tax Calculation (Lohnsteuer)
-  // Deductions from gross income:
-  // - Arbeitnehmerpauschbetrag (Employee lump sum): €1,230
-  // - Sonderausgabenpauschbetrag (Special expenses lump sum): €36
-  // - Vorsorgepauschale (Pension & Health deductible allowances)
-  // - Custom annual tax allowance (Freibetrag)
-  const employeeLumpSum = 1230;
-  const specialExpensesLumpSum = 36;
-  const customAllowance = Math.max(0, Number(annualAllowance) || 0);
-
-  // Vorsorgepauschale calculation under § 39b EStG
-  const vorsorgePension = annualPension;
-  const suppEmployee = (Number(healthSupplementaryRate) || 0) / 100 / 2;
-  // BMF statutory basis: 7.0% baseline health + employee supplementary + long-term care allowance
-  const basicKVRate = 0.07 + suppEmployee;
+  // 2. Official BMF Lohnsteuer Calculation via lohnsteuerrechner
+  const calcYear = accountingYear === '2024' ? 2025 : parseInt(accountingYear, 10) || 2026;
   const isChildlessAge23 = !hasChildren && Number(age) >= 23;
-  const basicPVRate = isChildlessAge23 ? 0.02472 : 0.01872;
-  const vorsorgeHealthCare = cappedHealthAnnual * (basicKVRate + basicPVRate);
-  const totalVorsorge = vorsorgePension + vorsorgeHealthCare;
 
-  const totalDeductibleAllowances = employeeLumpSum + specialExpensesLumpSum + totalVorsorge + customAllowance;
-  const taxableAnnualIncome = Math.max(0, totalAnnualGrossTaxable - totalDeductibleAllowances);
+  let monthlyIncomeTax = 0;
+  let monthlySoli = 0;
+  let monthlyChurch = 0;
 
-  let annualIncomeTax = 0;
+  try {
+    const papParams = {
+      RE4: Math.round(totalMonthlyGrossTaxable * 100), // gross income in cents
+      LZZ: 2, // 2 = monthly calculation
+      STKL: parseInt(taxClass, 10) || 1,
+      KVZ: Number(healthSupplementaryRate) || 2.9,
+      PVZ: isChildlessAge23 ? 1 : 0,
+      PVS: (stateObj && stateObj.specialCareSplit) ? 1 : 0,
+      R: church ? 1 : 0,
+      ZKF: hasChildren ? (Number(childrenCount) || 1) : 0,
+      JFREIB: Math.round((Number(annualAllowance) || 0) * 100),
+      PKV: healthInsuranceType === 'private' ? 1 : 0,
+      KRV: pensionInsurance === 'exempt' ? 2 : 0,
+      ALV: unemploymentInsurance === 'exempt' ? 2 : 0
+    };
 
-  if (taxClass === '3') {
-    // Tax Class 3: Married single earner. Splitting procedure doubles the brackets
-    // Formula: compute tax on taxableAnnualIncome / 2, then multiply by 2
-    const halfTaxable = taxableAnnualIncome / 2;
-    annualIncomeTax = computeSection32aTax(halfTaxable, accountingYear) * 2;
-  } else if (taxClass === '1' || taxClass === '4') {
-    // Tax Class 1 (Single) / Tax Class 4 (Married equal earners)
-    annualIncomeTax = computeSection32aTax(taxableAnnualIncome, accountingYear);
-  } else if (taxClass === '2') {
-    // Tax Class 2: Single parent relief (€4,260)
-    const singleParentRelief = 4260;
-    const reducedTaxable = Math.max(0, taxableAnnualIncome - singleParentRelief);
-    annualIncomeTax = computeSection32aTax(reducedTaxable, accountingYear);
-  } else if (taxClass === '5') {
-    // Tax Class 5: Married secondary earner (no basic allowance, taxed aggressively)
-    const noAllowanceTaxable = taxableAnnualIncome + cfg.basicAllowance;
-    annualIncomeTax = computeSection32aTax(noAllowanceTaxable, accountingYear) * 1.05;
-  } else if (taxClass === '6') {
-    // Tax Class 6: Second job (zero basic allowance)
-    const noAllowanceTaxable = taxableAnnualIncome + cfg.basicAllowance;
-    annualIncomeTax = computeSection32aTax(noAllowanceTaxable, accountingYear);
+    const papResult = calculate(calcYear, papParams);
+
+    monthlyIncomeTax = Math.round((papResult.LSTLZZ / 100) * 100) / 100;
+    monthlySoli = Math.round((papResult.SOLZLZZ / 100) * 100) / 100;
+
+    if (church && papResult.BK > 0) {
+      const churchRate = stateObj ? stateObj.churchRate : 0.09;
+      monthlyChurch = Math.round(((papResult.BK / 100) * churchRate) * 100) / 100;
+    }
+  } catch (err) {
+    console.error('Error in BMF PAP calculation:', err);
+    // Fallback baseline estimation
+    const gfb = cfg.basicAllowance;
+    const taxableApprox = Math.max(0, totalAnnualGrossTaxable - 1230 - 36 - totalAnnualSocialSecurity);
+    if (taxClass === '3') {
+      const halfTax = Math.max(0, taxableApprox / 2 - gfb) * 0.20;
+      monthlyIncomeTax = Math.round((halfTax * 2 / 12) * 100) / 100;
+    } else {
+      monthlyIncomeTax = Math.round((Math.max(0, taxableApprox - gfb) * 0.20 / 12) * 100) / 100;
+    }
   }
 
-  const monthlyIncomeTax = annualIncomeTax / 12;
+  const annualIncomeTax = Math.round(monthlyIncomeTax * 12 * 100) / 100;
+  const annualSoli = Math.round(monthlySoli * 12 * 100) / 100;
+  const annualChurch = Math.round(monthlyChurch * 12 * 100) / 100;
 
-  // 3. Solidarity Surcharge (Solidaritätszuschlag)
-  // Exempt below threshold (€18,130 for Class 1/2/4, €39,900 for Class 3 in 2026)
-  const soliLimit = taxClass === '3' ? cfg.soliThresholdMarried : cfg.soliThresholdSingle;
-  let annualSoli = 0;
-  if (annualIncomeTax > soliLimit) {
-    annualSoli = (annualIncomeTax - soliLimit) * 0.055;
-  }
-  const monthlySoli = annualSoli / 12;
+  const totalMonthlyTaxes = Math.round((monthlyIncomeTax + monthlySoli + monthlyChurch) * 100) / 100;
+  const totalAnnualTaxes = Math.round((annualIncomeTax + annualSoli + annualChurch) * 100) / 100;
 
-  // 4. Church Tax (Kirchensteuer)
-  let annualChurch = 0;
-  if (church) {
-    const stateObj = GERMAN_FEDERAL_STATES.find(s => s.name.includes(federalState) || federalState.includes(s.name));
-    const cRate = stateObj ? stateObj.churchRate : 0.09;
-    annualChurch = annualIncomeTax * cRate;
-  }
-  const monthlyChurch = annualChurch / 12;
-
-  const totalMonthlyTaxes = monthlyIncomeTax + monthlySoli + monthlyChurch;
-  const totalAnnualTaxes = annualIncomeTax + annualSoli + annualChurch;
-
-  // 5. Net Take-Home Salary (Nettogehalt)
-  const monthlyNet = Math.max(0, monthlyGross - totalMonthlyTaxes - totalMonthlySocialSecurity);
-  const annualNet = monthlyNet * 12;
+  // 3. Net Take-Home Salary (Nettogehalt)
+  const monthlyNet = Math.max(0, Math.round((monthlyGross - totalMonthlyTaxes - totalMonthlySocialSecurity) * 100) / 100);
+  const annualNet = Math.round(monthlyNet * 12 * 100) / 100;
 
   return {
     gross: {

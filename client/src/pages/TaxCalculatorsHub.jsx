@@ -47,6 +47,18 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
 
   const activeCalculators = [
     {
+      id: 'pakistan',
+      country: 'Pakistan',
+      title: 'Pakistan Income Tax Calculator',
+      description: 'Official Federal Board of Revenue (FBR) income tax computation engine for salaried individuals, non-salaried professionals, and associations of persons (AOPs) under the Finance Act.',
+      features: ['Updated FBR Slabs & Surcharges', 'Salaried vs. Non-Salaried Regimes', 'Monthly & Annual Withholding Breaks', 'Cross-Border Remittance Rules'],
+      link: '/tax-calculator/pakistan',
+      badge: 'Live • FBR Salaried & Business',
+      badgeColor: '#10B981',
+      FlagComponent: PKFlag,
+      primaryAction: 'Open Pakistan Calculator'
+    },
+    {
       id: 'usa',
       country: 'United States',
       title: 'USA Income Tax & Paycheck Calculator',
@@ -65,7 +77,7 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
       description: 'The complete UK salary calculator suite matching TheSalaryCalculator.co.uk. Features 9 dedicated calculators for Take-Home Pay, Hourly Wage, Maternity/Sick Leave, Required Salary, Two Jobs, Pro-Rata, Two Salaries, Mortgages, and Debt Consolidation.',
       features: ['HMRC 2026/27 & 2025/26 PAYE Legislation', 'Scotland & England/Wales/NI Tax Bands', 'Employee Class 1 NI & Student Loans (Plans 1-5)', '9 Complete Specialised Calculators'],
       link: '/tax-calculator/uk',
-      badge: 'Live • HMRC PAYE & 9 Calculators',
+      badge: 'Live • HMRC PAYE Suite',
       badgeColor: '#10B981',
       FlagComponent: UKFlag,
       primaryAction: 'Open UK Suite'
@@ -81,18 +93,6 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
       badgeColor: '#D4A017',
       FlagComponent: GermanyFlag,
       primaryAction: 'Open Germany Calculator'
-    },
-    {
-      id: 'pakistan',
-      country: 'Pakistan',
-      title: 'Pakistan Income Tax Calculator',
-      description: 'Official Federal Board of Revenue (FBR) income tax computation engine for salaried individuals, non-salaried professionals, and associations of persons (AOPs) under the Finance Act.',
-      features: ['Updated FBR Slabs & Surcharges', 'Salaried vs. Non-Salaried Regimes', 'Monthly & Annual Withholding Breaks', 'Cross-Border Remittance Rules'],
-      link: '/tax-calculator/pakistan',
-      badge: 'Live • FBR Salaried & Business',
-      badgeColor: '#10B981',
-      FlagComponent: PKFlag,
-      primaryAction: 'Open Pakistan Calculator'
     }
   ];
 
@@ -143,6 +143,25 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
           </div>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <Link 
+              to="/tax-calculator/pakistan"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                color: '#FFFFFF',
+                padding: '6px 12px',
+                borderRadius: '6px',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                border: '1px solid rgba(255,255,255,0.12)'
+              }}
+            >
+              <PKFlag size={18} />
+              <span>Pakistan</span>
+            </Link>
             <Link 
               to="/tax-calculator/usa"
               style={{
@@ -199,25 +218,6 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
             >
               <GermanyFlag size={18} />
               <span>Germany</span>
-            </Link>
-            <Link 
-              to="/tax-calculator/pakistan"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.08)',
-                color: '#FFFFFF',
-                padding: '6px 12px',
-                borderRadius: '6px',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                border: '1px solid rgba(255,255,255,0.12)'
-              }}
-            >
-              <PKFlag size={18} />
-              <span>Pakistan</span>
             </Link>
           </div>
         </div>

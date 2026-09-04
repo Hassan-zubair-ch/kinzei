@@ -77,10 +77,10 @@ export default function Navbar({ onOpenSchedule }) {
   ];
 
   const taxCalculatorDropdownItems = [
-    { code: 'us', label: 'USA Tax Calculator', path: '/tax-calculator/usa', Flag: USFlag },
-    { code: 'uk', label: 'UK Tax Calculator (9-in-1)', path: '/tax-calculator/uk', Flag: UKFlag },
-    { code: 'de', label: 'Germany Tax Calculator', path: '/tax-calculator/germany', Flag: GermanyFlag },
     { code: 'pk', label: 'Pakistan Tax Calculator', path: '/tax-calculator/pakistan', Flag: PKFlag },
+    { code: 'us', label: 'USA Tax Calculator', path: '/tax-calculator/usa', Flag: USFlag },
+    { code: 'uk', label: 'UK Tax Calculator', path: '/tax-calculator/uk', Flag: UKFlag },
+    { code: 'de', label: 'Germany Tax Calculator', path: '/tax-calculator/germany', Flag: GermanyFlag },
     { code: 'all', label: 'All Countries Directory', path: '/tax-calculator', Flag: StaffingIcon },
   ];
 
@@ -161,10 +161,9 @@ export default function Navbar({ onOpenSchedule }) {
                       width: isServices ? '320px' : '270px',
                       backgroundColor: '#FFFFFF',
                       borderRadius: '12px',
-                      boxShadow: '0 18px 40px rgba(0, 0, 0, 0.25)',
+                      boxShadow: '0 20px 45px rgba(0, 0, 0, 0.3)',
                       padding: '8px 0',
-                      zIndex: 1100,
-                      animation: 'fadeIn 0.2s ease-out',
+                      zIndex: 2000,
                       border: '1.5px solid #8C6B2F'
                     }}>
                       {items.map((item, idx) => {
