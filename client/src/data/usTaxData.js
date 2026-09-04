@@ -425,21 +425,28 @@ export function calculateUSTaxes({
     stateMarginalRate = 0;
     stateEffectiveRate = 0;
   } else if (stateCode === 'OH') {
-    // Special precision calibration for Ohio matching SmartAsset ($601 for $50k)
-    // Ohio taxable income = agi - $2,400 exemption
-    const ohioTaxable = Math.max(0, agi - 2400);
+    // Dynamic Ohio income tax matching SmartAsset
+    // Ohio personal exemption based on Ohio AGI brackets:
+    let ohioExemption = 2100;
+    if (agi <= 40000) {
+      ohioExemption = 2400;
+    } else if (agi <= 80000) {
+      ohioExemption = 2100;
+    } else {
+      ohioExemption = 1500;
+    }
+    const ohioTaxable = Math.max(0, agi - (ohioExemption * (1 + dependents)));
     if (ohioTaxable <= 26050) {
       stateTax = 0;
       stateMarginalRate = 0;
     } else if (ohioTaxable <= 100000) {
-      // (47600 - 26050) * 0.0275 = 592.625 + minor adjustment = $601
-      stateTax = 601;
+      stateTax = Math.round((ohioTaxable - 26050) * 0.0275);
       stateMarginalRate = 0.0275;
     } else {
-      stateTax = Math.round(601 + (ohioTaxable - 100000) * 0.035);
+      stateTax = Math.round((100000 - 26050) * 0.0275 + (ohioTaxable - 100000) * 0.035);
       stateMarginalRate = 0.035;
     }
-    stateEffectiveRate = 0.0125; // Exactly 1.25% as displayed on SmartAsset!
+    stateEffectiveRate = ohioTaxable > 0 ? (stateTax / ohioTaxable) : 0;
   } else if (stateInfo.flat) {
     let stateDeduction = (stateInfo.standardDeduction && stateInfo.standardDeduction[filingStatus]) || 0;
     const exemption = (stateInfo.exemptionPerPerson || 0) * (1 + dependents);

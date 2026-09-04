@@ -1090,8 +1090,7 @@ export default function USTaxCalculator({ onOpenSchedule }) {
                         Total Income Taxes
                       </td>
                       <td style={{ padding: '16px 8px', textAlign: 'center', color: '#0F172A', fontWeight: 800, fontSize: '1.02rem' }}>
-                        {/* SmartAsset displays an em dash in Effective Tax Rate mode! */}
-                        {rateMode === 'EFFECTIVE' ? '—' : formatPercent(results.totalMarginalRate)}
+                        —
                       </td>
                       <td style={{ padding: '16px 8px', textAlign: 'right', fontWeight: 900, color: '#0F172A', fontSize: '1.1rem' }}>
                         {formatCurrency(results.totalTaxes)}
