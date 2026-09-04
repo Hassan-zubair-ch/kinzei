@@ -16,10 +16,12 @@ import {
   Receipt,
   FileText,
   CreditCard,
-  Percent,
-  Coins,
-  Scale
+  Percent, 
+  Coins, 
+  Scale,
+  Layers
 } from 'lucide-react';
+import { USFlag, UKFlag, PKFlag } from '../components/CountryFlags';
 import { 
   calculateUSTaxes, 
   POPULAR_LOCATIONS, 
@@ -418,13 +420,107 @@ export default function USTaxCalculator({ onOpenSchedule }) {
       )}
 
       {/* TOP HEADER SECTION */}
-      <div className="container" ref={calcTopRef} style={{ paddingTop: '36px' }}>
+      <div className="container" ref={calcTopRef} style={{ paddingTop: '28px' }}>
         
+        {/* INTERNATIONAL CALCULATOR SWITCHER TABS */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '12px',
+          backgroundColor: '#0F172A',
+          padding: '10px 16px',
+          borderRadius: '10px',
+          marginBottom: '20px',
+          border: '1px solid rgba(212, 160, 23, 0.3)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <div
+              style={{
+                backgroundColor: '#D4A017',
+                color: '#0F172A',
+                padding: '6px 14px',
+                borderRadius: '6px',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                boxShadow: '0 2px 6px rgba(212, 160, 23, 0.3)'
+              }}
+            >
+              <USFlag size={18} />
+              <span>USA Calculator (Active)</span>
+            </div>
+
+            <Link
+              to="/tax-calculator/uk"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                color: '#FFFFFF',
+                padding: '6px 14px',
+                borderRadius: '6px',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                border: '1px solid rgba(255,255,255,0.12)'
+              }}
+            >
+              <UKFlag size={18} />
+              <span>UK Suite (9 Calculators)</span>
+            </Link>
+
+            <Link
+              to="/tax-calculator/pakistan"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                color: '#FFFFFF',
+                padding: '6px 14px',
+                borderRadius: '6px',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                border: '1px solid rgba(255,255,255,0.12)'
+              }}
+            >
+              <PKFlag size={18} />
+              <span>Pakistan</span>
+            </Link>
+          </div>
+
+          <Link
+            to="/tax-calculators"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.05)',
+              color: '#D4A017',
+              padding: '6px 12px',
+              borderRadius: '6px',
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              border: '1px solid rgba(212, 160, 23, 0.3)'
+            }}
+          >
+            <Layers size={14} />
+            <span>All Global Calculators Directory</span>
+          </Link>
+        </div>
+
         {/* BREADCRUMB */}
         <div style={{ marginBottom: '24px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#64748B', marginBottom: '8px', fontWeight: 600 }}>
-            <Link to="/tax-calculator/usa" style={{ color: '#8C6B2F', textDecoration: 'none', fontWeight: 700 }}>
-              &lt; Taxes
+            <Link to="/tax-calculators" style={{ color: '#8C6B2F', textDecoration: 'none', fontWeight: 700 }}>
+              &lt; Global Calculators Hub
             </Link>
             <span>/</span>
             <span>USA Federal & State Tax Estimator</span>

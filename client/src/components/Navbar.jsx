@@ -61,7 +61,7 @@ export default function Navbar({ onOpenSchedule }) {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/services', isDropdown: true, dropdownType: 'services' },
-    { name: 'Tax Calculator', path: '/tax-calculator', isDropdown: true, dropdownType: 'tax' },
+    { name: 'Tax Calculator', path: '/tax-calculator', isDropdown: false },
     { name: 'Our Team', path: '/team' },
     { name: 'Contact Us', path: '/contact' },
   ];
