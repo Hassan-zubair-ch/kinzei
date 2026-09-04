@@ -77,6 +77,8 @@ export default function AffiliationsSection() {
                 src={item.logo} 
                 alt={item.name} 
                 title={item.name}
+                loading="lazy"
+                decoding="async"
                 style={{
                   height: '86px',
                   width: 'auto',

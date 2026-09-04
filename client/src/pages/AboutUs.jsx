@@ -108,8 +108,10 @@ export default function AboutUs({ onOpenSchedule }) {
                 backgroundColor: '#0F172A'
               }}>
                 <img
-                  src="/team/amina-batool.png"
+                  src="/team/amina-batool.webp"
                   alt="Amina Batool - Chief Executive Officer"
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -445,8 +447,10 @@ export default function AboutUs({ onOpenSchedule }) {
                 position: 'relative'
               }}>
                 <img 
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop" 
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=900&auto=format&fit=crop" 
                   alt="Kinzei Financial Advisory and Consulting" 
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '100%',
                     height: '480px',
@@ -457,10 +461,12 @@ export default function AboutUs({ onOpenSchedule }) {
               </div>
 
               {/* Floating Experience Badge (Top Left Overlap) */}
-              <div style={{
-                position: 'absolute',
-                top: '-25px',
-                left: '-25px',
+              <div 
+                className="about-floating-exp-badge"
+                style={{
+                  position: 'absolute',
+                  top: '-25px',
+                  left: '-25px',
                 backgroundColor: '#FFFFFF',
                 padding: '22px 24px',
                 borderRadius: '4px',
@@ -949,6 +955,12 @@ export default function AboutUs({ onOpenSchedule }) {
           .about-narrative-grid, .values-grid, .about-pillars-grid, .firm-overview-grid, .ceo-leadership-grid {
             grid-template-columns: 1fr !important;
             gap: 35px !important;
+          }
+          .about-floating-exp-badge {
+            left: 0px !important;
+            top: 0px !important;
+            position: static !important;
+            margin-bottom: 16px !important;
           }
         }
         @media (max-width: 580px) {

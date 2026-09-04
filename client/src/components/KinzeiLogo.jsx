@@ -11,6 +11,9 @@ export default function KinzeiLogo({ height = 65, isBrownHeader = true }) {
       <img 
         src="/favicon.png" 
         alt="Kinzei Logo Icon" 
+        decoding="async"
+        width={height}
+        height={height}
         style={{ 
           height: `${height}px`, 
           width: 'auto', 

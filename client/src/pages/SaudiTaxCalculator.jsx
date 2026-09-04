@@ -243,7 +243,7 @@ export default function SaudiTaxCalculator({ onOpenSchedule }) {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 260px), 1fr))',
             gap: '16px'
           }}>
             {SAUDI_PERIODS.map((p) => {
@@ -448,12 +448,15 @@ export default function SaudiTaxCalculator({ onOpenSchedule }) {
 
           {/* Form Content */}
           <div style={{ padding: '24px 28px' }}>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: mode === 'advanced' ? 'repeat(auto-fit, minmax(260px, 1fr))' : '1fr 220px',
-              gap: '20px',
-              alignItems: 'end'
-            }}>
+            <div 
+              className="saudi-calc-inputs-grid"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: mode === 'advanced' ? 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))' : '1fr 220px',
+                gap: '20px',
+                alignItems: 'end'
+              }}
+            >
               {/* Employment Income Input (matching Screenshot 2) */}
               <div>
                 <label style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A', display: 'block', marginBottom: '8px' }}>
@@ -885,7 +888,7 @@ export default function SaudiTaxCalculator({ onOpenSchedule }) {
             Detailed Step-by-Step Calculation Breakdown
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
             {/* Card 1: Taxable Income Calculation */}
             <div style={{
               backgroundColor: '#FFFFFF',
@@ -1068,7 +1071,7 @@ export default function SaudiTaxCalculator({ onOpenSchedule }) {
           </h2>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
             gap: '24px',
             marginTop: '20px'
           }}>
@@ -1146,6 +1149,14 @@ export default function SaudiTaxCalculator({ onOpenSchedule }) {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 680px) {
+          .saudi-calc-inputs-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

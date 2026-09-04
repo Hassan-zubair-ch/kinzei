@@ -590,7 +590,8 @@ export default function GermanyTaxCalculator({ onOpenSchedule }) {
                 </span>
               </div>
 
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'right', fontSize: '0.9rem' }}>
+              <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', maxWidth: '100%' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'right', fontSize: '0.9rem', minWidth: '460px' }}>
                 <thead>
                   <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '2px solid #E2E8F0', color: '#475569', fontSize: '0.82rem', fontWeight: 700, textTransform: 'uppercase' }}>
                     <th style={{ padding: '12px 20px', textAlign: 'left' }}>Result Category</th>
@@ -690,6 +691,7 @@ export default function GermanyTaxCalculator({ onOpenSchedule }) {
                   </tr>
                 </tbody>
               </table>
+              </div>
             </div>
 
             {/* Quick Notes Card */}

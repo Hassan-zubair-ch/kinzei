@@ -49,6 +49,8 @@ export default function WhyChooseUsSection({ onOpenSchedule }) {
               <img 
                 src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=900&auto=format&fit=crop" 
                 alt="Kinzei Consultants & Javed Zafar & Co. Financial Advisory Desk"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: '100%',
                   height: '490px',

@@ -18,49 +18,49 @@ export default function OurTeam({ onOpenSchedule }) {
       role: "",
       department: "",
       summary: "Specializes in statutory audit engagements, IFRS financial reporting, and internal control reviews for corporate enterprises.",
-      image: "/team/muhammad-haroon.png"
+      image: "/team/muhammad-haroon.webp"
     },
     {
       name: "Khurram Sheikh",
       role: "",
       department: "",
       summary: "Specialist in corporate tax litigation, FBR & Provincial Revenue Authority appeals, and statutory legal defense.",
-      image: "/team/khurram-sheikh.png"
+      image: "/team/khurram-sheikh.webp"
     },
     {
       name: "Abdul Rehman",
       role: "",
       department: "",
       summary: "Directs ERP implementations, QuickBooks/Xero integrations, and digital financial workflows.",
-      image: "/team/azeem-usman.png"
+      image: "/team/azeem-usman.webp"
     },
     {
       name: "Muhammad Abdullah",
       role: "",
       department: "",
       summary: "Oversees statutory field audits, forensic reviews, and financial due diligence for investments.",
-      image: "/team/nisar-ahmed.png"
+      image: "/team/nisar-ahmed.webp"
     },
     {
       name: "Komal Muskan",
       role: "",
       department: "",
       summary: "Manages SECP company incorporations, statutory annual returns (Form A/29), and regulatory filings.",
-      image: "/team/sidra-ashraf.png"
+      image: "/team/sidra-ashraf.webp"
     },
     {
       name: "Tanzeela Abbasi",
       role: "",
       department: "",
       summary: "Handles corporate and individual NTN tax filings, withholding statements, and sales tax returns.",
-      image: "/team/tanzeela-abbasi.png"
+      image: "/team/tanzeela-abbasi.webp"
     },
     {
       name: "Zeeshan Khalid",
       role: "",
       department: "",
       summary: "Specializes in corporate advisory, financial planning, and statutory tax compliance for growing businesses.",
-      image: "/team/zeeshan-khalid.png"
+      image: "/team/zeeshan-khalid.webp"
     }
   ];
 
@@ -158,6 +158,7 @@ export default function OurTeam({ onOpenSchedule }) {
                     src={member.image}
                     alt={member.name}
                     loading="lazy"
+                    decoding="async"
                     style={{
                       width: '100%',
                       height: '100%',

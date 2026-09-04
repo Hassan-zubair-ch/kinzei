@@ -70,8 +70,10 @@ export default function JavedZafarSection({ onOpenSchedule }) {
               transition: 'all 0.3s ease'
             }} className="interactive-card">
               <img 
-                src="/javed-zafar-logo.png" 
+                src="/javed-zafar-logo.webp" 
                 alt="Javed Zafar & Co. Chartered Accountants" 
+                loading="lazy"
+                decoding="async"
                 style={{ 
                   width: '100%', 
                   maxWidth: '240px', 
