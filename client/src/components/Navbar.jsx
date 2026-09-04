@@ -81,6 +81,8 @@ export default function Navbar({ onOpenSchedule }) {
     { code: 'us', label: 'USA Tax Calculator', path: '/tax-calculator/usa', Flag: USFlag },
     { code: 'uk', label: 'UK Tax Calculator', path: '/tax-calculator/uk', Flag: UKFlag },
     { code: 'de', label: 'Germany Tax Calculator', path: '/tax-calculator/germany', Flag: GermanyFlag },
+    { code: 'sa', label: 'Saudi Arabia (UKS) Tax Calculator', path: '/tax-calculator/saudi-arabia', Flag: KSAFlag },
+    { code: 'uae', label: 'UAE Tax Calculator', path: '/tax-calculator/uae', Flag: UAEFlag },
     { code: 'all', label: 'All Countries Directory', path: '/tax-calculator', Flag: StaffingIcon },
   ];
 

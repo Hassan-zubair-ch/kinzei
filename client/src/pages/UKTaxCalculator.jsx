@@ -67,7 +67,7 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
   // 1. Take-Home Calculator State
   const [salary, setSalary] = useState(30000);
   const [activeTab, setActiveTab] = useState('tax-code');
-  const [taxCode, setTaxCode] = useState('1257L');
+  const [taxCode, setTaxCode] = useState('');
   const [studentLoanPlan, setStudentLoanPlan] = useState('none');
   const [hasPostgradLoan, setHasPostgradLoan] = useState(false);
   const [pensionType, setPensionType] = useState('none');
@@ -118,7 +118,7 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
 
   // 5. Two Jobs State
   const [job1Salary, setJob1Salary] = useState(32000);
-  const [job1TaxCode, setJob1TaxCode] = useState('1257L');
+  const [job1TaxCode, setJob1TaxCode] = useState('');
   const [job2Salary, setJob2Salary] = useState(12000);
   const [job2TaxCode, setJob2TaxCode] = useState('BR');
 
@@ -704,18 +704,23 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
                   {/* TAB 1: Tax Code */}
                   {activeTab === 'tax-code' && (
                     <div>
-                      <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#0F172A', marginBottom: '8px' }}>
-                        HMRC PAYE Tax Code
-                      </h4>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', flexWrap: 'wrap', gap: '8px' }}>
+                        <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#0F172A', margin: 0 }}>
+                          HMRC PAYE Tax Code
+                        </h4>
+                        <span style={{ fontSize: '0.78rem', color: '#047857', backgroundColor: '#ECFDF5', padding: '3px 10px', borderRadius: '12px', fontWeight: 700, border: '1px solid #A7F3D0' }}>
+                          Optional • Defaults to Standard Personal Allowance
+                        </span>
+                      </div>
                       <p style={{ fontSize: '0.86rem', color: '#64748B', marginBottom: '16px' }}>
-                        If you know your tax code from your P60 or payslip, enter it below. The standard personal allowance code is <strong>1257L</strong> (£12,570 tax-free). Codes like <strong>BR</strong> (flat 20%), <strong>D0</strong> (flat 40%), or <strong>0T</strong> (zero allowance) are supported.
+                        If you know your tax code from your P60 or payslip, enter it below. Leaving this field blank automatically applies the standard personal allowance (<strong>1257L</strong> – £12,570 tax-free). Codes like <strong>BR</strong> (flat 20%), <strong>D0</strong> (flat 40%), or <strong>0T</strong> (zero allowance) are also supported.
                       </p>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
                         <input
                           type="text"
                           value={taxCode}
-                          onChange={(e) => setTaxCode(e.target.value.toUpperCase())}
-                          placeholder="e.g. 1257L, BR, D0"
+                          onChange={(e) => setTaxCode(e.target.value.toUpperCase().trim())}
+                          placeholder="e.g. 1257L"
                           style={{
                             padding: '10px 14px',
                             border: '1.5px solid #CBD5E1',
@@ -723,9 +728,28 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
                             fontSize: '1rem',
                             fontWeight: 700,
                             width: '180px',
-                            textTransform: 'uppercase'
+                            textTransform: 'uppercase',
+                            backgroundColor: '#FFFFFF'
                           }}
                         />
+                        {taxCode && (
+                          <button
+                            type="button"
+                            onClick={() => setTaxCode('')}
+                            style={{
+                              backgroundColor: '#FEE2E2',
+                              color: '#991B1B',
+                              border: '1px solid #FECACA',
+                              borderRadius: '6px',
+                              padding: '8px 14px',
+                              fontSize: '0.82rem',
+                              fontWeight: 700,
+                              cursor: 'pointer'
+                            }}
+                          >
+                            Clear (Use Standard)
+                          </button>
+                        )}
                         <button
                           type="button"
                           onClick={() => setTaxCode('1257L')}
@@ -736,11 +760,23 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
                             padding: '8px 14px',
                             fontSize: '0.82rem',
                             fontWeight: 600,
-                            cursor: 'pointer'
+                            cursor: 'pointer',
+                            color: '#334155'
                           }}
                         >
-                          Reset to 1257L
+                          Set to 1257L
                         </button>
+                      </div>
+                      <div style={{ marginTop: '12px', fontSize: '0.82rem' }}>
+                        {taxCode ? (
+                          <span style={{ color: '#0F172A', fontWeight: 600 }}>
+                            Active Custom Tax Code: <strong style={{ color: '#D4A017' }}>{taxCode}</strong>
+                          </span>
+                        ) : (
+                          <span style={{ color: '#059669', fontWeight: 600 }}>
+                            ✓ Standard 2026/27 Tax Code (1257L – £12,570 Personal Allowance) applied automatically.
+                          </span>
+                        )}
                       </div>
                     </div>
                   )}
@@ -1501,12 +1537,15 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
                     />
                   </div>
                   <div>
-                    <label style={{ fontSize: '0.82rem', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Tax Code (Standard):</label>
+                    <label style={{ fontSize: '0.82rem', fontWeight: 600, display: 'block', marginBottom: '4px' }}>
+                      Tax Code <span style={{ color: '#059669', fontSize: '0.74rem' }}>(optional, blank = standard 1257L)</span>:
+                    </label>
                     <input
                       type="text"
                       value={job1TaxCode}
                       onChange={(e) => setJob1TaxCode(e.target.value.toUpperCase())}
-                      style={{ width: '100%', padding: '8px 12px', border: '1.5px solid #CBD5E1', borderRadius: '6px', fontWeight: 700 }}
+                      placeholder="e.g. 1257L"
+                      style={{ width: '100%', padding: '8px 12px', border: '1.5px solid #CBD5E1', borderRadius: '6px', fontWeight: 700, backgroundColor: '#FFFFFF' }}
                     />
                   </div>
                 </div>
@@ -1524,12 +1563,15 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
                     />
                   </div>
                   <div>
-                    <label style={{ fontSize: '0.82rem', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Secondary Tax Code (BR / 0T / D0):</label>
+                    <label style={{ fontSize: '0.82rem', fontWeight: 600, display: 'block', marginBottom: '4px' }}>
+                      Secondary Tax Code <span style={{ color: '#64748B', fontSize: '0.74rem' }}>(e.g. BR / 0T / D0)</span>:
+                    </label>
                     <input
                       type="text"
                       value={job2TaxCode}
                       onChange={(e) => setJob2TaxCode(e.target.value.toUpperCase())}
-                      style={{ width: '100%', padding: '8px 12px', border: '1.5px solid #CBD5E1', borderRadius: '6px', fontWeight: 700 }}
+                      placeholder="e.g. BR"
+                      style={{ width: '100%', padding: '8px 12px', border: '1.5px solid #CBD5E1', borderRadius: '6px', fontWeight: 700, backgroundColor: '#FFFFFF' }}
                     />
                   </div>
                 </div>

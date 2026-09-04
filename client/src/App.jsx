@@ -20,6 +20,8 @@ import TaxCalculator from './pages/TaxCalculator';
 import USTaxCalculator from './pages/USTaxCalculator';
 import UKTaxCalculator from './pages/UKTaxCalculator';
 import GermanyTaxCalculator from './pages/GermanyTaxCalculator';
+import SaudiTaxCalculator from './pages/SaudiTaxCalculator';
+import UAETaxCalculator from './pages/UAETaxCalculator';
 import TaxCalculatorsHub from './pages/TaxCalculatorsHub';
 import OurTeam from './pages/OurTeam';
 import ContactUs from './pages/ContactUs';
@@ -59,6 +61,11 @@ export default function App() {
             <Route path="/tax-calculator/uk" element={<UKTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/tax-calculator/germany" element={<GermanyTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/tax-calculator/pakistan" element={<TaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculator/saudi-arabia" element={<SaudiTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculator/uks" element={<SaudiTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculator/ksa" element={<SaudiTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculator/uae" element={<UAETaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculator/united-arab-emirates" element={<UAETaxCalculator onOpenSchedule={handleOpenSchedule} />} />
             
             <Route path="/team" element={<OurTeam onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/contact" element={<ContactUs />} />

@@ -93,26 +93,34 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
       badgeColor: '#D4A017',
       FlagComponent: GermanyFlag,
       primaryAction: 'Open Germany Calculator'
+    },
+    {
+      id: 'saudi-arabia',
+      country: 'Saudi Arabia',
+      title: 'Saudi Arabia Salary & Tax Calculator (UKS)',
+      description: 'Official 2026/2025 Saudi payroll calculator matching GOSI social insurance (9%), SANED unemployment scheme (0.75%), and 0% personal income tax regime for nationals and expatriates.',
+      features: ['0% Personal Income Tax Regime', 'GOSI Social Insurance & SANED Scheme', 'Resident (Saudi) vs. Non-Resident (Expat) Rules', 'Complete 7-Period Multi-Column Breakdown'],
+      link: '/tax-calculator/saudi-arabia',
+      badge: 'Live • GOSI & SANED Compliant',
+      badgeColor: '#10B981',
+      FlagComponent: KSAFlag,
+      primaryAction: 'Open Saudi Calculator'
+    },
+    {
+      id: 'uae',
+      country: 'United Arab Emirates',
+      title: 'UAE Salary & Payroll Tax Calculator',
+      description: 'Official 2026/2025 UAE payroll calculator matching iCalculator™ AE benchmarks, GPSSA pension, MOHRE labour law, and 0% personal income tax regime across all 7 Emirates.',
+      features: ['0% Personal Income Tax on Salaries', '7-Period Multi-Column Salary Breakdown', 'GPSSA Social Security & Employer Contributions (8.25%)', 'Benchmark & Standard Tax-Free Calculations'],
+      link: '/tax-calculator/uae',
+      badge: 'Live • MOHRE & GPSSA Compliant',
+      badgeColor: '#10B981',
+      FlagComponent: UAEFlag,
+      primaryAction: 'Open UAE Calculator'
     }
   ];
 
   const upcomingCalculators = [
-    {
-      country: 'United Arab Emirates',
-      code: 'uae',
-      title: 'UAE Corporate Tax & VAT Calculator',
-      description: 'Federal Tax Authority (FTA) 9% corporate tax computation, Free Zone qualifying income exemptions, and 5% VAT calculations.',
-      badge: 'In Development',
-      FlagComponent: UAEFlag
-    },
-    {
-      country: 'Saudi Arabia',
-      code: 'ksa',
-      title: 'Saudi Arabia Zakat & Tax Calculator',
-      description: 'ZATCA compliant calculations for Zakat (2.5%), Corporate Income Tax (20%), and 15% VAT for local and foreign enterprises.',
-      badge: 'In Development',
-      FlagComponent: KSAFlag
-    },
     {
       country: 'Canada',
       code: 'ca',
@@ -203,8 +211,8 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
             <Link 
               to="/tax-calculator/germany"
               style={{
-                backgroundColor: 'rgba(212, 160, 23, 0.15)',
-                color: '#D4A017',
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                color: '#FFFFFF',
                 padding: '6px 12px',
                 borderRadius: '6px',
                 fontSize: '0.82rem',
@@ -213,11 +221,49 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                border: '1px solid #D4A017'
+                border: '1px solid rgba(255,255,255,0.12)'
               }}
             >
               <GermanyFlag size={18} />
               <span>Germany</span>
+            </Link>
+            <Link 
+              to="/tax-calculator/saudi-arabia"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                color: '#FFFFFF',
+                padding: '6px 12px',
+                borderRadius: '6px',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                border: '1px solid rgba(255,255,255,0.12)'
+              }}
+            >
+              <KSAFlag size={18} />
+              <span>Saudi Arabia (UKS)</span>
+            </Link>
+            <Link 
+              to="/tax-calculator/uae"
+              style={{
+                backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                color: '#6EE7B7',
+                padding: '6px 12px',
+                borderRadius: '6px',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                border: '1px solid rgba(16, 185, 129, 0.35)'
+              }}
+            >
+              <UAEFlag size={18} />
+              <span>UAE</span>
             </Link>
           </div>
         </div>
