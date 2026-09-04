@@ -16,6 +16,7 @@ import AccountingReporting from './pages/AccountingReporting';
 import TaxAdvisory from './pages/TaxAdvisory';
 import RegistrationCompliance from './pages/RegistrationCompliance';
 import TaxCalculator from './pages/TaxCalculator';
+import USTaxCalculator from './pages/USTaxCalculator';
 import OurTeam from './pages/OurTeam';
 import ContactUs from './pages/ContactUs';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -46,7 +47,9 @@ export default function App() {
             <Route path="/services/registration-licensing-compliance" element={<RegistrationCompliance onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/registration-compliance" element={<RegistrationCompliance onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/services/detail/:id" element={<ServiceDetail onOpenSchedule={handleOpenSchedule} />} />
-            <Route path="/tax-calculator" element={<TaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculator" element={<USTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculator/usa" element={<USTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculator/pakistan" element={<TaxCalculator onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/team" element={<OurTeam onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />

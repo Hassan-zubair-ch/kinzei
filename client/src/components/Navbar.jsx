@@ -24,8 +24,10 @@ function StaffingIcon({ size = 24 }) {
 
 export default function Navbar({ onOpenSchedule }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [taxDropdownOpen, setTaxDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileTaxOpen, setMobileTaxOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
   const location = useLocation();
@@ -49,15 +51,17 @@ export default function Navbar({ onOpenSchedule }) {
 
   useEffect(() => {
     setDropdownOpen(false);
+    setTaxDropdownOpen(false);
     setMobileMenuOpen(false);
     setMobileServicesOpen(false);
+    setMobileTaxOpen(false);
   }, [location.pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Services', path: '/services', isDropdown: true },
-    { name: 'Tax Calculator', path: '/tax-calculator' },
+    { name: 'Services', path: '/services', isDropdown: true, dropdownType: 'services' },
+    { name: 'Tax Calculator', path: '/tax-calculator', isDropdown: true, dropdownType: 'tax' },
     { name: 'Our Team', path: '/team' },
     { name: 'Contact Us', path: '/contact' },
   ];
@@ -70,6 +74,11 @@ export default function Navbar({ onOpenSchedule }) {
     { code: 'uae', label: 'UAE Services', path: '/services?country=uae', Flag: UAEFlag },
     { code: 'uks', label: 'UKS (Saudi Arabia)', path: '/services?country=uks', Flag: KSAFlag },
     { code: 'de', label: 'Germany Services', path: '/services?country=de', Flag: GermanyFlag },
+  ];
+
+  const taxCalculatorDropdownItems = [
+    { code: 'pk', label: 'Pakistan Tax Calculator', path: '/tax-calculator/pakistan', Flag: PKFlag },
+    { code: 'us', label: 'USA Tax Calculator', path: '/tax-calculator/usa', Flag: USFlag },
   ];
 
   return (
@@ -101,21 +110,30 @@ export default function Navbar({ onOpenSchedule }) {
         {/* Desktop Navigation Links */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-nav">
           {navLinks.map((link) => {
-            const isActive = location.pathname === link.path;
+            const isServices = link.dropdownType === 'services';
+            const isTax = link.dropdownType === 'tax';
+            const isActive = location.pathname === link.path || 
+              (isServices && location.pathname.startsWith('/services')) || 
+              (isTax && location.pathname.startsWith('/tax-calculator'));
 
             if (link.isDropdown) {
+              const isOpen = isServices ? dropdownOpen : taxDropdownOpen;
+              const setIsOpen = isServices ? setDropdownOpen : setTaxDropdownOpen;
+              const items = isServices ? serviceDropdownItems : taxCalculatorDropdownItems;
+              const defaultNavPath = isServices ? '/services' : '/tax-calculator/usa';
+
               return (
                 <div 
                   key={link.name} 
                   style={{ position: 'relative' }}
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
+                  onMouseEnter={() => setIsOpen(true)}
+                  onMouseLeave={() => setIsOpen(false)}
                 >
                   <button 
-                    onClick={() => navigate('/services')}
+                    onClick={() => navigate(defaultNavPath)}
                     style={{
                       background: 'none',
-                      color: location.pathname.startsWith('/services') ? '#FFD700' : '#FFFFFF',
+                      color: isActive ? '#FFD700' : '#FFFFFF',
                       fontSize: '0.98rem',
                       fontWeight: 700,
                       display: 'flex',
@@ -123,21 +141,21 @@ export default function Navbar({ onOpenSchedule }) {
                       gap: '5px',
                       padding: '8px 0',
                       whiteSpace: 'nowrap',
-                      borderBottom: location.pathname.startsWith('/services') ? '3px solid #FFD700' : '3px solid transparent',
+                      borderBottom: isActive ? '3px solid #FFD700' : '3px solid transparent',
                       cursor: 'pointer',
                       transition: 'color 0.2s'
                     }}
                   >
                     <span>{link.name}</span>
-                    <ChevronDown size={15} style={{ transform: dropdownOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }} />
+                    <ChevronDown size={15} style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }} />
                   </button>
 
-                  {dropdownOpen && (
+                  {isOpen && (
                     <div style={{
                       position: 'absolute',
                       top: '100%',
                       left: '0',
-                      width: '320px',
+                      width: isServices ? '320px' : '270px',
                       backgroundColor: '#FFFFFF',
                       borderRadius: '12px',
                       boxShadow: '0 18px 40px rgba(0, 0, 0, 0.25)',
@@ -146,13 +164,13 @@ export default function Navbar({ onOpenSchedule }) {
                       animation: 'fadeIn 0.2s ease-out',
                       border: '1.5px solid #8C6B2F'
                     }}>
-                      {serviceDropdownItems.map((item, idx) => {
+                      {items.map((item, idx) => {
                         const IconComponent = item.Flag;
                         return (
                           <div
                             key={item.code}
                             onClick={() => {
-                              setDropdownOpen(false);
+                              setIsOpen(false);
                               navigate(item.path);
                             }}
                             style={{
@@ -164,7 +182,7 @@ export default function Navbar({ onOpenSchedule }) {
                               color: '#111827',
                               fontWeight: 700,
                               fontSize: '0.92rem',
-                              borderBottom: idx === serviceDropdownItems.length - 1 ? 'none' : '1px solid #F3F4F6',
+                              borderBottom: idx === items.length - 1 ? 'none' : '1px solid #F3F4F6',
                               transition: 'all 0.2s ease'
                             }}
                             onMouseEnter={(e) => {
@@ -287,10 +305,15 @@ export default function Navbar({ onOpenSchedule }) {
         }}>
           {navLinks.map((link) => {
             if (link.isDropdown) {
+              const isServices = link.dropdownType === 'services';
+              const isOpen = isServices ? mobileServicesOpen : mobileTaxOpen;
+              const setIsOpen = isServices ? setMobileServicesOpen : setMobileTaxOpen;
+              const items = isServices ? serviceDropdownItems : taxCalculatorDropdownItems;
+
               return (
                 <div key={link.name} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '12px' }}>
                   <div
-                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    onClick={() => setIsOpen(!isOpen)}
                     style={{
                       display: 'flex',
                       justifyContent: 'space-between',
@@ -302,11 +325,11 @@ export default function Navbar({ onOpenSchedule }) {
                       cursor: 'pointer'
                     }}
                   >
-                    <span>Services</span>
-                    <ChevronDown size={18} style={{ transform: mobileServicesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
+                    <span>{link.name}</span>
+                    <ChevronDown size={18} style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
                   </div>
 
-                  {mobileServicesOpen && (
+                  {isOpen && (
                     <div style={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -314,7 +337,7 @@ export default function Navbar({ onOpenSchedule }) {
                       marginTop: '10px',
                       paddingTop: '6px'
                     }}>
-                      {serviceDropdownItems.map((item) => {
+                      {items.map((item) => {
                         const IconComponent = item.Flag;
                         return (
                           <div

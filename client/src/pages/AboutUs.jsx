@@ -358,7 +358,7 @@ export default function AboutUs({ onOpenSchedule }) {
                     Email Address
                   </div>
                   <a
-                    href="mailto:contact@kinzeiconsultants.com"
+                    href="mailto:info@kinzeiconsultants.com"
                     style={{
                       fontSize: '1rem',
                       fontWeight: 700,
@@ -370,7 +370,7 @@ export default function AboutUs({ onOpenSchedule }) {
                     onMouseEnter={(e) => { e.currentTarget.style.color = '#D4A017'; }}
                     onMouseLeave={(e) => { e.currentTarget.style.color = '#0F172A'; }}
                   >
-                    contact@kinzeiconsultants.com
+                    info@kinzeiconsultants.com
                   </a>
                 </div>
               </div>

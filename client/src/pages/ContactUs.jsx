@@ -252,11 +252,21 @@ export default function ContactUs() {
                     <h4 style={{ fontSize: '1.08rem', color: '#111827', fontWeight: 800, margin: 0, fontFamily: 'var(--font-heading)' }}>
                       Email Address
                     </h4>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '6px' }}>
-                      <a href="mailto:info@kinzeiconsultants.com" style={{ fontSize: '0.98rem', color: '#111827', textDecoration: 'none', fontWeight: 700 }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px' }}>
+                      <a 
+                        href="mailto:info@kinzeiconsultants.com" 
+                        style={{ fontSize: '0.98rem', color: '#111827', textDecoration: 'none', fontWeight: 700, transition: 'color 0.2s ease', display: 'inline-block' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = '#D4A017'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = '#111827'; }}
+                      >
                         info@kinzeiconsultants.com
                       </a>
-                      <a href="mailto:hr@kinzeiconsultants.com" style={{ fontSize: '0.98rem', color: '#111827', textDecoration: 'none', fontWeight: 700 }}>
+                      <a 
+                        href="mailto:hr@kinzeiconsultants.com" 
+                        style={{ fontSize: '0.98rem', color: '#111827', textDecoration: 'none', fontWeight: 700, transition: 'color 0.2s ease', display: 'inline-block' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = '#D4A017'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = '#111827'; }}
+                      >
                         hr@kinzeiconsultants.com
                       </a>
                     </div>
