@@ -160,13 +160,15 @@ export default function Navbar({ onOpenSchedule }) {
                       position: 'absolute',
                       top: '100%',
                       left: '0',
-                      width: isServices ? '320px' : '270px',
+                      width: 'max-content',
+                      minWidth: isServices ? '330px' : '320px',
                       backgroundColor: '#FFFFFF',
                       borderRadius: '12px',
                       boxShadow: '0 20px 45px rgba(0, 0, 0, 0.3)',
                       padding: '8px 0',
                       zIndex: 2000,
-                      border: '1.5px solid #8C6B2F'
+                      border: '1.5px solid #8C6B2F',
+                      boxSizing: 'border-box'
                     }}>
                       {items.map((item, idx) => {
                         const IconComponent = item.Flag;
