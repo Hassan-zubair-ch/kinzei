@@ -1,0 +1,69 @@
+# ==============================================================================
+# Kinzei Consultants (Private) Limited - Universal Robots.txt
+# High-Performance Search Engine Optimization & Universal AI Crawler Directives
+# Canonical Domain: https://kinzeiconsultants.com
+# ==============================================================================
+
+# 1. Global Crawler Policy (All Search Engines)
+User-agent: *
+Allow: /
+Allow: /favicon.ico
+Allow: /favicon*.png
+Allow: /apple-touch-icon.png
+Allow: /site.webmanifest
+Allow: /sitemap.xml
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /admin/
+Disallow: /server/
+
+# 2. Google Search & Google Gemini (AI Overviews)
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Google-Extended
+Allow: /
+
+# 3. OpenAI (ChatGPT, SearchGPT, GPTBot)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+Allow: /
+
+# 4. Anthropic (Claude, ClaudeBot, anthropic-ai)
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+Allow: /
+
+# 5. Perplexity AI (PerplexityBot)
+User-agent: PerplexityBot
+Allow: /
+
+# 6. Apple Intelligence & Siri (Applebot)
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+
+# 7. Meta AI & Facebook (Meta-ExternalAgent)
+User-agent: Meta-ExternalAgent
+User-agent: FacebookBot
+Allow: /
+
+# 8. Microsoft Copilot & Bing (Bingbot)
+User-agent: Bingbot
+User-agent: msnbot
+Allow: /
+
+# 9. Other Leading AI Crawlers
+User-agent: Cohere-ai
+User-agent: Bytespider
+User-agent: Diffbot
+User-agent: CCBot
+Allow: /
+
+# Direct AI Context Index File
+# See: https://kinzeiconsultants.com/llms.txt
+# See: https://kinzeiconsultants.com/llms-full.txt
+
+# Official XML Sitemap for Google Search Console & Webmasters
+Sitemap: https://kinzeiconsultants.com/sitemap.xml

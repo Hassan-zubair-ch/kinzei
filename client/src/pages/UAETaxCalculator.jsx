@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   Calculator, 
   Info, 
@@ -95,6 +96,12 @@ export default function UAETaxCalculator({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A', paddingBottom: '80px' }}>
+      <SEO 
+        title="UAE Salary, Gratuity & Corporate Tax Calculator 2026-27 | Kinzei"
+        description="Comprehensive United Arab Emirates (UAE) Salary and Corporate Tax Calculator for 2026-27. Compute 0% personal income tax, GPSSA social security, end-of-service gratuity, and 9% corporate tax."
+        keywords="UAE tax calculator, Dubai salary calculator, UAE corporate tax calculator, GPSSA calculator, end of service gratuity UAE, Kinzei Consultants"
+        canonical="/tax-calculator/uae"
+      />
       {/* Top Breadcrumb Navigation */}
       <div style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(212, 160, 23, 0.25)', padding: '12px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   Calculator, 
   ArrowRight, 
@@ -141,6 +142,12 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', paddingBottom: '80px' }}>
+      <SEO 
+        title="Global Tax Calculators Directory | Multi-Country Income & Corporate Tax"
+        description="Comprehensive global tax calculators for Pakistan (FBR), United States (IRS), United Kingdom (HMRC), United Arab Emirates, Saudi Arabia (ZATCA), and Germany. Precise net salary & corporate tax projections."
+        keywords="global tax calculator, Pakistan FBR tax calculator, US federal state tax calculator, UK PAYE calculator, UAE tax calculator, Saudi Arabia Zakat calculator, Germany Gehaltsrechner, Kinzei Consultants"
+        canonical="/tax-calculator"
+      />
       {/* Top Breadcrumb Navigation */}
       <div style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(212, 160, 23, 0.25)', padding: '14px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>

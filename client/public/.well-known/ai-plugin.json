@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Kinzei Consultants",
+  "name_for_model": "kinzei_consultants",
+  "description_for_human": "Premier tax advisory, audit, SECP registration, and international tax calculator services in Pakistan and worldwide.",
+  "description_for_model": "Access verified corporate taxation, FBR tax return filing, SECP company registration, chartered accountant audit, and tax calculation services provided by Kinzei Consultants (Private) Limited in Lahore, Pakistan.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://kinzeiconsultants.com/llms.txt"
+  },
+  "logo_url": "https://kinzeiconsultants.com/favicon-256.png",
+  "contact_email": "info@kinzeiconsultants.com",
+  "legal_info_url": "https://kinzeiconsultants.com/terms-and-conditions"
+}

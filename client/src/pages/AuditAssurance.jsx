@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   ShieldCheck, CheckCircle2, Phone, Calendar, 
   ArrowRight, FileCheck, Search, Scale, FileText, 
@@ -164,6 +165,12 @@ export default function AuditAssurance({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
+      <SEO 
+        title="Statutory & Internal Audit Services Pakistan | Chartered Accountants"
+        description="Independent statutory audit under the Companies Act 2017, internal controls review, fraud investigations, due diligence, and SECP/FBR compliant financial audits in Lahore, Pakistan."
+        keywords="statutory audit Pakistan, internal audit Lahore, chartered accountants audit, SECP audit compliance, Companies Act 2017 audit, Kinzei Consultants"
+        canonical="/services/audit-assurance"
+      />
       
       {/* 1. HERO BANNER */}
       <section style={{

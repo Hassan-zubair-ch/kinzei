@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   ShieldCheck, Target, Eye, CheckCircle2, 
   Mail, Phone, ChevronDown, ChevronUp, Calendar, ArrowRight,
@@ -56,6 +57,12 @@ export default function AboutUs({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
+      <SEO 
+        title="About Us | Executive Leadership & Corporate Credentials"
+        description="Learn about Kinzei Consultants (Private) Limited. Chartered Accountants and corporate advisors delivering excellence in FBR taxation, SECP compliance, and global business consulting."
+        keywords="about Kinzei Consultants, tax consultants Lahore, chartered accountant firm Pakistan, SECP registered intermediary, Kinzei team"
+        canonical="/about"
+      />
       
       {/* 1. FOUNDER & CEO LEADERSHIP SECTION */}
       <section style={{ 

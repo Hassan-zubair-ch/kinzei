@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calculator, FileText, ArrowRight, ShieldCheck, HelpCircle } from 'lucide-react';
 import { calculatePakistanSalaryTax } from '../data/taxSlabs';
+import SEO from '../components/SEO';
 
 export default function TaxCalculator({ onOpenSchedule }) {
   // State for Pakistan Salary Tax Calculator
@@ -139,6 +140,29 @@ export default function TaxCalculator({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', color: '#111827' }}>
+      <SEO 
+        title="Pakistan Salary & Income Tax Calculator 2026-27 | FBR Tax Slabs"
+        description="Calculate your exact monthly and annual Pakistan income tax for FY 2026-27 and FY 2025-26 under the latest FBR Finance Act. Free, instant salary tax computation with exemption rules."
+        keywords="Pakistan tax calculator 2026-27, FBR salary tax calculator, Pakistan income tax slabs 2026, take home salary calculator Pakistan, FBR active taxpayer tax rates, Kinzei Consultants"
+        canonical="/tax-calculator/pakistan"
+        schemaJson={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Pakistan Salary & Income Tax Calculator 2026-27",
+          "operatingSystem": "All",
+          "applicationCategory": "FinanceApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "PKR"
+          },
+          "provider": {
+            "@type": "AccountingService",
+            "name": "Kinzei Consultants (Private) Limited",
+            "url": "https://kinzeiconsultants.com"
+          }
+        }}
+      />
       
       {/* MAIN CALCULATOR CARD CONTAINER */}
       <section style={{ padding: '50px 0 80px 0', backgroundColor: '#FFFFFF' }}>

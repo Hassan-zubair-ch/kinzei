@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   ShieldCheck, Award, Briefcase, Mail, Phone, 
   Calendar, CheckCircle2, ArrowRight, Sparkles 
@@ -66,6 +67,12 @@ export default function OurTeam({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
+      <SEO 
+        title="Our Expert Advisory Team | Chartered Accountants & Tax Consultants"
+        description="Meet the experienced partners, Chartered Accountants, tax litigation specialists, and corporate advisors at Kinzei Consultants (Private) Limited."
+        keywords="Kinzei Consultants team, chartered accountants Lahore, tax consultants Pakistan, corporate tax advisors"
+        canonical="/team"
+      />
       
       {/* 1. HERO BANNER */}
       <section style={{

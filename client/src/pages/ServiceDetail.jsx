@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   CheckCircle2, Phone, Calendar, ArrowRight, ShieldCheck, 
   Building2, Globe, FileText, ChevronRight, Award, Sparkles 
@@ -77,6 +78,12 @@ export default function ServiceDetail({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
+      <SEO 
+        title={`${service.title} | ${service.countryName || 'Advisory Services'}`}
+        description={service.shortDescription || service.overview || `${service.title} professional advisory services provided by Kinzei Consultants.`}
+        keywords={`${service.title}, ${service.countryName} advisory, Kinzei Consultants, corporate tax, accounting advisory`}
+        canonical={`/services/detail/${id}`}
+      />
       
       {/* 1. HERO BANNER */}
       <section style={{

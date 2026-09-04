@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   Building2, FileText, Landmark, Users, Cpu, Globe2, 
   Award, ShieldCheck, MapPin, HeartHandshake, Briefcase, 
@@ -330,6 +331,12 @@ export default function RegistrationCompliance({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
+      <SEO 
+        title="SECP Company Registration, Licensing & Legal Compliance Pakistan"
+        description="End-to-end corporate registration and licensing services in Lahore, Pakistan: SECP Private Limited & SMC incorporation, LLP registration, FBR NTN / STRN, PSEB IT export, Chamber of Commerce, and WeBOC customs license."
+        keywords="SECP company registration Lahore, Private Limited company Pakistan, SMC registration, LLP incorporation Pakistan, PSEB registration, FBR NTN STRN licensing, Kinzei Consultants"
+        canonical="/services/registration-licensing-compliance"
+      />
       
       {/* 1. HERO BANNER */}
       <section style={{

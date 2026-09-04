@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   BookOpen, Layers, CheckCircle2, Phone, Calendar, 
   ArrowRight, Calculator, PieChart, Database, 
@@ -132,6 +133,12 @@ export default function AccountingReporting({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
+      <SEO 
+        title="Accounting, Bookkeeping & IFRS Financial Reporting Pakistan"
+        description="Comprehensive accounting and financial reporting services in Pakistan. Full-cycle bookkeeping, IFRS financial statements, payroll processing, management reporting, and QuickBooks/Xero/ERP setup."
+        keywords="accounting services Pakistan, bookkeeping Lahore, IFRS financial reporting, payroll processing Pakistan, virtual CFO services, Kinzei Consultants"
+        canonical="/services/accounting-financial-reporting"
+      />
       
       {/* 1. HERO BANNER */}
       <section style={{

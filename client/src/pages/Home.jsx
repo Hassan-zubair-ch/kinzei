@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import ServiceCard from '../components/ServiceCard';
 import ProcessSection from '../components/ProcessSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
@@ -38,6 +39,12 @@ export default function Home({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827' }}>
+      <SEO 
+        title="Premier Tax, Audit & Corporate Advisory Services Pakistan"
+        description="Kinzei Consultants (Private) Limited provides high-end corporate taxation, FBR tax returns, statutory audit, SECP company registration, and US/UK/UAE business expansion in Lahore, Pakistan."
+        keywords="FBR tax consultant Lahore, income tax return filing Pakistan, SECP company registration, corporate tax advisory, chartered accountants Pakistan, Kinzei Consultants"
+        canonical="/"
+      />
       {/* 1. HERO SECTION */}
       <section style={{
         position: 'relative',

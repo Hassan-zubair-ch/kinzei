@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   Calculator, 
   Info, 
@@ -95,6 +96,12 @@ export default function SaudiTaxCalculator({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A', paddingBottom: '80px' }}>
+      <SEO 
+        title="Saudi Arabia (UKS) Salary, GOSI & Zakat Tax Calculator 2026-27 | Kinzei"
+        description="Comprehensive Kingdom of Saudi Arabia (KSA / UKS) salary calculator. Computes GOSI social insurance contributions, SANED unemployment, employer costs, and net take-home salary."
+        keywords="Saudi Arabia tax calculator, UKS tax calculator, KSA salary calculator, GOSI calculator Saudi Arabia, Saudi Zakat calculator, Kinzei Consultants"
+        canonical="/tax-calculator/saudi-arabia"
+      />
       {/* Top Breadcrumb Navigation */}
       <div style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(212, 160, 23, 0.25)', padding: '12px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>

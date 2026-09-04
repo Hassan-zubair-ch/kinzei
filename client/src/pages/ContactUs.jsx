@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 import { 
   MapPin, 
   Phone, 
@@ -53,6 +54,12 @@ export default function ContactUs() {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
+      <SEO 
+        title="Contact Us | Lahore Head Office & Advisory Booking"
+        description="Contact Kinzei Consultants (Private) Limited. Schedule a direct consultation with our Chartered Accountants and tax consultants in Lahore, Pakistan. WhatsApp: +92 303 4063970."
+        keywords="contact Kinzei Consultants, tax consultant contact Lahore, chartered accountant Lahore address, Kinzei phone number, tax consultation booking"
+        canonical="/contact"
+      />
       
       {/* HEADER BANNER */}
       <section style={{

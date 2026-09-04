@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import SEO from '../components/SEO';
 import ServiceCard from '../components/ServiceCard';
 import { USFlag, UAEFlag, UKFlag, PKFlag, KSAFlag, GermanyFlag } from '../components/CountryFlags';
 import { servicesData } from '../data/servicesData';
@@ -34,6 +35,12 @@ export default function Services() {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', color: '#111827' }}>
+      <SEO 
+        title="Corporate Taxation, Audit & SECP Business Registration Services"
+        description="Explore Kinzei Consultants' full suite of chartered accounting services: Pakistan corporate taxation, FBR tax returns, statutory audit, SECP company registration, and US/UK/UAE business setup."
+        keywords="corporate taxation Pakistan, audit assurance Lahore, SECP company registration, tax consultancy Pakistan, in-house finance staffing secondment, Kinzei Consultants"
+        canonical="/services"
+      />
       {/* PAGE HEADER BANNER */}
       <section style={{
         backgroundColor: '#F8FAFC',

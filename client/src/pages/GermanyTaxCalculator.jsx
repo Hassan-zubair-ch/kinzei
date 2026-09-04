@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   Calculator, 
   Info, 
@@ -79,6 +80,12 @@ export default function GermanyTaxCalculator({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A', paddingBottom: '80px' }}>
+      <SEO 
+        title="Germany Salary & Income Tax Calculator 2025-2026 | Gehaltsrechner"
+        description="Comprehensive German Gross-to-Net (Brutto-Netto) salary calculator. Compute German income tax, Solidarity surcharge (Solidaritätszuschlag), Church tax, Pension, Health, and Care social insurance."
+        keywords="Germany tax calculator, Gehaltsrechner, Brutto Netto Rechner 2025, German income tax classes, Kinzei Consultants"
+        canonical="/tax-calculator/germany"
+      />
       {/* Top Breadcrumb Navigation */}
       <div style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(212, 160, 23, 0.25)', padding: '12px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   Calculator, 
   Info, 
@@ -393,6 +394,12 @@ export default function USTaxCalculator({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A', paddingBottom: '90px' }}>
+      <SEO 
+        title="US Federal, State & FICA Income Tax Calculator 2025-2026 | Kinzei"
+        description="Comprehensive 50-state US income tax calculator. Accurate 2025/2026 IRS federal brackets, standard vs itemized deductions, FICA payroll taxes, state & local taxes, and 401(k) retirement adjustments."
+        keywords="US tax calculator, SmartAsset style tax calculator, federal income tax brackets 2025, state income tax calculator, FICA tax calculator, Kinzei Consultants"
+        canonical="/tax-calculator/usa"
+      />
       
       {/* TOAST NOTIFICATION */}
       {toastMessage && (

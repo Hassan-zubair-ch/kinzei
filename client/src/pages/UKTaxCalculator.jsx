@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   Calculator, 
   Clock, 
@@ -307,6 +308,12 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A', paddingBottom: '80px' }}>
+      <SEO 
+        title="UK Salary & PAYE Income Tax Calculator 2025-2026 | HMRC Take-Home Pay"
+        description="Calculate UK net take-home salary, HMRC PAYE income tax, Class 1 National Insurance, auto-enrolment workplace pensions, and student loan repayments for England, Wales & Scotland."
+        keywords="UK tax calculator, HMRC salary calculator, UK PAYE calculator, take home pay calculator UK, National Insurance calculator, Kinzei Consultants"
+        canonical="/tax-calculator/uk"
+      />
       {/* Top Breadcrumb Navigation */}
       <div style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(212, 160, 23, 0.25)', padding: '12px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>

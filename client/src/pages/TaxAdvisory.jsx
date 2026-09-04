@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   Scale, Landmark, ShieldCheck, CheckCircle2, Phone, Calendar, 
   ArrowRight, FileText, Globe2, ChevronDown, ChevronUp, 
@@ -137,6 +138,12 @@ export default function TaxAdvisory({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111827', minHeight: '100vh' }}>
+      <SEO 
+        title="Corporate Taxation & Tax Advisory Services Pakistan | FBR & PRA"
+        description="Premier corporate and individual taxation services in Lahore, Pakistan. FBR Iris income tax return filing, Active Taxpayer List (ATL) status, monthly sales tax (PRA/SRB), and tax audit defense."
+        keywords="tax consultant Lahore, FBR tax return filing Pakistan, corporate taxation Pakistan, Active Taxpayer List ATL, PRA sales tax return, FBR tax notice defense, Kinzei Consultants"
+        canonical="/services/tax-advisory"
+      />
       
       {/* 1. HERO BANNER */}
       <section style={{
