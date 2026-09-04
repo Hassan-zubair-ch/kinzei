@@ -47,16 +47,21 @@ export default function SaudiTaxCalculator({ onOpenSchedule }) {
   const [hoursPerWeek, setHoursPerWeek] = useState(35);
   const [workingDaysPerYear, setWorkingDaysPerYear] = useState(253);
 
-  // Quick Preset switcher helper
+  // Quick Preset switcher helper matching all 7 periods
   const handleSelectPeriodCard = (periodId) => {
     setPeriod(periodId);
-    // If switching from annual to monthly or hourly, provide sensible example if default
-    if (periodId === 'monthly' && income === 80000.10) {
-      setIncome(6666.68);
-    } else if (periodId === 'annual' && income === 6666.68) {
-      setIncome(80000.10);
-    } else if (periodId === 'hourly' && (income === 80000.10 || income === 6666.68)) {
-      setIncome(43.96);
+    const benchmarkMap = {
+      annual: 80000.10,
+      monthly: 6666.68,
+      fourWeekly: 6153.85,
+      fortnightly: 3076.93,
+      weekly: 1538.46,
+      daily: 316.21,
+      hourly: 43.96
+    };
+    const benchmarkValues = Object.values(benchmarkMap);
+    if (benchmarkValues.includes(income) || income === 80000.10 || income === 0) {
+      setIncome(benchmarkMap[periodId] || 80000.10);
     }
     const el = document.getElementById('saudi-calculator-box');
     if (el) {

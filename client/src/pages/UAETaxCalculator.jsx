@@ -50,12 +50,18 @@ export default function UAETaxCalculator({ onOpenSchedule }) {
 
   const handleSelectPeriodCard = (periodId) => {
     setPeriod(periodId);
-    if (periodId === 'monthly' && income === 80000) {
-      setIncome(6666.67);
-    } else if (periodId === 'annual' && income === 6666.67) {
-      setIncome(80000);
-    } else if (periodId === 'hourly' && (income === 80000 || income === 6666.67)) {
-      setIncome(43.96);
+    const benchmarkMap = {
+      annual: 80000,
+      monthly: 6666.67,
+      fourWeekly: 6153.85,
+      fortnightly: 3076.92,
+      weekly: 1538.46,
+      daily: 316.21,
+      hourly: 43.96
+    };
+    const benchmarkValues = Object.values(benchmarkMap);
+    if (benchmarkValues.includes(income) || income === 80000 || income === 0) {
+      setIncome(benchmarkMap[periodId] || 80000);
     }
     const el = document.getElementById('uae-calculator-box');
     if (el) {
