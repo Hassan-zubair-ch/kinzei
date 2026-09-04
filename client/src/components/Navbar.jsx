@@ -61,7 +61,7 @@ export default function Navbar({ onOpenSchedule }) {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/services', isDropdown: true, dropdownType: 'services' },
-    { name: 'Tax Calculator', path: '/tax-calculator', isDropdown: false },
+    { name: 'Tax Calculator', path: '/tax-calculator', isDropdown: true, dropdownType: 'tax' },
     { name: 'Our Team', path: '/team' },
     { name: 'Contact Us', path: '/contact' },
   ];
@@ -77,8 +77,11 @@ export default function Navbar({ onOpenSchedule }) {
   ];
 
   const taxCalculatorDropdownItems = [
-    { code: 'pk', label: 'Pakistan Tax Calculator', path: '/tax-calculator/pakistan', Flag: PKFlag },
     { code: 'us', label: 'USA Tax Calculator', path: '/tax-calculator/usa', Flag: USFlag },
+    { code: 'uk', label: 'UK Tax Calculator (9-in-1)', path: '/tax-calculator/uk', Flag: UKFlag },
+    { code: 'de', label: 'Germany Tax Calculator', path: '/tax-calculator/germany', Flag: GermanyFlag },
+    { code: 'pk', label: 'Pakistan Tax Calculator', path: '/tax-calculator/pakistan', Flag: PKFlag },
+    { code: 'all', label: 'All Countries Directory', path: '/tax-calculator', Flag: StaffingIcon },
   ];
 
   return (
@@ -120,7 +123,7 @@ export default function Navbar({ onOpenSchedule }) {
               const isOpen = isServices ? dropdownOpen : taxDropdownOpen;
               const setIsOpen = isServices ? setDropdownOpen : setTaxDropdownOpen;
               const items = isServices ? serviceDropdownItems : taxCalculatorDropdownItems;
-              const defaultNavPath = isServices ? '/services' : '/tax-calculator/usa';
+              const defaultNavPath = isServices ? '/services' : '/tax-calculator';
 
               return (
                 <div 

@@ -19,6 +19,7 @@ import RegistrationCompliance from './pages/RegistrationCompliance';
 import TaxCalculator from './pages/TaxCalculator';
 import USTaxCalculator from './pages/USTaxCalculator';
 import UKTaxCalculator from './pages/UKTaxCalculator';
+import GermanyTaxCalculator from './pages/GermanyTaxCalculator';
 import TaxCalculatorsHub from './pages/TaxCalculatorsHub';
 import OurTeam from './pages/OurTeam';
 import ContactUs from './pages/ContactUs';
@@ -51,12 +52,13 @@ export default function App() {
             <Route path="/registration-compliance" element={<RegistrationCompliance onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/services/detail/:id" element={<ServiceDetail onOpenSchedule={handleOpenSchedule} />} />
             
-            {/* Direct Tax Calculator Routes */}
-            <Route path="/tax-calculator" element={<USTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            {/* Global & Dedicated Country Tax Calculator Routes */}
+            <Route path="/tax-calculator" element={<TaxCalculatorsHub onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculators" element={<TaxCalculatorsHub onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/tax-calculator/usa" element={<USTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/tax-calculator/uk" element={<UKTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
+            <Route path="/tax-calculator/germany" element={<GermanyTaxCalculator onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/tax-calculator/pakistan" element={<TaxCalculator onOpenSchedule={handleOpenSchedule} />} />
-            <Route path="/tax-calculators" element={<TaxCalculatorsHub onOpenSchedule={handleOpenSchedule} />} />
             
             <Route path="/team" element={<OurTeam onOpenSchedule={handleOpenSchedule} />} />
             <Route path="/contact" element={<ContactUs />} />

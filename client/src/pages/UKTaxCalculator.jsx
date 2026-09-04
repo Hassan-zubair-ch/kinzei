@@ -306,96 +306,35 @@ export default function UKTaxCalculator({ onOpenSchedule }) {
 
   return (
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A', paddingBottom: '80px' }}>
-      {/* Top International Navigation Bar */}
+      {/* Top Breadcrumb Navigation */}
       <div style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(212, 160, 23, 0.25)', padding: '12px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#94A3B8' }}>
             <Link to="/" style={{ color: '#D4A017', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
             <span>/</span>
-            <Link to="/tax-calculators" style={{ color: '#CBD5E1', textDecoration: 'none' }}>Calculators Hub</Link>
+            <Link to="/tax-calculator" style={{ color: '#CBD5E1', textDecoration: 'none' }}>Global Calculators Hub</Link>
             <span>/</span>
             <span style={{ color: '#F1F5F9', fontWeight: 600 }}>United Kingdom</span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-            <Link
-              to="/tax-calculator"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.08)',
-                color: '#FFFFFF',
-                padding: '6px 14px',
-                borderRadius: '6px',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                border: '1px solid rgba(255,255,255,0.12)'
-              }}
-            >
-              <USFlag size={18} />
-              <span>USA Calculator</span>
-            </Link>
-
-            <div
-              style={{
-                backgroundColor: '#D4A017',
-                color: '#0F172A',
-                padding: '6px 14px',
-                borderRadius: '6px',
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                boxShadow: '0 2px 6px rgba(212, 160, 23, 0.3)'
-              }}
-            >
-              <UKFlag size={18} />
-              <span>UK Suite (Active)</span>
-            </div>
-
-            <Link
-              to="/tax-calculator/pakistan"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.08)',
-                color: '#FFFFFF',
-                padding: '6px 14px',
-                borderRadius: '6px',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                border: '1px solid rgba(255,255,255,0.12)'
-              }}
-            >
-              <PKFlag size={18} />
-              <span>Pakistan</span>
-            </Link>
-
-            <Link
-              to="/tax-calculators"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.05)',
-                color: '#D4A017',
-                padding: '6px 12px',
-                borderRadius: '6px',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                border: '1px solid rgba(212, 160, 23, 0.3)'
-              }}
-            >
-              <Layers size={14} />
-              <span>All 8+ Countries</span>
-            </Link>
-          </div>
+          <Link
+            to="/tax-calculator"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.06)',
+              color: '#D4A017',
+              padding: '6px 14px',
+              borderRadius: '6px',
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              border: '1px solid rgba(212, 160, 23, 0.3)'
+            }}
+          >
+            <span>&lt; Back to All Calculators Hub</span>
+          </Link>
         </div>
       </div>
 

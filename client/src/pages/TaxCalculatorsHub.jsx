@@ -52,7 +52,7 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
       title: 'USA Income Tax & Paycheck Calculator',
       description: 'Comprehensive 2026/2027 personal income tax calculator matching IRS tax brackets, FICA payroll taxes (Social Security & Medicare), and state & local taxes across all 50 states + DC.',
       features: ['All 50 States + DC Tax Rates', 'FICA Payroll Taxes (Social Security & Medicare)', 'Standard & Itemized Deductions', 'Marginal & Effective Tax Rates'],
-      link: '/tax-calculator',
+      link: '/tax-calculator/usa',
       badge: 'Live • Federal, State & Local',
       badgeColor: '#D4A017',
       FlagComponent: USFlag,
@@ -71,6 +71,18 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
       primaryAction: 'Open UK Suite'
     },
     {
+      id: 'germany',
+      country: 'Germany',
+      title: 'Germany Gross to Net Salary Calculator',
+      description: 'Official German Brutto-Netto-Rechner matching statutory BMF 2026/2025 wage tax tables, solidarity surcharge, church tax, and all four statutory social security contributions across all 16 Federal States.',
+      features: ['Tax Classes I through VI (Steuerklassen)', 'All 16 German Bundesländer & Church Rates', 'Health, Pension, Care & Unemployment Insurance', 'Statutory 2026 Basic Allowances (Grundfreibetrag)'],
+      link: '/tax-calculator/germany',
+      badge: 'Live • BMF & SGB Compliant',
+      badgeColor: '#D4A017',
+      FlagComponent: GermanyFlag,
+      primaryAction: 'Open Germany Calculator'
+    },
+    {
       id: 'pakistan',
       country: 'Pakistan',
       title: 'Pakistan Income Tax Calculator',
@@ -78,7 +90,7 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
       features: ['Updated FBR Slabs & Surcharges', 'Salaried vs. Non-Salaried Regimes', 'Monthly & Annual Withholding Breaks', 'Cross-Border Remittance Rules'],
       link: '/tax-calculator/pakistan',
       badge: 'Live • FBR Salaried & Business',
-      badgeColor: '#D4A017',
+      badgeColor: '#10B981',
       FlagComponent: PKFlag,
       primaryAction: 'Open Pakistan Calculator'
     }
@@ -116,14 +128,6 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
       description: 'ATO resident and non-resident tax rates, 2% Medicare levy, low income tax offsets, and 11.5% compulsory superannuation guarantee.',
       badge: 'Planned',
       FlagComponent: AustraliaFlag
-    },
-    {
-      country: 'Germany',
-      code: 'de',
-      title: 'Germany Income Tax (Lohnsteuer) Calculator',
-      description: 'Comprehensive German progressive income tax, solidarity surcharge, church tax, and statutory social insurance contributions across Steuerklassen I-VI.',
-      badge: 'Planned',
-      FlagComponent: GermanyFlag
     }
   ];
 
@@ -138,13 +142,13 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
             <span style={{ color: '#F1F5F9', fontWeight: 600 }}>Global Tax Calculators Directory</span>
           </div>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
             <Link 
-              to="/tax-calculator"
+              to="/tax-calculator/usa"
               style={{
                 backgroundColor: 'rgba(255,255,255,0.08)',
                 color: '#FFFFFF',
-                padding: '6px 14px',
+                padding: '6px 12px',
                 borderRadius: '6px',
                 fontSize: '0.82rem',
                 fontWeight: 600,
@@ -156,14 +160,33 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
               }}
             >
               <USFlag size={18} />
-              <span>USA Calculator</span>
+              <span>USA</span>
             </Link>
             <Link 
               to="/tax-calculator/uk"
               style={{
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                color: '#FFFFFF',
+                padding: '6px 12px',
+                borderRadius: '6px',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                border: '1px solid rgba(255,255,255,0.12)'
+              }}
+            >
+              <UKFlag size={18} />
+              <span>UK</span>
+            </Link>
+            <Link 
+              to="/tax-calculator/germany"
+              style={{
                 backgroundColor: 'rgba(212, 160, 23, 0.15)',
                 color: '#D4A017',
-                padding: '6px 14px',
+                padding: '6px 12px',
                 borderRadius: '6px',
                 fontSize: '0.82rem',
                 fontWeight: 600,
@@ -174,15 +197,15 @@ export default function TaxCalculatorsHub({ onOpenSchedule }) {
                 border: '1px solid #D4A017'
               }}
             >
-              <UKFlag size={18} />
-              <span>UK Suite</span>
+              <GermanyFlag size={18} />
+              <span>Germany</span>
             </Link>
             <Link 
               to="/tax-calculator/pakistan"
               style={{
                 backgroundColor: 'rgba(255,255,255,0.08)',
                 color: '#FFFFFF',
-                padding: '6px 14px',
+                padding: '6px 12px',
                 borderRadius: '6px',
                 fontSize: '0.82rem',
                 fontWeight: 600,
