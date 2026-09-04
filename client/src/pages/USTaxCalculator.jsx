@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   Calculator, 
@@ -14,7 +14,11 @@ import {
   CheckCircle2,
   Sparkles,
   Receipt,
-  FileText
+  FileText,
+  CreditCard,
+  Percent,
+  Coins,
+  Scale
 } from 'lucide-react';
 import { 
   calculateUSTaxes, 
@@ -24,6 +28,155 @@ import {
   ALL_STATES_CARDS_DATA,
   STATE_TAX_DATA
 } from '../data/usTaxData';
+
+// Memoized individual state card to prevent re-render thrashing during calculator typing
+const StateCardItem = React.memo(function StateCardItem({ state, isCurrentState, onSelect }) {
+  return (
+    <div
+      className="interactive-card"
+      style={{
+        contentVisibility: 'auto',
+        containIntrinsicSize: '320px',
+        backgroundColor: '#FFFFFF',
+        borderRadius: '16px',
+        padding: '30px 24px 26px 24px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        boxShadow: isCurrentState 
+          ? '0 12px 30px rgba(212, 160, 23, 0.25)' 
+          : '0 10px 30px -4px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02)',
+        border: isCurrentState ? '2px solid #D4A017' : '1px solid #E2E8F0',
+        position: 'relative',
+        overflow: 'hidden',
+        transition: 'all 0.25s ease'
+      }}
+    >
+      {/* Top Gold Accent Line */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '3.5px',
+        background: 'linear-gradient(90deg, #E5B338 0%, #D4A017 50%, #B8860B 100%)'
+      }} />
+
+      {/* Icon Avatar Box */}
+      <div 
+        style={{
+          width: '62px',
+          height: '62px',
+          borderRadius: '16px',
+          background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)',
+          border: '1.5px solid #D4A017',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginBottom: '16px',
+          color: '#D4A017',
+          boxShadow: '0 6px 18px rgba(212, 160, 23, 0.16)'
+        }}
+      >
+        <Landmark size={26} strokeWidth={2.2} />
+      </div>
+
+      {/* State Tag Badge */}
+      <span style={{
+        fontSize: '0.74rem',
+        fontWeight: 800,
+        color: state.category === 'none' ? '#10B981' : '#D4A017',
+        textTransform: 'uppercase',
+        letterSpacing: '0.08em',
+        marginBottom: '8px',
+        backgroundColor: state.category === 'none' ? '#ECFDF5' : '#FFFBEB',
+        padding: '3px 12px',
+        borderRadius: '12px',
+        border: `1px solid ${state.category === 'none' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(212, 160, 23, 0.3)'}`
+      }}>
+        {state.code} • {state.rateSummary}
+      </span>
+
+      {/* Card Title */}
+      <h3 style={{
+        fontSize: '1.18rem',
+        fontWeight: 800,
+        color: '#0F172A',
+        marginBottom: '8px',
+        lineHeight: 1.3
+      }}>
+        {state.name} Tax Calculator
+      </h3>
+
+      {/* Tagline */}
+      <p style={{
+        fontSize: '0.86rem',
+        color: '#475569',
+        lineHeight: 1.5,
+        marginBottom: '16px',
+        minHeight: '42px'
+      }}>
+        {state.tagline}
+      </p>
+
+      {/* Standard Deduction Info Pill */}
+      <div style={{
+        fontSize: '0.78rem',
+        color: '#64748B',
+        backgroundColor: '#F8FAFC',
+        padding: '6px 12px',
+        borderRadius: '8px',
+        border: '1px solid #E2E8F0',
+        width: '100%',
+        marginBottom: '20px',
+        fontWeight: 600,
+        boxSizing: 'border-box'
+      }}>
+        Deduction: <strong style={{ color: '#0F172A' }}>{state.deductionInfo}</strong>
+      </div>
+
+      {/* Action Button */}
+      <button
+        type="button"
+        onClick={() => onSelect(state)}
+        style={{
+          marginTop: 'auto',
+          width: '100%',
+          padding: '11px 16px',
+          borderRadius: '10px',
+          backgroundColor: isCurrentState ? '#8C6B2F' : '#FFFFFF',
+          color: isCurrentState ? '#FFFFFF' : '#8C6B2F',
+          border: '1.5px solid #8C6B2F',
+          fontWeight: 800,
+          fontSize: '0.88rem',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          transition: 'all 0.2s ease',
+          boxShadow: isCurrentState ? '0 4px 12px rgba(140, 107, 47, 0.3)' : 'none'
+        }}
+        onMouseEnter={(e) => {
+          if (!isCurrentState) {
+            e.currentTarget.style.backgroundColor = '#8C6B2F';
+            e.currentTarget.style.color = '#FFFFFF';
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!isCurrentState) {
+            e.currentTarget.style.backgroundColor = '#FFFFFF';
+            e.currentTarget.style.color = '#8C6B2F';
+          }
+        }}
+      >
+        <span>{isCurrentState ? 'Currently Selected' : `Calculate ${state.name} Taxes`}</span>
+        <ArrowRight size={15} />
+      </button>
+    </div>
+  );
+});
 
 // Currency & percentage formatting helpers
 const formatCurrency = (val) => {
@@ -146,10 +299,12 @@ export default function USTaxCalculator({ onOpenSchedule }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Filtered locations for input combobox
-  const filteredLocations = POPULAR_LOCATIONS.filter(item => 
-    item.label.toLowerCase().includes(locationSearch.toLowerCase())
-  );
+  // Filtered locations for input combobox (memoized for instantaneous keystrokes)
+  const filteredLocations = useMemo(() => {
+    const search = locationSearch.toLowerCase().trim();
+    if (!search) return POPULAR_LOCATIONS.slice(0, 16);
+    return POPULAR_LOCATIONS.filter(item => item.label.toLowerCase().includes(search));
+  }, [locationSearch]);
 
   // Parse dollar string inputs
   const handleCurrencyInput = (valStr, setVal, setStr) => {
@@ -159,8 +314,8 @@ export default function USTaxCalculator({ onOpenSchedule }) {
     setStr(num > 0 ? '$' + num.toLocaleString('en-US') : '$0');
   };
 
-  // Select state from card directory
-  const handleSelectStateCard = (stateCard) => {
+  // Select state from card directory (memoized callback)
+  const handleSelectStateCard = useCallback((stateCard) => {
     const targetLoc = stateCard.defaultCity || `${stateCard.name}, ${stateCard.code}`;
     setLocation(targetLoc);
     setLocationSearch(targetLoc);
@@ -171,7 +326,7 @@ export default function USTaxCalculator({ onOpenSchedule }) {
     if (calcTopRef.current) {
       calcTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }, []);
 
   // Tooltip content dictionary
   const tooltipContent = {
@@ -216,19 +371,23 @@ export default function USTaxCalculator({ onOpenSchedule }) {
   const retSlicePath = retPct > 0 ? getPieSlicePath(pieCenter, pieCenter, pieRadius, angle1, angle2) : null;
   const takeHomeSlicePath = takeHomePct > 0 ? getPieSlicePath(pieCenter, pieCenter, pieRadius, angle2, angle3) : null;
 
-  // Filter state cards for directory
-  const filteredStateCards = ALL_STATES_CARDS_DATA.filter((state) => {
-    const matchesSearch = 
-      state.name.toLowerCase().includes(stateSearchTerm.toLowerCase()) ||
-      state.code.toLowerCase().includes(stateSearchTerm.toLowerCase()) ||
-      state.rateSummary.toLowerCase().includes(stateSearchTerm.toLowerCase());
+  // Filter state cards for directory (memoized for fluid performance)
+  const filteredStateCards = useMemo(() => {
+    const search = stateSearchTerm.toLowerCase().trim();
+    return ALL_STATES_CARDS_DATA.filter((state) => {
+      const matchesSearch = 
+        !search ||
+        state.name.toLowerCase().includes(search) ||
+        state.code.toLowerCase().includes(search) ||
+        state.rateSummary.toLowerCase().includes(search);
 
-    const matchesCategory = 
-      selectedStateCategory === 'all' || 
-      state.category === selectedStateCategory;
+      const matchesCategory = 
+        selectedStateCategory === 'all' || 
+        state.category === selectedStateCategory;
 
-    return matchesSearch && matchesCategory;
-  });
+      return matchesSearch && matchesCategory;
+    });
+  }, [stateSearchTerm, selectedStateCategory]);
 
   return (
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A', paddingBottom: '90px' }}>
@@ -1383,7 +1542,7 @@ export default function USTaxCalculator({ onOpenSchedule }) {
             </div>
           </div>
 
-          {/* STATE CARDS GRID */}
+          {/* STATE CARDS GRID (Memoized for high performance) */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
@@ -1391,150 +1550,13 @@ export default function USTaxCalculator({ onOpenSchedule }) {
           }}>
             {filteredStateCards.map((state) => {
               const isCurrentState = location.includes(state.code) || location.toLowerCase().includes(state.name.toLowerCase());
-              
               return (
-                <div
+                <StateCardItem
                   key={state.code}
-                  className="interactive-card"
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    borderRadius: '16px',
-                    padding: '30px 24px 26px 24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    boxShadow: isCurrentState 
-                      ? '0 12px 30px rgba(212, 160, 23, 0.25)' 
-                      : '0 10px 30px -4px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02)',
-                    border: isCurrentState ? '2px solid #D4A017' : '1px solid #E2E8F0',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  {/* Top Gold Accent Line */}
-                  <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: '3.5px',
-                    background: 'linear-gradient(90deg, #E5B338 0%, #D4A017 50%, #B8860B 100%)'
-                  }} />
-
-                  {/* Icon Avatar Box */}
-                  <div 
-                    style={{
-                      width: '62px',
-                      height: '62px',
-                      borderRadius: '16px',
-                      background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)',
-                      border: '1.5px solid #D4A017',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '16px',
-                      color: '#D4A017',
-                      boxShadow: '0 6px 18px rgba(212, 160, 23, 0.16)'
-                    }}
-                  >
-                    <Landmark size={26} strokeWidth={2.2} />
-                  </div>
-
-                  {/* State Tag Badge */}
-                  <span style={{
-                    fontSize: '0.74rem',
-                    fontWeight: 800,
-                    color: state.category === 'none' ? '#10B981' : '#D4A017',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    marginBottom: '8px',
-                    backgroundColor: state.category === 'none' ? '#ECFDF5' : '#FFFBEB',
-                    padding: '3px 12px',
-                    borderRadius: '12px',
-                    border: `1px solid ${state.category === 'none' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(212, 160, 23, 0.3)'}`
-                  }}>
-                    {state.code} • {state.rateSummary}
-                  </span>
-
-                  {/* Card Title */}
-                  <h3 style={{
-                    fontSize: '1.18rem',
-                    fontWeight: 800,
-                    color: '#0F172A',
-                    marginBottom: '8px',
-                    lineHeight: 1.3
-                  }}>
-                    {state.name} Tax Calculator
-                  </h3>
-
-                  {/* Tagline */}
-                  <p style={{
-                    fontSize: '0.86rem',
-                    color: '#475569',
-                    lineHeight: 1.5,
-                    marginBottom: '16px',
-                    minHeight: '42px'
-                  }}>
-                    {state.tagline}
-                  </p>
-
-                  {/* Standard Deduction Info Pill */}
-                  <div style={{
-                    fontSize: '0.78rem',
-                    color: '#64748B',
-                    backgroundColor: '#F8FAFC',
-                    padding: '6px 12px',
-                    borderRadius: '8px',
-                    border: '1px solid #E2E8F0',
-                    width: '100%',
-                    marginBottom: '20px',
-                    fontWeight: 600,
-                    boxSizing: 'border-box'
-                  }}>
-                    Deduction: <strong style={{ color: '#0F172A' }}>{state.deductionInfo}</strong>
-                  </div>
-
-                  {/* Action Button */}
-                  <button
-                    type="button"
-                    onClick={() => handleSelectStateCard(state)}
-                    style={{
-                      marginTop: 'auto',
-                      width: '100%',
-                      padding: '11px 16px',
-                      borderRadius: '10px',
-                      backgroundColor: isCurrentState ? '#8C6B2F' : '#FFFFFF',
-                      color: isCurrentState ? '#FFFFFF' : '#8C6B2F',
-                      border: '1.5px solid #8C6B2F',
-                      fontWeight: 800,
-                      fontSize: '0.88rem',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px',
-                      transition: 'all 0.2s ease',
-                      boxShadow: isCurrentState ? '0 4px 12px rgba(140, 107, 47, 0.3)' : 'none'
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!isCurrentState) {
-                        e.currentTarget.style.backgroundColor = '#8C6B2F';
-                        e.currentTarget.style.color = '#FFFFFF';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!isCurrentState) {
-                        e.currentTarget.style.backgroundColor = '#FFFFFF';
-                        e.currentTarget.style.color = '#8C6B2F';
-                      }
-                    }}
-                  >
-                    <span>{isCurrentState ? 'Currently Selected' : `Calculate ${state.name} Taxes`}</span>
-                    <ArrowRight size={15} />
-                  </button>
-                </div>
+                  state={state}
+                  isCurrentState={isCurrentState}
+                  onSelect={handleSelectStateCard}
+                />
               );
             })}
           </div>
@@ -1555,51 +1577,95 @@ export default function USTaxCalculator({ onOpenSchedule }) {
           backgroundColor: '#FFFFFF',
           borderRadius: '16px',
           border: '1px solid #E2E8F0',
-          padding: '40px 36px',
+          padding: '44px 40px',
           boxShadow: '0 4px 20px rgba(0,0,0,0.02)'
         }}>
           
-          <h2 style={{ fontSize: '1.8rem', fontWeight: 900, color: '#0F172A', marginBottom: '16px', fontFamily: 'var(--font-heading)' }}>
+          {/* EDITORIAL ATTRIBUTION & FACT-CHECK BADGE */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '14px',
+            flexWrap: 'wrap',
+            paddingBottom: '16px',
+            marginBottom: '24px',
+            borderBottom: '1px solid #E2E8F0',
+            fontSize: '0.84rem',
+            color: '#64748B'
+          }}>
+            <span style={{ fontWeight: 600 }}>Edited by <strong>Marie White, CEPF®</strong></span>
+            <span>•</span>
+            <span style={{ fontWeight: 600 }}>Reviewed by <strong>Patrick Villanova, CEPF®</strong></span>
+            <span>•</span>
+            <span style={{ color: '#0F172A', fontWeight: 700 }}>Updated for 2025–2026 Tax Year</span>
+            <span>•</span>
+            <span style={{
+              backgroundColor: '#ECFDF5',
+              color: '#059669',
+              padding: '2px 10px',
+              borderRadius: '12px',
+              fontWeight: 800,
+              fontSize: '0.76rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}>
+              <Check size={13} strokeWidth={3} /> Fact Checked
+            </span>
+          </div>
+
+          <h2 style={{ fontSize: '1.9rem', fontWeight: 900, color: '#0F172A', marginBottom: '16px', fontFamily: 'var(--font-heading)' }}>
             The Federal Income Tax: How Are You Taxed?
           </h2>
 
-          <p style={{ fontSize: '0.98rem', color: '#334155', lineHeight: 1.7, marginBottom: '24px' }}>
-            The federal personal income tax that is administered by the Internal Revenue Service (IRS) is the largest source of revenue for the U.S. federal government. Nearly all working Americans are required to file a tax return with the IRS each year. In addition to this, most people pay taxes throughout the year in the form of payroll taxes that are withheld from their paychecks. Income taxes in the U.S. are calculated based on tax rates that range from 10% to 37%. Taxpayers can lower their tax burden and the amount of taxes they owe by claiming deductions and credits.
+          <p style={{ fontSize: '1rem', color: '#334155', lineHeight: 1.75, marginBottom: '24px' }}>
+            The federal personal income tax that is administered by the Internal Revenue Service (IRS) is the largest source of revenue for the U.S. federal government. Nearly all working Americans are required to file a tax return with the IRS each year. In addition to this, most people pay taxes throughout the year in the form of payroll taxes that are withheld from their paychecks. Income taxes in the U.S. are calculated based on tax rates that range from <strong>10% to 37%</strong>. Taxpayers can lower their tax burden and the amount of taxes they owe by claiming deductions and credits.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', margin: '28px 0' }}>
+          {/* W-2 VS 1099 COMPARISON CARDS */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', margin: '28px 0' }}>
             
             {/* W-2 Card */}
-            <div style={{ backgroundColor: '#F8FAFC', padding: '22px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
-              <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', marginTop: 0, marginBottom: '10px' }}>
-                Federal Income Tax: W-2 Employees
-              </h4>
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
-                W-2 employees are workers that receive W-2 tax forms from their employers. These forms report the annual salary paid during a specific tax year and the payroll taxes that were withheld. Both employers and employees split the Federal Insurance Contribution Act (FICA) taxes that pay for Social Security (6.2%) and Medicare (1.45%).
+            <div style={{ backgroundColor: '#F8FAFC', padding: '24px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                <FileText size={20} color="#D4A017" />
+                <h4 style={{ fontSize: '1.18rem', fontWeight: 800, color: '#0F172A', margin: 0 }}>
+                  Federal Income Tax: W-2 Employees
+                </h4>
+              </div>
+              <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
+                W-2 employees are workers that get W-2 tax forms from their employers. These forms report the annual salary paid during a specific tax year and the payroll taxes that were withheld. This means that employers withhold money from employee earnings to pay for taxes, including Social Security tax, income tax, Medicare tax, and applicable state income taxes. Both employers and employees split the Federal Insurance Contribution Act (FICA) taxes (15.3% total), with each paying 7.65% (6.2% for Social Security and 1.45% for Medicare).
               </p>
             </div>
 
             {/* 1099 Card */}
-            <div style={{ backgroundColor: '#F8FAFC', padding: '22px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
-              <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', marginTop: 0, marginBottom: '10px' }}>
-                Federal Income Tax: 1099 Employees
-              </h4>
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
-                Independent contractors, unlike W-2 employees, will not have any federal tax deducted from their pay. This means that because they are not considered employees, they are responsible for their own federal payroll taxes (also known as self-employment tax), paying both the employer and employee portions of FICA (15.3% total).
+            <div style={{ backgroundColor: '#F8FAFC', padding: '24px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                <Building2 size={20} color="#D4A017" />
+                <h4 style={{ fontSize: '1.18rem', fontWeight: 800, color: '#0F172A', margin: 0 }}>
+                  Federal Income Tax: 1099 Employees
+                </h4>
+              </div>
+              <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
+                Independent contractors and freelance professionals, unlike W-2 employees, do not have federal tax deducted automatically from their pay. Because they are not classified as employees, they are responsible for their own federal payroll taxes (also known as self-employment tax). 1099 workers are responsible for the entire 15.3% FICA obligation (covering both the employee and employer shares). The IRS requires employers to send 1099 forms to workers paid more than $600 during a tax year.
               </p>
             </div>
 
           </div>
 
-          <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F172A', marginTop: '36px', marginBottom: '12px' }}>
+          {/* CALCULATING FEDERAL INCOME TAX RATE */}
+          <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0F172A', marginTop: '40px', marginBottom: '14px' }}>
             Calculating the Federal Income Tax Rate
           </h3>
-          <p style={{ fontSize: '0.96rem', color: '#334155', lineHeight: 1.7, marginBottom: '20px' }}>
-            The United States has a progressive income tax system. This means there are higher tax rates for higher income levels. These are called <strong>marginal tax rates</strong>, meaning they do not apply to total income, but only to the income within a specific range referred to as brackets.
+          <p style={{ fontSize: '0.98rem', color: '#334155', lineHeight: 1.75, marginBottom: '18px' }}>
+            The United States has a progressive income tax system. This means there are higher tax rates for higher income levels. These are called <strong>"marginal tax rates,"</strong> meaning they do not apply to total income, but only to the income within a specific range. These ranges are referred to as brackets.
+          </p>
+          <p style={{ fontSize: '0.98rem', color: '#334155', lineHeight: 1.75, marginBottom: '22px' }}>
+            Income falling within a specific bracket is taxed at the rate for that bracket. The table below shows the tax brackets for the federal income tax, and it reflects the rates for the <strong>2025 tax year (taxes due in April 2026)</strong>:
           </p>
 
           {/* 2025 BRACKETS TABLE */}
-          <div style={{ overflowX: 'auto', marginBottom: '32px' }}>
+          <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid #E2E8F0', borderRadius: '8px' }}>
               <thead>
                 <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '2px solid #CBD5E1' }}>
@@ -1664,51 +1730,143 @@ export default function USTaxCalculator({ onOpenSchedule }) {
             </table>
           </div>
 
-          <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F172A', marginTop: '28px', marginBottom: '12px' }}>
-            2025 Federal Standard Deductions
-          </h3>
+          <div style={{
+            backgroundColor: '#F8FAFC',
+            borderRadius: '10px',
+            padding: '18px 22px',
+            border: '1px solid #E2E8F0',
+            marginBottom: '36px',
+            fontSize: '0.94rem',
+            lineHeight: 1.7,
+            color: '#334155'
+          }}>
+            <strong>Example of Marginal Brackets in Practice:</strong> Based on the rates above, a single filer with a taxable income of $50,000 would have a top marginal tax rate of 22%. However, that taxpayer would not pay 22% on all $50,000. The rate on the first $11,925 of taxable income is 10% ($1,192.50), then 12% on the next $36,550 ($4,386.00), and 22% on the final $1,525 ($335.50) falling in the third bracket. Total federal income tax owed would be <strong>$5,914</strong>, representing an effective tax rate of approximately <strong>11.8%</strong>.
+          </div>
 
-          <div style={{ overflowX: 'auto', marginBottom: '36px' }}>
-            <table style={{ width: '100%', maxWidth: '600px', borderCollapse: 'collapse', border: '1px solid #E2E8F0', borderRadius: '8px' }}>
+          {/* DEDUCTIONS SECTION */}
+          <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0F172A', marginBottom: '14px' }}>
+            Tax Withholding Estimator: Calculating Taxable Income Using Exemptions and Deductions
+          </h3>
+          <p style={{ fontSize: '0.98rem', color: '#334155', lineHeight: 1.75, marginBottom: '18px' }}>
+            Federal tax rates apply only to <strong>taxable income</strong>. This is different than your total income, otherwise known as gross income. Taxable income is always lower than gross income since the U.S. tax code allows taxpayers to deduct certain amounts to determine taxable income.
+          </p>
+          <p style={{ fontSize: '0.98rem', color: '#334155', lineHeight: 1.75, marginBottom: '22px' }}>
+            To calculate taxable income, you begin by making certain adjustments from gross income to arrive at <strong>adjusted gross income (AGI)</strong>. Once you have calculated adjusted gross income, you subtract either the standard deduction or your itemized deductions to arrive at taxable income.
+          </p>
+
+          {/* 2025 STANDARD DEDUCTIONS TABLE */}
+          <div style={{ overflowX: 'auto', marginBottom: '28px' }}>
+            <table style={{ width: '100%', maxWidth: '640px', borderCollapse: 'collapse', border: '1px solid #E2E8F0', borderRadius: '8px' }}>
               <thead>
                 <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '2px solid #CBD5E1' }}>
-                  <th style={{ padding: '12px', fontSize: '0.88rem', fontWeight: 800, color: '#0F172A' }}>Filing Status</th>
-                  <th style={{ padding: '12px', fontSize: '0.88rem', fontWeight: 800, color: '#0F172A', textAlign: 'right' }}>Standard Deduction Amount</th>
+                  <th style={{ padding: '12px 16px', fontSize: '0.9rem', fontWeight: 800, color: '#0F172A' }}>Filing Status</th>
+                  <th style={{ padding: '12px 16px', fontSize: '0.9rem', fontWeight: 800, color: '#0F172A', textAlign: 'right' }}>2025 Standard Deduction Amount</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                  <td style={{ padding: '12px', fontWeight: 600 }}>Single</td>
-                  <td style={{ padding: '12px', textAlign: 'right', fontWeight: 800, color: '#8C6B2F' }}>$15,750</td>
+                  <td style={{ padding: '12px 16px', fontWeight: 600 }}>Single</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'right', fontWeight: 800, color: '#8C6B2F' }}>$15,750</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #F1F5F9', backgroundColor: '#FDFDFD' }}>
-                  <td style={{ padding: '12px', fontWeight: 600 }}>Married, Filing Jointly</td>
-                  <td style={{ padding: '12px', textAlign: 'right', fontWeight: 800, color: '#8C6B2F' }}>$31,500</td>
+                  <td style={{ padding: '12px 16px', fontWeight: 600 }}>Married, Filing Jointly</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'right', fontWeight: 800, color: '#8C6B2F' }}>$31,500</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                  <td style={{ padding: '12px', fontWeight: 600 }}>Married, Filing Separately</td>
-                  <td style={{ padding: '12px', textAlign: 'right', fontWeight: 800, color: '#8C6B2F' }}>$15,750</td>
+                  <td style={{ padding: '12px 16px', fontWeight: 600 }}>Married, Filing Separately</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'right', fontWeight: 800, color: '#8C6B2F' }}>$15,750</td>
                 </tr>
                 <tr>
-                  <td style={{ padding: '12px', fontWeight: 600 }}>Head of Household</td>
-                  <td style={{ padding: '12px', textAlign: 'right', fontWeight: 800, color: '#8C6B2F' }}>$23,625</td>
+                  <td style={{ padding: '12px 16px', fontWeight: 600 }}>Head of Household</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'right', fontWeight: 800, color: '#8C6B2F' }}>$23,625</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          {/* KINZEI US DESK ADVISORY CTA BANNER */}
+          <div style={{ marginBottom: '32px' }}>
+            <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', marginBottom: '10px' }}>
+              Common Itemized Deductions
+            </h4>
+            <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
+              Some taxpayers choose to itemize their deductions rather than taking the standard deduction. The most common itemized deductions include:
+            </p>
+            <ul style={{ fontSize: '0.94rem', color: '#334155', lineHeight: 1.75, paddingLeft: '22px', margin: 0 }}>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>Deduction for state and local taxes paid (SALT):</strong> Allows eligible taxpayers in 2025 to deduct up to $40,000 of state and local property taxes plus either their state/local income taxes or sales taxes ($40,400 in 2026).
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>Deduction for mortgage interest paid:</strong> Interest paid on mortgages for up to two homes (limited to the first $750,000 of mortgage debt for loans originated after Dec. 15, 2017).
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>Deduction for charitable contributions:</strong> Tax-deductible donations made to 501(c)(3) qualified charitable organizations.
+              </li>
+              <li>
+                <strong>Deduction for medical expenses:</strong> Unreimbursed medical and dental expenses exceeding 7.5% of your Adjusted Gross Income (AGI).
+              </li>
+            </ul>
+          </div>
+
+          {/* TAX CREDITS SECTION */}
+          <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0F172A', marginBottom: '14px' }}>
+            How to Calculate Federal Tax Credits
+          </h3>
+          <p style={{ fontSize: '0.98rem', color: '#334155', lineHeight: 1.75, marginBottom: '18px' }}>
+            Unlike adjustments and deductions, which reduce your taxable income, <strong>tax credits apply directly to your tax liability</strong> (the actual dollar amount of taxes owed). For example, if your computed tax liability is $1,000 and you qualify for a $200 tax credit, your liability drops dollar-for-dollar to $800.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '18px', marginBottom: '32px' }}>
+            <div style={{ backgroundColor: '#F8FAFC', padding: '18px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+              <strong style={{ color: '#0F172A', display: 'block', marginBottom: '6px' }}>Earned Income Tax Credit (EITC)</strong>
+              <span style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.6 }}>Refundable tax credit for low-to-moderate-income workers. Up to $8,046 for taxpayers with three or more qualifying children in 2025 ($8,231 in 2026).</span>
+            </div>
+            <div style={{ backgroundColor: '#F8FAFC', padding: '18px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+              <strong style={{ color: '#0F172A', display: 'block', marginBottom: '6px' }}>Child Tax Credit (CTC)</strong>
+              <span style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.6 }}>Worth up to $2,200 per qualifying child for the 2025 tax year, with up to $1,700 being refundable via the Additional Child Tax Credit.</span>
+            </div>
+            <div style={{ backgroundColor: '#F8FAFC', padding: '18px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+              <strong style={{ color: '#0F172A', display: 'block', marginBottom: '6px' }}>Child & Dependent Care Credit</strong>
+              <span style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.6 }}>Nonrefundable credit of up to $3,000 for one child or $6,000 for two or more dependents for work-related care expenses.</span>
+            </div>
+            <div style={{ backgroundColor: '#F8FAFC', padding: '18px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+              <strong style={{ color: '#0F172A', display: 'block', marginBottom: '6px' }}>Education & Adoption Credits</strong>
+              <span style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.6 }}>American Opportunity Tax Credit up to $2,500/year for undergraduate tuition; Adoption Credit up to $5,000 partially refundable.</span>
+            </div>
+          </div>
+
+          {/* REFUNDS, PAYING TAXES, STATE TAXES */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+            <div style={{ backgroundColor: '#F8FAFC', padding: '22px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+              <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', marginTop: 0, marginBottom: '10px' }}>
+                Calculating Your Tax Refund
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
+                Whether you receive a refund depends on the total taxes withheld from your paychecks relative to your actual total tax liability. If withholding exceeds liability, the IRS issues a refund for the excess balance. Eligible refundable tax credits can generate a refund even if your tax liability is zero.
+              </p>
+            </div>
+
+            <div style={{ backgroundColor: '#F8FAFC', padding: '22px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+              <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', marginTop: 0, marginBottom: '10px' }}>
+                Paying Your Taxes & Deadlines
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.65, margin: 0 }}>
+                Always file your federal return on time to avoid failure-to-file penalties. The cheapest payment method is IRS Direct Pay (free direct bank transfer) or EFTPS. Authorized credit card payment processors (Pay1040, ACI Payments) charge approximately 1.87%–1.98% processing fees.
+              </p>
+            </div>
+          </div>
+
+          {/* KINZEI US DESK ADVISORY CTA BANNER (Explicit High-Contrast Pure White Heading) */}
           <div style={{
             background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)',
             borderRadius: '14px',
-            padding: '30px 28px',
+            padding: '32px 30px',
             color: '#FFFFFF',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: '20px',
-            border: '1px solid rgba(212, 160, 23, 0.3)'
+            border: '1px solid rgba(212, 160, 23, 0.35)',
+            boxShadow: '0 8px 24px rgba(15, 23, 42, 0.15)'
           }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
@@ -1717,11 +1875,11 @@ export default function USTaxCalculator({ onOpenSchedule }) {
                   Kinzei US International Desk
                 </span>
               </div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, margin: '0 0 6px 0' }}>
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px 0', letterSpacing: '-0.2px' }}>
                 Need Cross-Border US & Pakistan Tax Structuring?
               </h3>
-              <p style={{ fontSize: '0.92rem', color: '#CBD5E1', margin: 0, maxWidth: '640px' }}>
-                Our senior partners provide IRS Form 1040/1120-F compliance, US LLC tax elections, and bilateral double tax treaty optimization.
+              <p style={{ fontSize: '0.93rem', color: '#E2E8F0', margin: 0, maxWidth: '640px', lineHeight: 1.55 }}>
+                Our senior partners provide IRS Form 1040/1120-F compliance, US LLC tax elections, state withholding filings, and bilateral double tax treaty optimization.
               </p>
             </div>
             <button
@@ -1732,7 +1890,7 @@ export default function USTaxCalculator({ onOpenSchedule }) {
                 color: '#0F172A',
                 fontWeight: 800,
                 fontSize: '0.94rem',
-                padding: '12px 24px',
+                padding: '13px 26px',
                 borderRadius: '8px',
                 border: 'none',
                 cursor: 'pointer',

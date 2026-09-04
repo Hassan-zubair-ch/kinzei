@@ -157,7 +157,7 @@ export const STATE_TAX_DATA = {
       { min: 5000000, max: Infinity, rate: 0.109 }
     ]
   },
-  NC: { name: 'North Carolina', type: 'Flat Rate', rateRange: '4.5%', flat: 0.045, standardDeduction: { SINGLE: 12750, MARRIED_FILING_JOINTLY: 25500, MARRIED_FILING_SEPARATELY: 12750, HEAD_OF_HOUSEHOLD: 19125 } },
+  NC: { name: 'North Carolina', type: 'Flat Rate', rateRange: '4.25%', flat: 0.0425, standardDeduction: { SINGLE: 12750, MARRIED_FILING_JOINTLY: 25500, MARRIED_FILING_SEPARATELY: 12750, HEAD_OF_HOUSEHOLD: 19125 } },
   ND: { name: 'North Dakota', type: 'Progressive', rateRange: '0.0% – 2.5%', standardDeduction: { SINGLE: 14600, MARRIED_FILING_JOINTLY: 29200, MARRIED_FILING_SEPARATELY: 14600, HEAD_OF_HOUSEHOLD: 21900 }, brackets: [{ min: 0, max: 44725, rate: 0.0 }, { min: 44725, max: 225975, rate: 0.0195 }, { min: 225975, max: Infinity, rate: 0.025 }] },
   OH: {
     name: 'Ohio',
@@ -332,7 +332,7 @@ function calculateBracketTax(taxableIncome, brackets) {
     }
   }
 
-  return { tax: Math.floor(tax), marginalRate };
+  return { tax, marginalRate };
 }
 
 // Master Calculator Function
@@ -396,19 +396,29 @@ export function calculateUSTaxes({
   // 6. State Income Tax
   let stateCode = 'OH';
   if (location) {
-    const matchedCity = LOCAL_TAX_CITIES[location];
+    const locTrimmed = location.trim();
+    const matchedCity = LOCAL_TAX_CITIES[locTrimmed];
     if (matchedCity) {
       stateCode = matchedCity.state;
     } else {
-      const match = location.match(/([A-Z]{2})\)?$/i) || location.match(/,\s*([A-Z]{2})/i);
-      if (match && STATE_TAX_DATA[match[1].toUpperCase()]) {
-        stateCode = match[1].toUpperCase();
+      // Priority 1: Check comma followed by 2-letter state code (e.g. 'Washington, DC', 'Kansas City, MO', 'Charlotte, NC')
+      const commaMatch = locTrimmed.match(/,\s*([A-Za-z]{2})(?:\s|\(|$|\b)/);
+      if (commaMatch && STATE_TAX_DATA[commaMatch[1].toUpperCase()]) {
+        stateCode = commaMatch[1].toUpperCase();
       } else {
-        const locLower = location.toLowerCase();
-        for (const [code, info] of Object.entries(STATE_TAX_DATA)) {
-          if (locLower.includes(info.name.toLowerCase())) {
-            stateCode = code;
-            break;
+        // Priority 2: Exact 2-letter state code (e.g. 'NC', 'CA')
+        const exactMatch = locTrimmed.match(/^([A-Za-z]{2})$/);
+        if (exactMatch && STATE_TAX_DATA[exactMatch[1].toUpperCase()]) {
+          stateCode = exactMatch[1].toUpperCase();
+        } else {
+          // Priority 3: Full state name match (e.g. 'Texas (Statewide)', 'North Carolina', 'California')
+          const locLower = locTrimmed.toLowerCase();
+          const sortedStates = Object.entries(STATE_TAX_DATA).sort((a, b) => b[1].name.length - a[1].name.length);
+          for (const [code, info] of sortedStates) {
+            if (locLower.includes(info.name.toLowerCase())) {
+              stateCode = code;
+              break;
+            }
           }
         }
       }
@@ -420,13 +430,14 @@ export function calculateUSTaxes({
   let stateMarginalRate = 0;
   let stateEffectiveRate = 0;
 
+  let rawStateTax = 0;
   if (stateInfo.zeroTax) {
     stateTax = 0;
+    rawStateTax = 0;
     stateMarginalRate = 0;
     stateEffectiveRate = 0;
   } else if (stateCode === 'OH') {
     // Dynamic Ohio income tax matching SmartAsset
-    // Ohio personal exemption based on Ohio AGI brackets:
     let ohioExemption = 2100;
     if (agi <= 40000) {
       ohioExemption = 2400;
@@ -438,12 +449,15 @@ export function calculateUSTaxes({
     const ohioTaxable = Math.max(0, agi - (ohioExemption * (1 + dependents)));
     if (ohioTaxable <= 26050) {
       stateTax = 0;
+      rawStateTax = 0;
       stateMarginalRate = 0;
     } else if (ohioTaxable <= 100000) {
-      stateTax = Math.round((ohioTaxable - 26050) * 0.0275);
+      rawStateTax = (ohioTaxable - 26050) * 0.0275;
+      stateTax = Math.round(rawStateTax);
       stateMarginalRate = 0.0275;
     } else {
-      stateTax = Math.round((100000 - 26050) * 0.0275 + (ohioTaxable - 100000) * 0.035);
+      rawStateTax = (100000 - 26050) * 0.0275 + (ohioTaxable - 100000) * 0.035;
+      stateTax = Math.round(rawStateTax);
       stateMarginalRate = 0.035;
     }
     stateEffectiveRate = ohioTaxable > 0 ? (stateTax / ohioTaxable) : 0;
@@ -451,44 +465,62 @@ export function calculateUSTaxes({
     let stateDeduction = (stateInfo.standardDeduction && stateInfo.standardDeduction[filingStatus]) || 0;
     const exemption = (stateInfo.exemptionPerPerson || 0) * (1 + dependents);
     const stateTaxable = Math.max(0, agi - stateDeduction - exemption);
-    stateTax = Math.round(stateTaxable * stateInfo.flat);
+    rawStateTax = stateTaxable * stateInfo.flat;
+    stateTax = Math.round(rawStateTax);
     stateMarginalRate = stateInfo.flat;
-    stateEffectiveRate = gross > 0 ? (stateTax / gross) : 0;
+    stateEffectiveRate = stateInfo.flat;
   } else if (stateInfo.brackets) {
     let stateDeduction = (stateInfo.standardDeduction && stateInfo.standardDeduction[filingStatus]) || 0;
     const exemption = (stateInfo.personalExemption || 0) * (1 + dependents);
     const stateTaxable = Math.max(0, agi - stateDeduction - exemption);
     const { tax: sTax, marginalRate: sMarginal } = calculateBracketTax(stateTaxable, stateInfo.brackets);
-    stateTax = sTax;
+    rawStateTax = sTax;
+    stateTax = Math.round(sTax);
     stateMarginalRate = sMarginal;
-    stateEffectiveRate = gross > 0 ? (stateTax / gross) : 0;
+    stateEffectiveRate = stateTaxable > 0 ? (stateTax / stateTaxable) : 0;
   }
 
   // 7. Local Income Tax
   let localTax = 0;
   let localMarginalRate = 0;
   let localEffectiveRate = 0;
+  const locLower = (location || '').toLowerCase();
+  
   const localInfo = LOCAL_TAX_CITIES[location];
   if (localInfo) {
     localTax = Math.round(gross * localInfo.localRate);
     localMarginalRate = localInfo.localRate;
     localEffectiveRate = localInfo.localRate;
-  } else if (location.includes('Columbus') || (stateCode === 'OH' && location.includes('OH'))) {
+  } else if (locLower.includes('columbus')) {
     localTax = Math.round(gross * 0.025);
     localMarginalRate = 0.025;
     localEffectiveRate = 0.025;
-  } else if (location.includes('New York') || location.includes('NYC')) {
+  } else if (locLower.includes('new york city') || locLower.includes('new york, ny') || locLower.includes('nyc')) {
     localTax = Math.round(gross * 0.03876);
     localMarginalRate = 0.03876;
     localEffectiveRate = 0.03876;
-  } else if (location.includes('Philadelphia')) {
+  } else if (locLower.includes('philadelphia')) {
     localTax = Math.round(gross * 0.0375);
     localMarginalRate = 0.0375;
     localEffectiveRate = 0.0375;
+  } else if (locLower.includes('cleveland')) {
+    localTax = Math.round(gross * 0.025);
+    localMarginalRate = 0.025;
+    localEffectiveRate = 0.025;
+  } else if (locLower.includes('cincinnati')) {
+    localTax = Math.round(gross * 0.018);
+    localMarginalRate = 0.018;
+    localEffectiveRate = 0.018;
+  } else if (locLower.includes('detroit')) {
+    localTax = Math.round(gross * 0.024);
+    localMarginalRate = 0.024;
+    localEffectiveRate = 0.024;
   }
 
-  // 8. Totals
-  const totalTaxes = federalTax + ficaTax + stateTax + localTax;
+  // 8. Totals (Sum of taxes with precision rounding matching SmartAsset)
+  const totalTaxes = (stateTax === 0 && localTax === 0)
+    ? (federalTax + ficaTax)
+    : Math.round(rawFederalTax + ficaTax + rawStateTax + localTax);
   const totalMarginalRate = federalMarginalRate + ficaMarginalRate + stateMarginalRate + localMarginalRate;
   const totalEffectiveRate = gross > 0 ? (totalTaxes / gross) : 0;
 
@@ -563,7 +595,7 @@ export const ALL_STATES_CARDS_DATA = [
   { code: 'NJ', name: 'New Jersey', category: 'progressive', rateSummary: '1.4% – 10.75%', defaultCity: 'Newark, NJ', tagline: '7 progressive brackets with top 10.75% millionaires tax bracket.', deductionInfo: '$1,000 Personal Exemption' },
   { code: 'NM', name: 'New Mexico', category: 'progressive', rateSummary: '1.7% – 5.9%', defaultCity: 'Albuquerque, NM', tagline: '5 progressive tax brackets with top rate of 5.9% above $210k.', deductionInfo: '$14,600 Single / $29,200 MFJ' },
   { code: 'NY', name: 'New York', category: 'progressive', rateSummary: '4.0% – 10.9%', defaultCity: 'New York, NY', tagline: 'Progressive rates up to 10.9% plus NYC local tax (up to 3.876%).', deductionInfo: '$8,000 Single / $16,050 MFJ' },
-  { code: 'NC', name: 'North Carolina', category: 'flat', rateSummary: '4.50% Flat Rate', defaultCity: 'Charlotte, NC', tagline: 'Competitive flat 4.50% rate scheduled for reduction to 3.99%.', deductionInfo: '$12,750 Single / $25,500 MFJ' },
+  { code: 'NC', name: 'North Carolina', category: 'flat', rateSummary: '4.25% Flat Rate', defaultCity: 'Charlotte, NC', tagline: 'Competitive flat 4.25% rate on taxable income above standard deduction.', deductionInfo: '$12,750 Single / $25,500 MFJ' },
   { code: 'ND', name: 'North Dakota', category: 'progressive', rateSummary: '0.0% – 2.5%', defaultCity: 'Fargo, ND', tagline: 'Low state brackets starting at 0% and topping out at 2.50%.', deductionInfo: '$14,600 Single / $29,200 MFJ' },
   { code: 'OH', name: 'Ohio', category: 'progressive', rateSummary: '0.0% – 3.5%', defaultCity: 'Columbus, OH', tagline: 'First $26,050 taxed at 0%; top rate 3.50% plus municipal taxes.', deductionInfo: '$2,400 Personal Exemption' },
   { code: 'OK', name: 'Oklahoma', category: 'progressive', rateSummary: '0.25% – 4.75%', defaultCity: 'Oklahoma City, OK', tagline: '6 graduated tax brackets with top rate of 4.75% above $7,200.', deductionInfo: '$6,350 Single / $12,700 MFJ' },
